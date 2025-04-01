@@ -1,0 +1,10 @@
+# Don't have ripgrep vomit a bunch of stuff on the screen
+# show a preview of the match
+--max-columns=150
+--max-columns-preview
+
+# ignore git and vendor files
+--glob=!.git/*
+--glob=!vendor/*
+
+--smart-case

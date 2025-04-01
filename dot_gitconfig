@@ -1,0 +1,64 @@
+[init]
+  defaultBranch = master
+
+[core]
+  # https://github.com/dandavison/delta
+  pager = delta
+  editor = nvim
+  longpaths = true
+
+[user]
+  name = Peario
+  email = 115320609+peario@users.noreply.github.com
+  gpgSign = true
+  ; signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII3550stlZdK8Jg68tNMc5CYuZdz0BOj2MrHcoiw2tRV
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+Xgd//jAR4Qfo8l0MtgbIpAn1Y0HCxx4aAuke2r1pf
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[pull]
+  rebase = true
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgSign = true
+
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  required = true
+
+[alias]
+  s = status
+  co = checkout
+  cob = checkout -b
+  del = branch -D
+  br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  save = !git add -A && git commit -m 'chore: savepoint'
+  undo = reset HEAD~1 --mixed
+  res = !git reset --hard
+  done = !git push origin HEAD
+  lg = !git log --format='(%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]' --abbrev-commit -30
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true # use n and N to move between diff sections
+
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

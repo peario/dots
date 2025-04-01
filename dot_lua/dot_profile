@@ -1,0 +1,6 @@
+export PATH="${LUA}/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
+export CPPFLAGS="-I/Users/peario/.lua/include -I/opt/homebrew/opt/libiconv/include"
+export LUA_CPATH="/Users/peario/.lua/lib/lua/5.1/?.so"
+export LUA_PATH="/Users/peario/.lua/share/lua/5.1/?.lua"
+export MANPATH="/Users/peario/.lua/share/man:$MANPATH"

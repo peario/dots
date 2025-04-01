@@ -1,0 +1,4 @@
+config-file = ?themes/onenord
+
+font-family = "IosevkaTerm Nerd Font"
+font-size = 20

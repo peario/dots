@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/peario/code/peario/bookmark/src/bin'
+let g:netrw_dirhist_7='/Users/peario/code/peario/bookmark/src'
+let g:netrw_dirhist_6='/Users/peario/code/peario/bookmark/src/bin'
+let g:netrw_dirhist_5='/Users/peario/code/peario/bookmark/src'
+let g:netrw_dirhist_4='/Users/peario/code/peario/bookmark'
+let g:netrw_dirhist_3='/Users/peario/code/peario/bookmark/src/bin'
+let g:netrw_dirhist_2='/Users/peario/code/peario/bookmark'
+let g:netrw_dirhist_1='/Users/peario/code/peario/bookmark/src/bin'
+let g:netrw_dirhist_0='/Users/peario/code/peario/bookmark/src'
+let g:netrw_dirhist_9='/Users/peario/code/peario/bookmark'

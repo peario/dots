@@ -1,0 +1,2026 @@
+: 1737034427:0;brew search go
+: 1737034427:0;rm .zshrc
+: 1737034427:0;curl -L git.io/antigen > antigen.zsh
+: 1737034427:0;argo
+: 1737034427:0;cargo
+: 1737034427:0;cargo install starship zoxide eza --locked 
+: 1737034427:0;/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+: 1737034427:0;. zshrc
+: 1737034427:0;. .zshrc
+: 1737034427:0;source
+: 1737034427:0;date --iso-8601=date
+: 1737034427:0;date -I=date
+: 1737034427:0;date -I
+: 1737034427:0;man date
+: 1737034427:0;mkdir .antigen
+: 1737034427:0;ls -la ~
+: 1737034427:0;source antigen.zsh
+: 1737034427:0;echo $ADOTDIR
+: 1737034427:0;ls -la .antigen
+: 1737034427:0;echo $ZDOTDIR
+: 1737034427:0;cd $ZDOTDIR
+: 1737034427:0;source .zshrc
+: 1737034427:0;antigen reset
+: 1737034427:0;ls -la .cargo/bin
+: 1737034427:0;starship
+: 1737034427:0;brew install cmake
+: 1737034427:0;cargo install starship --locked
+: 1737034427:0;brew install go
+: 1737034427:0;go install https://github.com/junegunn/fzf@latest
+: 1737034427:0;go install github.com/junegunn/fzf@latest
+: 1737034427:0;fzf
+: 1737034427:0;k
+: 1737034427:0;brew install lesspipe
+: 1737034427:0;cargo install skim --locked
+: 1737034427:0;fzf --help
+: 1737034427:0;starship --help
+: 1737034427:0;starship completions --help
+: 1737034427:0;starship completions zsh
+: 1737034427:0;zoxide --help
+: 1737034427:0;zoxide init --help
+: 1737034427:0;brew install lua@5.1 luarocks
+: 1737034427:0;touch .hushlogin
+: 1737034427:0;op --help
+: 1737034427:0;nvim options.zsh
+: 1737034411:0;nvim alias.zsh
+: 1737034467:0;mkdir code
+: 1737034498:0;brew install rbenv
+: 1737034642:0;rbenv init
+: 1737034693:0;nvim .zprofile
+: 1737034717:0;rbenv shell
+: 1737034935:0;rbenv install 3.4.1
+: 1737035069:0;rbenv global 3.4.1
+: 1737035176:0;brew install python@3.13
+: 1737035285:0;python3 -m pip install --upgrade pip
+: 1737035293:0;python --version
+: 1737035338:0;gem env home
+: 1737035349:0;la "$(gem env home)"
+: 1737035358:0;gem env
+: 1737035370:0;la /Users/peario/.rbenv/versions/3.4.1/bin
+: 1737035402:0;brew uninstall luarocks
+: 1737035426:0;brew install lua@5.1
+: 1737035448:0;brew info lua@5.1
+: 1737035522:0;brew install wget
+: 1737035623:0;tar xzf lua-5.1.5.tar.gz\
+
+: 1737035723:0;la etc
+: 1737035775:0;ls src/lua{,c}
+: 1737035789:0;cp src/lua{,c} /usr/local/bin
+: 1737035792:0;sudo cp src/lua{,c} /usr/local/bin
+: 1737035804:0;pokemon-colorscripts
+: 1737035824:0;rm -rf lua-5.1.5*
+: 1737035827:0;rm .localized
+: 1737035831:0;cd zsh
+: 1737035841:0;nvim .zshrc
+: 1737035871:0;brew install luarocks
+: 1737035889:0;brew uninstall luarocks lua
+: 1737035899:0;rm -rf /opt/homebrew/etc/luarocks
+: 1737035994:0;wget https://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz
+: 1737035999:0;mv luarocks-3.11.1.tar.gz Downloads
+: 1737036001:0;cd Downloads/
+: 1737036016:0;tar -zxf luarocks-3.11.1.tar.gz
+: 1737036090:0;wget https://www.lua.org/ftp/lua-5.1.5.tar.gz
+: 1737036098:0;tar -zxf lua-5.1.5.tar.gz
+: 1737036145:0;./configure --lua-version=5.1 --versioned-rocks-dir
+: 1737036165:0;make install
+: 1737036344:0;rm -rf lua*
+: 1737036556:0;cls
+: 1737040723:0;pokemon-colorscripts -r
+: 1737040728:0;pokemon-colorscripts --help
+: 1737040734:0;pokemon-colorscripts -r --no-title
+: 1737042341:0;git clone https://github.com/Notarin/hayabusa && cd hayabusa
+: 1737042533:0;lt staging
+: 1737042548:0;./staging/usr/local/bin/hayabusa
+: 1737042671:0;cd hayabusa
+: 1737042677:0;cargo install --path . --locked
+: 1737042685:0;cargo install --path .
+: 1737043003:0;hayabusa --help
+: 1737043195:0;la ~/Library/LaunchAgents
+: 1737043199:0;mkdir -p ~/Library/LaunchAgents
+: 1737043232:0;touch ~/Library/LaunchAgents/hayabusa.plist
+: 1737043499:0;mv ~/Library/LaunchAgents/hayabusa.plist ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737043571:0;launchctl
+: 1737043584:0;launchctl enable
+: 1737043592:0;launchctl enable ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737043605:0;launchctl enable com.notarin.hayabusa
+: 1737043687:0;launchd
+: 1737043690:0;launchd --help
+: 1737043862:0;launchctl bootstrap com.notarin.hayabusa
+: 1737043955:0;nvim ~/Library/LaunchAgents/hayabusa.plist
+: 1737044030:0;launchctl bootstrap ~/Library/LaunchAgents/com.notarin.hayabusa
+: 1737044048:0;man 1 launchctl
+: 1737093513:0;which hayabusa
+: 1737094152:0;sudo launchctl load ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737094170:0;launchctl bootstrap ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737094324:0;echo $UID
+: 1737094339:0;echo "gui/$UID"
+: 1737094411:0;echo $(id -u )
+: 1737094466:0;sudo launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737094548:0;launchctl print gui/$(id -u)
+: 1737094773:0;launchctl print "gui/$(id -u)"
+: 1737094777:0;launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737095227:0;mkdir -p ~/Library/LaunchDaemons
+: 1737095243:0;mv ~/Library/LaunchAgents/com.notarin.hayabusa.plist ~/Library/LaunchDaemons
+: 1737095609:0;mv ~/Library/LaunchDaemons/com.notarin.hayabusa.plist /Library/LaunchDaemons
+: 1737095612:0;sudo mv ~/Library/LaunchDaemons/com.notarin.hayabusa.plist /Library/LaunchDaemons
+: 1737095644:0;launchctl load /Library/LaunchDaemons/com.notarin.hayabusa.plist
+: 1737095652:0;sudo launchctl load /Library/LaunchDaemons/com.notarin.hayabusa.plist
+: 1737095666:0;mv /Library/LaunchDaemons/com.notarin.hayabusa.plist ~/Library/LaunchAgents
+: 1737095669:0;sudo mv /Library/LaunchDaemons/com.notarin.hayabusa.plist ~/Library/LaunchAgents
+: 1737095715:0;sudo launchctl enable system/com.notarin.hayabusa
+: 1737095740:0;sudo launchctl list | grep hayabusa
+: 1737095750:0;launchctl enable user/$(id -u)/com.notarin.hayabusa
+: 1737096058:0;hayabusa
+: 1737096146:0;launchctl start ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737096155:0;launchctl list
+: 1737096159:0;launchctl list | grep hayabusa
+: 1737096168:0;launchctl list | grep com.notarin.hayabusa
+: 1737096184:0;launchctl load ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737096207:0;hayabusa -d
+: 1737096230:0;nvim ~/Library/LaunchDaemons/com.notarin.hayabusa.plist
+: 1737096238:0;nvim ~/Library/LaunchAgents/com.notarin.hayabusa.plist
+: 1737229898:0;cargo install macchina --locked
+: 1737230018:0;mkdir ~/.config/macchina/
+: 1737230036:0;touch ~/.config/macchina/macchina.toml
+: 1737230220:0;nvim ~/.config/macchina/macchina.toml
+: 1737230280:0;cd .config/macchina
+: 1737230296:0;touch Hydrogen.toml
+: 1737230298:0;nvim Hydrogen.toml
+: 1737230318:0;nvim Lithium.toml
+: 1737230329:0;nvim Helium.toml
+: 1737230346:0;nvim Beryllium.toml
+: 1737230355:0;macchina --list-themes
+: 1737230555:0;nvim macchina.toml
+: 1737231796:0;mkdir peario learning problems
+: 1737231802:0;mkdir assembly
+: 1737231803:0;cd assembly
+: 1737237221:0;mkdir hello-world
+: 1737237222:0;cd hello-world
+: 1737237251:0;touch build-linux.sh build-macos.sh hello-linux.asm hello-macos.asm
+: 1737237254:0;nvim build-linux.sh
+: 1737237826:0;nvim hello-macos.asm
+: 1737237952:0;chmod +x build-linux.sh build-macos.sh
+: 1737237969:0;brew search nasm
+: 1737237975:0;brew install nasm
+: 1737238021:0;./build-macos.sh
+: 1737238026:0;./hello-macos
+: 1737320927:0;brew search office
+: 1737320944:0;brew install --cask microsoft-office
+: 1737322598:0;brew search steam
+: 1737322607:0;brew install --cask steam
+: 1737322618:0;brew install --cask spotify
+: 1737353519:0;mkdir courses
+: 1737353520:0;cd courses
+: 1737353542:0;mkdir 'Recommendation Algorithm Development with Python Data Mining'
+: 1737353643:0;pip3 --version
+: 1737353644:0;py
+: 1737353666:0;touch main.py
+: 1737353733:0;pip3 install pipreqs
+: 1737353776:0;python3 -m pip install pipreqs
+: 1737353785:0;brew search pipreqs
+: 1737353833:0;brew install pipx
+: 1737353848:0;pipx install pipreqs
+: 1737353981:0;source .config/zsh/.zshrc
+: 1737353994:0;pipx ensurepath
+: 1737354003:0;pipreqs .
+: 1737354011:0;pipx install numpy
+: 1737354158:0;cd Recommendation\ Algorithm\ Development\ with\ Python\ Data\ Mining
+: 1737406454:0;curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+: 1737525418:0;nvim kitty/kitty.conf
+: 1737530859:0;la ~/.local/share
+: 1737530997:0;cargo new spm --bin
+: 1737531084:0;touch .editorconfig .gitattributes
+: 1737531346:0;git status
+: 1737531350:0;ls -la
+: 1737531436:0;cargo install git-delta
+: 1737531522:0;cd ~
+: 1737531526:0;touch .gitconfig
+: 1737531528:0;nvim .gitconfig
+: 1737532005:0;touch .czrc .ripgreprc .latexmkrc
+: 1737532008:0;touch .vimrc
+: 1737532100:0;brew search sioyek
+: 1737532104:0;brew search skim
+: 1737532109:0;brew search zathura
+: 1737532191:0;brew tap zegervdv/zathura
+: 1737532199:0;brew install zathura
+: 1737532305:0;brew install zathura-pdf-poppler
+: 1737532386:0;brew info zathura
+: 1737532416:0;brew install zathura --with-synctex
+: 1737532423:0;brew reinstall zathura --with-synctex
+: 1737532453:0;zathura
+: 1737532534:0;nvim .latexmkrc
+: 1737544549:0;mkdir -p ~/.vim/plugged
+: 1737544566:0;curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+: 1737546733:0;alias python=python3
+: 1737546735:0;python
+: 1737546739:0;which python
+: 1737546745:0;brew install vim
+: 1737546778:0;unalias python
+: 1737546785:0;vim --version | grep python
+: 1737548441:0;brew search tlgr
+: 1737548447:0;brew install tldr
+: 1737548839:0;brew search tlmgr
+: 1737548864:0;brew install pandoc
+: 1737548873:0;brew search tex
+: 1737548925:0;brew info git-extras
+: 1737548934:0;brew search git-lfs
+: 1737548941:0;brew install git-lfs
+: 1737548949:0;git lfs install
+: 1737548953:0;git lfs install --system
+: 1737548974:0;brew info texlive
+: 1737549021:0;brew info texmath
+: 1737549237:0;brew search sympy
+: 1737549252:0;pip install sympy
+: 1737549255:0;pip3 install sympy
+: 1737549259:0;pip3 install sympy --user
+: 1737549272:0;pipx install sympy
+: 1737549288:0;pipx --help
+: 1737549302:0;pipx install sympy --global
+: 1737549311:0;sudo pipx install sympy --global
+: 1737549334:0;sudo pipx install numpy --global
+: 1737549441:0;mkdir UltiSnips
+: 1737549480:0;mkdir -p ~/.vim/UltiSnips/greek/UltiSnips
+: 1737549534:0;cd UltiSnips
+: 1737549543:0;vim tex.snippets
+: 1737549696:0;vim greek/UltiSnips/tex.snippets
+: 1737549737:0;brew tap homebrew/cask
+: 1737549751:0;brew install --cask basictex
+: 1737549966:0;eval "$(/usr/libexec/path_helper)"
+: 1737549970:0;sudo tlmgr update --self
+: 1737549982:0;sudo tlmgr install texliveonfly
+: 1737549991:0;sudo tlmgr install xelatex adjustbox
+: 1737550006:0;sudo tlmgr install tcolorbox collectbox
+: 1737550014:0;sudo tlmgr install xelatex
+: 1737550041:0;sudo tlmgr install adjustbox
+: 1737550051:0;sudo tlmgr install ucs
+: 1737550056:0;sudo tlmgr install environ
+: 1737550062:0;sudo tlmgr install trimspaces
+: 1737550070:0;sudo tlmgr install titling
+: 1737550075:0;sudo tlmgr install enumitem
+: 1737550079:0;sudo tlmgr install rsfs
+: 1737550126:0;sudo tlmgr --repository http://www.texlive.info/tlgpg/ install tlgpg
+: 1737550139:0;sudo tlmgr install latexmk
+: 1737550203:0;sudo tlmgr install pdfcol
+: 1737550207:0;sudo tlmgr install vitae
+: 1737550226:0;sudo tlmgr install wrapfig
+: 1737550231:0;sudo tlmgr install capt-of
+: 1737550269:0;cd code/peario
+: 1737550388:0;cd .vim
+: 1737553863:0;vim .vimrc
+: 1737553874:0;vim src/cli.rs
+: 1737560589:0;cargo add serde --features derive
+: 1737560603:0;cargo add serde_json
+: 1737560645:0;cargo add tokio --features full
+: 1737561079:0;nim
+: 1737561148:0;mkdir spm
+: 1737561150:0;cd spm
+: 1737561426:0;go mod init github.com/peario/spm
+: 1737561457:0;mkdir -p cmd/spm internal managers
+: 1737561471:0;mkdir configs
+: 1737561480:0;touch .editorconfig .gitattributes .gitignore README.md
+: 1737561487:0;touch cmd/spm/main.go
+: 1737561499:0;vim .editorconfig
+: 1737575899:0;vim cmd/spm/main.go
+: 1737575995:0;touch Makefile
+: 1737612563:0;make run
+: 1737612713:0;make prereq
+: 1737612766:0;make build
+: 1737612779:0;vim Makefile
+: 1737612800:0;make release
+: 1737612804:0;./bin/spm
+: 1737612827:0;go install .
+: 1737612885:0;go install github.com/peario/spm@latest
+: 1737612898:0;go install
+: 1737613224:0;go get github.com/charmbracelet/bubbletea@latest
+: 1737613384:0;mkdir -p internal/{models}
+: 1737613389:0;touch internal/errors.go
+: 1737613402:0;touch managers/fnm.go
+: 1737613415:0;la internal
+: 1737613420:0;rm internal/\{models\}
+: 1737613424:0;rm -r internal/\{models\}
+: 1737613426:0;mkdir internal/models
+: 1737613431:0;vim internal/models/managers.go
+: 1737632191:0;brew install yt-dlp
+: 1737632222:0;brew search mullvad
+: 1737632231:0;brew install --cask mullvadvpn
+: 1737632554:0;brew search miru
+: 1737643192:0;mkdir clones; cd clones
+: 1737643194:0;git clone https://github.com/bevyengine/bevy\
+
+: 1737643231:0;cd bevy
+: 1737643235:0;git checkout latest
+: 1737643252:0;cargo run --example breakout
+: 1737643523:0;cargo run --example 2d_shapes
+: 1737643559:0;cargo run --example move_sprite
+: 1737643579:0;cargo run --example pixel_grid_snapping
+: 1737643605:0;cargo run --example sprite_animation
+: 1737643732:0;cargo run --example logs
+: 1737643755:0;cargo run --example game_menu
+: 1737643797:0;cargo run --example desk_toy
+: 1737650889:0;rm -rf bevy
+: 1737697618:0;brew install --cask alacritty
+: 1737698143:0;mkdir alacritty
+: 1737698146:0;cd alacritty
+: 1737698171:0;touch alacritty.toml
+: 1737699086:0;nvim alacritty/alacritty.toml
+: 1737699151:0;cd .config/alacritty
+: 1737699239:0;nvim ../kitty/kitty.conf
+: 1737699248:0;nvim alacritty.toml
+: 1737699517:0;touch ~/.config/starship.toml
+: 1737699871:0;nvim starship.toml
+: 1737699908:0;nvim ~/.ripgreprc
+: 1737699996:0;cargo install ripgrep
+: 1737700018:0;rg
+: 1737700022:0;rg alacritty
+: 1737700099:0;go install github.com/jesseduffield/lazygit@latest
+: 1737700132:0;mkdir ~/Library/Application\ Support/lazygit
+: 1737700140:0;nvim ~/Library/Application\ Support/lazygit/config.yml
+: 1737700169:0;rm ~/Library/Application\ Support/lazygit
+: 1737700179:0;rm -r ~/Library/Application\ Support/lazygit
+: 1737700185:0;mkdir lazygit
+: 1737700188:0;nvim lazygit
+: 1737700194:0;nvim lazygit/config.yml
+: 1737700418:0;curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+: 1737703381:0;. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+: 1737703413:0;brew search direnv
+: 1737703418:0;brew install direnv
+: 1737703855:0;pipx install beautysh --global
+: 1737703860:0;sudo pipx install beautysh --global
+: 1737703870:0;beautysh
+: 1737703879:0;sudo pipx install setuptools --global
+: 1737703900:0;pip3 install setuptools --user
+: 1737703917:0;pip3 --user install setuptools
+: 1737703924:0;pip3 install --user setuptools
+: 1737703953:0;pip3 install --break-system-packages setuptools
+: 1737704028:0;npm
+: 1737704034:0;fnm -v
+: 1737704058:0;npm i -g commitizen cz-conventional-changelog
+: 1737704070:0;npm i -g npm@11.0.0
+: 1737704090:0;nvim .czrc
+: 1737704139:0;cargo install bottom --locked\
+
+: 1737704250:0;mkdir .config/bottom
+: 1737704256:0;nvim .config/bottom/bottom.toml
+: 1737704375:0;btm
+: 1737704420:0;proc
+: 1737704435:0;ps aux
+: 1737704629:0;cargo install fd-find
+: 1737704667:0;cargo install bat --locked
+: 1737705557:0;delta --help
+: 1737705583:0;delta --generate-completion
+: 1737705620:0;btm --help
+: 1737705672:0;la .config
+: 1737705681:0;lazygit --help
+: 1737705793:0;nvim .config/zsh/.zshenv
+: 1737705883:0;direnv hook zsh
+: 1737705900:0;delta --generate-completion zsh
+: 1737706013:0;_arguments
+: 1737706020:0;_arguments --help
+: 1737793660:0;nvim .config/nvim/lua/plugins/writing.lua
+: 1737843266:0;direnv allow
+: 1737843600:0;rm -rf .direnv .venv .envrc *.nix
+: 1737843615:0;vim lua/plugins/writing.lua
+: 1737887275:0;touch demo/test.typ
+: 1737887396:0;nvim init.lua
+: 1737887467:0;nvim lua/plugins/writing.lua
+: 1737887619:0;typst
+: 1737887621:0;cargo install --locked typst-cli
+: 1737887734:0;typst --help
+: 1737888066:0;cargo install typstyle --locked
+: 1737888162:0;nvim demo/test.typ
+: 1737957877:0;git clone https://github.com/atanunq/viu.git
+: 1737957887:0;cd viu
+: 1737957887:0;cargo install --path .\
+
+: 1737957925:0;brew install jstkdng/programs/ueberzugpp
+: 1737958398:0;git clone https://github.com/hpjansson/chafa.git; cd chafa
+: 1737958415:0;brew install automake libtool
+: 1737958422:0;./autogen.sh
+: 1737958441:0;brew search chafa
+: 1737958449:0;chafa --help
+: 1737958453:0;viu --help
+: 1737958457:0;ueberzugpp --help
+: 1737958834:0;rm -rf viu chafa
+: 1737984576:0;la spm
+: 1737984579:0;rm -rf spm
+: 1737984699:0;cargo new soft --bin
+: 1737984754:0;cargo new soft --lib
+: 1737984912:0;cargo install leptosfmt
+: 1737986038:0;cargo add inquire
+: 1737986095:0;cargo add tokio --features "rt,macros"
+: 1737986114:0;cargo add sqlx --features sqlite,runtime-toktio,tls-native-tls
+: 1737986189:0;touch .env .env.example
+: 1737986237:0;rm .env.example
+: 1737987383:0;cargo install dotenv-linter
+: 1738006949:0;brew install --cask discord
+: 1738046104:0;touch soft.db
+: 1738046986:0;cargo sqlx db create
+: 1738047008:0;cargo install sqlx-cli\
+
+: 1738047140:0;mkdir migrations
+: 1738047176:0;sqlx migrate build-script
+: 1738047180:0;sqlx migrate add
+: 1738047186:0;sqlx migrate add --help
+: 1738047236:0;rm -rf target
+: 1738047790:0;nvim build.rs
+: 1738048338:0;sqlx database create
+: 1738048341:0;rm soft.db
+: 1738048344:0;sqlx database setup
+: 1738048361:0;sqlx prepare
+: 1738048372:0;cargo sqlx prepare
+: 1738048375:0;cargo sqlx
+: 1738048379:0;cargo sqlx migrate
+: 1738048382:0;cargo sqlx migrate run
+: 1738048385:0;cargo sqlx migrate info
+: 1738048397:0;cargo build
+: 1738049173:0;cargo run --
+: 1738049192:0;la .sqlx
+: 1738049196:0;rm -r .sqlx
+: 1738049765:0;rm -rf soft.db migrations target
+: 1738049927:0;brew search mysqlclient-sys
+: 1738049933:0;brew search libmysql
+: 1738049941:0;brew info libsql
+: 1738049954:0;brew install mysql-client libsql
+: 1738050067:0;PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig" cargo install diesel_cli
+: 1738050116:0;nvim ~/.config/zsh/.zshenv
+: 1738050215:0;la /opt/homebrew/opt/mysql-client/lib
+: 1738050219:0;la /opt/homebrew/opt/mysql-client/lib/pkgconfig
+: 1738050479:0;brew search libsqlite
+: 1738050491:0;brew search sqlite
+: 1738050614:0;la /opt/homebrew/opt/libpq/lib/pkgconfig
+: 1738050799:0;brew install libpq
+: 1738050807:0;brew info libpq
+: 1738050814:0;brew link --force libpq
+: 1738050829:0;la /opt/homebrew/opt/libpq/bin
+: 1738050936:0;cargo install diesel_cli
+: 1738050985:0;nvim .env
+: 1738051021:0;diesel setup
+: 1738051074:0;diesel migration generate create_posts
+: 1738051089:0;brew search squawk
+: 1738051134:0;brew install quarylabs/quary/sqruff
+: 1738051446:0;touch .sqruff
+: 1738051560:0;sqruff --config .sqruff lint migrations/2025-01-28-075754_create_posts/up.sql
+: 1738051574:0;sqruff --config .sqruff fix migrations/2025-01-28-075754_create_posts/up.sql
+: 1738051583:0;nvim .sqruff
+: 1738051874:0;nvim migrations/2025-01-28-075754_create_posts/up.sql
+: 1738051881:0;diesel migration run
+: 1738051894:0;diesel migration
+: 1738051900:0;diesel migration redo
+: 1738051903:0;diesel migration list
+: 1738071546:0;cargo update
+: 1738071561:0;nvim src/bin/soft.rs
+: 1738074127:0;brew info sqlite
+: 1738131310:0;nvim lua/plugins/treesitter.lua
+: 1738262602:0;rm -rf diesel.toml migrations/ src target .env soft.db
+: 1738262611:0;rm -rf .sqruff build.rs
+: 1738262657:0;mkdir src
+: 1738262667:0;mkdir -p src/bin
+: 1738262672:0;touch src/bin/soft.rs
+: 1738262677:0;touch src/lib.rs
+: 1738263700:0;nvim packages/curl.toml
+: 1738263717:0;cargo run list
+: 1738263726:0;cargo install
+: 1738263731:0;cargo run -- install
+: 1738263737:0;cargo run -- install curl
+: 1738263741:0;cargo run -- install beta
+: 1738317828:0;cargo new bubbletea --lib
+: 1738317832:0;cd bubbletea
+: 1738317875:0;cp ../soft/.{editorconfig,gitattributes,gitignore} .
+: 1738317882:0;touch ../soft/rust-toolchain.toml .
+: 1738317938:0;touch screen.rs
+: 1738318891:0;cargo add bitflags
+: 1738318894:0;nvim lib.rs
+: 1738319329:0;cargo add parking_lot
+: 1738319338:0;nvim tea.rs
+: 1738334287:0;mkdir data-structs-and-algorithms
+: 1738334294:0;cd data-structs-and-algorithms
+: 1738334343:0;rm -rf data-structs-and-algorithms
+: 1738334348:0;cargo new --lib algos
+: 1738334353:0;cd algos
+: 1738334385:0;mkdir -p src/{structures,algorithms}
+: 1738390312:0;mv algos dsa
+: 1738394518:0;nvim src/structures/linked_list.rs
+: 1738395039:0;nvim src/lib.rs
+: 1738480869:0;nvim src/algorithms/mod.rs
+: 1738503328:0;nvim ~/.config/nvim/lua/plugins/core.lua
+: 1738503341:0;nvim src/algorithms/sorting
+: 1738503346:0;nvim src
+: 1738503533:0;cargo test
+: 1738508680:0;..
+: 1738508692:0;lt --level 1
+: 1738508694:0;lt --level 2
+: 1738508703:0;mkdir advent-of-code
+: 1738508704:0;cd advent-of-code
+: 1738508713:0;mkdir 2024
+: 1738508987:0;cd aoc
+: 1738508989:0;cd advent
+: 1738509024:0;cargo new --help
+: 1738509142:0;cargo new aoc_2024 --lib --edition 2024 --name 2024
+: 1738509154:0;cargo new 2024 --lib --edition 2024 --name aoc_2024
+: 1738509181:0;nvim 2024/Cargo.toml
+: 1738509187:0;rm -rf 2024
+: 1738509189:0;cargo new 2024 --lib --edition="2024" --name aoc_2024
+: 1738509196:0;cd 2024
+: 1738509223:0;la ../..
+: 1738509246:0;cp ../../peario/soft/.{editorconfig,gitattributes,gitignore} .
+: 1738509308:0;for i in $(seq 1 10); do echo $i; done
+: 1738509338:0;for i in $(seq 1 25); do echo $i; done
+: 1738509358:0;for i in $(seq 1 25); do touch "day_$i"; done
+: 1738509394:0;rm -rf day_*
+: 1738509400:0;for i in $(seq 1 25); do touch "day_$i.rs"; done
+: 1738509432:0;mkdir inputs
+: 1738509434:0;cd inputs
+: 1738563168:0;mv soft{,.bak}
+: 1738563271:0;mkdir soft
+: 1738563570:0;pnpm create qwik@latest
+: 1738563634:0;touch README.md
+: 1738563645:0;cd website
+: 1738563653:0;pnpm qwik add static
+: 1738563661:0;pnpm add -D @tauri-apps/cli@latest
+: 1738563669:0;rm -rf website
+: 1738563712:0;echo $PATH | grep go/bin
+: 1738563732:0;npm --version
+: 1738563763:0;go install github.com/wailsapp/wails/v2/cmd/wails@latest
+: 1738563820:0;brew search upx
+: 1738563825:0;brew search nsis
+: 1738563893:0;brew install upx nsis
+: 1738563924:0;brew search xcode
+: 1738564624:0;nvim ~/.ssh/config
+: 1738564671:0;nvim ~/.gitconfig
+: 1738564791:0;wails doctor
+: 1738648981:0;brew --help
+: 1738648988:0;brew upgrade && brew update
+: 1738685910:0;cd onedrive
+: 1738686009:0;touch 'Etik och moral.docx'
+: 1738686026:0;chmod +x
+: 1738686031:0;chmod +x 'Etik och moral.docx'
+: 1738686285:0;chmod 777 Etik\ och\ moral.docx
+: 1738686328:0;chmod 700 Etik\ och\ moral.docx
+: 1738735329:0;rm go.mod
+: 1738736162:0;go mod init github.com/peario/soft
+: 1738759803:0;...
+: 1738759811:0;mkdir go
+: 1738759812:0;cd go
+: 1738759823:0;mkdir db_from_scratch
+: 1738759825:0;cd db_from_scratch
+: 1738760001:0;go mod init github.com/peario/database
+: 1738760369:0;rm -rf db_from_scratch
+: 1738777448:0;go get github.com/urfave/cli/v3@latest
+: 1738777470:0;mkdir -p cmd/soft internal
+: 1738777475:0;touch cmd/soft/main.go
+: 1738778926:0;nvim cmd/soft/main.go
+: 1738779767:0;go run
+: 1738779769:0;go run .
+: 1738779778:0;go run ./cmd/soft/main.go
+: 1738779832:0;rm -rf cmd
+: 1738779859:0;go --help
+: 1738779901:0;go tool
+: 1738779906:0;go mod tidy
+: 1738779909:0;go tidy
+: 1738779938:0;go mod
+: 1738779955:0;go mod why
+: 1738779961:0;go mod verify
+: 1738779971:0;rm go.sum
+: 1738779976:0;go get -u github.com/spf13/cobra@latest
+: 1738779986:0;go install github.com/spf13/cobra-cli@latest\
+
+: 1738820592:0;cobra-cli init --license apache --author "Peario" --viper
+: 1738820600:0;go run main.go
+: 1738821711:0;eza --help
+: 1738821725:0;eza --git
+: 1738821731:0;eza --git -l
+: 1738821746:0;cd internal
+: 1738821747:0;eza --git-repos
+: 1738821763:0;git ls-tree
+: 1738821771:0;git ls-tree -l
+: 1738821774:0;git ls-tree -l .
+: 1738821812:0;eza --la --git-ignore
+: 1738821819:0;eza --la -git-ignore
+: 1738821824:0;eza -la --git-ignore
+: 1738821829:0;eza -la --git-ignore --git
+: 1738821843:0;nvim ~/.config/zsh/alias.zsh
+: 1738821908:0;source ~/.config/zsh/.zshrc
+: 1738822000:0;cobra-cli add search
+: 1738822003:0;li
+: 1738822386:0;nvim ~/.config/nvim/lua/plugins/lsp.lua
+: 1738867019:0;cd soft
+: 1738867215:0;go run maps
+: 1738867227:0;go run ./main.go search
+: 1738867232:0;go run ./main.go search --help
+: 1738931381:0;rm Documents/studieintyg\ FD.pdf
+: 1738931819:0;brew search godot
+: 1738931826:0;brew install --cask godot
+: 1738933384:0;nvim .vimrc
+: 1738933670:0;cd code
+: 1738933673:0;mkdir games
+: 1738936245:0;cargo new minesweeper --lib --edition="2024"
+: 1738936321:0;cargo add bevy
+: 1738936669:0;brew search binaryen
+: 1738936675:0;brew install binaryen
+: 1738936719:0;[200~cargo add bevy -F dynamic_linking~
+: 1738937441:0;rustup toolchain install nightly-aarch64-apple-darwin
+: 1738937498:0;rustup component add rustc-codegen-cranelift-preview --toolchain nightly
+: 1738939327:0;git add . && cargo run
+: 1738939335:0;git add .;cargo run
+: 1738939554:0;git add .; cargo run
+: 1738999351:0;cargo new minesweeper
+: 1738999362:0;cargo init --lib board_plugin
+: 1739000236:0;nvim board_plugin/Cargo.toml
+: 1739000470:0;nvim board_plugin/src/lib.rs
+: 1739000758:0;git rm board_plugin/
+: 1739000763:0;git rm -r board_plugin/
+: 1739000769:0;la board_plugin
+: 1739000789:0;rm -rf board_plugin/target
+: 1739001187:0;rm -rf minesweeper
+: 1739001196:0;git clone git@gitlab.com:qonfucius/minesweeper-tutorial.git
+: 1739001204:0;git clone https://gitlab.com/qonfucius/minesweeper-tutorial.git
+: 1739001212:0;mv minesweeper-tutorial minesweeper
+: 1739001213:0;cd minesweeper
+: 1739034570:0;cargo new minefield
+: 1739034573:0;cd minefield
+: 1739034675:0;cp ../minesweeper/.{editorconfig,gitattributes,gitignore} .
+: 1739034683:0;nvim .gitignore
+: 1739034736:0;touch .gitattributes .editorconfig
+: 1739034831:0;cargo add bevy -F dynamic_linking
+: 1739035048:0;mkdir .cargo
+: 1739035051:0;touch .cargo/config.toml
+: 1739035073:0;cargo install -f cargo-binutils
+: 1739035093:0;rustup component add llvm-tools-preview
+: 1739035109:0;touch rust-toolchain.toml
+: 1739035110:0;nvim rust-toolchain.toml
+: 1739035125:0;rustc --version
+: 1739041075:0;nvim .cargo/config.toml
+: 1739041155:0;cargo tree
+: 1739215724:0;cd games
+: 1739215742:0;cargo new hangman
+: 1739215751:0;hg
+: 1739215754:0;mg --help
+: 1739215757:0;cd hangman
+: 1739215771:0;cp ../minefield/.{editorconfig,gitattributes,gitignore} .
+: 1739215835:0;mv hangman numbers
+: 1739254906:0;rm .DS_Store
+: 1739272613:0;rm -rf soft.bak
+: 1739272672:0;pnpm dlx degit solidjs/templates/ts nutri
+: 1739273088:0;cd nutri
+: 1739273174:0;brew install tmux
+: 1739339791:0;cd .con
+: 1739339797:0;mkdir tmux
+: 1739339830:0;touch tmux/tmux.conf
+: 1739339849:0;mv tmux/tmux.conf ~/.tmux.conf
+: 1739339853:0;rm -r tmux
+: 1739472618:0;fd tmux
+: 1739472931:0;git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+: 1739472948:0;mv .tmux.conf ~/.config/tmux/tmux.con
+: 1739472966:0;mv ~/.config/tmux/tmux.{con,conf}
+: 1739472970:0;la ~/.config/tmux
+: 1739472985:0;rm -rf .tmux
+: 1739473063:0;nvim .config/tmux/tmux.conf
+: 1739474165:0;git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+: 1739474172:0;mv .config/tmux/tmux.conf .tmux.conf
+: 1739474181:0;la .config/tmux
+: 1739474187:0;rm -rf .config/tmux
+: 1739474433:0;tpm
+: 1739474945:0;chmod 755 .tmux
+: 1739474984:0;sudo chown $(whoami):$(whoami) -R .tmux
+: 1739474997:0;sudo chown $(whoami) -R .tmux
+: 1739475007:0;sudo chown $(whoami) -R ~/.tmux
+: 1739475013:0;sudo chown $(whoami) -R ~/.tmux/
+: 1739475018:0;sudo chown $(whoami) ~/.tmux/
+: 1739475901:0;nvim .ripgreprc
+: 1739563016:0;tmux source .tmux.conf
+: 1739563273:0;tmux -v
+: 1739563276:0;tmux --version
+: 1739563280:0;tmux -
+: 1739597922:0;lua --version
+: 1739597933:0;brew install tree-sitter-cli
+: 1739597943:0;brew install tree-sitter
+: 1739598097:0;mkdir -p $(brew --prefix zathura)/lib/zathura
+: 1739598103:0;ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
+: 1739598119:0;tmux -2
+: 1739598185:0;echo $TERM
+: 1739598285:0;nvim .config/nvim/lua/config/options.lua
+: 1739598610:0;brew install nushell\
+
+: 1739598630:0;nu
+: 1739599322:0;brew uninstall nushell
+: 1739599354:0;cargo install nu
+: 1739599491:0;which nu
+: 1739599496:0;which nu | pbcopy
+: 1740030582:0;nvim .config/alacritty/alacritty.toml
+: 1740030625:0;la themes
+: 1740030632:0;touch themes/onenord.conf
+: 1740030791:0;la .deno
+: 1740030815:0;brew install deno
+: 1740030896:0;la /opt/homebrew/share/zsh/site-functions
+: 1740031000:0;cd kitty
+: 1740243377:0;deno --help
+: 1740243406:0;deno env
+: 1740243457:0;nvim .config/nvim/lua/plugins/lsp.lua
+: 1740297036:0;cp --help | bat --plhelp
+: 1740297051:0;nvim --help | bat --plhelp
+: 1740297065:0;nvim --help | bat --plain --language=help
+: 1740297278:0;man 2 select
+: 1740297287:0;nvim -h
+: 1740297292:0;bat --help
+: 1740298333:0;eval "$(bat --completion zsh)" > bat_comp.zsh
+: 1740298346:0;rm bat_comp.zsh
+: 1740298353:0;bat --completion zsh > bat_comp.zsh
+: 1740298375:0;nvim bat_comp.zsh
+: 1740299115:0;brew search bash-completion
+: 1740299128:0;brew info bash-completion
+: 1740299133:0;brew info bash-completion@2
+: 1740299143:0;bash --version
+: 1740299162:0;brew install bash-completion@2 zsh-completions
+: 1740299178:0;brew info zsh-completions
+: 1740299198:0;chmod go-w '/opt/homebrew/share'\
+ chmod -R go-w '/opt/homebrew/share/zsh'
+: 1740299316:0;rm .config/zsh/.zcompdump
+: 1740299320:0;rm -f ~/.zcompdump; compinit
+: 1740299350:0;rm -f .config/zsh/.zcompdump; compinit
+: 1740299360:0;la .config/zsh
+: 1740299393:0;bat --completion zsh
+: 1740299399:0;eval "$(bat --completion zsh)"
+: 1740302253:0;kitty
+: 1740302280:0;brew install "$(sk --ansi -i -c 'brew search {}')"
+: 1740302453:0;nvim .config/kitty/kitty.conf
+: 1740302515:0;cd .config/kitty
+: 1740302517:0;nvim kitty.conf
+: 1740302558:0;cd themes
+: 1740302562:0;rm onenord.conf
+: 1740302573:0;wget https://github.com/rmehri01/onenord.nvim/raw/refs/heads/main/extras/kitty/onenord.conf
+: 1740302583:0;wget https://github.com/rmehri01/onenord.nvim/raw/refs/heads/main/extras/kitty/onenord_light.conf
+: 1740302664:0;brew search ghostty
+: 1740302699:0;brew install --cask ghostty
+: 1740303037:0;help
+: 1740303040:0;which $SHELL
+: 1740304730:0;mkdir -p .config/ghostty
+: 1740304787:0;mkdir themes
+: 1740304792:0;nvim themes/onenord
+: 1740304812:0;nvim themes/onenord_light
+: 1740304873:0;cd .config/ghostty
+: 1740304934:0;nvim config
+: 1740305182:0;whoami
+: 1740305294:0;_emacs
+: 1740309908:0;brew search font-Iosevka
+: 1740309919:0;brew search font-Iosevka | grep nerd
+: 1740309986:0;brew install --cask font-iosevka-{,term-,term-slab-}nerd-font
+: 1740310040:0;ghostty +list-fonts
+: 1740310126:0;nvim .config/ghostty/themes/onenord
+: 1740310150:0;nvim .config/ghostty/config
+: 1740329692:0;macchina
+: 1740329696:0;bat
+: 1740331448:0;mkdir go-todo
+: 1740331452:0;go mod init
+: 1740331460:0;go mod init github.com/peario/go-todo
+: 1740331470:0;nvim ~/.config/ghostty/config
+: 1740331485:0;cd go-todo
+: 1740331598:0;go mod run
+: 1740333410:0;rm -rf go-todo
+: 1740376523:0;cargo new grab
+: 1740376526:0;cd grab
+: 1740376532:0;touch .editorconfig .gitattributes README.md
+: 1740376539:0;nvim .editorconfig
+: 1740465801:0;cargo fix --bin grav
+: 1740465802:0;cargo fix --bin grab
+: 1740486700:0;cargo run
+: 1740486869:0;cargo run --release
+: 1740500835:0;nvim src/main.rs
+: 1740501187:0;rm -rf grab
+: 1740501201:0;cargo new bookmark
+: 1740501204:0;bm
+: 1740501493:0;cargo new bookmark --lib
+: 1740501503:0;mkdir src/bin
+: 1740501510:0;nvim Cargo.toml
+: 1740501513:0;vim Cargo.toml
+: 1740503579:0;cargo add clap --features derive
+: 1740503588:0;cargo add clap --features derive,env
+: 1740503641:0;vim .env
+: 1740503793:0;cargo install sqlx-cli
+: 1740503802:0;cargo add sqlx --features sqlite,runtime-tokio,tls-native-tls
+: 1740503822:0;cargo add anyhow futures
+: 1740503828:0;cargo add tokio --features rt,macros
+: 1740503837:0;vim src/lib.rs
+: 1740503887:0;ls src
+: 1740503888:0;ls src/bin
+: 1740503996:0;mv src/lib.rs src/main.rs
+: 1740504000:0;rm -r src/bin
+: 1740504003:0;vim src/main.rs
+: 1740504855:0;sqlx db create
+: 1740504862:0;sqlx
+: 1740504866:0;sqlx database
+: 1740504876:0;sqlx migrate
+: 1740504881:0;sqlx migrate add todos
+: 1740504887:0;vim migrations/20250225173441_todos.sql
+: 1740504940:0;sqlx migrate run
+: 1740504947:0;cargo run -- add "todo description"
+: 1740505066:0;DATABASE_URL=bookmarks.db cargo run -- add "todo description"
+: 1740505083:0;DATABASE_URL=bookmarks.db cargo run -- done 1
+: 1740505086:0;DATABASE_URL=bookmarks.db cargo run
+: 1740547838:0;cd Utbildning/Kurser
+: 1740547841:0;cd Religion\ 1
+: 1740547908:0;open Etik\ och\ moral.docx
+: 1740547935:0;rm Etik\ och\ moral.docx
+: 1740548315:0;cd Område
+: 1740548319:0;ls mindmaps
+: 1740548351:0;mv uppgift_1.md område_1.md
+: 1740548356:0;mv uppgift_2.md område_2.md
+: 1740548369:0;touch område_{3,4}.md
+: 1740548444:0;chmod 700 område_3.md
+: 1740548449:0;chmod 700 område_4.md
+: 1740576014:0;brew install sqlite{3,-utils}
+: 1740577407:0;mark
+: 1740577502:0;go mod init github.com/peario/bookmark
+: 1740577543:0;touch main.go
+: 1740577548:0;go get github.com/gofiber/fiber/v2
+: 1740577562:0;go get -u gorm.io/gorm\
+go get -u gorm.io/driver/sqlite
+: 1740577632:0;go get -u github.com/urfave/cli/v3@latest
+: 1740635274:0;l
+: 1740635287:0;nvim go.mod
+: 1740635319:0;mkdir -p internal/models
+: 1740635369:0;nvim internal/models/todo.go
+: 1740635560:0;nvim internal/list.go
+: 1740636010:0;rm -rf web
+: 1740650160:0;mkdir -p web/{layouts,pages}
+: 1740650220:0;go install github.com/air-verse/air@latest
+: 1740650352:0;go run ./main.go
+: 1740650355:0;go run ./main.go --help
+: 1740667529:0;cd mindmaps
+: 1740667575:0;nvim område_3.md
+: 1740679601:0;bk
+: 1740811539:0;go get github.com/BurntSushi/toml@latest
+: 1740811544:0;go install github.com/BurntSushi/toml/cmd/tomlv@latest
+: 1740812106:0;go get github.com/go-playground/validator/v10
+: 1740812110:0;nvim config/config.go
+: 1740907827:0;go get github.com/stretchr/testify/assert
+: 1740907839:0;nvim database/repositories/bookmark/bookmark_test.go
+: 1740908199:0;go test
+: 1740908206:0;go test -v
+: 1740908269:0;nvim main.go
+: 1740908277:0;nvim database/services/bookmark/bookmark.go
+: 1741003066:0;curl -LsSf https://astral.sh/uv/install.sh | sh
+: 1741003125:0;mkdir bookmark
+: 1741003138:0;uv init bookmark
+: 1741003217:0;brew uninstall python3
+: 1741003300:0;uv pip sync docs/requirement.txt
+: 1741003340:0;uv pip compile docs/requirements.in --universal --output-file docs/requirements.txt
+: 1741003352:0;uv self update
+: 1741003374:0;uv sync --help
+: 1741003506:0;mkdir docs
+: 1741003513:0;touch docs/requirements.in
+: 1741003546:0;rm -r docs
+: 1741007374:0;uv init --help
+: 1741007534:0;la src
+: 1741007552:0;uv init --lib lib
+: 1741007574:0;rm lib
+: 1741007592:0;mv lib/src/lib src
+: 1741007601:0;rm -r lib
+: 1741007632:0;uv run main.py
+: 1741007818:0;uv init --package bookmark
+: 1741007820:0;cd bookmark
+: 1741008078:0;uv python pin 3.13
+: 1741008085:0;uv venv --python 3.13
+: 1741008108:0;uv pip sync
+: 1741008151:0;uv init --lib books
+: 1741008155:0;la books
+: 1741008239:0;rm -rf books
+: 1741008314:0;uv init --package bookmarks
+: 1741008337:0;mkdir packages
+: 1741008343:0;mv bookmarks packages
+: 1741008375:0;uv add ruff
+: 1741008379:0;uv add pytest
+: 1741008548:0;touch justfile Dockerfile .dockerignore .gitattributes
+: 1741008551:0;nvim justfile
+: 1741008912:0;nvim Dockerfile
+: 1741009160:0;nvim .dockerignore
+: 1741009213:0;nvim .gitattributes
+: 1741009380:0;cd src/bookmark
+: 1741009403:0;touch main.py py.typed
+: 1741009405:0;nvim main.py
+: 1741009434:0;cd packages/bookmarks
+: 1741009443:0;mkdir tests
+: 1741009446:0;touch tests/__init__.py
+: 1741009495:0;uv add pytest ruff
+: 1741009517:0;nvim src/bookmarks/__init__.py
+: 1741009799:0;nvim src/bookmark/main.py
+: 1741010049:0;rm -rf dist
+: 1741010153:0;nvim tests/__init__.py
+: 1741010158:0;nvim src/bookmark/__init__.py
+: 1741010178:0;nvim packages/bookmarks/pyproject.toml
+: 1741010351:0;uv tree
+: 1741010393:0;just
+: 1741024882:0;uv run bookmark
+: 1741024896:0;s
+: 1741024901:0;cd clones
+: 1741024907:0;git clone https://github.com/fedragon/uv-workspace-example.git
+: 1741024910:0;cd uv-workspace-example
+: 1741024917:0;uv venv
+: 1741024925:0;uv sync
+: 1741024931:0;uv sync --all-packages
+: 1741024936:0;uv lock --locked
+: 1741024942:0;uv run ruff check
+: 1741024948:0;uv run ruff check --fix
+: 1741024954:0;uv run ruff format
+: 1741024973:0;uv lock
+: 1741024981:0;uv run run.py
+: 1741024992:0;uv run pytest tests
+: 1741024999:0;uv build
+: 1741025005:0;la dist
+: 1741025030:0;nvim pyproject.toml
+: 1741025067:0;uv
+: 1741099622:0;uv run
+: 1741099630:0;uv run src/my_app/main.py
+: 1741156606:0;rm -rf uv-workspace-example
+: 1741425113:0;mkdir cpp c
+: 1741425114:0;cd cpp
+: 1741425132:0;mkdir todo-list
+: 1741425133:0;cd todo-list
+: 1741425146:0;touch main.cpp
+: 1741425150:0;micro
+: 1741425610:0;nvim main.cpp
+: 1741544572:0;go install github.com/pb-/gotypist@latest
+: 1741544591:0;gotypist
+: 1741672076:0;sk --ansi -i -c "brew search '{}'" | brew install
+: 1741672112:0;sk --ansi -i -c "brew search '{}'" |
+: 1741672243:0;sk --ansi -i -c "brew search '{}'" | echo "Chose: $(-)"
+: 1741672317:0;sk --ansi -i -c "brew search '{}'" |& echo "Chose: $(-)"
+: 1741672462:0;sk --ansi -i -c "brew search '{}'"
+: 1741672563:0;brew info zig
+: 1741672571:0;brew install zig
+: 1741672616:0;zig
+: 1741672619:0;zig --help
+: 1741672724:0;cd clone
+: 1741672729:0;git clone https://github.com/so-dang-cool/dt
+: 1741672733:0;cd dt
+: 1741672737:0;zig build
+: 1741672749:0;git clone https://github.com/so-dang-cool/dt.git && cd ./dt && zig build
+: 1741672758:0;nvim build.zig.zon
+: 1741672847:0;brew search dt
+: 1741672855:0;brew info dtc
+: 1741672886:0;rm -rf dt
+: 1741672963:0;sk --ansi -i -c "brew search '{}'" | xargs echo "Chose: $(-)"
+: 1741672974:0;sk --ansi -i -c "brew search '{}'" | xargs echo "Chose:$(-)"
+: 1741673002:0;brew info elm
+: 1741673005:0;brew install elm
+: 1741767649:0;brew
+: 1741767662:0;brew link
+: 1741767669:0;brew link python-setuptools
+: 1741767686:0;rm /opt/homebrew/lib/python3.13/site-packages/_distutils_hack/__init__.py
+: 1741767695:0;brew link --overwrite python-setuptools
+: 1741767710:0;brew info tldr
+: 1741767749:0;brew uninstall tldr
+: 1741767765:0;brew doctor
+: 1741845344:0;cd learning
+: 1741845347:0;mkdir rubu
+: 1741845352:0;mv rubu ruby
+: 1741845997:0;which ruby
+: 1741846018:0;rbenv versions
+: 1741846021:0;rbenv versions --help
+: 1741846027:0;rbenv install --help
+: 1741846035:0;rbenv install -l
+: 1741846044:0;rbenv install 3.4.2
+: 1741846324:0;ruby
+: 1741846327:0;rbenv
+: 1741846333:0;rbenv global
+: 1741846338:0;rbenv global 3.4.2
+: 1741846346:0;cd ruby
+: 1741846379:0;gem --help
+: 1741846398:0;mkdir bitcask
+: 1741846400:0;cd bitcask
+: 1741846438:0;touch main.rb
+: 1741846440:0;nvim main.rb
+: 1741846450:0;gem install bundler
+: 1741846466:0;gem update --system 3.6.5
+: 1741846490:0;touch Gemfile'
+: 1741846492:0;touch Gemfile
+: 1741846526:0;nvim Gemfile
+: 1741846540:0;touch Rakefile
+: 1741846543:0;mkdir lib
+: 1741846547:0;nvim Rakefile
+: 1741846600:0;lt
+: 1741846608:0;mv main.rb lib/bitcask.rb
+: 1741846614:0;nvim lib/bitcask.rb
+: 1741847596:0;rm -rf ruby
+: 1741856051:0;brew search sherlock
+: 1741856057:0;brew install sherlock
+: 1741856073:0;sherlock
+: 1741856097:0;sherlock peario
+: 1741856154:0;sherlock fredahl71@gmail.com
+: 1741933718:0;cd coding
+: 1741933749:0;rm -rf clones games
+: 1741933761:0;mkdir utility
+: 1741933762:0;cd utility
+: 1741968442:0;mkdir dsa
+: 1741968443:0;cd dsa
+: 1741968452:0;mkdir a-star-algo
+: 1741968454:0;cd a-star-algo
+: 1741968506:0;trunk
+: 1741968540:0;touch index.html index.js
+: 1741968542:0;bun
+: 1741968552:0;open index.html
+: 1741969553:0;rm -rf dsa
+: 1742048990:0;\
+
+: 1742048994:0;home
+: 1742048996:0;toe --help
+: 1742048998:0;toe
+: 1742049003:0;man toe
+: 1742049011:0;_yarn
+: 1742049043:0;corepack enable
+: 1742049063:0;la node_modules
+: 1742049067:0;rm -rf node_modules yarn.lock
+: 1742054835:0;rm -rf otaku-kun
+: 1742054838:0;yarn create rspeedy
+: 1742055124:0;git remote add origin "git@github.com:peario/aqua.git"
+: 1742055126:0;git remote
+: 1742055149:0;git commit -s "feat: project init"
+: 1742055155:0;git commit -S "feat: project init"
+: 1742055160:0;git commit --help
+: 1742055219:0;git commit -sm "feat: project init"
+: 1742055247:0;git pull origin
+: 1742055263:0;git pull origin master
+: 1742055269:0;git push origin master
+: 1742055350:0;yarn install
+: 1742056452:0;tmux source-file .tmux.conf
+: 1742056598:0;nvim .tmux.conf
+: 1742056853:0;tmux
+: 1742060046:0;cd src/assets
+: 1742060052:0;cd assets
+: 1742060190:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/1.png
+: 1742060194:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/2.png
+: 1742060197:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/3.png
+: 1742060205:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/4.png
+: 1742060209:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/5.png
+: 1742060212:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/6.png
+: 1742060216:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/7.png
+: 1742060219:0;wget https://github.com/lynx-family/lynx-examples/blob/main/examples/swiper/src/assets/8.png
+: 1742060243:0;yarn
+: 1742060349:0;nvim lynx.config.ts
+: 1742060453:0;yarn add @rsbuild/plugin-sass
+: 1742060503:0;nvim src/App.tsx
+: 1742060552:0;yarn run dev
+: 1742060603:0;rm -rf aqua
+: 1742110446:0;brew search toolbox
+: 1742110456:0;brew install --cask jetbrains-toolbox
+: 1742111662:0;/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+: 1742111669:0;xcode-select --install\
+
+: 1742112129:0;rustup self update && rustup update
+: 1742112285:0;cargo install cargo-update
+: 1742112322:0;cargo install-update -a
+: 1742112612:0;npm -v
+: 1742112624:0;yarn --version
+: 1742112638:0;pnpm --version
+: 1742112676:0;ls /System/Volumes/Data/Users/peario/Applications/Android Studio.app/
+: 1742112685:0;la Applications/Android\ Studio.app
+: 1742112688:0;la Applications/Android\ Studio.app/Contents
+: 1742112691:0;la Applications/Android\ Studio.app/Contents/jbr
+: 1742112697:0;la Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+: 1742112847:0;rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
+: 1742112901:0;la "$HOME/Library/Android"
+: 1742112904:0;la "$HOME/Library/Android/sdk"
+: 1742113168:0;ls "$HOME/Library/Android/sdk/ndk"
+: 1742113195:0;ls "$HOME/Library/Android/sdk/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+: 1742113212:0;ls "$HOME/Library/Android"
+: 1742113216:0;ls "$HOME/Library/Android/sdk"
+: 1742113231:0;ANDROID_HOME="$HOME/Library/Android/sdk"
+: 1742113242:0;ANDROID_HOME="$HOME/Library/Android/sdk" echo "$ANDROID_HOME"
+: 1742113264:0;ANDROID_HOME="$HOME/Library/Android/sdk" echo "$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+: 1742126910:0;cargo install create-tauri-app
+: 1742126938:0;cargo create-tauri-app --help
+: 1742127165:0;cargo create-tauri-app -t solid-ts --mobile
+: 1742127176:0;cargo create-tauri-app --alpha --help
+: 1742127179:0;cargo create-tauri-app --alpha --mobile
+: 1742127197:0;rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim\
+
+: 1742127228:0;brew install cocoapods
+: 1742127261:0;cargo install create-tauri-app --locked\
+
+: 1742127267:0;cargo install create-tauri-app --locked --force
+: 1742136162:0;cargo create-tauri-app
+: 1742136197:0;cargo create-tauri-app -t solid-ts
+: 1742136227:0;pnpm install
+: 1742136364:0;git init .
+: 1742136626:0;la /Users/peario/Library/Android/sdk
+: 1742136675:0;echo "$JAVA_HOME"
+: 1742136706:0;ls -1
+: 1742136733:0;which ls
+: 1742136740:0;/bin/ls
+: 1742136766:0;cd "$NDK_HOME"
+: 1742136968:0;echo "$NDK_HOME"
+: 1742136973:0;echo "$ANDROID_HOME"
+: 1742138566:0;nvim vite.config.ts
+: 1742138803:0;pnpm tauri dev
+: 1742138930:0;pnpm tauri android dev
+: 1742138993:0;pnpm tauri android init
+: 1742139000:0;pnpm tauri ios init
+: 1742139087:0;pnpm tauri build
+: 1742191474:0;cd Kurser
+: 1742191488:0;mkdir Entreprenörskap
+: 1742191495:0;mkdir 'Administration 1'
+: 1742191499:0;cd Entreprenörskap
+: 1742191710:0;brew search ffmpeg
+: 1742191716:0;brew search ffprobe
+: 1742191723:0;brew info fprobe
+: 1742191766:0;brew info ffmpeg
+: 1742191785:0;brew info ffmpegthumbnailer
+: 1742191794:0;brew install ffmpeg ffmpegthumbnailer
+: 1742192249:0;pip3 install certifi
+: 1742192268:0;uv --help
+: 1742192308:0;pipx install certifi
+: 1742192348:0;python3 -m pip install --upgrade setuptools
+: 1742192365:0;brew search certifi
+: 1742192381:0;brew search brotli
+: 1742192390:0;brew info brotli
+: 1742192400:0;brew search websockets
+: 1742192462:0;brew info libwebsockets
+: 1742192482:0;pipx install websockets
+: 1742192489:0;websockets --help
+: 1742192498:0;websockets
+: 1742192509:0;python3
+: 1742192527:0;pipx uninstall websockets
+: 1742192580:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install websockets
+: 1742192586:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install websockets --user
+: 1742192596:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --user websockets
+: 1742192631:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages websockets
+: 1742192643:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages requests
+: 1742192655:0;brew searh curl_cffi
+: 1742192659:0;brew search curl_cffi
+: 1742192671:0;which yt-dlp
+: 1742192695:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages curl_cffi
+: 1742192718:0;brew search mutagen
+: 1742192729:0;brew search atomicparsely
+: 1742192732:0;brew search atomicparsley
+: 1742192738:0;brew install atomicparsley
+: 1742192756:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages mutagen
+: 1742192773:0;brew search attr
+: 1742192779:0;brew search xattr
+: 1742192795:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages xattr
+: 1742192801:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages attr
+: 1742192827:0;brew search pycryptodome
+: 1742192830:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages pycryptodome
+: 1742192850:0;brew search PhantomJS
+: 1742192857:0;brew install --cask phantomjs
+: 1742192916:0;brew search secretstorage
+: 1742192922:0;CFLAGS="-I$(brew --prefix)/include" LDFLAGS="-L$(brew --prefix)/lib" pip3 install --break-system-packages secretstorage
+: 1742192931:0;rm 'Möt Sveriges bästa entreprenör [980jz3Wo_3M].mp4'
+: 1742192976:0;rm Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].mkv
+: 1742193006:0;rm *.mkv *.webm
+: 1742193009:0;open Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].f137.mp4
+: 1742193024:0;rm Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].f137.mp4
+: 1742193031:0;yt-dlp -k https://www.youtube.com/watch?v=980jz3Wo_3M
+: 1742193042:0;open Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].f251.webm
+: 1742193117:0;brew search elmedia
+: 1742193127:0;brew install --cask elmedia-player vlc
+: 1742193179:0;brew search vlc
+: 1742193183:0;brew info vlc-setup
+: 1742193193:0;brew info vlc-webplugin
+: 1742193199:0;brew info vlcstreamer
+: 1742193210:0;brew install vlcstreamer
+: 1742193272:0;rm Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].f137.*
+: 1742193286:0;rm Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\]*
+: 1742193295:0;yt-dlp https://www.youtube.com/watch?v=980jz3Wo_3M
+: 1742193320:0;cd Moment\ 1
+: 1742193327:0;yt-dlp https://www.youtube.com/watch?v=kHeUyXL--wI
+: 1742199523:0;brew search tidal
+: 1742199532:0;brew install --cask tidal
+: 1742227711:0;open EntreprenorskapProjekt.pptx
+: 1742229337:0;open entreprenorsboken-for-skarm-2023-2.pdf
+: 1742238339:0;cd aqua
+: 1742311626:0;cd 'Moment 1'
+: 1742311634:0;open Möt\ Sveriges\ bästa\ entreprenör\ \[980jz3Wo_3M\].mkv
+: 1742311852:0;open Ola\ Serneke\ om\ entreprenörskap\ \[kHeUyXL--wI\].mkv
+: 1742400302:0;brew search obsidian
+: 1742400308:0;brew install --cask obsidian
+: 1742400363:0;brew install zlib-rs
+: 1742401576:0;cp Moment\ 1/* ~/OneDrive/Obsidian/School/Entreprenörskap/Moment\ 1
+: 1742481402:0;cd OneDrive
+: 1742481408:0;cd Music
+: 1742544221:0;yt-dlp --help
+: 1742544258:0;yt-dlp -x --audio-format mp3 https://www.youtube.com/watch?v=enYdAxVcNZA
+: 1742544278:0;chmod 700 YOUR\ NEW\ MORNING\ ALARM\ \[enYdAxVcNZA\].mp3
+: 1742544301:0;mv YOUR\ NEW\ MORNING\ ALARM\ \[enYdAxVcNZA\].mp3 YOUR\ NEW\ MORNING\ ALARM.mp3
+: 1742544318:0;open YOUR\ NEW\ MORNING\ ALARM.mp3
+: 1742574658:0;qemu
+: 1742574663:0;brew search qemu
+: 1742574673:0;qemu-system-aarch64
+: 1742625134:0;cd Downloads
+: 1742625146:0;rm TIDAL.arm64.dmg .DS_Store
+: 1742625161:0;viu Slay\ image\ -\ 1.jpg
+: 1742625435:0;open Slay\ image\ -\ 1.jpg
+: 1742626018:0;cd Library/Application\ Support/Aseprite
+: 1742626021:0;cd scripts
+: 1742626041:0;unzip --help
+: 1742626045:0;man unzip
+: 1742626080:0;unzip ~/Downloads/Aseprite-Script-Examples-main.zip -d .
+: 1742626089:0;rm ~/Downloads/Aseprite-Script-Examples-main.zip
+: 1742626093:0;mv Aseprite-Script-Examples-main/* .
+: 1742626118:0;la Aseprite-Script-Examples-main
+: 1742626121:0;rm -rf Aseprite-Script-Examples-main
+: 1742626126:0;cat README.md
+: 1742626132:0;cat README.txt
+: 1742626140:0;rm README.md LICENSE.txt
+: 1742626288:0;touch utilities.lua
+: 1742626292:0;nvim utilities.lua
+: 1742627249:0;cd
+: 1742711507:0;tym
+: 1742711512:0;brew search tym
+: 1742712217:0;brew search handbrake
+: 1742712231:0;brew install --cask handbrake
+: 1742712547:0;la bookmark
+: 1742712564:0;rm -rf bookmark
+: 1742712567:0;ls shelly
+: 1742712572:0;la soft
+: 1742712576:0;rm -rf soft
+: 1742714800:0;yarn --help
+: 1742715468:0;yarn dlx sv create
+: 1742715482:0;pnpx sv create home
+: 1742715513:0;cd home
+: 1742715520:0;git init && git add -A && git commit -m "Initial commit"
+: 1742715529:0;pnpm run dev --open
+: 1742715600:0;pnpm add -D tailwindcss@latest @tailwindcss/vite@latest daisyui@latest
+: 1742716008:0;git commit -sm "feat: updated formatting"
+: 1742716135:0;nvim src/routes/+page.svelte
+: 1742881518:0;fnm list-remote
+: 1742881557:0;fnm i v22.14.0
+: 1742881602:0;fnm use v22.14.0
+: 1742881604:0;node -v
+: 1742881642:0;cd peario
+: 1742881645:0;rm -rf home
+: 1742881672:0;pnpm
+: 1742881675:0;npm i -g pnpm
+: 1742881682:0;pnpm create nuxt eagle
+: 1742881955:0;rm -rf node_modules package.json pnpm-lock.yaml
+: 1742881959:0;corepack use pnpm@10.6.5
+: 1742881966:0;pnpm approve-builds
+: 1742881986:0;git add -A
+: 1742882005:0;git commit -sm "initial commit"
+: 1742882018:0;nvim tsconfig.json
+: 1742890538:0;pnpx nuxi module add lucide-icons
+: 1742978650:0;la demo
+: 1742979105:0;nvim .nuxtrc
+: 1742979119:0;mv nvim nvim.bak
+: 1742979141:0;mv ~/.local/share/nvim{,.bak}\
+mv ~/.local/state/nvim{,.bak}\
+mv ~/.cache/nvim{,.bak}\
+\
+
+: 1742979147:0;git clone https://github.com/LazyVim/starter ~/.config/nvim
+: 1742979200:0;rm -rf ~/.config/nvim/.git\
+\
+
+: 1742979201:0;git init
+: 1742979265:0;cargo install ast-grep --locked
+: 1742979321:0;sg
+: 1742979494:0;gem
+: 1742979496:0;which gem
+: 1742979505:0;gem install neovim
+: 1742979514:0;gem update --system 3.6.6
+: 1742979522:0;gem environment
+: 1742979530:0;rbenv --help
+: 1742979533:0;rbenv rehash
+: 1742979611:0;python3 --version
+: 1742979620:0;which python3
+: 1742979625:0;brew search python
+: 1742979664:0;brew uninstall python@3.13 && brew install python@3.12
+: 1742979674:0;brew install python@3.12
+: 1742979777:0;pipx install neovim
+: 1742979847:0;python3 -m pip install --user --upgrade pynvim
+: 1742979887:0;brew search pynvim
+: 1742979893:0;brew info pyvim
+: 1742979929:0;pipx
+: 1742979945:0;pipx upgrade pynvim
+: 1742979950:0;pipx install pynvim
+: 1742979958:0;pip install pynvim
+: 1742979960:0;pip3 install pynvim
+: 1742979964:0;pip3 install pynvim --user
+: 1742979988:0;pip3 install pynvim --break-system-packages --user
+: 1742980039:0;npm i -g neovim
+: 1742980077:0;brew search php
+: 1742980086:0;brew search composer
+: 1742980100:0;brew install php@8.3 composer
+: 1742980147:0;php --version
+: 1742980157:0;composer --version
+: 1742980179:0;composer global require laravel/installer
+: 1742980202:0;brew search julia
+: 1742980208:0;brew install julia
+: 1742980236:0;julia --version
+: 1742980302:0;cpan
+: 1742981237:0;which perl
+: 1742981242:0;brew search perl
+: 1742981254:0;brew info perl
+: 1742981259:0;brew install perl
+: 1742981298:0;PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
+: 1742981417:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan
+: 1742981441:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan Log::Log4perl
+: 1742982104:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan Time::Zone HTTP::Date HTTP::Request HTTP::Response HTTP::Status LWP::MediaTypes Test::Needs Module::Build::Tiny
+: 1742982116:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan Time::Zone
+: 1742982126:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan HTTP::Date HTTP::Request HTTP::Response HTTP::Status LWP::MediaTypes Test::Needs Module::Build::Tiny
+: 1742982204:0;install Neovim::Ext
+: 1742982281:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan Archive::Zip Class::Accessor File::Which MsgPack::Raw Test::Pod
+: 1742982300:0;PERL_MM_OPT="INSTALL_BASE=$HOME/per15" cpan Neovim::Ext
+: 1742982467:0;cpan Archive::Zip Class::Accessor File::Which MsgPack::Raw Test::Pod
+: 1742982496:0;cpan reports JACQUESG/Neovim-Ext-0.06.tar.gz
+: 1742982561:0;cpan install Text::Levenshtein
+: 1742982566:0;cpan Neovim::Ext
+: 1742982606:0;perl -v
+: 1742982611:0;cpan -n Neovim::Ext
+: 1742982620:0;cpan install Log::Log4perl
+: 1742983077:0;cpan install IO::Compress::Brotli IO::Socket::SSL
+: 1742983118:0;cpan install Net::SSLeay
+: 1742983152:0;brew search mmdc
+: 1742983199:0;npm install -g @mermaid-js/mermaid-cli
+: 1742983501:0;pnpm setup
+: 1742983511:0;nvim ~/.zshrc
+: 1742983518:0;rm -f ~/.zshrc
+: 1742983639:0;echo $PNPM_HOME
+: 1742983647:0;pnpm install -g neovim
+: 1742983706:0;nvim lua/config/options.lua
+: 1742983830:0;nvim nvim nvim.bak
+: 1742984763:0;cargo install silicon\
+
+: 1742985410:0;nvim index.htlm
+: 1742985453:0;nvim index.html
+: 1742985577:0;nvim nvim/lua/plugins/writing.lua
+: 1743018571:0;pnpm run dev -o
+: 1743018575:0;pnpm run dev
+: 1743020793:0;pnpx nuxi module add tailwindcss
+: 1743022795:0;mv prettier.config.mjs prettier.config.js
+: 1743022796:0;nvim prettier.config.js
+: 1743023015:0;pnpm add -D prettier prettier-plugin-tailwindcss
+: 1743053016:0;pnpm dev -o
+: 1743053103:0;touch tailwind.config.ts
+: 1743053104:0;nvim tailwind.config.ts
+: 1743053112:0;rm -rf tailwind.config.ts
+: 1743053125:0;pnpx tailwindcss init
+: 1743053132:0;pnpm dlx tailwindcss init
+: 1743053143:0;npx tailwindcss init
+: 1743053162:0;mkdir assets
+: 1743053167:0;mkdir assets/css
+: 1743053172:0;touch assets/css/tailwind.css
+: 1743053351:0;pnpm add -D typescript @types/node
+: 1743053456:0;mv prettier.config.js .prettierrc.json
+: 1743053458:0;nvim .prettierrc.json
+: 1743054022:0;nvim pages/index.vue
+: 1743054026:0;pnpx nuxi@latest module add seo
+: 1743054141:0;pnpm dev --host
+: 1743055436:0;nvim lua/config/keymaps.lua
+: 1743055500:0;nvim .
+: 1743055740:0;open 2025-03-27T06-08-36Z_code.png
+: 1743100341:0;sqruff --help
+: 1743100364:0;nvim lua/plugins/lsp.lua
+: 1743100447:0;nvim .neoconf.json
+: 1743101107:0;cd eagle
+: 1743141832:0;pnpm dev
+: 1743142690:0;pnpm add daisyui@latest
+: 1743142720:0;corepack use pnpm@10.7.0
+: 1743142811:0;nvim app.vue
+: 1743142948:0;nvim nuxt.config.ts
+: 1743142985:0;pnpm create stylelint
+: 1743142996:0;nvim package.json
+: 1743143076:0;pnpm lint
+: 1743143095:0;pnpm lint --fix
+: 1743143103:0;nvim assets/css/tailwind.css
+: 1743317461:0;which nvim
+: 1743317540:0;brew info lua
+: 1743317545:0;brew search lua
+: 1743317602:0;brew uninstall lua
+: 1743317612:0;brew info vim
+: 1743317722:0;brew uninstall vim lua
+: 1743317727:0;vim
+: 1743317789:0;brew install libtool
+: 1743317797:0;brew update && brew upgrade
+: 1743317924:0;cd Code
+: 1743317934:0;git clone https://github.com/vim/vim.git
+: 1743318067:0;brew search iconv
+: 1743318073:0;brew install libiconv
+: 1743318875:0;./vim --help
+: 1743318878:0;./vim -v
+: 1743318883:0;./vim --version
+: 1743318967:0;ruby --version
+: 1743319156:0;brew info luajit
+: 1743319162:0;brew install luajit
+: 1743319197:0;git clone https://github.com/LuaDist/lua.git
+: 1743319200:0;cd lua
+: 1743319209:0;git checkout lua-5.1
+: 1743319212:0;git pull
+: 1743319278:0;make PLATFORM
+: 1743319392:0;rm src/luaconf.h.orig
+: 1743319433:0;make macosx test
+: 1743319444:0;nvim src/luaconf.h.in
+: 1743319461:0;mv src/luaconf.h.in src/luaconf.h
+: 1743319500:0;git restore .
+: 1743319513:0;git restore src/luaconf.h
+: 1743319521:0;rm src/luaconf.h
+: 1743319562:0;sysctl -n machdep.cpu.brand_string
+: 1743319566:0;sw_vers -productName
+: 1743319569:0;sw_vers -productVersion
+: 1743319575:0;xcode-select --install
+: 1743319578:0;softwareupdate --install --all
+: 1743319653:0;rm -rf lua
+: 1743319670:0;la perl5/
+: 1743319675:0;la perl5
+: 1743319684:0;la per15
+: 1743319698:0;mkdir .lua
+: 1743319700:0;cd .lua
+: 1743319719:0;LUA="$HOME/.lua"
+: 1743319723:0;echo $LUA
+: 1743319729:0;cd /tmp
+: 1743319770:0;wget https://lua.org/ftp/lua-5.1.5.tar.gz
+: 1743319776:0;shasum -a 256 lua-5.1.5.tar.gz | grep -q '2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333' && echo "Hash matches" || echo "Hash does not match"
+: 1743319782:0;tar xvf lua-5.1.5.tar.gz
+: 1743319784:0;cd lua-5.1.5
+: 1743319792:0;sed -i '' "s#/usr/local#${LUA}/#g" Makefile
+: 1743319798:0;make macosx
+: 1743319806:0;make test && make install
+: 1743319843:0;echo 'export PATH=${LUA}bin:$PATH' >> ${LUA}/.profile\
+echo "export LUA_CPATH=${LUA}lib/lua/5.1/?.so" >> ${LUA}/.profile\
+echo "export LUA_PATH=${LUA}share/lua/5.1/?.lua;;" >> ${LUA}/.profile\
+echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
+: 1743319849:0;ls ~/.lua
+: 1743319872:0;nvim ~/.config/zsh/.zshrc
+: 1743320284:0;source "$LUA/.profile"
+: 1743320297:0;file ${LUA}/bin/lua
+: 1743320351:0;sk /usr/local/bin
+: 1743320356:0;sk
+: 1743320449:0;sk -i --ansi -c "ls -la -1 /usr/local/bin"
+: 1743320460:0;/usr/local/bin/lua --version
+: 1743320464:0;/usr/local/bin/lua -v
+: 1743320470:0;/usr/local/bin/luarocks -v
+: 1743320473:0;/usr/local/bin/luarocks -h
+: 1743320498:0;cd tmp
+: 1743320508:0;wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
+: 1743320517:0;tar xvf luarocks-3.11.1.tar.gz
+: 1743320520:0;cd luarocks-3.11.1
+: 1743320527:0;\
+./configure --prefix=${LUA} --with-lua=${LUA} --lua-suffix=5.1 --with-lua-include=${LUA}/include
+: 1743320551:0;make build && make install
+: 1743320583:0;mkdir $LUA/git
+: 1743320588:0;cd $LUA/git
+: 1743320597:0;git clone https://luajit.org/git/luajit.git
+: 1743320601:0;cd luajit
+: 1743320606:0;MACOS_VERSION=$(sw_vers -productVersion)
+: 1743320611:0;MACOSX_DEPLOYMENT_TARGET=${MACOS_VERSION%.*}
+: 1743320617:0;MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} make
+: 1743320653:0;brew uninstall luajit
+: 1743320661:0;which luajit
+: 1743320673:0;MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET} make install PREFIX=${LUA}
+: 1743320678:0;la ..
+: 1743320684:0;cd ../..
+: 1743320694:0;la bin
+: 1743320711:0;echo 'external_deps_dirs = { "/opt/homebrew" }' >> ${LUA}/etc/luarocks/config-5.1.lua
+: 1743320718:0;brew info openssl
+: 1743320748:0;luarocks --local install luasec OPENSSL_INCDIR=/opt/homebrew/Cellar/openssl@3/3.4.1/include/ OPENSSL_LIBDIR=/opt/homebrew/Cellar/openssl@3/3.4.1/lib
+: 1743320783:0;which lua
+: 1743320785:0;which luarocks
+: 1743320857:0;rm /usr/local/bin/lua{,c,rocks,rocks-admin}
+: 1743320864:0;sudo rm /usr/local/bin/lua{,c,rocks,rocks-admin}
+: 1743320882:0;la /usr/local/bin
+: 1743320887:0;la .lua/bin
+: 1743320892:0;nvim .lua/.profile
+: 1743320908:0;lua -v
+: 1743320911:0;luarocks -v
+: 1743320914:0;luarocks --version
+: 1743320919:0;luajit -v
+: 1743320984:0;la ~/.lua/
+: 1743320988:0;la ~/.lua/include
+: 1743321107:0;la ~/.lua/lib/lua/5.1/
+: 1743321109:0;la ~/.lua/lib/lua/
+: 1743321113:0;la ~/.lua/lib/
+: 1743321129:0;la ~/.lua/share
+: 1743321133:0;la ~/.lua/share/lua
+: 1743321137:0;la ~/.lua/share/lua/5.1
+: 1743321500:0;echo "$LDFLAGS"
+: 1743321504:0;echo "$CPPFLAGS"
+: 1743321514:0;cd vim
+: 1743321523:0;cd src
+: 1743321626:0;nvim Makefile
+: 1743321993:0;nvim auto/link.log
+: 1743322072:0;which libiconv
+: 1743322092:0;la /opt/homebrew/opt/libiconv
+: 1743322095:0;la /opt/homebrew/opt/libiconv/include
+: 1743322128:0;la /opt/homebrew/opt/libiconv/bin
+: 1743322130:0;la /opt/homebrew/opt/libiconv/lib
+: 1743322172:0;nm /opt/homebrew/opt/libiconv/lib/libiconv.2.dylib | grep iconv_open
+: 1743322206:0;file /opt/homebrew/opt/libiconv/lib/libiconv.2.dylib
+: 1743322245:0;brew info libiconv
+: 1743322254:0;nvim ~/.lua/.profile
+: 1743322333:0;source ${LUA}/.profile
+: 1743322336:0;make reconfig
+: 1743322440:0;make distclean
+: 1743322449:0;make
+: 1743322859:0;/usr/local/bin/vim --help
+: 1743322862:0;/usr/local/bin/vim -v
+: 1743322865:0;/usr/local/bin/vim --version
+: 1743322881:0;which vim
+: 1743322885:0;vim --version
+: 1743322893:0;rm -rf vim
+: 1743322960:0;brew install ninja cmake gettext curl
+: 1743322973:0;brew install curl-ca-bundle
+: 1743322987:0;open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg\
+
+: 1743323015:0;git clone https://github.com/neovim/neovim
+: 1743323070:0;cd neovim
+: 1743323078:0;git branch
+: 1743323099:0;git checkout master
+: 1743323117:0;git checkout v0.11.0
+: 1743323152:0;make CMAKE_BUILD_TYPE=Release
+: 1743323316:0;make test
+: 1743323748:0;sudo make install
+: 1743323765:0;nvim --version
+: 1743323952:0;rm -rf neovim
+: 1743323955:0;cd config
+: 1743323961:0;rm 2025-03-27T06-08-36Z_code.png
+: 1743323970:0;nvim lua/config/lazy.lua
+: 1743324084:0;du
+: 1743324097:0;cd down
+: 1743324098:0;curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
+: 1743324104:0;chmod +x gdu_linux_amd64
+: 1743324119:0;mv gdu_linux_amd64 /usr/local/bin/gdu
+: 1743324122:0;sudo mv gdu_linux_amd64 /usr/local/bin/gdu
+: 1743324137:0;chmod +x /usr/local/bin/gdu
+: 1743324140:0;la /usr/local/bin/gdu
+: 1743324153:0;rm /usr/local/bin/gdu
+: 1743324156:0;sudo rm /usr/local/bin/gdu
+: 1743324166:0;go install github.com/dundee/gdu@latest
+: 1743324173:0;gdu
+: 1743328332:0;mkdir dots
+: 1743328333:0;cd dots
+: 1743328459:0;brew install chezmoi
+: 1743328490:0;chezmoi upgrade
+: 1743328515:0;chezmoi init
+: 1743328523:0;rm -rf dots
+: 1743328556:0;cat .zshenv
+: 1743328586:0;nvim .zshenv
+: 1743328598:0;chezmoi add .zshenv
+: 1743328647:0;cat .zprofile
+: 1743328650:0;rm .zprofile
+: 1743328679:0;cat .czrc
+: 1743328683:0;chezmoi add .czrc
+: 1743328688:0;cat .lesshst
+: 1743328695:0;cat .tmux.conf
+: 1743328705:0;chezmoi add .tmux.conf
+: 1743328714:0;cat .yarnrc
+: 1743328724:0;cat .ripgreprc
+: 1743328727:0;chezmoi add .ripgreprc
+: 1743328735:0;cat .wget-hsts
+: 1743328748:0;cat .latexmkrc
+: 1743328752:0;chezmoi add .latexmkrc
+: 1743328764:0;cat .gitconfig
+: 1743328767:0;chezmoi add .gitconfig
+: 1743328826:0;cd .config
+: 1743328833:0;la 1Password
+: 1743328835:0;la 1Password/ssh
+: 1743328840:0;cat 1Password/ssh/agent.toml
+: 1743328847:0;chezmoi add 1Password
+: 1743328850:0;la alacritty
+: 1743328857:0;la bottom
+: 1743328860:0;nvim bottom/bottom.toml
+: 1743328864:0;chezmoi add bottom
+: 1743328870:0;la chezmoi
+: 1743328874:0;la composer
+: 1743328881:0;chezmoi add ghostty
+: 1743328884:0;la ghostty
+: 1743328891:0;la helix
+: 1743328895:0;hx
+: 1743328901:0;chezmoi add helix
+: 1743328909:0;chezmoi add nvim
+: 1743328917:0;chezmoi add starship.toml
+: 1743328921:0;chezmoi add zsh
+: 1743328940:0;la zsh
+: 1743328943:0;la zsh .ant
+: 1743328947:0;la zsh/.antigen
+: 1743328950:0;la zsh/.antigen/bundles
+: 1743328964:0;la lazygit
+: 1743328967:0;la macchina
+: 1743328971:0;chezmoi add macchina
+: 1743328976:0;chezmoi add lazygit
+: 1743328977:0;la uv
+: 1743328982:0;la yarn
+: 1743328987:0;chezmoi add yarn
+: 1743328996:0;chezmoi add kitty
+: 1743329026:0;la .vim/autoload
+: 1743329033:0;la .vim/UltiSnips
+: 1743329037:0;chezmoi add .vim
+: 1743329092:0;la .1password
+: 1743329102:0;la .android
+: 1743329124:0;chezmoi add .cargo
+: 1743329654:0;la .cargo/git
+: 1743329657:0;la .cargo/git/checkouts
+: 1743329660:0;la .cargo/git/checkouts/nil-453f919e1bb692d8
+: 1743329673:0;la .cargo/registry/src/index.crates.io-1949cf8c6b5b557f
+: 1743329718:0;la .choosenim
+: 1743329727:0;la .choosenim/toolchains
+: 1743329729:0;la .choosenim/toolchains/nim-2.2.0
+: 1743329743:0;la .choosenim/channels/stable
+: 1743329747:0;la .choosenim/downloads
+: 1743329753:0;chezmoi add .choosenim
+: 1743330113:0;la .lua
+: 1743330118:0;chezmoi add .lua
+: 1743330143:0;la .luarocks
+: 1743330146:0;chezmoi add .luarocks
+: 1743330161:0;la .nibmle
+: 1743330165:0;la .nimble
+: 1743330168:0;la .nimble/bin
+: 1743330171:0;la .nimble/pkgs2
+: 1743330175:0;chezmoi add .nimble
+: 1743330181:0;la .npm
+: 1743330211:0;fnm --help
+: 1743330234:0;brew uninstall fnm
+: 1743330243:0;cargo install fnm
+: 1743330389:0;fnm
+: 1743330393:0;fnm current
+: 1743330396:0;which fnm
+: 1743330403:0;fnm env
+: 1743330413:0;la .local/share/fnm
+: 1743330415:0;la .local/share/fnm/aliases
+: 1743330419:0;la .local/share/fnm/node-versions
+: 1743330423:0;la .local/share/fnm/node-versions/v22.14.0
+: 1743330426:0;la .local/share/fnm/node-versions/v22.14.0/installation
+: 1743330443:0;la .rbenv/shims
+: 1743330447:0;la .rbenv/versions
+: 1743330452:0;la .rbenv/versions/3.4.1
+: 1743330454:0;la .rbenv/versions/3.4.1/bin
+: 1743330459:0;chezmoi add .rbenv
+: 1743330489:0;la .rbenv
+: 1743330494:0;which rbenv
+: 1743330555:0;la .ssh
+: 1743330559:0;nvim .ssh/config
+: 1743330567:0;chezmoi add .ssh/config
+: 1743330575:0;la .terminfo
+: 1743330580:0;la .terminfo/61
+: 1743330586:0;la .tmux
+: 1743330589:0;la .tmux/plugins
+: 1743330593:0;la .tmux/plugins/tpm
+: 1743330606:0;la .vim
+: 1743330610:0;chezmoi diff
+: 1743330615:0;la .vscode
+: 1743330618:0;la .vscode/cli
+: 1743330623:0;la .vscode/extensions
+: 1743330635:0;la .zsh_sessions
+: 1743330639:0;la .yarn
+: 1743330647:0;chezmoi add .yarn
+: 1743330678:0;git
+: 1743330742:0;cd nvim
+: 1743330745:0;rm dot_git
+: 1743330748:0;rm -rf dot_git
+: 1743330813:0;brew search age
+: 1743330832:0;brew install age
+: 1743330892:0;cd dot_config
+: 1743330913:0;mkdir chezmoi
+: 1743330916:0;cd chezmoi
+: 1743330923:0;nvim chezmoi.toml
+: 1743330955:0;delta
+: 1743330967:0;cd .config/nvim
+: 1743331087:0;cp chezmoi/chezmoi.toml ~/.config/chezmoi
+: 1743331117:0;chezmoi re-add .config/chezmoi/chezmoi.toml
+: 1743331122:0;chezmoi doctor
+: 1743331140:0;chezmoi add .hushlogin
+: 1743331147:0;la Documents
+: 1743331154:0;la Public
+: 1743331157:0;la Pictures
+: 1743331159:0;la Desktop
+: 1743331356:0;brew install rage
+: 1743331421:0;git remote add origin https://github.com/peario/dots.git
+: 1743331540:0;pwd
+: 1743331548:0;touch .chezmoiexternal.toml
+: 1743331604:0;la dot_yarn
+: 1743331608:0;la dot_yarn/bin
+: 1743331617:0;rm -rf dot_yarn
+: 1743331685:0;cd dot_vim
+: 1743331696:0;la vimtex
+: 1743331833:0;rm -rf vimtex
+: 1743331836:0;cd plugged
+: 1743332159:0;rm -rf vim-surround
+: 1743332280:0;rm -rf vim-sensible
+: 1743332284:0;rm -rf vim-endwise
+: 1743332367:0;rm -rf ultisnips
+: 1743332369:0;rm -rf vim-commentary
+: 1743332445:0;la fzf
+: 1743332532:0;a
+: 1743332789:0;rm -rf tex-conceal.vim nord-vim lightline.vim fzf fzf.vim
+: 1743332815:0;nvim ../../.chezmoiexternal.toml
+: 1743332865:0;rm -rf auto-pairs everforest
+: 1743332883:0;la .vim/plugged
+: 1743332888:0;rm -rf .vim/plugged/*
+: 1743332931:0;chezmoi source-path
+: 1743332938:0;la $(chezmoi source-path)
+: 1743332967:0;touch /Users/peario/.local/share/chezmoi/dot_vim/plugged/.keep
+: 1743334285:0;antigen theme candy
+: 1743335449:0;chezmoi --help
+: 1743335456:0;chezmoi completion
+: 1743335458:0;chezmoi completion zsh
+: 1743335650:0;man
+: 1743335659:0;man fzf
+: 1743335663:0;man chezmoi
+: 1743335667:0;man cargo
+: 1743335677:0;man cd
+: 1743336121:0;ddg @mdn
+: 1743336190:0;omz_urlencode
+: 1743336412:0;cd .config/zsh
+: 1743336425:0;touch libs.zsh
+: 1743336427:0;nvim libs.zsh
+: 1743337461:0;ddg mdn
+: 1743337467:0;google rust
+: 1743337592:0;brew install tlrc
+: 1743337612:0;tlrc
+: 1743337616:0;tldr
+: 1743337619:0;tldr cp
+: 1743337628:0;tldr brew
+: 1743337640:0;tldr --config-path
+: 1743337666:0;echo "$(tldr --config-path)"
+: 1743337695:0;tldr --gen-config > "$(tldr --config-path)"
+: 1743337697:0;chezmoi add "$(tldr --config-path)"
+: 1743337775:0;chezmoi apply --dry-run --verbose
+: 1743337840:0;cdexit
+: 1743337849:0;chezmoi re-add .config/chezmoi
+: 1743337860:0;chezmoi re-add .config/nvim
+: 1743338072:0;git remote show-url origin
+: 1743338077:0;git remote get-url origin
+: 1743338087:0;git remote set-url origin https://github.com/peario/dots.git
+: 1743338131:0;chezmoi
+: 1743338184:0;chezmoi forget dot_config/yarn
+: 1743338194:0;chezmoi forget ~/.config/yarn
+: 1743338377:0;touch run_install_rust.sh
+: 1743338379:0;nvim run_install_rust.sh
+: 1743338465:0;la .rustup
+: 1743338468:0;la .rustup/downloads
+: 1743338472:0;la .rustup/toolchains
+: 1743338475:0;la .rustup/update-hashes
+: 1743338483:0;cat .rustup/settings.toml
+: 1743338550:0;cd Down
+: 1743338559:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
+: 1743338563:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | cat
+: 1743338566:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bat
+: 1743338931:0;$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --help\
+
+: 1743338935:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --help\
+
+: 1743340310:0;/usr/bin/ls
+: 1743340335:0;/bin/ls -1
+: 1743340347:0;/bin/ls -1 ~/.cargo/bin
+: 1743340385:0;CARGO_BINARIES="$(/bin/ls -1 "$CARGO_DIR/bin")"
+: 1743340414:0;/bin/ls -1 "$CARGO_DIR/bin"
+: 1743340423:0;CARGO_BINARIES="$(/bin/ls -1 "$HOME/.cargo/bin")"
+: 1743340426:0;echo $CARGO_BINARIES
+: 1743340590:0;TEST_INSTALL="$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs) | sh -- --help"
+: 1743340611:0;TEST_INSTALL="$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- --help)"
+: 1743340614:0;echo $TEST_INSTALL
+: 1743340635:0;TEST_INSTALL="$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)"
+: 1743340664:0;echo "$(TEST_INSTALL)" |
+: 1743340668:0;echo "$(TEST_INSTALL)" | sh -- --help
+: 1743340692:0;TEST_INSTALL="$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)" | sh -- --help
+: 1743340943:0;which rustup
+: 1743342258:0;rustup toolchain install
+: 1743342276:0;rustup toolchain
+: 1743342286:0;rustup toolchain list
+: 1743342290:0;rustup toolchain install nightly
+: 1743342315:0;rustup toolchain install stable
+: 1743342452:0;rustup toolchain default stable
+: 1743342465:0;rustup
+: 1743342564:0;rustup default stable
+: 1743348774:0;la .cargo
+: 1743348802:0;bat .cargo/env
+: 1743354106:0;la .cargo/bin
+: 1743355293:0;sg --help
+: 1743355970:0;which cargo
+: 1743356808:0;it s
+: 1743356837:0;chezmoi re-add .config/zsh
+: 1743357168:0;la ~/.cargo/bin
+: 1743357177:0;echo "$GO_BIN"
+: 1743357179:0;echo "$GOBIN"
+: 1743357214:0;cp run_install_rust.sh run_install_go.sh
+: 1743357221:0;chmod +x run_install_go.sh run_install_rust.sh
+: 1743357473:0;sk --ansi
+: 1743357493:0;man sk
+: 1743357495:0;man skim
+: 1743357499:0;sk --help
+: 1743357526:0;fd --help
+: 1743357535:0;fd go
+: 1743357560:0;fd go/
+: 1743357571:0;fd --full-path 'go/'
+: 1743357622:0;fd --full-path 'go/' /
+: 1743357644:0;cd go/bin
+: 1743357755:0;echo "$GOROOT"
+: 1743357762:0;go enviroment
+: 1743357767:0;go environment
+: 1743397537:0;wget -qO- https://git.io/g-install | nvim -
+: 1743397584:0;go env
+: 1743398165:0;GO_BINARY_LOCATION=${GO_BINARY_LOCATION:-$(command -v go)}
+: 1743398173:0;echo "$GO_BINARY_LOCATION"
+: 1743398177:0;command -v go
+: 1743398178:0;which go
+: 1743398566:0;read -n 1 -p "Proceed? [Y/N]: " confirm; [[ "$confirm" =~ ^[yY]$ ]] && "Proceeding" || "Exiting... ($confirm)"
+: 1743398638:0;man read
+: 1743398685:0;read -n 1 -p "Proceed? [Y/N]: " confirm; [[ "$confirm" =~ ^[yY]$ ]] && echo "Proceeding" || echo "Exiting... ($confirm)"
+: 1743398759:0;read -n 1 -p "Proceed? [Y/N]: " confirm; if [[ "$confirm" =~ ^[yY]$ ]]; then echo "Proceeding"; else echo "Exiting... ($confirm)"; fi
+: 1743398770:0;read -n 1
+: 1743398775:0;read -n 1 -p "hi"
+: 1743398856:0;read -n 1 -p "Proceed? [Y/N]: " $confirm; if [[ "$confirm" =~ ^[yY]$ ]]; then echo "Proceeding"; else echo "Exiting... ($confirm)"; fi
+: 1743398927:0;read "?Proceed? [Y/N]: " confirm; [[ "$confirm" =~ ^[Yy]$ ]] && echo "Proceeding" || echo "Exiting... ($confirm)"
+: 1743399355:0;read "?Proceed? [Y/N]: " confirm; [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]] && echo "Proceeding" || echo "Exiting... ($confirm)"
+: 1743399502:0;read "?Proceed? [Y/N]: " confirm; echo $([[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]])
+: 1743399528:0;read "?Proceed? [Y/N]: " confirm; [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]] && echo "true" || echo "false"
+: 1743399551:0;read "?Proceed? [Y/N]: " confirm; if [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]] && echo "true" || echo "false"; then echo "it works"; fi
+: 1743399605:0;tldr read
+: 1743409324:0;echo $SHELL
+: 1743409836:0;echo
+: 1743409839:0;fd
+: 1743409841:0;ld
+: 1743409851:0;ld >/dev/null
+: 1743409855:0;ld 2>/dev/null
+: 1743409859:0;ld 1>/dev/null
+: 1743409864:0;ld 1>/dev/null 2>&1
+: 1743409962:0;curl -sSL https://git.io/g-install
+: 1743409990:0;curl -sSL https://git.io/g-install | sh -s
+: 1743410066:0;export GOROOT="$HOME/.go"
+: 1743410077:0;export GOPATH="$HOME/go"
+: 1743410079:0;g list
+: 1743410107:0;g list-all
+: 1743410214:0;g list-all | awk '/1./ {print}'
+: 1743410260:0;g list-all | awk '/1./ {print $NF}'
+: 1743410303:0;g list-all | awk '/1./ {print $NF}' | awk 'NF < 0'
+: 1743410457:0;g list-all | awk '/1./ {print $NF}' | cut -d "\n"
+: 1743410464:0;g list-all | awk '/1./ {print $NF}' | cut -d"\n"
+: 1743410466:0;g list-all | awk '/1./ {print $NF}' | cut -d"."
+: 1743410471:0;g list-all | awk '/1./ {print $NF}' | cut -d"." -
+: 1743410485:0;g list-all | awk '/1./ {print $NF}' | cut -d'.' -
+: 1743410510:0;g list-all | awk '/1./ {print $NF}' | cut -d'.' -f1 -
+: 1743410516:0;g list-all | awk '/1./ {print $NF}' | cut -d'.' -f2 -
+: 1743410830:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do printf "%s " "$i"; done
+: 1743410952:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do printf "%s " "$i" | tr "\n" " "; done
+: 1743411035:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i" | tr "\n" " " | tr "\r\n" ""; done
+: 1743411038:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i" | tr "\n" " " | tr "\r\n" " "; done
+: 1743411045:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i" | tr "\n" " " | tr "\r" " "; done
+: 1743411049:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i" | tr "\n" " "; done
+: 1743411541:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="${$MAJOR:-$(echo i | cut -d'.' -f1)}"; MINOR="${$MINOR:-$(echo i | cut -d'.' -f2)}"; PATCH="${$PATCH:-$(echo i | cut -d'.' -f3)}"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411568:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo i | cut -d'.' -f1)"; MINOR="$(echo i | cut -d'.' -f2)"; PATCH="$(echo i | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411580:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo $i | cut -d'.' -f1)"; MINOR="$(echo i | cut -d'.' -f2)"; PATCH="$(echo i | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411590:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo "$i" | cut -d'.' -f1)"; MINOR="$(echo i | cut -d'.' -f2)"; PATCH="$(echo i | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411610:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo "$i" | cut -d'.' -f1)"; MINOR="$(echo "$i" | cut -d'.' -f2)"; PATCH="$(echo "$i" | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411635:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo "$i" | cut -d'.' -f1 1>/dev/null)"; MINOR="$(echo "$i" | cut -d'.' -f2)"; PATCH="$(echo "$i" | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411656:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(echo "$i" | cut -d'.' -f1 1>/dev/null)"; MINOR="$(echo "$i" | cut -d'.' -f2 1>/dev/null)"; PATCH="$(echo "$i" | cut -d'.' -f3 1>/dev/null)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411703:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(tee "$i" | cut -d'.' -f1)"; MINOR="$(echo "$i" | cut -d'.' -f2)"; PATCH="$(echo "$i" | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411727:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(cut -d'.' -f1 "$1")"; MINOR="$(echo "$i" | cut -d'.' -f2)"; PATCH="$(echo "$i" | cut -d'.' -f3)"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411760:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do MAJOR="$(cut -d'.' -f1 "$i")"; MINOR="$(cut -d'.' -f2 "$i")"; PATCH="$(cut -d'.' -f3 "$i")"; done; printf "Latest release: %s.%s.%s" "$MAJOR" "$MINOR" "$PATCH"
+: 1743411809:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done
+: 1743411947:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F '\n' '{print $1}'
+: 1743412162:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print v$1 $2 $3}'
+: 1743412165:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print v$1 $2.$3}'
+: 1743412180:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -f'.' '{print v$1.$2.$3}'
+: 1743412182:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print v$1.$2.$3}'
+: 1743412186:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print v$1,$2,$3}'
+: 1743412252:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print $1}'
+: 1743412281:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print $0}'
+: 1743412385:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{$1>x{x=$1};$2>y{y=$2};$3>z{z=$3};END{print x.y.z}'
+: 1743412395:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1>x{x=$1};$2>y{y=$2};$3>z{z=$3};END{print x.y.z}'
+: 1743412406:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1>x{x=$1};$2>y{y=$2};$3>z{z=$3};END{print x,y,z}'
+: 1743412575:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1=>x,$2=>y;$3=>z{x=$1,y=$2,z=$3};END{print x,y,z}'
+: 1743412583:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1=>x,$2=>y;$3=>z{x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412591:0;for i in "$(g list-all | awk '/1./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1=>x,$2=>y,$3=>z{x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412648:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1=>x,$2=>y,$3=>z{x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412676:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '$1>=x,$2>=y,$3>=z{x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412835:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{ if ($1 >= x && $2>=y && $3>=z) {x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412861:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{ if ($1 >= x && $2>=y && $3>=z) x=$1,y=$2,z=$3} END {print x,y,z}'
+: 1743412874:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{ if ($1 >= x && $2>=y && $3>=z) x=$1 && y=$2 && z=$3} END {print x,y,z}'
+: 1743413107:0;for i in "$(g list-all | awk '/./ {print $NF}')"; do echo "$i"; done | awk -F'.' '{print $0}'
+: 1743413144:0;echo "${$(g list-all | awk '/./ {print $NF}')[-1]}"
+: 1743413156:0;echo $(g list-all | awk '/./ {print $NF}')[-1]
+: 1743413165:0;echo $(g list-all | awk '/./ {print $NF}'[-1])
+: 1743413183:0;a=$(g list-all | awk '/./ {print $NF}'); echo ${a[-1}
+: 1743413188:0;a=$(g list-all | awk '/./ {print $NF}'); echo ${a[0}
+: 1743413193:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[0]}"
+: 1743413199:0;a=$(g list-all | awk '/./ {print $NF}'); echo "$(a[0])"
+: 1743413220:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[-1]}"
+: 1743413223:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[-2]}"
+: 1743413273:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[${#a[@]}-1]}"
+: 1743413275:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[${#a[@]}-2]}"
+: 1743413379:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[@]: -1}"
+: 1743413382:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[@]: -4}"
+: 1743413389:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[@]: -7}"
+: 1743413401:0;a=$(g list-all | awk '/./ {print $NF}'); echo "${a[@]: -6}"
+: 1743413452:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '{print $NF}')
+: 1743413479:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | tr '\n' ' ' | awk '{print $NF}')
+: 1743413574:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | sed 's/\n/\ /' | awk '{print $NF}')
+: 1743413580:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | sed 's/\n/ /' | awk '{print $NF}')
+: 1743413636:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '{/./ print $NF}')
+: 1743413643:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '/./ {print $NF}')
+: 1743413873:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '/([0-9]+\.[0-9]+\.?[0-9a-zA-Z]*)/ {print $NF}')
+: 1743413880:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '/([0-9]+\.[0-9]+\.?[0-9a-zA-Z]*)/ {print}')
+: 1743413886:0;a=$(g list-all | awk '/./ {print $NF}'); echo $("${a[@]}" | awk '/([0-9]+\.[0-9]+\.?[0-9a-zA-Z]*)/')
+: 1743413909:0;g list-all | awk '/([0-9]+\.[0-9]+\.?[0-9a-zA-Z]*)/'
+: 1743413913:0;g list-all | awk '/./ {print $NF}' | awk '/([0-9]+\.[0-9]+\.?[0-9a-zA-Z]*)/'
+: 1743413915:0;g list-all | awk '/./ {print $NF}'
+: 1743413995:0;g list-all | awk '/./ {print $NF}' | tail -n 1
+: 1743414263:0;g install latest
+: 1743414275:0;brew info go
+: 1743414286:0;brew uninstall go
+: 1743414295:0;la ~/go/bin
+: 1743414298:0;clear
+: 1743414330:0;g help
+: 1743415234:0;GO_BINARY=${GO_BINARY:-$(command -v go)}; echo "$GO_BINARY"
+: 1743415243:0;GO_BINARY=${GO_BINARY:-$(command -v go)}; $GO_BINARY env
+: 1743419711:0;gits
+: 1743419725:0;chezmoi apply --dry-run
+: 1743422863:0;which "$GOPATH/bin/g"
+: 1743422886:0;cd ..
+: 1743422887:0;nvim .config/zsh/.zshrc
+: 1743423297:0;go version
+: 1743423358:0;go
+: 1743423362:0;g
+: 1743427737:0;vim run_install_go.sh
+: 1743427804:0;echo $([ -x "$GOPATH/bin/g" ] || which g)
+: 1743427809:0;which g
+: 1743427835:0;[ -x "$GOPATH/bin/g" ] && echo "true" || echo "false"
+: 1743427864:0;which go && true || false
+: 1743427873:0;which go && echo "true" || echo "false"
+: 1743427880:0;which go 1> /dev/null && echo "true" || echo "false"
+: 1743427964:0;is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false"); is_g_manager_installed
+: 1743427967:0;is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false"); echo is_g_manager_installed
+: 1743427974:0;is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false"); echo "$is_g_manager_installed"
+: 1743428143:0;nvim run_install_go.sh
+: 1743428166:0;./run_install_go.sh
+: 1743428171:0;./run_install_rust.sh
+: 1743428239:0;docker
+: 1743428243:0;brew search docker
+: 1743428263:0;brew install --cask docker
+: 1743493285:0;la
+: 1743493374:0;nvim --help
+: 1743493419:0;tldr nvim
+: 1743493437:0;man nvim
+: 1743493513:0;nvim -c "+Lazy sync"
+: 1743493519:0;nvim -c "Lazy sync"
+: 1743493523:0;nvim -c ":Lazy sync"
+: 1743493527:0;nvim -c":Lazy sync"
+: 1743493589:0;nvim "+Lazy sync"
+: 1743493606:0;nvim "+Lazy sync" .
+: 1743493656:0;nvim
+: 1743493730:0;nvim -c "Lazy sync" .
+: 1743494053:0;ls
+: 1743494073:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743494076:0;chezmoi cd
+: 1743494078:0;git s
+: 1743494080:0;git add .
+: 1743494082:0;exit
+: 1743494083:0;cd nvim
+: 1743494084:0;ls
+: 1743494086:0;la
+: 1743494092:0;git s
+: 1743494099:0;rm -rf .git
+: 1743494100:0;la
+: 1743494231:0;man rg
+: 1743494242:0;man -l -
+: 1743494248:0;man mna
+: 1743494249:0;man man
+: 1743494285:0;rg --help
+: 1743494297:0;sk -i --ansi -c "rg {}"
+: 1743494322:0;nvim lua/config/lazy.lua
+: 1743495180:0;git s
+: 1743495182:0;nvim
+: 1743495994:0;nvim
+: 1743496288:0;nvim
+: 1743496304:0;nvim
+: 1743496423:0;nvim lua/plugins/ui.lua
+: 1743496450:0;nvim lua/plugins/ui.lua
+: 1743496555:0;nvim lua/plugins/ui.lua
+: 1743496579:0;nvim lua/plugins/ui.lua
+: 1743496668:0;nvim lua/plugins/ui.lua
+: 1743517623:0;git s
+: 1743517627:0;cd ..
+: 1743517630:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743517637:0;brew search akkurat
+: 1743517643:0;brew info akku
+: 1743517909:0;cd
+: 1743517910:0;la
+: 1743517912:0;chezmoi cd
+: 1743517914:0;la
+: 1743517916:0;git s
+: 1743517918:0;git add .
+: 1743517919:0;la
+: 1743517945:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743518033:0;nvim run_install_rust.sh
+: 1743518202:0;git s
+: 1743518203:0;git add .
+: 1743518207:0;./run_install_rust.sh
+: 1743518226:0;nvim run_install_rust.sh
+: 1743518244:0;cargo
+: 1743518254:0;cargo --list
+: 1743518271:0;cargo config
+: 1743518274:0;cargo config get
+: 1743518286:0;clear
+: 1743518526:0;git s
+: 1743518527:0;git add .
+: 1743518530:0;./run_install_rust.sh
+: 1743518534:0;git s
+: 1743518535:0;git add .
+: 1743518546:0;chezmoi apply
+: 1743518555:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743518574:0;git s
+: 1743518581:0;git remote show-url origin
+: 1743518584:0;git remote get-url origin
+: 1743518597:0;la
+: 1743518601:0;touch README.md
+: 1743518603:0;nvim README.md
+: 1743518621:0;git s
+: 1743518622:0;git add .
+: 1743518626:0;chezmoi re-add ~/.config/zsh ~/.config/nvim

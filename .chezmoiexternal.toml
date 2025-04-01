@@ -1,0 +1,90 @@
+[".vim/plugged/vimtex"]
+type = "archive"
+url = "https://github.com/lervag/vimtex/archive/refs/tags/v2.16.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/vim-surround"]
+type = "archive"
+url = "https://github.com/tpope/vim-surround/archive/refs/tags/v2.2.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/vim-sensible"]
+type = "archive"
+url = "https://github.com/tpope/vim-sensible/archive/refs/tags/v2.0.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/vim-endwise"]
+type = "archive"
+url = "https://github.com/tpope/vim-endwise/archive/refs/tags/v1.3.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/vim-commentary"]
+type = "archive"
+url = "https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/ultisnips"]
+type = "archive"
+url = "https://github.com/SirVer/ultisnips/archive/refs/tags/3.2.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/tex-conceal.vim"]
+type = "archive"
+url = "https://github.com/KeitaNakamura/tex-conceal.vim/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/nord-vim"]
+type = "archive"
+url = "https://github.com/nordtheme/vim/archive/refs/tags/v0.19.0.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/lightline.vim"]
+type = "archive"
+url = "https://github.com/itchyny/lightline.vim/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/fzf.vim"]
+type = "archive"
+url = "https://github.com/junegunn/fzf.vim/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/fzf"]
+type = "archive"
+url = "https://github.com/junegunn/fzf/archive/refs/tags/v0.61.0.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/everforest"]
+type = "archive"
+url = "https://github.com/sainnhe/everforest/archive/refs/tags/v0.3.0.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".vim/plugged/auto-pairs"]
+type = "archive"
+url = "https://github.com/jiangmiao/auto-pairs/archive/refs/tags/v2.0.0.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
