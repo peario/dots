@@ -2,7 +2,6 @@
 : 1737034427:0;rm .zshrc
 : 1737034427:0;curl -L git.io/antigen > antigen.zsh
 : 1737034427:0;argo
-: 1737034427:0;cargo
 : 1737034427:0;cargo install starship zoxide eza --locked 
 : 1737034427:0;/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 : 1737034427:0;. zshrc
@@ -533,7 +532,6 @@
 : 1738563168:0;mv soft{,.bak}
 : 1738563271:0;mkdir soft
 : 1738563570:0;pnpm create qwik@latest
-: 1738563634:0;touch README.md
 : 1738563645:0;cd website
 : 1738563653:0;pnpm qwik add static
 : 1738563661:0;pnpm add -D @tauri-apps/cli@latest
@@ -1222,7 +1220,6 @@ go get -u gorm.io/driver/sqlite
 : 1742626140:0;rm README.md LICENSE.txt
 : 1742626288:0;touch utilities.lua
 : 1742626292:0;nvim utilities.lua
-: 1742627249:0;cd
 : 1742711507:0;tym
 : 1742711512:0;brew search tym
 : 1742712217:0;brew search handbrake
@@ -1254,7 +1251,6 @@ go get -u gorm.io/driver/sqlite
 : 1742881959:0;corepack use pnpm@10.6.5
 : 1742881966:0;pnpm approve-builds
 : 1742881986:0;git add -A
-: 1742882005:0;git commit -sm "initial commit"
 : 1742882018:0;nvim tsconfig.json
 : 1742890538:0;pnpx nuxi module add lucide-icons
 : 1742978650:0;la demo
@@ -1521,7 +1517,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 
 : 1743323015:0;git clone https://github.com/neovim/neovim
 : 1743323070:0;cd neovim
-: 1743323078:0;git branch
 : 1743323099:0;git checkout master
 : 1743323117:0;git checkout v0.11.0
 : 1743323152:0;make CMAKE_BUILD_TYPE=Release
@@ -1531,7 +1526,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743323952:0;rm -rf neovim
 : 1743323955:0;cd config
 : 1743323961:0;rm 2025-03-27T06-08-36Z_code.png
-: 1743323970:0;nvim lua/config/lazy.lua
 : 1743324084:0;du
 : 1743324097:0;cd down
 : 1743324098:0;curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
@@ -1661,7 +1655,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743330639:0;la .yarn
 : 1743330647:0;chezmoi add .yarn
 : 1743330678:0;git
-: 1743330742:0;cd nvim
 : 1743330745:0;rm dot_git
 : 1743330748:0;rm -rf dot_git
 : 1743330813:0;brew search age
@@ -1735,14 +1728,11 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743337840:0;cdexit
 : 1743337849:0;chezmoi re-add .config/chezmoi
 : 1743337860:0;chezmoi re-add .config/nvim
-: 1743338072:0;git remote show-url origin
-: 1743338077:0;git remote get-url origin
 : 1743338087:0;git remote set-url origin https://github.com/peario/dots.git
 : 1743338131:0;chezmoi
 : 1743338184:0;chezmoi forget dot_config/yarn
 : 1743338194:0;chezmoi forget ~/.config/yarn
 : 1743338377:0;touch run_install_rust.sh
-: 1743338379:0;nvim run_install_rust.sh
 : 1743338465:0;la .rustup
 : 1743338468:0;la .rustup/downloads
 : 1743338472:0;la .rustup/toolchains
@@ -1916,14 +1906,12 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743414275:0;brew info go
 : 1743414286:0;brew uninstall go
 : 1743414295:0;la ~/go/bin
-: 1743414298:0;clear
 : 1743414330:0;g help
 : 1743415234:0;GO_BINARY=${GO_BINARY:-$(command -v go)}; echo "$GO_BINARY"
 : 1743415243:0;GO_BINARY=${GO_BINARY:-$(command -v go)}; $GO_BINARY env
 : 1743419711:0;gits
 : 1743419725:0;chezmoi apply --dry-run
 : 1743422863:0;which "$GOPATH/bin/g"
-: 1743422886:0;cd ..
 : 1743422887:0;nvim .config/zsh/.zshrc
 : 1743423297:0;go version
 : 1743423358:0;go
@@ -1940,11 +1928,9 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743427974:0;is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false"); echo "$is_g_manager_installed"
 : 1743428143:0;nvim run_install_go.sh
 : 1743428166:0;./run_install_go.sh
-: 1743428171:0;./run_install_rust.sh
 : 1743428239:0;docker
 : 1743428243:0;brew search docker
 : 1743428263:0;brew install --cask docker
-: 1743493285:0;la
 : 1743493374:0;nvim --help
 : 1743493419:0;tldr nvim
 : 1743493437:0;man nvim
@@ -1954,20 +1940,10 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743493527:0;nvim -c":Lazy sync"
 : 1743493589:0;nvim "+Lazy sync"
 : 1743493606:0;nvim "+Lazy sync" .
-: 1743493656:0;nvim
 : 1743493730:0;nvim -c "Lazy sync" .
-: 1743494053:0;ls
-: 1743494073:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
-: 1743494076:0;chezmoi cd
-: 1743494078:0;git s
-: 1743494080:0;git add .
-: 1743494082:0;exit
 : 1743494083:0;cd nvim
 : 1743494084:0;ls
-: 1743494086:0;la
-: 1743494092:0;git s
 : 1743494099:0;rm -rf .git
-: 1743494100:0;la
 : 1743494231:0;man rg
 : 1743494242:0;man -l -
 : 1743494248:0;man mna
@@ -1975,52 +1951,68 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743494285:0;rg --help
 : 1743494297:0;sk -i --ansi -c "rg {}"
 : 1743494322:0;nvim lua/config/lazy.lua
-: 1743495180:0;git s
-: 1743495182:0;nvim
-: 1743495994:0;nvim
-: 1743496288:0;nvim
 : 1743496304:0;nvim
-: 1743496423:0;nvim lua/plugins/ui.lua
-: 1743496450:0;nvim lua/plugins/ui.lua
-: 1743496555:0;nvim lua/plugins/ui.lua
-: 1743496579:0;nvim lua/plugins/ui.lua
 : 1743496668:0;nvim lua/plugins/ui.lua
-: 1743517623:0;git s
 : 1743517627:0;cd ..
-: 1743517630:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
 : 1743517637:0;brew search akkurat
 : 1743517643:0;brew info akku
 : 1743517909:0;cd
-: 1743517910:0;la
 : 1743517912:0;chezmoi cd
-: 1743517914:0;la
-: 1743517916:0;git s
-: 1743517918:0;git add .
-: 1743517919:0;la
-: 1743517945:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
-: 1743518033:0;nvim run_install_rust.sh
-: 1743518202:0;git s
-: 1743518203:0;git add .
-: 1743518207:0;./run_install_rust.sh
 : 1743518226:0;nvim run_install_rust.sh
 : 1743518244:0;cargo
 : 1743518254:0;cargo --list
 : 1743518271:0;cargo config
 : 1743518274:0;cargo config get
 : 1743518286:0;clear
-: 1743518526:0;git s
-: 1743518527:0;git add .
 : 1743518530:0;./run_install_rust.sh
-: 1743518534:0;git s
-: 1743518535:0;git add .
 : 1743518546:0;chezmoi apply
-: 1743518555:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
-: 1743518574:0;git s
 : 1743518581:0;git remote show-url origin
 : 1743518584:0;git remote get-url origin
 : 1743518597:0;la
 : 1743518601:0;touch README.md
 : 1743518603:0;nvim README.md
-: 1743518621:0;git s
-: 1743518622:0;git add .
 : 1743518626:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743518628:0;git add .
+: 1743518644:0;git branch
+: 1743518652:0;git commit -sm "initial commit"
+: 1743518695:0;git remote set-url origin git@github.com:peario/dots.git
+: 1743518698:0;git push -u origin master
+: 1743518706:0;git s
+: 1743518726:0;exit
+: 1743569228:0;chezmoi cd
+: 1743569230:0;la
+: 1743569231:0;git s
+: 1743569239:0;mv run_install_go.sh run_setup_go.sh
+: 1743569249:0;mv run_install_rust.sh run_setup_rust.sh
+: 1743569282:0;la
+: 1743569284:0;git s
+: 1743569286:0;git add .
+: 1743569287:0;git s
+: 1743569308:0;touch run_setup_homebrew.sh
+: 1743569321:0;nvim run_setup_homebrew.sh
+: 1743569835:0;brew --prefix
+: 1743569862:0;echo "$BREW_PATH"
+: 1743569909:0;which brew
+: 1743570055:0;brew --help
+: 1743570061:0;man brew
+: 1743570101:0;brew env
+: 1743570105:0;brew bundle env
+: 1743570114:0;brew update && brew upgrade
+: 1743570154:0;man brew
+: 1743570292:0;brew shellenv
+: 1743570304:0;brew --prefix
+: 1743571169:0;git s
+: 1743571171:0;git add .
+: 1743571175:0;nvim run_setup_homebrew.sh
+: 1743571923:0;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | nvim -
+: 1743571953:0;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | /bin/bash -- -h
+: 1743571996:0;/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" -- --help
+: 1743572106:0;man brew
+: 1743572585:0;which brew
+: 1743572591:0;la /opt/homebrew/bin
+: 1743573302:0;git s
+: 1743573303:0;git add .
+: 1743573305:0;nvim
+: 1743573321:0;git s
+: 1743573322:0;git add .
+: 1743573331:0;chezmoi re-add ~/.config/zsh ~/.config/nvim

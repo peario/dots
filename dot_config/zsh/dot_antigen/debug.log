@@ -19524,3 +19524,977 @@ antigen
 [LOG][1743423295.0306289196] Return from hook antigen-apply with 0
 [LOG][1743423295.0307469368] /Users/peario/.config/zsh/antigen.zsh:1518
 [LOG][1743423295.0307469368] Return from hook antigen with 0
+[WRN][1743569832.4744260311] /Users/peario/.config/zsh/antigen.zsh:266
+[WRN][1743569832.4744260311] -antigen-interactive-mode: file:filecode:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1743569832.4748609066] /Users/peario/.config/zsh/antigen.zsh:1572
+[WRN][1743569832.4748609066] -antigen-lock-init return code was 0
+[LOG][1743569832.4749169350] /Users/peario/.config/zsh/antigen.zsh:1574
+[LOG][1743569832.4749169350] LOADED EXTENSION lock EXT
+[WRN][1743569832.4762279987] /Users/peario/.config/zsh/antigen.zsh:1684
+[WRN][1743569832.4762279987] Init parallel extension PARALLEL
+[WRN][1743569832.4762868881] /Users/peario/.config/zsh/antigen.zsh:266
+[WRN][1743569832.4762868881] -antigen-interactive-mode: file:filecode:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1743569832.4763391018] /Users/peario/.config/zsh/antigen.zsh:1572
+[WRN][1743569832.4763391018] -antigen-parallel-init return code was 0
+[LOG][1743569832.4763770103] /Users/peario/.config/zsh/antigen.zsh:1574
+[LOG][1743569832.4763770103] LOADED EXTENSION parallel EXT
+[WRN][1743569832.4764149189] /Users/peario/.config/zsh/antigen.zsh:1692
+[WRN][1743569832.4764149189] Exec parallel extension PARALLEL
+[WRN][1743569832.4765489101] /Users/peario/.config/zsh/antigen.zsh:266
+[WRN][1743569832.4765489101] -antigen-interactive-mode: file:filecode:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1743569832.4765980244] /Users/peario/.config/zsh/antigen.zsh:1572
+[WRN][1743569832.4765980244] -antigen-defer-init return code was 0
+[LOG][1743569832.4766349792] /Users/peario/.config/zsh/antigen.zsh:1574
+[LOG][1743569832.4766349792] LOADED EXTENSION defer EXT
+[WRN][1743569832.4773740768] /Users/peario/.config/zsh/antigen.zsh:266
+[WRN][1743569832.4773740768] -antigen-interactive-mode: file:filecode:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1743569832.4775040150] /Users/peario/.config/zsh/antigen.zsh:1572
+[WRN][1743569832.4775040150] -antigen-cache-init return code was 0
+[LOG][1743569832.4775490761] /Users/peario/.config/zsh/antigen.zsh:1574
+[LOG][1743569832.4775490761] LOADED EXTENSION cache EXT
+[WRN][1743569832.4789049625] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4789049625] Updated meta: target antigen mode once type pre called 1
+[WRN][1743569832.4789550304] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4789550304] Processing hooks: antigen-lock
+[WRN][1743569832.4789950848] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4789950848] Pre hook: antigen-lock bundle command-not-found
+[LOG][1743569832.4790360928] /Users/peario/.config/zsh/antigen.zsh:1658
+[LOG][1743569832.4790360928] antigen-lock called
+[WRN][1743569832.4790759087] /Users/peario/.config/zsh/antigen.zsh:1669
+[WRN][1743569832.4790759087] Creating antigen-lock file at /Users/peario/.config/zsh/.antigen/.lock
+[WRN][1743569832.4829668999] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4829668999] -antigen-hook-antigen bundle command-not-found
+[WRN][1743569832.4830849171] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4830849171] Updated meta: target antigen-bundle mode repeat type replace called 1
+[WRN][1743569832.4831449986] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4831449986] Updated meta: target antigen-bundle mode repeat type pre called 1
+[WRN][1743569832.4831879139] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4831879139] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4832339287] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4832339287] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1743569832.4832859039] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4832859039] Replace hook: antigen-bundle-defer command-not-found
+[WRN][1743569832.4833359718] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4833359718] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4835510254] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4835510254] Return from hook antigen with 0
+[WRN][1743569832.4836630821] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4836630821] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4836969376] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4836969376] Processing hooks: antigen-lock
+[WRN][1743569832.4837369919] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4837369919] -antigen-hook-antigen bundle copybuffer
+[WRN][1743569832.4838171005] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4838171005] Updated meta: target antigen-bundle mode repeat type replace called 2
+[WRN][1743569832.4838678837] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4838678837] Updated meta: target antigen-bundle mode repeat type pre called 2
+[WRN][1743569832.4839060307] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4839060307] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4839420319] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4839420319] Pre hook: antigen-bundle-cached copybuffer
+[WRN][1743569832.4839859009] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4839859009] Replace hook: antigen-bundle-defer copybuffer
+[WRN][1743569832.4840240479] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4840240479] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4840691090] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4840691090] Return from hook antigen with 0
+[WRN][1743569832.4841430187] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4841430187] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4841749668] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4841749668] Processing hooks: antigen-lock
+[WRN][1743569832.4842100143] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4842100143] -antigen-hook-antigen bundle gh
+[WRN][1743569832.4842801094] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4842801094] Updated meta: target antigen-bundle mode repeat type replace called 3
+[WRN][1743569832.4843280315] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4843280315] Updated meta: target antigen-bundle mode repeat type pre called 3
+[WRN][1743569832.4843630791] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4843630791] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4843940735] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4843940735] Pre hook: antigen-bundle-cached gh
+[WRN][1743569832.4844350815] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4844350815] Replace hook: antigen-bundle-defer gh
+[WRN][1743569832.4844710827] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4844710827] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4845159054] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4845159054] Return from hook antigen with 0
+[WRN][1743569832.4845869541] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4845869541] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4846169949] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4846169949] Processing hooks: antigen-lock
+[WRN][1743569832.4846510887] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4846510887] -antigen-hook-antigen bundle tldr
+[WRN][1743569832.4847190380] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4847190380] Updated meta: target antigen-bundle mode repeat type replace called 4
+[WRN][1743569832.4847650528] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4847650528] Updated meta: target antigen-bundle mode repeat type pre called 4
+[WRN][1743569832.4848001003] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4848001003] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4848299026] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4848299026] Pre hook: antigen-bundle-cached tldr
+[WRN][1743569832.4848709106] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4848709106] Replace hook: antigen-bundle-defer tldr
+[WRN][1743569832.4849059582] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4849059582] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4849469662] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4849469662] Return from hook antigen with 0
+[WRN][1743569832.4850161076] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4850161076] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4850459099] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4850459099] Processing hooks: antigen-lock
+[WRN][1743569832.4850780964] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4850780964] -antigen-hook-antigen bundle web-search
+[WRN][1743569832.4851429462] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4851429462] Updated meta: target antigen-bundle mode repeat type replace called 5
+[WRN][1743569832.4851870537] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4851870537] Updated meta: target antigen-bundle mode repeat type pre called 5
+[WRN][1743569832.4852209091] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4852209091] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4852499962] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4852499962] Pre hook: antigen-bundle-cached web-search
+[WRN][1743569832.4852910042] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4852910042] Replace hook: antigen-bundle-defer web-search
+[WRN][1743569832.4853250980] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4853250980] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4853649139] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4853649139] Return from hook antigen with 0
+[WRN][1743569832.4854340553] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4854340553] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4854629040] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4854629040] Processing hooks: antigen-lock
+[WRN][1743569832.4854950905] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4854950905] -antigen-hook-antigen bundle zsh-users/zsh-completions
+[WRN][1743569832.4855589867] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4855589867] Updated meta: target antigen-bundle mode repeat type replace called 6
+[WRN][1743569832.4856030941] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4856030941] Updated meta: target antigen-bundle mode repeat type pre called 6
+[WRN][1743569832.4856359959] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4856359959] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4856650829] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4856650829] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1743569832.4857048988] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4857048988] Replace hook: antigen-bundle-defer zsh-users/zsh-completions
+[WRN][1743569832.4857399464] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4857399464] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4857800007] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4857800007] Return from hook antigen with 0
+[WRN][1743569832.4858469963] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4858469963] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4858760834] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4858760834] Processing hooks: antigen-lock
+[WRN][1743569832.4859080315] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4859080315] -antigen-hook-antigen bundle zsh-users/zsh-autosuggestions
+[WRN][1743569832.4859728813] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4859728813] Updated meta: target antigen-bundle mode repeat type replace called 7
+[WRN][1743569832.4860169888] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4860169888] Updated meta: target antigen-bundle mode repeat type pre called 7
+[WRN][1743569832.4860489368] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4860489368] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4860780239] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4860780239] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1743569832.4861168861] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4861168861] Replace hook: antigen-bundle-defer zsh-users/zsh-autosuggestions
+[WRN][1743569832.4861509800] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4861509800] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4861910343] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4861910343] Return from hook antigen with 0
+[WRN][1743569832.4862589836] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4862589836] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4862871170] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4862871170] Processing hooks: antigen-lock
+[WRN][1743569832.4863209724] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4863209724] -antigen-hook-antigen bundle zsh-users/zsh-history-substring-search
+[WRN][1743569832.4863860607] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4863860607] Updated meta: target antigen-bundle mode repeat type replace called 8
+[WRN][1743569832.4864289761] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4864289761] Updated meta: target antigen-bundle mode repeat type pre called 8
+[WRN][1743569832.4864609241] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4864609241] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4864900112] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4864900112] Pre hook: antigen-bundle-cached zsh-users/zsh-history-substring-search
+[WRN][1743569832.4865300655] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4865300655] Replace hook: antigen-bundle-defer zsh-users/zsh-history-substring-search
+[WRN][1743569832.4865639210] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4865639210] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4866039753] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4866039753] Return from hook antigen with 0
+[WRN][1743569832.4866719246] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4866719246] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4867000580] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4867000580] Processing hooks: antigen-lock
+[WRN][1743569832.4867320061] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4867320061] -antigen-hook-antigen bundle zsh-users/zsh-syntax-highlighting
+[WRN][1743569832.4867949486] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4867949486] Updated meta: target antigen-bundle mode repeat type replace called 9
+[WRN][1743569832.4868390560] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4868390560] Updated meta: target antigen-bundle mode repeat type pre called 9
+[WRN][1743569832.4868710041] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4868710041] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1743569832.4869000912] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4869000912] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1743569832.4869389534] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4869389534] Replace hook: antigen-bundle-defer zsh-users/zsh-syntax-highlighting
+[WRN][1743569832.4869730473] /Users/peario/.config/zsh/antigen.zsh:1500
+[WRN][1743569832.4869730473] antigen-bundle-defer shortcircuited
+[LOG][1743569832.4870140553] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4870140553] Return from hook antigen with 0
+[WRN][1743569832.4870688915] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.4870688915] Ignoring hook due to mode once: antigen-lock
+[WRN][1743569832.4870979786] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4870979786] Processing hooks: antigen-lock
+[WRN][1743569832.4871320724] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4871320724] -antigen-hook-antigen apply
+[WRN][1743569832.4871990681] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4871990681] Updated meta: target antigen-apply mode once type post called 1
+[WRN][1743569832.4872438908] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4872438908] Updated meta: target antigen-apply mode once type pre called 1
+[WRN][1743569832.4872870445] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4872870445] Updated meta: target antigen-apply mode once type replace called 1
+[WRN][1743569832.4873309135] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4873309135] Updated meta: target antigen-apply mode once type pre called 1
+[WRN][1743569832.4873731136] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4873731136] Updated meta: target antigen-apply mode once type post called 1
+[WRN][1743569832.4874069691] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4874069691] Processing hooks: antigen-apply-lock antigen-apply-parallel antigen-apply-parallel-execute antigen-apply-defer antigen-apply-cached
+[WRN][1743569832.4874360561] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4874360561] Pre hook: antigen-apply-parallel
+[WRN][1743569832.4874680042] /Users/peario/.config/zsh/antigen.zsh:1744
+[WRN][1743569832.4874680042] Parallel pre-apply PARALLEL PRE-APPLY
+[WRN][1743569832.4875600338] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4875600338] Pre hook: antigen-apply-defer
+[WRN][1743569832.4875929356] /Users/peario/.config/zsh/antigen.zsh:1623
+[WRN][1743569832.4875929356] Defer pre-apply DEFER PRE-APPLY
+[LOG][1743569832.4876749516] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4876749516] Processing deferred bundle: command-not-found DEFER
+[WRN][1743569832.4877429008] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4877429008] Updated meta: target antigen-bundle mode repeat type pre called 10
+[WRN][1743569832.4877889156] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4877889156] Updated meta: target antigen-bundle mode repeat type replace called 1
+[WRN][1743569832.4878239632] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4878239632] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4878549576] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4878549576] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1743569832.4878959656] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4878959656] Replace hook: antigen-bundle-parallel command-not-found
+[TRA][1743569832.4879341125] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4879341125] antigen-bundle-parallel: command-not-found PARALLEL
+[TRA][1743569832.4879341125] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4879729748] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4879729748] Replaced hooked function.
+[LOG][1743569832.4880030155] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4880030155] Return from hook antigen-bundle with 0
+[LOG][1743569832.4880390167] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4880390167] Processing deferred bundle: copybuffer DEFER
+[WRN][1743569832.4880969524] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4880969524] Updated meta: target antigen-bundle mode repeat type pre called 11
+[WRN][1743569832.4881410599] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4881410599] Updated meta: target antigen-bundle mode repeat type replace called 2
+[WRN][1743569832.4881739616] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4881739616] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4882080555] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4882080555] Pre hook: antigen-bundle-cached copybuffer
+[WRN][1743569832.4882500172] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4882500172] Replace hook: antigen-bundle-parallel copybuffer
+[TRA][1743569832.4882810116] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4882810116] antigen-bundle-parallel: copybuffer PARALLEL
+[TRA][1743569832.4882810116] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4883201122] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4883201122] Replaced hooked function.
+[LOG][1743569832.4883499146] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4883499146] Return from hook antigen-bundle with 0
+[LOG][1743569832.4883871078] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4883871078] Processing deferred bundle: gh DEFER
+[WRN][1743569832.4884440899] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4884440899] Updated meta: target antigen-bundle mode repeat type pre called 12
+[WRN][1743569832.4884879589] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4884879589] Updated meta: target antigen-bundle mode repeat type replace called 3
+[WRN][1743569832.4885220528] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4885220528] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4885520935] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4885520935] Pre hook: antigen-bundle-cached gh
+[WRN][1743569832.4885931015] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4885931015] Replace hook: antigen-bundle-parallel gh
+[TRA][1743569832.4886229038] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4886229038] antigen-bundle-parallel: gh PARALLEL
+[TRA][1743569832.4886229038] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4886610508] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4886610508] Replaced hooked function.
+[LOG][1743569832.4886910915] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4886910915] Return from hook antigen-bundle with 0
+[LOG][1743569832.4887280464] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4887280464] Processing deferred bundle: tldr DEFER
+[WRN][1743569832.4887850285] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4887850285] Updated meta: target antigen-bundle mode repeat type pre called 13
+[WRN][1743569832.4888288975] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4888288975] Updated meta: target antigen-bundle mode repeat type replace called 4
+[WRN][1743569832.4888620377] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4888620377] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4888920784] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4888920784] Pre hook: antigen-bundle-cached tldr
+[WRN][1743569832.4889330864] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4889330864] Replace hook: antigen-bundle-parallel tldr
+[TRA][1743569832.4889628887] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4889628887] antigen-bundle-parallel: tldr PARALLEL
+[TRA][1743569832.4889628887] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4890000820] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4890000820] Replaced hooked function.
+[LOG][1743569832.4890310764] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4890310764] Return from hook antigen-bundle with 0
+[LOG][1743569832.4890670776] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4890670776] Processing deferred bundle: web-search DEFER
+[WRN][1743569832.4891240597] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4891240597] Updated meta: target antigen-bundle mode repeat type pre called 14
+[WRN][1743569832.4891679287] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4891679287] Updated meta: target antigen-bundle mode repeat type replace called 5
+[WRN][1743569832.4892020226] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4892020226] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4892320633] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4892320633] Pre hook: antigen-bundle-cached web-search
+[WRN][1743569832.4892709255] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4892709255] Replace hook: antigen-bundle-parallel web-search
+[TRA][1743569832.4893019199] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4893019199] antigen-bundle-parallel: web-search PARALLEL
+[TRA][1743569832.4893019199] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4893391132] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4893391132] Replaced hooked function.
+[LOG][1743569832.4893689156] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4893689156] Return from hook antigen-bundle with 0
+[LOG][1743569832.4894061089] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4894061089] Processing deferred bundle: zsh-users/zsh-completions DEFER
+[WRN][1743569832.4894630909] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4894630909] Updated meta: target antigen-bundle mode repeat type pre called 15
+[WRN][1743569832.4895069599] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4895069599] Updated meta: target antigen-bundle mode repeat type replace called 6
+[WRN][1743569832.4895401001] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4895401001] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4895710945] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4895710945] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1743569832.4896109104] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4896109104] Replace hook: antigen-bundle-parallel zsh-users/zsh-completions
+[TRA][1743569832.4896430969] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4896430969] antigen-bundle-parallel: zsh-users/zsh-completions PARALLEL
+[TRA][1743569832.4896430969] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4896800518] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4896800518] Replaced hooked function.
+[LOG][1743569832.4897100925] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4897100925] Return from hook antigen-bundle with 0
+[LOG][1743569832.4897460938] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4897460938] Processing deferred bundle: zsh-users/zsh-autosuggestions DEFER
+[WRN][1743569832.4898040295] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4898040295] Updated meta: target antigen-bundle mode repeat type pre called 16
+[WRN][1743569832.4898478985] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4898478985] Updated meta: target antigen-bundle mode repeat type replace called 7
+[WRN][1743569832.4898810387] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4898810387] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4899110794] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4899110794] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1743569832.4899508953] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4899508953] Replace hook: antigen-bundle-parallel zsh-users/zsh-autosuggestions
+[TRA][1743569832.4899818897] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4899818897] antigen-bundle-parallel: zsh-users/zsh-autosuggestions PARALLEL
+[TRA][1743569832.4899818897] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4900200367] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4900200367] Replaced hooked function.
+[LOG][1743569832.4900500774] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4900500774] Return from hook antigen-bundle with 0
+[LOG][1743569832.4900848866] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4900848866] Processing deferred bundle: zsh-users/zsh-history-substring-search DEFER
+[WRN][1743569832.4901430607] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4901430607] Updated meta: target antigen-bundle mode repeat type pre called 17
+[WRN][1743569832.4901869297] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4901869297] Updated meta: target antigen-bundle mode repeat type replace called 8
+[WRN][1743569832.4902200699] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4902200699] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4902501106] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4902501106] Pre hook: antigen-bundle-cached zsh-users/zsh-history-substring-search
+[WRN][1743569832.4902911186] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4902911186] Replace hook: antigen-bundle-parallel zsh-users/zsh-history-substring-search
+[TRA][1743569832.4903221130] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4903221130] antigen-bundle-parallel: zsh-users/zsh-history-substring-search PARALLEL
+[TRA][1743569832.4903221130] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4903600216] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4903600216] Replaced hooked function.
+[LOG][1743569832.4903900623] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4903900623] Return from hook antigen-bundle with 0
+[LOG][1743569832.4904260635] /Users/peario/.config/zsh/antigen.zsh:1629
+[LOG][1743569832.4904260635] Processing deferred bundle: zsh-users/zsh-syntax-highlighting DEFER
+[WRN][1743569832.4904830456] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4904830456] Updated meta: target antigen-bundle mode repeat type pre called 18
+[WRN][1743569832.4905269146] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4905269146] Updated meta: target antigen-bundle mode repeat type replace called 9
+[WRN][1743569832.4905610085] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4905610085] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1743569832.4905900955] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4905900955] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1743569832.4906311035] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4906311035] Replace hook: antigen-bundle-parallel zsh-users/zsh-syntax-highlighting
+[TRA][1743569832.4906620979] /Users/peario/.config/zsh/.zshrc:1748
+[TRA][1743569832.4906620979] antigen-bundle-parallel: zsh-users/zsh-syntax-highlighting PARALLEL
+[TRA][1743569832.4906620979] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4906990528] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4906990528] Replaced hooked function.
+[LOG][1743569832.4907290936] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4907290936] Return from hook antigen-bundle with 0
+[WRN][1743569832.4907770157] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4907770157] Replace hook: antigen-apply-parallel-execute
+[WRN][1743569832.4908070564] /Users/peario/.config/zsh/antigen.zsh:1756
+[WRN][1743569832.4908070564] Parallel replace-apply PARALLEL REPLACE-APPLY
+[WRN][1743569832.4908769131] /Users/peario/.config/zsh/antigen.zsh:1695
+[WRN][1743569832.4908769131] Parallel antigen-bundle-parallel-execute PARALLEL
+[WRN][1743569832.4909129143] /Users/peario/.config/zsh/antigen.zsh:1699
+[WRN][1743569832.4909129143] Gonna install in parallel 9 bundles. PARALLEL
+[WRN][1743569832.4909429550] /Users/peario/.config/zsh/antigen.zsh:1701
+[WRN][1743569832.4909429550] command-not-found copybuffer gh tldr web-search zsh-users/zsh-completions zsh-users/zsh-autosuggestions zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting PARALLEL
+[WRN][1743569832.4911320210] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4911320210] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1743569832.4912769794] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4912769794] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1743569832.4914119244] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4914119244] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1743569832.4915421009] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4915421009] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1743569832.4916710854] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4916710854] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1743569832.4918069839] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4918069839] Bundle zsh-users/zsh-completions already cloned locally. PARALLEL
+[WRN][1743569832.4919409752] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4919409752] Bundle zsh-users/zsh-autosuggestions already cloned locally. PARALLEL
+[WRN][1743569832.4920780659] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4920780659] Bundle zsh-users/zsh-history-substring-search already cloned locally. PARALLEL
+[WRN][1743569832.4922120571] /Users/peario/.config/zsh/antigen.zsh:1715
+[WRN][1743569832.4922120571] Bundle zsh-users/zsh-syntax-highlighting already cloned locally. PARALLEL
+[WRN][1743569832.4923090935] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4923090935] Updated meta: target antigen-bundle mode repeat type pre called 19
+[WRN][1743569832.4923439026] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4923439026] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4923748970] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4923748970] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1743569832.4924159050] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4924159050] -antigen-hook-antigen-bundle command-not-found
+[TRA][1743569832.4924490452] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4924490452] Called antigen-bundle with command-not-found BUNDLE
+[TRA][1743569832.4924490452] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4929480553] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4929480553] Updated meta: target -antigen-load-env mode repeat type replace called 1
+[WRN][1743569832.4929890633] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4929890633] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4930329323] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4930329323] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/command-not-found name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1743569832.4930920601] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4930920601] Replaced hooked function.
+[LOG][1743569832.4931240082] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4931240082] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4931960106] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4931960106] Updated meta: target -antigen-load-source mode repeat type replace called 1
+[WRN][1743569832.4932320118] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4932320118] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4932699203] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4932699203] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh
+[WRN][1743569832.4933090210] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4933090210] Replaced hooked function.
+[LOG][1743569832.4933400154] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4933400154] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4933888912] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4933888912] Return from hook antigen-bundle with 0
+[WRN][1743569832.4934558868] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4934558868] Updated meta: target antigen-bundle mode repeat type pre called 20
+[WRN][1743569832.4934899807] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4934899807] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4935190678] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4935190678] Pre hook: antigen-bundle-cached copybuffer
+[WRN][1743569832.4935588837] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4935588837] -antigen-hook-antigen-bundle copybuffer
+[TRA][1743569832.4935901165] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4935901165] Called antigen-bundle with copybuffer BUNDLE
+[TRA][1743569832.4935901165] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4939479828] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4939479828] Updated meta: target -antigen-load-env mode repeat type replace called 2
+[WRN][1743569832.4939889908] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4939889908] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4940290451] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4940290451] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/copybuffer name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1743569832.4940829277] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4940829277] Replaced hooked function.
+[LOG][1743569832.4941151142] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4941151142] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4941849709] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4941849709] Updated meta: target -antigen-load-source mode repeat type replace called 2
+[WRN][1743569832.4942219257] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4942219257] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4942591190] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4942591190] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/copybuffer/copybuffer.plugin.zsh
+[WRN][1743569832.4942970276] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4942970276] Replaced hooked function.
+[LOG][1743569832.4943280220] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4943280220] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4943759441] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4943759441] Return from hook antigen-bundle with 0
+[WRN][1743569832.4944419861] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4944419861] Updated meta: target antigen-bundle mode repeat type pre called 21
+[WRN][1743569832.4944760799] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4944760799] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4945049286] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4945049286] Pre hook: antigen-bundle-cached gh
+[WRN][1743569832.4945440292] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4945440292] -antigen-hook-antigen-bundle gh
+[TRA][1743569832.4945750237] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4945750237] Called antigen-bundle with gh BUNDLE
+[TRA][1743569832.4945750237] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4949240685] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4949240685] Updated meta: target -antigen-load-env mode repeat type replace called 3
+[WRN][1743569832.4949619770] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4949619770] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4950029850] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4950029850] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/gh name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1743569832.4950559139] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4950559139] Replaced hooked function.
+[LOG][1743569832.4950869083] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4950869083] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4951560497] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4951560497] Updated meta: target -antigen-load-source mode repeat type replace called 3
+[WRN][1743569832.4951920509] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4951920509] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4952280521] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4952280521] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/gh/gh.plugin.zsh
+[WRN][1743569832.4953029156] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4953029156] Replaced hooked function.
+[LOG][1743569832.4953680038] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4953680038] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4954319000] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4954319000] Return from hook antigen-bundle with 0
+[WRN][1743569832.4955239296] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4955239296] Updated meta: target antigen-bundle mode repeat type pre called 22
+[WRN][1743569832.4955658913] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4955658913] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4956018925] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4956018925] Pre hook: antigen-bundle-cached tldr
+[WRN][1743569832.4956490993] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4956490993] -antigen-hook-antigen-bundle tldr
+[TRA][1743569832.4956851006] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4956851006] Called antigen-bundle with tldr BUNDLE
+[TRA][1743569832.4956851006] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4960949421] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4960949421] Updated meta: target -antigen-load-env mode repeat type replace called 4
+[WRN][1743569832.4961380959] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4961380959] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4961791039] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4961791039] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/tldr name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1743569832.4962348938] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4962348938] Replaced hooked function.
+[LOG][1743569832.4962670803] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4962670803] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4963359833] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4963359833] Updated meta: target -antigen-load-source mode repeat type replace called 4
+[WRN][1743569832.4963710308] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4963710308] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4964079857] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4964079857] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tldr/tldr.plugin.zsh
+[WRN][1743569832.4964458942] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4964458942] Replaced hooked function.
+[LOG][1743569832.4964768887] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4964768887] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4965250492] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4965250492] Return from hook antigen-bundle with 0
+[WRN][1743569832.4965898991] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4965898991] Updated meta: target antigen-bundle mode repeat type pre called 23
+[WRN][1743569832.4966239929] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4966239929] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4966540337] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4966540337] Pre hook: antigen-bundle-cached web-search
+[WRN][1743569832.4966940880] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4966940880] -antigen-hook-antigen-bundle web-search
+[TRA][1743569832.4967250824] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4967250824] Called antigen-bundle with web-search BUNDLE
+[TRA][1743569832.4967250824] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4971320629] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4971320629] Updated meta: target -antigen-load-env mode repeat type replace called 5
+[WRN][1743569832.4971709251] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4971709251] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4972109795] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4972109795] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/web-search name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1743569832.4972651005] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4972651005] Replaced hooked function.
+[LOG][1743569832.4972960949] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4972960949] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4973640442] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4973640442] Updated meta: target -antigen-load-source mode repeat type replace called 5
+[WRN][1743569832.4973990917] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4973990917] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4974360466] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4974360466] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search/web-search.plugin.zsh
+[WRN][1743569832.4974739552] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4974739552] Replaced hooked function.
+[LOG][1743569832.4975059032] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4975059032] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4975531101] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4975531101] Return from hook antigen-bundle with 0
+[WRN][1743569832.4976179600] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4976179600] Updated meta: target antigen-bundle mode repeat type pre called 24
+[WRN][1743569832.4976530075] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4976530075] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4976830482] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4976830482] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1743569832.4977231026] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4977231026] -antigen-hook-antigen-bundle zsh-users/zsh-completions
+[TRA][1743569832.4977540970] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4977540970] Called antigen-bundle with zsh-users/zsh-completions BUNDLE
+[TRA][1743569832.4977540970] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4981160164] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4981160164] Updated meta: target -antigen-load-env mode repeat type replace called 6
+[WRN][1743569832.4981520176] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4981520176] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4981920719] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4981920719] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-completions btype plugin url https://github.com/zsh-users/zsh-completions.git loc / name zsh-users/zsh-completions make_local_clone true
+[WRN][1743569832.4982459545] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4982459545] Replaced hooked function.
+[LOG][1743569832.4982769489] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4982769489] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4983460903] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4983460903] Updated meta: target -antigen-load-source mode repeat type replace called 6
+[WRN][1743569832.4983808994] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4983808994] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4984180927] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4984180927] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-completions///zsh-completions.plugin.zsh
+[WRN][1743569832.4984560013] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4984560013] Replaced hooked function.
+[LOG][1743569832.4984869957] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4984869957] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4985339642] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4985339642] Return from hook antigen-bundle with 0
+[WRN][1743569832.4986000061] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4986000061] Updated meta: target antigen-bundle mode repeat type pre called 25
+[WRN][1743569832.4986329079] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4986329079] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4986650944] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4986650944] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1743569832.4987061024] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4987061024] -antigen-hook-antigen-bundle zsh-users/zsh-autosuggestions
+[TRA][1743569832.4987380505] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4987380505] Called antigen-bundle with zsh-users/zsh-autosuggestions BUNDLE
+[TRA][1743569832.4987380505] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.4991049767] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4991049767] Updated meta: target -antigen-load-env mode repeat type replace called 7
+[WRN][1743569832.4991419315] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4991419315] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.4991810322] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4991810322] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-autosuggestions btype plugin url https://github.com/zsh-users/zsh-autosuggestions.git loc / name zsh-users/zsh-autosuggestions make_local_clone true
+[WRN][1743569832.4992349148] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4992349148] Replaced hooked function.
+[LOG][1743569832.4992671013] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4992671013] Return from hook -antigen-load-env with 0
+[WRN][1743569832.4993350506] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4993350506] Updated meta: target -antigen-load-source mode repeat type replace called 7
+[WRN][1743569832.4993729591] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4993729591] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.4994089603] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.4994089603] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-autosuggestions///zsh-autosuggestions.plugin.zsh
+[WRN][1743569832.4994480610] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.4994480610] Replaced hooked function.
+[LOG][1743569832.4994790554] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4994790554] Return from hook -antigen-load-source with 0
+[LOG][1743569832.4995288849] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.4995288849] Return from hook antigen-bundle with 0
+[WRN][1743569832.4995939732] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.4995939732] Updated meta: target antigen-bundle mode repeat type pre called 26
+[WRN][1743569832.4996280670] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.4996280670] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.4996581078] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.4996581078] Pre hook: antigen-bundle-cached zsh-users/zsh-history-substring-search
+[WRN][1743569832.4996991158] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.4996991158] -antigen-hook-antigen-bundle zsh-users/zsh-history-substring-search
+[TRA][1743569832.4997301102] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.4997301102] Called antigen-bundle with zsh-users/zsh-history-substring-search BUNDLE
+[TRA][1743569832.4997301102] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.5002510548] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.5002510548] Updated meta: target -antigen-load-env mode repeat type replace called 8
+[WRN][1743569832.5002870560] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5002870560] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.5003271103] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.5003271103] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-history-substring-search btype plugin url https://github.com/zsh-users/zsh-history-substring-search.git loc / name zsh-users/zsh-history-substring-search make_local_clone true
+[WRN][1743569832.5003819466] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.5003819466] Replaced hooked function.
+[LOG][1743569832.5004138947] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5004138947] Return from hook -antigen-load-env with 0
+[WRN][1743569832.5004830360] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.5004830360] Updated meta: target -antigen-load-source mode repeat type replace called 8
+[WRN][1743569832.5005180836] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5005180836] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.5005540848] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.5005540848] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-history-substring-search///zsh-history-substring-search.plugin.zsh
+[WRN][1743569832.5005929470] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.5005929470] Replaced hooked function.
+[LOG][1743569832.5006248951] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5006248951] Return from hook -antigen-load-source with 0
+[LOG][1743569832.5006730556] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5006730556] Return from hook antigen-bundle with 0
+[WRN][1743569832.5007379055] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.5007379055] Updated meta: target antigen-bundle mode repeat type pre called 27
+[WRN][1743569832.5007719994] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5007719994] Processing hooks: antigen-bundle-cached
+[WRN][1743569832.5008020401] /Users/peario/.config/zsh/antigen.zsh:1487
+[WRN][1743569832.5008020401] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1743569832.5008420944] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.5008420944] -antigen-hook-antigen-bundle zsh-users/zsh-syntax-highlighting
+[TRA][1743569832.5008740425] /Users/peario/.config/zsh/antigen.zsh:1438
+[TRA][1743569832.5008740425] Called antigen-bundle with zsh-users/zsh-syntax-highlighting BUNDLE
+[TRA][1743569832.5008740425] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[WRN][1743569832.5011329651] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.5011329651] Updated meta: target -antigen-load-env mode repeat type replace called 9
+[WRN][1743569832.5011689663] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5011689663] Processing hooks: -antigen-load-env-cached
+[WRN][1743569832.5012090206] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.5012090206] Replace hook: -antigen-load-env-cached dir /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-syntax-highlighting btype plugin url https://github.com/zsh-users/zsh-syntax-highlighting.git loc / name zsh-users/zsh-syntax-highlighting make_local_clone true
+[WRN][1743569832.5012629032] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.5012629032] Replaced hooked function.
+[LOG][1743569832.5012950897] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5012950897] Return from hook -antigen-load-env with 0
+[WRN][1743569832.5013630390] /Users/peario/.config/zsh/antigen.zsh:1469
+[WRN][1743569832.5013630390] Updated meta: target -antigen-load-source mode repeat type replace called 9
+[WRN][1743569832.5013980865] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5013980865] Processing hooks: -antigen-load-source-cached
+[WRN][1743569832.5014340878] /Users/peario/.config/zsh/antigen.zsh:1498
+[WRN][1743569832.5014340878] Replace hook: -antigen-load-source-cached /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-syntax-highlighting///zsh-syntax-highlighting.plugin.zsh
+[WRN][1743569832.5014719963] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.5014719963] Replaced hooked function.
+[LOG][1743569832.5015039444] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5015039444] Return from hook -antigen-load-source with 0
+[LOG][1743569832.5015509129] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.5015509129] Return from hook antigen-bundle with 0
+[WRN][1743569832.5015869141] /Users/peario/.config/zsh/antigen.zsh:1739
+[WRN][1743569832.5015869141] Parallel install done PARALLEL
+[WRN][1743569832.5016961098] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.5016961098] Ignoring hook due to mode once: antigen-apply-lock
+[WRN][1743569832.5017371178] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.5017371178] Ignoring hook due to mode once: antigen-apply-parallel
+[WRN][1743569832.5017740726] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.5017740726] Ignoring hook due to mode once: antigen-apply-defer
+[WRN][1743569832.5018100739] /Users/peario/.config/zsh/antigen.zsh:1462
+[WRN][1743569832.5018100739] Ignoring hook due to mode once: antigen-apply-cached
+[WRN][1743569832.5018410683] /Users/peario/.config/zsh/antigen.zsh:1484
+[WRN][1743569832.5018410683] Processing hooks: antigen-apply-lock antigen-apply-parallel antigen-apply-defer antigen-apply-cached
+[WRN][1743569832.5018749237] /Users/peario/.config/zsh/antigen.zsh:1505
+[WRN][1743569832.5018749237] -antigen-hook-antigen-apply 
+[LOG][1743569832.5019059181] /Users/peario/.config/zsh/antigen.zsh:1438
+[LOG][1743569832.5019059181] Called antigen-apply
+[TRA][1743569832.5019350052] /Users/peario/.config/zsh/antigen.zsh:1439
+[TRA][1743569832.5019350052] Gonna create compdump file @ apply COMPDUMP
+[TRA][1743569832.5019350052] TRACE
+-antigen-hook-antigen-apply
+-antigen-hook-handler
+antigen-apply
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/Users/peario/.config/zsh/.zshrc
+[LOG][1743569832.7270369530] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.7270369530] Return from hook antigen-apply with 0
+[WRN][1743569832.7271509171] /Users/peario/.config/zsh/antigen.zsh:1509
+[WRN][1743569832.7271509171] Replaced hooked function.
+[WRN][1743569832.7271931171] /Users/peario/.config/zsh/antigen.zsh:1513
+[WRN][1743569832.7271931171] Post hook: antigen-apply-lock
+[WRN][1743569832.7272388935] /Users/peario/.config/zsh/antigen.zsh:1676
+[WRN][1743569832.7272388935] Freeing antigen-lock file at /Users/peario/.config/zsh/.antigen/.lock
+[WRN][1743569832.7291359901] /Users/peario/.config/zsh/antigen.zsh:1513
+[WRN][1743569832.7291359901] Post hook: antigen-apply-cached
+[LOG][1743569832.7292261124] /Users/peario/.config/zsh/antigen.zsh:1893
+[LOG][1743569832.7292261124] TRACE: /Users/peario/.config/zsh/antigen.zsh:1514 /Users/peario/.config/zsh/antigen.zsh:1441 /Users/peario/.config/zsh/antigen.zsh:1447 /Users/peario/.config/zsh/antigen.zsh:1506 /Users/peario/.config/zsh/antigen.zsh:1441 /Users/peario/.config/zsh/.zshrc:404 zsh:0
+[LOG][1743569832.7292940617] /Users/peario/.config/zsh/antigen.zsh:1787
+[LOG][1743569832.7292940617] Gonna generate cache for /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/copybuffer /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/copybuffer/copybuffer.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/gh /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/gh/gh.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tldr /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/tldr/tldr.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search /Users/peario/.config/zsh/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search/web-search.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-completions// /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-completions///zsh-completions.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-autosuggestions// /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-autosuggestions///zsh-autosuggestions.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-history-substring-search// /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-history-substring-search///zsh-history-substring-search.plugin.zsh /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-syntax-highlighting// /Users/peario/.config/zsh/.antigen/bundles/zsh-users/zsh-syntax-highlighting///zsh-syntax-highlighting.plugin.zsh
+[LOG][1743569832.7353439331] /Users/peario/.config/zsh/antigen.zsh:1844
+[LOG][1743569832.7353439331] CHECK_FILES /Users/peario/.config/zsh/.zshrc /Users/peario/.config/zsh/antigen.zsh
+[LOG][1743569832.7822489738] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.7822489738] Return from hook antigen-apply with 0
+[LOG][1743569832.7823638916] /Users/peario/.config/zsh/antigen.zsh:1518
+[LOG][1743569832.7823638916] Return from hook antigen with 0

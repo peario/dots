@@ -197,7 +197,13 @@ export XDG_CACHE_HOME="$HOME/.cache"
 if [ -d "/opt/homebrew/bin" ] || command -v brew 1> /dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    if [[ ":$FPATH:" != *":$(brew --prefix)/share/zsh-completions:"* ]]; then
+      fpath+=("$(brew --prefix)/share/zsh-completions")
+    fi
+
+    if [[ ":$FPATH:" != *":$(brew --prefix)/share/zsh/site-functions:"* ]]; then
+      fpath+=("$(brew --prefix)/share/zsh/site-functions")
+    fi
 
     autoload -Uz compinit
     compinit
@@ -266,10 +272,6 @@ fi
 # Add completions to search path
 if [[ ":$FPATH:" != *":$HOME/.config/zsh/completions:"* ]]; then
     export FPATH="$HOME/.config/zsh/completions:$FPATH"
-fi
-
-if [[ ":$FPATH:" != *":/opt/homebrew/share/zsh/site-functions:"* ]]; then
-    export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
 fi
 
 # Shell prompt
