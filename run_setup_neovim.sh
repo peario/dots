@@ -1,9 +1,14 @@
 #!/bin/bash
 
 is_neovim_installed=$(which nvim 1>/dev/null && echo "true" || echo "false")
+is_brew_installed=$(which brew 1>/dev/null && echo "true" || echo "false")
 
 if "$is_neovim_installed"; then
 	NEOVIM_BINARY=${NEOVIM_BINARY:-"$(which nvim)"}
+fi
+
+if "$is_brew_installed"; then
+	HOMEBREW_BINARY=${HOMEBREW_BINARY:-"/opt/homebrew/bin/brew"}
 fi
 
 # 1. check if neovim is installed
@@ -16,9 +21,13 @@ main() {
 	printf "[neovim]: starting auto-install via chezmoi\n"
 
 	if ! "$is_neovim_installed"; then
-		if confirm "[neovim]: binary not found, do you wish to install (from source)?"; then
-			# TODO: implement
-			printf ""
+		if confirm "[neovim]: binary not found, do you wish to install?"; then
+			if "$is_brew_installed"; then
+				printf "[neovim]: attempting to install neovim (via homebrew)\n"
+				"$HOMEBREW_BINARY" install neovim
+			else
+				printf "[neovim] homebrew not found and is required for this installation, try again later\n"
+			fi
 		fi
 	else
 		printf "[neovim]: found binary (%s)\n" "$NEOVIM_BINARY"
