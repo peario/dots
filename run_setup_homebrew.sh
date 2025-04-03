@@ -62,13 +62,15 @@ install_homebrew() {
 	printf "[homebrew]: homebrew should be installed now, follow instructions on screen if they show"
 	printf "[homebrew]: make sure to check any shell files (~/.zshrc, ~/.zshenv, ~/.profile, etc.) if things are in the right place"
 
-	if confirm "[homebrew]: before confirming the following question, please take a look at: https://docs.brew.sh/Brew-Bundle-and-Brewfile\n[homebrew]: would you like to install extensions as well? (mas, vscode, whalebrew)"; then
+	printf "[homebrew]: before confirming the following question, please take a look at: https://docs.brew.sh/Brew-Bundle-and-Brewfile\n"
+	if confirm "[homebrew]: would you like to install extensions as well? (mas, vscode, whalebrew)"; then
 		if confirm "[homebrew]: install mas? (https://github.com/mas-cli/mas)"; then
 			printf "[homebrew]: installing mas"
 			"$HOMEBREW_BINARY" install mas
 		fi
 
-		if confirm "[homebrew]: note that whalebrew requires docker to be installed!\n[homebrew]: install whalebrew? (https://github.com/whalebrew/whalebrew)"; then
+		printf "[homebrew]: note that whalebrew requires docker to be installed!\n"
+		if confirm "[homebrew]: install whalebrew? (https://github.com/whalebrew/whalebrew)"; then
 			printf "[homebrew]: installing Docker (cask)"
 			"$HOMEBREW_BINARY" install --cask docker
 
@@ -76,7 +78,8 @@ install_homebrew() {
 			"$HOMEBREW_BINARY" install whalebrew
 		fi
 
-		if confirm "[homebrew]: note that Visual Studio Code will allow install of extensions via homebrew for commandline\n[homebrew]: install Visual Studio Code? (https://code.visualstudio.com/"; then
+		printf "[homebrew]: note that Visual Studio Code will allow install of extensions via homebrew for commandline\n"
+		if confirm "[homebrew]: install Visual Studio Code? (https://code.visualstudio.com/"; then
 			printf "[homebrew]: installing Visual Studio Code (cask)"
 			"$HOMEBREW_BINARY" install --cask visual-studio-code
 		fi
@@ -86,15 +89,20 @@ install_homebrew() {
 }
 
 confirm() {
-	read -r "?$1 [Y/n]: " answer
-	if [[ "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-		echo "true"
-	else
-		echo "false"
-	fi
+	# print prompt
+	#   `-n 1` is maximum number of chars to grab
+	read -p "$1 [Y/n]: " -n 1 -r
+	echo
 
-	# unset answer variable to not mess with future confirms
-	unset answer
+	# If return 0 = success, no error, true
+	# any other number = failure, error, false
+	if [[ "$REPLY" =~ ^[Yy]|[Yy][Ee][Ss]$ ]]; then
+		# yes
+		return 0
+	else
+		# no
+		return 1
+	fi
 }
 
 main

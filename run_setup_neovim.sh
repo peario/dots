@@ -17,13 +17,15 @@ main() {
 
 	if ! "$is_neovim_installed"; then
 		if confirm "[neovim]: binary not found, do you wish to install (from source)?"; then
+			# TODO: implement
 			printf ""
 		fi
 	else
 		printf "[neovim]: found binary (%s)\n" "$NEOVIM_BINARY"
 	fi
 
-	if confirm "[neovim]: if you have yet to install/update, this process might hang when installing packages like \`tinymist\`\n[neovim]: would you like to run updates? (lazy, mason, treesitter)"; then
+	printf "[neovim]: if you have yet to install/update, this process might hang when installing packages like \`tinymist\`"
+	if confirm "[neovim]: would you like to run updates? (lazy, mason, treesitter)"; then
 		printf "[neovim]: updating plugins via lazy\n"
 		nvim --headless +'Lazy sync' +'q!'
 

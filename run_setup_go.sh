@@ -16,8 +16,6 @@ GOLANG_TO_INSTALL=(
 	wails
 )
 
-printf "[go]: starting auto-install via chezmoi\n"
-
 is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false")
 is_golang_installed=$(which go 1>/dev/null && echo "true" || echo "false")
 
@@ -29,36 +27,40 @@ if "$is_golang_installed"; then
 	GO_BINARY=${GO_BINARY:-$(which go)}
 fi
 
-#### CHECK WHICH PATHS AND EXECUTABLES ARE DEFINED/EXISTS
-if [ -d "$GOPATH" ] && [ -d "$GOROOT" ] && "$is_golang_installed"; then
-	printf "[go]: found GOPATH (%s), GOROOT (%s) and go binary (%s)\n" "$GOPATH" "$GOROOT" "$GO_BINARY"
+main() {
+	printf "[go]: starting auto-install via chezmoi\n"
 
-	if ! "$is_g_manager_installed"; then
-		printf "[go]: g manager was not found (url: https://github.com/stefanmaric/g)\n"
-		if confirm "[go]: do you wish to install g manager (go version manager)?"; then
-			install_g_manager
-		else
-			printf "[go]: rejected install of g manager\n"
-			printf "[go]: exiting...\n"
-			exit 0
+	if [ -d "$GOPATH" ] && [ -d "$GOROOT" ] && "$is_golang_installed"; then
+		printf "[go]: found GOPATH (%s), GOROOT (%s) and go binary (%s)\n" "$GOPATH" "$GOROOT" "$GO_BINARY"
+
+		if ! "$is_g_manager_installed"; then
+			printf "[go]: g manager was not found (url: https://github.com/stefanmaric/g)\n"
+			if confirm "[go]: do you wish to install g manager (go version manager)?"; then
+				install_g_manager
+			else
+				printf "[go]: rejected install of g manager\n"
+				printf "[go]: exiting...\n"
+				exit 0
+			fi
+		fi
+	elif [ -d "$GOPATH" ] && [ -d "$GOROOT" ] && ! "$is_golang_installed"; then
+		printf "[go]: found GOPATH (%s) and GOROOT (%s)\n" "$GOPATH" "$GOROOT"
+		printf "[go]: no go binary found in \$PATH!\n"
+
+		if ! "$is_g_manager_installed"; then
+			printf "[go]: g manager was not found (url: https://github.com/stefanmaric/g)\n"
+			if confirm "[go]: do you wish to install g manager (go version manager)?"; then
+				install_g_manager
+			else
+				printf "[go]: rejected install of g manager, go cannot be installed (via this script)\n"
+				printf "[go]: exiting...\n"
+			fi
 		fi
 	fi
-elif [ -d "$GOPATH" ] && [ -d "$GOROOT" ] && ! "$is_golang_installed"; then
-	printf "[go]: found GOPATH (%s) and GOROOT (%s)\n" "$GOPATH" "$GOROOT"
-	printf "[go]: no go binary found in \$PATH!\n"
 
-	if ! "$is_g_manager_installed"; then
-		printf "[go]: g manager was not found (url: https://github.com/stefanmaric/g)\n"
-		if confirm "[go]: do you wish to install g manager (go version manager)?"; then
-			install_g_manager
-		else
-			printf "[go]: rejected install of g manager, go cannot be installed (via this script)\n"
-			printf "[go]: exiting...\n"
-		fi
-	fi
-fi
+	printf "[go]: auto-install via chezmoi is done\n\n"
+}
 
-#### RUN INSTALLER (done)
 install_g_manager() {
 	printf "[go]: making sure directories for GOPATH (%s) and GOROOT (%s) exists\n" "$GOPATH" "$GOROOT"
 	mkdir -p "$GOPATH" "$GOROOT"
@@ -72,7 +74,6 @@ install_g_manager() {
 	setup_g_manager
 }
 
-#### UPDATE MANAGER (done)
 setup_g_manager() {
 	printf "[go]: updating g manager (%s) to latest version\n" "$G_MANAGER"
 	"$G_MANAGER" self-upgrade 1>/dev/null
@@ -84,7 +85,6 @@ setup_g_manager() {
 	install_binaries
 }
 
-#### INSTALL BINARIES
 install_binaries() {
 	printf "[go]: installing binaries via 'go install'\n"
 	to_install=""
@@ -107,18 +107,21 @@ install_binaries() {
 	fi
 }
 
-#### CONFIRM IF TO PROCEED
 confirm() {
-	read -r "?$1 [Y/n]: " answer
-	if [[ "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-		echo "true"
-	else
-		echo "false"
-	fi
+	# print prompt
+	#   `-n 1` is maximum number of chars to grab
+	read -p "$1 [Y/n]: " -n 1 -r
+	echo
 
-	# unset answer variable to not mess with future confirms
-	unset answer
+	# If return 0 = success, no error, true
+	# any other number = failure, error, false
+	if [[ "$REPLY" =~ ^[Yy]|[Yy][Ee][Ss]$ ]]; then
+		# yes
+		return 0
+	else
+		# no
+		return 1
+	fi
 }
 
-#### PRINT WHEN EVERYTHING IS DONE
-printf "[go]: auto-install via chezmoi is done\n\n"
+main

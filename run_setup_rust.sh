@@ -30,17 +30,22 @@ RUST_TO_INSTALL_LOCKED=(
 	zoxide   # a smarter cd command
 )
 
-printf "[rust]: starting auto-install via chezmoi\n"
+main() {
+	printf "[rust]: starting auto-install via chezmoi\n"
 
-if [ -d "$RUSTUP_DIR" ] && [ -d "$CARGO_DIR" ] && [ -s "$CARGO_DIR/env" ]; then
-	printf "[rust]: found both RUSTUP_HOME (%s) and CARGO_HOME (%s), skipping install\n" "$RUSTUP_DIR" "$CARGO_DIR"
-elif ! [ -d "$RUSTUP_DIR" ]; then
-	prinft "[rust]: RUSTUP_HOME (%s) not found, running installer\n" "$RUSTUP_DIR"
-	# install rustup automatically + quiet
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
+	if [ -d "$RUSTUP_DIR" ] && [ -d "$CARGO_DIR" ] && [ -s "$CARGO_DIR/env" ]; then
+		printf "[rust]: found both RUSTUP_HOME (%s) and CARGO_HOME (%s), skipping install\n" "$RUSTUP_DIR" "$CARGO_DIR"
+	elif ! [ -d "$RUSTUP_DIR" ]; then
+		prinft "[rust]: RUSTUP_HOME (%s) not found, running installer\n" "$RUSTUP_DIR"
+		# install rustup automatically + quiet
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
+	fi
 
+	# regardless of if just installed or installed from earlier, run updates and installs
 	update_rustup
-fi
+
+	printf "[rust]: auto-install via chezmoi is done\n\n"
+}
 
 update_rustup() {
 	if ! [ -x "$RUSTUP_BINARY" ]; then
@@ -97,17 +102,19 @@ install_binaries() {
 	fi
 }
 
-#### CONFIRM IF TO PROCEED
 confirm() {
-	read -r "?$1 [Y/n]: " answer
-	if [[ "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-		echo "true"
+	# print prompt
+	#   `-n 1` is maximum number of chars to grab
+	read -p "$1 [Y/n]: " -n 1 -r
+	echo
+
+	# If return 0 = success, no error, true
+	# any other number = failure, error, false
+	if [[ "$REPLY" =~ ^[Yy]|[Yy][Ee][Ss]$ ]]; then
+		# yes
+		return 0
 	else
-		echo "false"
+		# no
+		return 1
 	fi
-
-	# unset answer variable to not mess with future confirms
-	unset answer
 }
-
-printf "[rust]: auto-install via chezmoi is done\n\n"
