@@ -1,3 +1,4 @@
+### VIM EXTERNALS ###
 [".vim/plugged/vimtex"]
 type = "archive"
 url = "https://github.com/lervag/vimtex/archive/refs/tags/v2.16.tar.gz"

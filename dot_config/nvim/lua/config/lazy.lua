@@ -41,7 +41,7 @@ require("lazy").setup({
   },
   rocks = {
     enabled = true,
-    hererocks = nil,
+    hererocks = true,
   },
   performance = {
     cache = {

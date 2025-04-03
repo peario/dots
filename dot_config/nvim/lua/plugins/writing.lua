@@ -147,8 +147,16 @@ return {
   },
   -- Horizontal highlights for text filetypes, like markdown, orgmode, and neorg.
   {
-    "lukas-reineke/headlines.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {},
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "vimwiki" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {
+      completions = {
+        lsp = { enabled = true },
+      },
+      file_types = { "markdown", "vimwiki" },
+    },
   },
 }

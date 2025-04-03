@@ -16,6 +16,11 @@ return {
     },
   },
   {
+    "3rd/image.nvim",
+    lazy = true,
+    opts = {},
+  },
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -182,20 +187,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    "mcauley-penney/visual-whitespace.nvim",
-    lazy = false,
-    enabled = false, -- NOTE: Disabled until fixed / higlighting issue is resolved
-    config = function(_, opts)
-      vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d" })
-
-      return opts
-    end,
-    keys = function()
-      return {
-        { "<leader>vW", require("visual-whitespace").toggle, desc = "Toggle Visual Whitespace" },
-      }
-    end, -- keys = { "v", "V", "<C-v>" }, -- optionally, lazy load on visual mode keys
   },
 }

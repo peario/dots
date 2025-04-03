@@ -1,9 +1,14 @@
 -- NOTE: While this file is called `lsp.lua` it's actually encompasses formatters, linters, etc. as well
 -- Intended to install said tools as well.
 return {
+  {
+    "mfussenegger/nvim-lint",
+    event = { "LazyFile", "VeryLazy" },
+  },
   -- Neovim as LSP
   {
     "nvimtools/none-ls.nvim",
+    event = { "LazyFile", "VeryLazy" },
     dependencies = {
       -- Just to make sure "ts-node-action" is available
       -- It's required (not sure if direct or indirect) by `builtins.code_actions.ts_node_action`
@@ -13,7 +18,7 @@ return {
         opts = {},
       },
       -- For those sources which uses "vim.ui.select"
-      "ibhagwan/fzf-lua",
+      -- "ibhagwan/fzf-lua",
       -- For those sources which uses "vim.ui.input"
       "folke/snacks.nvim",
     },
@@ -153,6 +158,7 @@ return {
   -- LSP
   {
     "neovim/nvim-lspconfig",
+    event = { "LazyFile", "VeryLazy" },
     opts = {
       inlay_hints = { enabled = true },
       ---@type lspconfig.options

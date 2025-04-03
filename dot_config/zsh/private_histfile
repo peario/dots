@@ -380,7 +380,6 @@
 : 1737843600:0;rm -rf .direnv .venv .envrc *.nix
 : 1737843615:0;vim lua/plugins/writing.lua
 : 1737887275:0;touch demo/test.typ
-: 1737887396:0;nvim init.lua
 : 1737887467:0;nvim lua/plugins/writing.lua
 : 1737887619:0;typst
 : 1737887621:0;cargo install --locked typst-cli
@@ -546,7 +545,6 @@
 : 1738564624:0;nvim ~/.ssh/config
 : 1738564671:0;nvim ~/.gitconfig
 : 1738564791:0;wails doctor
-: 1738648981:0;brew --help
 : 1738648988:0;brew upgrade && brew update
 : 1738685910:0;cd onedrive
 : 1738686009:0;touch 'Etik och moral.docx'
@@ -609,7 +607,6 @@
 : 1738931819:0;brew search godot
 : 1738931826:0;brew install --cask godot
 : 1738933384:0;nvim .vimrc
-: 1738933670:0;cd code
 : 1738933673:0;mkdir games
 : 1738936245:0;cargo new minesweeper --lib --edition="2024"
 : 1738936321:0;cargo add bevy
@@ -995,7 +992,6 @@ go get -u gorm.io/driver/sqlite
 : 1741846540:0;touch Rakefile
 : 1741846543:0;mkdir lib
 : 1741846547:0;nvim Rakefile
-: 1741846600:0;lt
 : 1741846608:0;mv main.rb lib/bitcask.rb
 : 1741846614:0;nvim lib/bitcask.rb
 : 1741847596:0;rm -rf ruby
@@ -1242,7 +1238,6 @@ go get -u gorm.io/driver/sqlite
 : 1742881557:0;fnm i v22.14.0
 : 1742881602:0;fnm use v22.14.0
 : 1742881604:0;node -v
-: 1742881642:0;cd peario
 : 1742881645:0;rm -rf home
 : 1742881672:0;pnpm
 : 1742881675:0;npm i -g pnpm
@@ -1377,7 +1372,6 @@ mv ~/.cache/nvim{,.bak}\
 : 1743143076:0;pnpm lint
 : 1743143095:0;pnpm lint --fix
 : 1743143103:0;nvim assets/css/tailwind.css
-: 1743317461:0;which nvim
 : 1743317540:0;brew info lua
 : 1743317545:0;brew search lua
 : 1743317602:0;brew uninstall lua
@@ -1385,7 +1379,6 @@ mv ~/.cache/nvim{,.bak}\
 : 1743317722:0;brew uninstall vim lua
 : 1743317727:0;vim
 : 1743317789:0;brew install libtool
-: 1743317797:0;brew update && brew upgrade
 : 1743317924:0;cd Code
 : 1743317934:0;git clone https://github.com/vim/vim.git
 : 1743318067:0;brew search iconv
@@ -1434,7 +1427,6 @@ echo "export LUA_CPATH=${LUA}lib/lua/5.1/?.so" >> ${LUA}/.profile\
 echo "export LUA_PATH=${LUA}share/lua/5.1/?.lua;;" >> ${LUA}/.profile\
 echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743319849:0;ls ~/.lua
-: 1743319872:0;nvim ~/.config/zsh/.zshrc
 : 1743320284:0;source "$LUA/.profile"
 : 1743320297:0;file ${LUA}/bin/lua
 : 1743320351:0;sk /usr/local/bin
@@ -1661,7 +1653,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743330832:0;brew install age
 : 1743330892:0;cd dot_config
 : 1743330913:0;mkdir chezmoi
-: 1743330916:0;cd chezmoi
 : 1743330923:0;nvim chezmoi.toml
 : 1743330955:0;delta
 : 1743330967:0;cd .config/nvim
@@ -1690,7 +1681,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743332367:0;rm -rf ultisnips
 : 1743332369:0;rm -rf vim-commentary
 : 1743332445:0;la fzf
-: 1743332532:0;a
 : 1743332789:0;rm -rf tex-conceal.vim nord-vim lightline.vim fzf fzf.vim
 : 1743332815:0;nvim ../../.chezmoiexternal.toml
 : 1743332865:0;rm -rf auto-pairs everforest
@@ -1932,8 +1922,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743428243:0;brew search docker
 : 1743428263:0;brew install --cask docker
 : 1743493374:0;nvim --help
-: 1743493419:0;tldr nvim
-: 1743493437:0;man nvim
 : 1743493513:0;nvim -c "+Lazy sync"
 : 1743493519:0;nvim -c "Lazy sync"
 : 1743493523:0;nvim -c ":Lazy sync"
@@ -1941,8 +1929,6 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743493589:0;nvim "+Lazy sync"
 : 1743493606:0;nvim "+Lazy sync" .
 : 1743493730:0;nvim -c "Lazy sync" .
-: 1743494083:0;cd nvim
-: 1743494084:0;ls
 : 1743494099:0;rm -rf .git
 : 1743494231:0;man rg
 : 1743494242:0;man -l -
@@ -1951,58 +1937,34 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743494285:0;rg --help
 : 1743494297:0;sk -i --ansi -c "rg {}"
 : 1743494322:0;nvim lua/config/lazy.lua
-: 1743496304:0;nvim
 : 1743496668:0;nvim lua/plugins/ui.lua
 : 1743517627:0;cd ..
 : 1743517637:0;brew search akkurat
 : 1743517643:0;brew info akku
 : 1743517909:0;cd
-: 1743517912:0;chezmoi cd
 : 1743518226:0;nvim run_install_rust.sh
 : 1743518244:0;cargo
 : 1743518254:0;cargo --list
 : 1743518271:0;cargo config
 : 1743518274:0;cargo config get
-: 1743518286:0;clear
 : 1743518530:0;./run_install_rust.sh
 : 1743518546:0;chezmoi apply
 : 1743518581:0;git remote show-url origin
 : 1743518584:0;git remote get-url origin
-: 1743518597:0;la
 : 1743518601:0;touch README.md
 : 1743518603:0;nvim README.md
-: 1743518626:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
-: 1743518628:0;git add .
 : 1743518644:0;git branch
 : 1743518652:0;git commit -sm "initial commit"
 : 1743518695:0;git remote set-url origin git@github.com:peario/dots.git
-: 1743518698:0;git push -u origin master
-: 1743518706:0;git s
-: 1743518726:0;exit
-: 1743569228:0;chezmoi cd
-: 1743569230:0;la
-: 1743569231:0;git s
 : 1743569239:0;mv run_install_go.sh run_setup_go.sh
 : 1743569249:0;mv run_install_rust.sh run_setup_rust.sh
-: 1743569282:0;la
-: 1743569284:0;git s
-: 1743569286:0;git add .
-: 1743569287:0;git s
 : 1743569308:0;touch run_setup_homebrew.sh
-: 1743569321:0;nvim run_setup_homebrew.sh
-: 1743569835:0;brew --prefix
 : 1743569862:0;echo "$BREW_PATH"
-: 1743569909:0;which brew
 : 1743570055:0;brew --help
-: 1743570061:0;man brew
 : 1743570101:0;brew env
 : 1743570105:0;brew bundle env
-: 1743570114:0;brew update && brew upgrade
-: 1743570154:0;man brew
 : 1743570292:0;brew shellenv
 : 1743570304:0;brew --prefix
-: 1743571169:0;git s
-: 1743571171:0;git add .
 : 1743571175:0;nvim run_setup_homebrew.sh
 : 1743571923:0;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | nvim -
 : 1743571953:0;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | /bin/bash -- -h
@@ -2010,9 +1972,134 @@ echo "export MANPATH=${LUA}share/man:\$MANPATH" >> ${LUA}/.profile
 : 1743572106:0;man brew
 : 1743572585:0;which brew
 : 1743572591:0;la /opt/homebrew/bin
-: 1743573302:0;git s
-: 1743573303:0;git add .
-: 1743573305:0;nvim
-: 1743573321:0;git s
-: 1743573322:0;git add .
-: 1743573331:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743573362:0;git commit -sm "feat(auto-install): added homebrew"
+: 1743600486:0;chmod +x run_setup_homebrew.sh
+: 1743600524:0;git commit -sm "fix(auto-install): added executable perm to homebrew setup"
+: 1743600529:0;git push -u origin master
+: 1743603633:0;cd code
+: 1743603664:0;devy
+: 1743603767:0;cd peario
+: 1743621919:0;nvim -c "lazy"
+: 1743622064:0;man nvim
+: 1743622107:0;tldr nvim
+: 1743622141:0;nvim -c "5"
+: 1743663026:0;nvim init.lua
+: 1743663404:0;la doc
+: 1743663407:0;rm -rf doc/tags
+: 1743663694:0;echo foo | nvim --headless +"%print" +"q -\
+\
+\
+
+: 1743663712:0;echo foo | nvim --headless +"%print" +"q\!" -\
+
+: 1743663735:0;nvim --headless +"Lazy sync"
+: 1743663746:0;nvim +"Lazy sync"
+: 1743663764:0;nvim --headless +"Lazy sync" +"q\!"
+: 1743663850:0;touch run_setup_neovim.sh
+: 1743663855:0;chmod +x run_setup_neovim.sh
+: 1743664366:0;h nvim
+: 1743664368:0;which nvim
+: 1743664371:0;nvim -V
+: 1743666041:0;nvim --headless +'lua vim.cmd("Mason"); local mr=require("mason-registry"); local t={}; for _,s in ipairs(require("lspconfig.util").available_servers()) do t[s]=1 end; local ok,con=pcall(require,"conform"); if ok then for _,f in ipairs(con.list_all_formatters()) do for w in string.gmatch(f.name,"%S+") do t[w]=1 end end end; local ok2,lint=pcall(require,"lint"); if ok2 then for _,l in pairs(lint.linters_by_ft) do for _,w in ipairs(l) do t[w]=1 end end end; local pk={}; for k in pairs(t) do table.insert(pk,k) end; mr.refresh(function() for _,tool in ipairs(pk) do local p=mr.get_package(tool) if not p:is_installed() then p:install() end end end)'
+: 1743666723:0;a
+: 1743666728:0;touch meson.lua
+: 1743668241:0;nvim meson.lua
+: 1743668425:0;nvim --headless +'luafile ./meson.lua'
+: 1743680988:0;rm meson.lua
+: 1743680992:0;lt
+: 1743681801:0;ls
+: 1743681830:0;rm -r ~/.config/nvim/lua/utils
+: 1743681832:0;nvim .chezmoiexternal.toml
+: 1743682410:0;echo "$REPLY"
+: 1743683445:0;la ~/.config/nvim/lua/utils
+: 1743683447:0;la ~/.config/nvim/lua/util
+: 1743684356:0;brew install gh
+: 1743684368:0;brew update && brew upgrade
+: 1743684433:0;printenv
+: 1743684438:0;clear
+: 1743684797:0;nvim lua/config/autocmds.lua
+: 1743685433:0;nvim --headless +'MasonToolsUpdate'
+: 1743685446:0;nvim --headless +'MasonToolsUpdate' 'q\!'
+: 1743685452:0;nvim --headless +'MasonToolsUpdate' +'q\!'
+: 1743685454:0;la
+: 1743685466:0;nvim --headless +"MasonToolsUpdate" +"q\!"
+: 1743685474:0;nvim +"MasonToolsUpdate"
+: 1743685516:0;nvim +"TSUpdate"
+: 1743685534:0;nvim --headless +"TSUpdate" +"q\!"
+: 1743685542:0;cd chezmoi
+: 1743685869:0;gh completion
+: 1743685873:0;gh completion -s zsh
+: 1743685996:0;nvim ~/.config/zsh/.zshrc
+: 1743686001:0;gh
+: 1743686014:0;gh auth
+: 1743686025:0;gh auth login
+: 1743687732:0;nvim ~/.config/nvim/lua/plugins/mason.lua
+: 1743687833:0;cd nvim
+: 1743688010:0;nvim lua/plugins/mason.lua
+: 1743688085:0;chezmoi cd
+: 1743688093:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743688154:0;rm -rf ~/.local/share/nvim{,.bak} ~/.local/state/nvim{,.bak} ~/.cache/nvim{,.bak}
+: 1743689022:0;./run_setup_neovim.sh
+: 1743689034:0;nvim run_setup_neovim.sh
+: 1743689151:0;nvim
+: 1743690385:0;git s
+: 1743690386:0;git add .
+: 1743690387:0;exit
+: 1743690389:0;la
+: 1743690394:0;nvim lua/plugins/mason.lua
+: 1743690437:0;nvim
+: 1743690449:0;nvim
+: 1743692133:0;la
+: 1743692136:0;nvim nvim-loadtimes.txt
+: 1743692150:0;nvim
+: 1743692153:0;nvim
+: 1743692188:0;nvim
+: 1743692193:0;nvim
+: 1743692208:0;nvim
+: 1743692217:0;nvim nvim-loadtimes.txt
+: 1743692247:0;nvim
+: 1743692331:0;nvim
+: 1743692918:0;nvim nvim-loadtimes.txt
+: 1743693699:0;nvim lua/plugins/colorscheme.lua
+: 1743693742:0;nvim
+: 1743693747:0;nvim
+: 1743693753:0;nvim nvim-loadtimes.txt
+: 1743693865:0;rg 'headlines'
+: 1743693869:0;nvim lua/plugins/writing.lua
+: 1743694225:0;nvim
+: 1743694348:0;nvim lua/plugins/ui.lua
+: 1743694412:0;brew install imagemagick
+: 1743694576:0;nvim
+: 1743694593:0;nvim
+: 1743694615:0;brew install jstkdng/programs/ueberzugpp
+: 1743694633:0;which ueberzugpp
+: 1743694650:0;nvim ~/.config/ueberzugpp/config.json
+: 1743694682:0;git s
+: 1743694735:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743694755:0;chezmoi add ~/.config/ueberzugpp
+: 1743694759:0;nvim
+: 1743694762:0;nvim
+: 1743694807:0;nvim ~/.config/zsh/.zshrc
+: 1743694889:0;chezmoi re-add ~/.config/zsh ~/.config/nvim
+: 1743694945:0;pipx install pylatexenc
+: 1743694974:0;nvim
+: 1743695003:0;nvim
+: 1743695116:0;nvim lua/plugins/mason.lua
+: 1743695171:0;nvim
+: 1743695179:0;nvim nvim-loadtimes.txt
+: 1743695211:0;nvim
+: 1743695219:0;nvim lua/plugins/lsp.lua
+: 1743695345:0;nvim
+: 1743695359:0;nvim
+: 1743695364:0;rg 'fzf'
+: 1743695368:0;nvim lua/plugins/navigation.lua
+: 1743695410:0;nvim
+: 1743695418:0;nvim
+: 1743695462:0;nvim lua/plugins/lsp.lua
+: 1743695535:0;nvim
+: 1743695554:0;nvim lua/plugins/mason.lua
+: 1743695845:0;nvim
+: 1743695860:0;nvim lua/plugins/mason.lua
+: 1743695962:0;nvim
+: 1743695986:0;git s
+: 1743695990:0;chezmoi re-add ~/.config/zsh ~/.config/nvim

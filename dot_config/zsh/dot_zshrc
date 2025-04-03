@@ -205,8 +205,16 @@ if [ -d "/opt/homebrew/bin" ] || command -v brew 1> /dev/null; then
       fpath+=("$(brew --prefix)/share/zsh/site-functions")
     fi
 
+    # imagemagick
+    export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+
     autoload -Uz compinit
     compinit
+fi
+
+# GitHub CLI
+if command -v gh 1> /dev/null; then
+  eval "$(gh completion -s zsh)"
 fi
 
 # Perl
@@ -388,7 +396,6 @@ if [ -f $HOME/.config/zsh/antigen.zsh ]; then
     # NOTE: Appending `2>&1` to `1>/dev/null` causes both stderr (2) and stdout (1) to be piped to `/dev/null`
     antigen bundle command-not-found 1>/dev/null
     antigen bundle copybuffer 1>/dev/null
-    antigen bundle gh 1>/dev/null
     antigen bundle tldr 1>/dev/null # tlrc is the command installed (rust version of tldr)
     antigen bundle web-search 1>/dev/null
 

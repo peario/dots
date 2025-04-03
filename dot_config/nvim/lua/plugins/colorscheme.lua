@@ -4,6 +4,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {
       flavour = "auto",
@@ -30,6 +31,7 @@ return {
     "neanias/everforest-nvim",
     version = false,
     lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {
       background = "hard",
@@ -44,6 +46,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {
       variant = "moon",
@@ -63,8 +66,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = true,
     priority = 1000,
-    opts = {
-      style = "moon",
-    },
+    opts = { style = "moon" },
   },
 }
