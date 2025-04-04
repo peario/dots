@@ -33,7 +33,7 @@ main() {
 		printf "[neovim]: found binary (%s)\n" "$NEOVIM_BINARY"
 	fi
 
-	printf "[neovim]: if you have yet to install/update, this process might hang when installing packages like \`tinymist\`"
+	printf "[neovim]: if you have yet to install/update, this process might hang when installing packages like \`tinymist\`\n"
 	if confirm "[neovim]: would you like to run updates? (lazy, mason, treesitter)"; then
 		printf "[neovim]: updating plugins via lazy\n"
 		nvim --headless +'Lazy sync' +'q!'

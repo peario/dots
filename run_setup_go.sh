@@ -5,26 +5,26 @@ GOROOT=${GOROOT:-$HOME/.go}
 
 # To install into "$GO_PATH/bin"
 GOLANG_TO_INSTALL=(
-	air
-	cobra-cli
-	fzf
-	gdu
-	gotypist
-	lazygit
-	lazydocker
-	tomlv
-	wails
+	"air-verse/air"
+	"spf13/cobra-cli"
+	"junegunn/fzf"
+	"dundee/gdu"
+	"pb-/gotypist"
+	"jesseduffield/lazygit"
+	"jesseduffield/lazydocker"
+	"BurntSushi/toml/cmd/tomlv"
+	"wailsapp/wails/v2/cmd/wails"
 )
 
 is_g_manager_installed=$([ -x "$GOPATH/bin/g" ] && echo "true" || echo "false")
 is_golang_installed=$(which go 1>/dev/null && echo "true" || echo "false")
 
 if "$is_g_manager_installed"; then
-	G_MANAGER=${G_MANAGER:-$(which "$GOPATH/bin/g")}
+	G_MANAGER=${G_MANAGER:-"$GOPATH/bin/g"}
 fi
 
 if "$is_golang_installed"; then
-	GO_BINARY=${GO_BINARY:-$(which go)}
+	GO_BINARY=${GO_BINARY:-"$(which go)"}
 fi
 
 main() {
@@ -58,6 +58,14 @@ main() {
 		fi
 	fi
 
+	if "$is_golang_installed"; then
+		if confirm "[go]: install go binaries via 'go install'?"; then
+			install_binaries
+		else
+			printf "[go]: skipping install of binaries\n"
+		fi
+	fi
+
 	printf "[go]: auto-install via chezmoi is done\n\n"
 }
 
@@ -81,27 +89,27 @@ setup_g_manager() {
 	latest_version_go="$(G_MANAGER list-all | awk '/./ {print $NF}' | tail -n 1)"
 	printf "[go]: install latest version of go (%s)\n" "$latest_version_go"
 	"$G_MANAGER" install latest 1>/dev/null
-
-	install_binaries
 }
 
 install_binaries() {
-	printf "[go]: installing binaries via 'go install'\n"
-	to_install=""
+	to_install=()
+	to_install_log=()
 	for binary in "${GOLANG_TO_INSTALL[@]}"; do
 		# If a @ exists in the binary name, it's most likely a version tag.
 		# As such we want to leave it as is.
 		if [[ $binary == *"@"* ]]; then
-			to_install="${to_install:+$to_install } $binary"
+			to_install+=("github.com/$binary")
+			to_install_log+=("$binary")
 			# If the binary does not contain a version tag, then add "@latest"
 		else
-			to_install="${to_install:+$to_install } $binary@latest"
+			to_install+=("github.com/$binary@latest")
+			to_install_log+=("$binary@latest")
 		fi
 	done
 
-	printf "[go]: installing: %s\n" "$to_install"
-	if confirm "[go]: Proceed?"; then
-		"$GO_BINARY" install "$to_install"
+	printf "[go]: installing: %s\n" "${to_install_log[*]}"
+	if confirm "[go]: proceed?"; then
+		"$GO_BINARY" install "${to_install[@]}"
 	else
 		printf "[go]: skipping install\n"
 	fi

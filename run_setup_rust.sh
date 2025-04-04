@@ -7,20 +7,18 @@ RUSTUP_BINARY="$CARGO_DIR/bin/rustup"
 
 # To install into "$CARGO_DIR/bin"
 RUST_TO_INSTALL=(
-	cargo-cov    # source coverage and reporting for rust crates
-	cargo-update # update installed binaries
-	cargo-size   # prints memory usage of a (rust) binary
-	cargo-strip  # reduce the size of rust binaries
-	git-delta    # syntax highlighted pager and for diffs, grep and blames
-	eza          # a modern alternative to ls
-	fd-find      # a fast alternative to find
-	fnm          # a node version manager
-	just         # a command runner (like make)
-	macchina     # system information fetcher (like neofetch)
-	ripgrep      # recursively search dirs and subdirs with regex
-	silicon      # take screenshots of code
-	skim         # alternative to fzf
-	viu          # terminal image viewer
+	cargo-binutils # Cargo subcommands to invoke the LLVM tools shipped with the Rust toolchain
+	cargo-update   # update installed binaries
+	git-delta      # syntax highlighted pager and for diffs, grep and blames
+	eza            # a modern alternative to ls
+	fd-find        # a fast alternative to find
+	fnm            # a node version manager
+	just           # a command runner (like make)
+	macchina       # system information fetcher (like neofetch)
+	ripgrep        # recursively search dirs and subdirs with regex
+	silicon        # take screenshots of code
+	skim           # alternative to fzf
+	viu            # terminal image viewer
 )
 RUST_TO_INSTALL_LOCKED=(
 	ast-grep # structual search and replace
@@ -36,7 +34,7 @@ main() {
 	if [ -d "$RUSTUP_DIR" ] && [ -d "$CARGO_DIR" ] && [ -s "$CARGO_DIR/env" ]; then
 		printf "[rust]: found both RUSTUP_HOME (%s) and CARGO_HOME (%s), skipping install\n" "$RUSTUP_DIR" "$CARGO_DIR"
 	elif ! [ -d "$RUSTUP_DIR" ]; then
-		prinft "[rust]: RUSTUP_HOME (%s) not found, running installer\n" "$RUSTUP_DIR"
+		printf "[rust]: RUSTUP_HOME (%s) not found, running installer\n" "$RUSTUP_DIR"
 		# install rustup automatically + quiet
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
 	fi
@@ -75,28 +73,22 @@ install_binaries() {
 		mkdir -p "$CARGO_DIR/bin"
 	fi
 
-	printf "[rust]: installing binaries via cargo\n"
-	to_install=""
-	for binary in "${RUST_TO_INSTALL[@]}"; do
-		to_install="${to_install:+$to_install } $binary"
-	done
-
-	printf "[rust]: installing: %s\n" "$to_install"
-	if confirm "[rust]: Proceed?"; then
-		"$CARGO_BINARY" install "$to_install"
+	printf "[rust]: installing binaries via:\n"
+	printf "[rust]:   > "
+	printf "%q " "$CARGO_BINARY" install "${RUST_TO_INSTALL[@]}"
+	echo
+	if confirm "[rust]: proceed?"; then
+		"$CARGO_BINARY" install "${RUST_TO_INSTALL[@]}"
 	else
 		printf "[rust]: skipping install\n"
 	fi
 
-	printf "[rust]: installing locked binaries via cargo\n"
-	to_install_locked=""
-	for binary in "${RUST_TO_INSTALL_LOCKED[@]}"; do
-		to_install_locked="${to_install_locked:+$to_install_locked } $binary"
-	done
-
-	printf "[rust]: installing (with --locked): %s\n" "$to_install"
-	if confirm "[rust]: Proceed?"; then
-		"$CARGO_BINARY" install --locked "$to_install_locked"
+	printf "[rust]: installing binaries via (with --locked):\n"
+	printf "[rust]:   > "
+	printf "%q " "$CARGO_BINARY" install --locked "${RUST_TO_INSTALL_LOCKED[@]}"
+	echo
+	if confirm "[rust]: proceed?"; then
+		"$CARGO_BINARY" install --locked "${RUST_TO_INSTALL_LOCKED[@]}"
 	else
 		printf "[rust]: skipping install (with --locked)\n"
 	fi
@@ -104,7 +96,7 @@ install_binaries() {
 
 confirm() {
 	# print prompt
-	#   `-n 1` is maximum number of chars to grab
+	#   $(-n 1) is maximum number of chars to grab
 	read -p "$1 [Y/n]: " -n 1 -r
 	echo
 
@@ -118,3 +110,5 @@ confirm() {
 		return 1
 	fi
 }
+
+main
