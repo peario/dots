@@ -26,41 +26,11 @@ return {
       },
     },
   },
-  -- Everforest
-  {
-    "neanias/everforest-nvim",
-    version = false,
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    opts = {
-      background = "hard",
-      inlay_hints_background = "dimmed",
-    },
-    config = function(_, opts)
-      require("everforest").setup(opts)
-    end,
-  },
-  -- Rose Pine
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    opts = {
-      variant = "moon",
-    },
-  },
-
   -- Configure LazyVim to easier change theme
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "onenord",
-    },
+    opts = { colorscheme = "onenord" },
   },
-
   -- TokyoNight, keep for reproduction env
   {
     "folke/tokyonight.nvim",

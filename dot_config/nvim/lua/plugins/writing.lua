@@ -2,8 +2,8 @@ return {
   --- LaTeX-related writing
   {
     "lervag/vimtex",
-    enabled = false,
     ft = { "tex", "latex", "plaintex", "bibtex" },
+    event = "LazyFile",
     lazy = false, -- lazy-loading will disable inverse search
     init = function()
       -- Move auxiliary files to subfolder to reduce clutter
@@ -103,7 +103,8 @@ return {
   -- Preview
   {
     "chomosuke/typst-preview.nvim",
-    lazy = false, -- or ft = 'typst'
+    ft = { "typst" },
+    event = "LazyFile",
     version = "1.*",
     opts = {},
   },
@@ -111,6 +112,7 @@ return {
   {
     "kaarmu/typst.vim",
     ft = { "typst" },
+    event = "LazyFile",
     lazy = false,
     -- init = function() end,
   },
@@ -148,7 +150,7 @@ return {
   -- Horizontal highlights for text filetypes, like markdown, orgmode, and neorg.
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "vimwiki" },
+    ft = { "markdown", "vimwiki", "norg", "rmd", "org", "codecompanion" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
@@ -156,7 +158,7 @@ return {
       completions = {
         lsp = { enabled = true },
       },
-      file_types = { "markdown", "vimwiki" },
+      file_types = { "markdown", "vimwiki", "norg", "rmd", "org", "codecompanion" },
     },
   },
 }

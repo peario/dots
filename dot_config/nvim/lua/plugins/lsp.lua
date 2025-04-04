@@ -17,9 +17,7 @@ return {
         dependencies = "nvim-treesitter",
         opts = {},
       },
-      -- For those sources which uses "vim.ui.select"
-      -- "ibhagwan/fzf-lua",
-      -- For those sources which uses "vim.ui.input"
+      -- For those sources which uses "vim.ui.input" and "vim.ui.select"
       "folke/snacks.nvim",
     },
     opts = function(_, opts)
@@ -27,16 +25,18 @@ return {
       local nls = require("null-ls")
 
       -- Inject tools via Neovim as LSP
+      -- NOTE: Any linters, formatters, etc. needs to be installed.
+      --  See if they exists in the mason registry and add them to `ensure_installed` in "WhoIsSethDaniel/mason-tool-installer.nvim"
+      --  In the file `./lua/plugins/mason.lua`
       opts.sources = vim.list_extend(opts.sources or {}, {
         -- Code actions
-        nls.builtins.code_actions.gomodifytags,
-        nls.builtins.code_actions.impl,
         nls.builtins.code_actions.ts_node_action,
         -- Completion
         -- nls.builtins.completion.luasnip,
         nls.builtins.completion.nvim_snippets,
-        -- Diagnostics
+        -- Diagnostics / linters
         nls.builtins.diagnostics.actionlint,
+        nls.builtins.diagnostics.buf,
         nls.builtins.diagnostics.commitlint.with({
           runtime_condition = h.cache.by_bufnr(function(params)
             local conf_file_names = { ".commitlintrc", "commitlint.config" }
@@ -121,11 +121,7 @@ return {
         nls.builtins.formatting.buf,
         nls.builtins.formatting.cbfmt,
         nls.builtins.formatting.clang_format,
-        nls.builtins.formatting.goimports_reviser,
         nls.builtins.formatting.golines,
-        nls.builtins.formatting.leptosfmt,
-        nls.builtins.formatting.nimpretty,
-        -- nls.builtins.formatting.nixfmt,
         nls.builtins.formatting.rustywind,
         nls.builtins.formatting.shellharden,
         nls.builtins.formatting.stylelint,

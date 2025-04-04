@@ -21,25 +21,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spelllang = { "sv", "en_us" }
   end,
 })
-
--- notify when mason-tool-installer is starting
-vim.api.nvim_create_autocmd("User", {
-  group = augroup("mason_tools_start"),
-  pattern = "MasonToolsStartingInstall",
-  callback = function()
-    vim.schedule(function()
-      print("mason-tool-installer is starting")
-    end)
-  end,
-})
-
--- notify when mason-tool-installer is done
-vim.api.nvim_create_autocmd("User", {
-  group = augroup("mason_tools_end"),
-  pattern = "MasonToolsUpdateCompleted",
-  callback = function(e)
-    vim.schedule(function()
-      print(vim.inspect(e.data)) -- print the table that lists the programs that were installed
-    end)
-  end,
-})
