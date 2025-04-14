@@ -19,6 +19,11 @@ vim.g.lazyvim_python_ruff = "ruff"
 -- provided by rust-analyzer.
 vim.g.lazyvim_rust_diagnostics = "bacon-ls"
 
+-- @see: https://github.com/crisidev/bacon-ls?tab=readme-ov-file#neovim---manual
+-- vim.diagnostic.config({
+--   update_in_insert = true,
+-- })
+
 -- Indentation
 vim.opt.autoindent = true
 vim.opt.smarttab = true

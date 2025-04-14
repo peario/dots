@@ -114,7 +114,32 @@ return {
             return default_args
           end),
         }),
-        nls.builtins.diagnostics.trivy,
+        nls.builtins.diagnostics.trivy.with({
+          filetypes = {
+            -- according to mason-registry
+            -- @see: https://mason-registry.dev/registry/list?search=trivy
+            "c",
+            "cs",
+            "cpp",
+            "dart",
+            "Dockerfile",
+            "elixir",
+            "go",
+            "yaml",
+            "java",
+            "javascript",
+            "php",
+            "python",
+            "ruby",
+            "rust",
+            "typescript",
+            -- default according to none-ls.nvim
+            -- @see: https://github.com/nvimtools/none-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/trivy.lua#L22
+            "terraform",
+            "tf",
+            "terraform-vars",
+          },
+        }),
         nls.builtins.diagnostics.zsh,
         -- Formatting
         -- nls.builtins.formatting.asmfmt,
@@ -122,6 +147,7 @@ return {
         nls.builtins.formatting.cbfmt,
         nls.builtins.formatting.clang_format,
         nls.builtins.formatting.golines,
+        nls.builtins.formatting.leptosfmt,
         nls.builtins.formatting.rustywind,
         nls.builtins.formatting.shellharden,
         nls.builtins.formatting.stylelint,
@@ -163,46 +189,6 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         cssls = {
           filetypes_include = { "css", "scss", "less", "sass", "html", "vue", "svelte" },
-        },
-
-        ---@diagnostic disable-next-line: missing-fields
-        html = {
-          filetypes = {
-            "html",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
-        },
-
-        ---@diagnostic disable-next-line: missing-fields
-        ts_ls = {
-          filetypes = {
-            "html",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
-        },
-
-        ---@diagnostic disable-next-line: missing-fields
-        vtsls = {
-          filetypes = {
-            "vue",
-            "html",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
         },
       },
     },

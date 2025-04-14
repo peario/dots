@@ -1,5 +1,5 @@
 #-- START ZCACHE GENERATED FILE
-#-- GENERATED: Thu Apr  3 15:15:28 CEST 2025
+#-- GENERATED: Sun Apr  6 08:26:13 CEST 2025
 #-- ANTIGEN v2.2.2
 _antigen () {
 	local -a _1st_arguments

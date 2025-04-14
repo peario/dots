@@ -3,7 +3,6 @@ return {
   {
     "lervag/vimtex",
     ft = { "tex", "latex", "plaintex", "bibtex" },
-    event = "LazyFile",
     lazy = false, -- lazy-loading will disable inverse search
     init = function()
       -- Move auxiliary files to subfolder to reduce clutter
@@ -36,67 +35,67 @@ return {
     end,
     keys = {
       { "<localleader>l", "", desc = "+vimtext" },
-      {
-        "<C-i>",
-        function()
-          local success, vimtex = pcall(vim.api.nvim_buf_get_var, 0, "vimtex")
-
-          if not success then
-            vim.notify("Could not get [b:vimtex]: " .. vimtex, vim.log.levels.ERROR, { title = "VimTeX: Figures" })
-            return
-          end
-
-          -- Retrieve the root from the vimtex table
-          local root = vimtex.root
-          if not root then
-            vim.notify("vimtex.root is nil", vim.log.levels.ERROR, { title = "VimTeX: Figures" })
-            return
-          end
-
-          -- Grab word/sentence from current line to use as figure name
-          local name = vim.fn.getline(".")
-          local line = vim.api.nvim_win_get_cursor(0)[1]
-          local min_len = 3
-
-          if string.len(name) <= min_len then
-            vim.notify(
-              ("No word or sentence at %d.\nMinimum length: %d"):format(line, min_len),
-              vim.log.levels.WARN,
-              { title = "VimTeX: Figures" }
-            )
-          end
-
-          vim.cmd('silent !inkfigs create "' .. name .. '" "' .. root .. '/figures/"')
-          vim.cmd("w")
-        end,
-        silent = true,
-        desc = "New figure",
-        mode = "i",
-      },
-      {
-        "<localleader>e",
-        function()
-          local ok, vimtex = pcall(vim.api.nvim_buf_get_var, 0, "vimtex")
-
-          if not ok then
-            vim.notify("Could not get [b:vimtex]: " .. vimtex, vim.log.levels.ERROR, { title = "VimTeX: Figures" })
-            return
-          end
-
-          -- Retrieve the root from the vimtex table
-          local root = vimtex.root
-          if not root then
-            vim.notify("vimtex.root is nil", vim.log.levels.ERROR, { title = "VimTeX: Figures" })
-            return
-          end
-
-          vim.cmd('silent !inkfigs edit "' .. root .. '/figures/" > /dev/null 2>&1 &')
-          vim.cmd("redraw!")
-        end,
-        silent = true,
-        desc = "Edit figure",
-        mode = "n",
-      },
+      -- {
+      --   "<C-i>",
+      --   function()
+      --     local success, vimtex = pcall(vim.api.nvim_buf_get_var, 0, "vimtex")
+      --
+      --     if not success then
+      --       vim.notify("Could not get [b:vimtex]: " .. vimtex, vim.log.levels.ERROR, { title = "VimTeX: Figures" })
+      --       return
+      --     end
+      --
+      --     -- Retrieve the root from the vimtex table
+      --     local root = vimtex.root
+      --     if not root then
+      --       vim.notify("vimtex.root is nil", vim.log.levels.ERROR, { title = "VimTeX: Figures" })
+      --       return
+      --     end
+      --
+      --     -- Grab word/sentence from current line to use as figure name
+      --     local name = vim.fn.getline(".")
+      --     local line = vim.api.nvim_win_get_cursor(0)[1]
+      --     local min_len = 3
+      --
+      --     if string.len(name) <= min_len then
+      --       vim.notify(
+      --         ("No word or sentence at %d.\nMinimum length: %d"):format(line, min_len),
+      --         vim.log.levels.WARN,
+      --         { title = "VimTeX: Figures" }
+      --       )
+      --     end
+      --
+      --     vim.cmd('silent !inkfigs create "' .. name .. '" "' .. root .. '/figures/"')
+      --     vim.cmd("w")
+      --   end,
+      --   silent = true,
+      --   desc = "New figure",
+      --   mode = "i",
+      -- },
+      -- {
+      --   "<localleader>e",
+      --   function()
+      --     local ok, vimtex = pcall(vim.api.nvim_buf_get_var, 0, "vimtex")
+      --
+      --     if not ok then
+      --       vim.notify("Could not get [b:vimtex]: " .. vimtex, vim.log.levels.ERROR, { title = "VimTeX: Figures" })
+      --       return
+      --     end
+      --
+      --     -- Retrieve the root from the vimtex table
+      --     local root = vimtex.root
+      --     if not root then
+      --       vim.notify("vimtex.root is nil", vim.log.levels.ERROR, { title = "VimTeX: Figures" })
+      --       return
+      --     end
+      --
+      --     vim.cmd('silent !inkfigs edit "' .. root .. '/figures/" > /dev/null 2>&1 &')
+      --     vim.cmd("redraw!")
+      --   end,
+      --   silent = true,
+      --   desc = "Edit figure",
+      --   mode = "n",
+      -- },
     },
   },
   --- Typst
@@ -160,5 +159,11 @@ return {
       },
       file_types = { "markdown", "vimwiki", "norg", "rmd", "org", "codecompanion" },
     },
+  },
+  -- Coding statistics
+  {
+    "wakatime/vim-wakatime",
+    event = { "LazyFile", "VeryLazy" },
+    lazy = false,
   },
 }

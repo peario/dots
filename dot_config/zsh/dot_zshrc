@@ -208,8 +208,7 @@ if [ -d "/opt/homebrew/bin" ] || command -v brew 1> /dev/null; then
     # imagemagick
     export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
-    autoload -Uz compinit
-    compinit
+    autoload -Uz compinit && compinit
 fi
 
 # GitHub CLI
@@ -265,6 +264,25 @@ fi
 # Python
 ## Installing packages via `pipx` places them here
 [ -d "$HOME/.local/bin" ] && path+=("$HOME/.local/bin")
+
+## Poetry
+if command -v poetry 1> /dev/null; then
+  # Piping stderr to /dev/null due to weird errors, if of interest, the errors are:
+  #   _tags:comptags:36: can only be called from completion function
+  #   _tags:comptry:55: can only be called from completion function
+  #   _tags:comptags:60: can only be called from completion function
+  #   _tags:comptags:67: can only be called from completion function
+  #
+  # When grepping (or piping the echo of the output to github.com/skim-rs/skim), those are not found at all
+  # So piping to stderr to silence them. Maybe take a look at them in the future?
+  eval "$(poetry completions zsh | tail -n +2 | head -n "$(($(poetry completions zsh | wc -l) - 2))")" 2>/dev/null
+  eval "$(poetry completions zsh | awk 'END{print}' | awk '{print $1,$2}') poetry"
+fi
+
+## uv (https://github.com/astral-sh/uv)
+if command -v uv 1> /dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
 
 # FZF
 if command -v fzf 1> /dev/null; then
