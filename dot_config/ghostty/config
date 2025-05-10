@@ -1,4 +1,18 @@
-config-file = ?themes/onenord
+theme = dark:onenord,light:onenord_light
 
-font-family = "IosevkaTerm Nerd Font"
-font-size = 20
+font-family = "Maple Mono NF"
+font-size = 18
+
+# Possible values for `macos-option-as-alt` (replaces `Option`-key):
+# - `true`: Both will be treated as Alt (on ISO-US and ANSI).
+# - `false`: Both will be treated as Option (default).
+# - `left`: Left Option will be treated as Alt.
+# - `right`: Right Option will be treated as Alt.
+macos-option-as-alt = true
+
+command = "/bin/zsh"
+
+# Ghostty's config is of type `key=value`.
+# Codeblocks in Ghostty's docs use filetype (and syntax highlight) for `ini`.
+#
+# vim:ft=ini
