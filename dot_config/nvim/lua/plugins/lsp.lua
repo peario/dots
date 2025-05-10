@@ -150,6 +150,7 @@ return {
         nls.builtins.formatting.leptosfmt,
         nls.builtins.formatting.rustywind,
         nls.builtins.formatting.shellharden,
+        nls.builtins.formatting.shfmt,
         nls.builtins.formatting.stylelint,
         nls.builtins.formatting.sqruff.with({
           -- Make sure that sqruff checks for config files in project and use if found
@@ -175,6 +176,18 @@ return {
         -- Hover
         nls.builtins.hover.printenv,
       })
+
+      -- Conditional null-ls tooling
+      local hasNix = vim.fn.executable("nix") == 1
+
+      opts.sources = hasNix
+        and vim.list_extend(opts.sources or {}, {
+          -- Diagnostics
+          nls.builtins.diagnostics.deadnix,
+          nls.builtins.diagnostics.statix,
+          -- Formatting
+          nls.builtins.formatting.nixpkgs_fmt,
+        })
     end,
   },
   -- LSP

@@ -77,20 +77,51 @@ M.pair = function(pair_begin, pair_end, expand_func, ...)
   )
 end
 
---- Add as a condition for snippets to only work in math env
-M.math = function()
-  return vim.api.nvim_eval("vimtex#syntax#in_mathzone()") == 1
+--- Add a condition to check if the snippet is within math mode.
+---@return boolean
+M.typst_in_math = function()
+  return vim.fn["typst#in_math"]()
+end
+
+--- Add a condition to check if the snippet is NOT within math mode.
+---@return boolean
+M.typst_not_in_math = function()
+  return not vim.fn["typst#in_math"]()
+end
+
+--- Add a condition to check if the snippet is within markup mode.
+---@return fun(): boolean
+M.typst_in_markup = function()
+  return function()
+    return vim.fn["typst#in_markup"]()
+  end
+end
+
+--- Add a condition to check if the snippet is within code mode.
+---@return fun(): boolean
+M.typst_in_code = function()
+  return function()
+    return vim.fn["typst#in_code"]()
+  end
+end
+
+--- Add a condition for snippets to only work in math env
+---@return fun(): boolean
+M.tex_math = function()
+  return function()
+    return vim.fn["vimtex#syntax#in_mathzone"]()
+  end
 end
 
 --- Add as a condition for snippets to only work in certain env
 ---@param name string
-M.env = function(name)
+M.tex_env = function(name)
   local is_inside = vim.fn["vimtex#env#is_inside"](name)
   return (is_inside[1] > 0 and is_inside[2] > 0)
 end
 
 -- for TikZ environments. Note that you will need to define new helper functions with this setup
-M.tikz = function()
+M.tex_tikz = function()
   return M.env("tikzpicture")
 end
 

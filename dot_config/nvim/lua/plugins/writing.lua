@@ -1,3 +1,23 @@
+--- Verifies if a file exists
+---@param name string the name of the file to open (include extension)
+---@return boolean
+local function file_exists(name)
+  ---@param path string
+  local function exists(path)
+    return os.rename(path, path) and true or false
+  end
+
+  if not exists(name) then
+    return false
+  end
+  local f = io.open(name)
+  if f then
+    f:close()
+    return true
+  end
+  return false
+end
+
 return {
   --- LaTeX-related writing
   {
@@ -102,18 +122,91 @@ return {
   -- Preview
   {
     "chomosuke/typst-preview.nvim",
-    ft = { "typst" },
+    ft = { "typst", "typ" },
     event = "LazyFile",
     version = "1.*",
-    opts = {},
   },
   -- General
   {
     "kaarmu/typst.vim",
-    ft = { "typst" },
+    ft = { "typst", "typ" },
     event = "LazyFile",
     lazy = false,
     -- init = function() end,
+    keys = {
+      {
+        "<localleader>fw",
+        function()
+          vim.cmd("vsp")
+          vim.cmd("vertical resize 20")
+          vim.cmd("terminal typst watch " .. vim.fn.expand("%:"))
+          vim.cmd("normal <C-w>h")
+        end,
+        silent = false,
+        remap = false,
+        desc = "Open typst watch in split",
+        mode = "n",
+      },
+      {
+        "<localleader>fz",
+        function()
+          local hasZathura = vim.fn.executable("zathura") == 1
+
+          if not hasZathura then
+            vim.notify('Could not find a binary named "Zathura"', vim.log.levels.ERROR, { title = "Typst: Open PDF" })
+            return
+          end
+
+          local fileName = ("%s.pdf"):format(vim.fn.expand("%:p:r"))
+          local fileExists = file_exists(fileName)
+
+          if not fileExists then
+            vim.notify(
+              "Could not find a PDF-file by the name " .. fileName,
+              vim.log.levels.ERROR,
+              { title = "Typst: Open PDF" }
+            )
+            return
+          end
+
+          vim.cmd(string.format([[silent exec "!zathura --fork \"%s\" &"]], fileName))
+        end,
+        silent = true,
+        remap = false,
+        desc = "Open PDF in Zathura",
+      },
+      -- FIX: sioyek is currently broken.
+      --  Zathura seems to work due to it's `--fork` flag to run in the background,
+      --  no real difference otherwise compared to sioyek.
+      -- {
+      --   "<localleader>fs",
+      --   function()
+      --     local hasSioyek = vim.fn.executable("sioyek") == 1
+      --
+      --     if not hasSioyek then
+      --       vim.notify('Could not find a binary named "Sioyek"', vim.log.levels.ERROR, { title = "Typst: Open PDF" })
+      --       return
+      --     end
+      --
+      --     local fileName = ("%s.pdf"):format(vim.fn.expand("%:p:r"))
+      --     local fileExists = file_exists(fileName)
+      --
+      --     if not fileExists then
+      --       vim.notify(
+      --         "Could not find a PDF-file by the name " .. fileName,
+      --         vim.log.levels.ERROR,
+      --         { title = "Typst: Open PDF" }
+      --       )
+      --       return
+      --     end
+      --
+      --     vim.cmd(string.format([[silent exec "!sioyek --new-window \"%s\" &"]], fileName))
+      --   end,
+      --   silent = true,
+      --   remap = false,
+      --   desc = "Open PDF in Sioyek",
+      -- },
+    },
   },
   --- Other
   -- LSP and such for LaTeX
@@ -159,6 +252,14 @@ return {
       },
       file_types = { "markdown", "vimwiki", "norg", "rmd", "org", "codecompanion" },
     },
+  },
+  {
+    "zk-org/zk-nvim",
+    lazy = true,
+    opts = { picker = "snacks_picker" },
+    config = function(opts, _)
+      require("zk").setup(opts)
+    end,
   },
   -- Coding statistics
   {

@@ -6,6 +6,7 @@ GOROOT=${GOROOT:-$HOME/.go}
 # To install into "$GO_PATH/bin"
 GOLANG_TO_INSTALL=(
 	"air-verse/air"
+	"zk-org/zk"
 	"spf13/cobra-cli"
 	"junegunn/fzf"
 	"dundee/gdu"

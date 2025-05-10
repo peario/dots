@@ -44,17 +44,3 @@ map.set({ "n", "x" }, "<C-a>", "<cmd>normal! ggVG<cr>", "Select All")
 map.set("n", "<leader>cT", "", "Treesitter")
 map.set("n", "<leader>cTH", "<cmd>Inspect<cr>", "Highlight group (cursor)")
 map.set("n", "<leader>cTT", "<cmd>InspectTree<cr>", "TSPlayground")
-
--- Typst
-local function TypstWatch()
-  vim.cmd("vsp")
-  vim.cmd("vertical resize 20")
-  vim.cmd("terminal typst watch " .. vim.fn.expand("%:"))
-  vim.cmd("normal <C-w>h")
-end
-
--- TODO: Make sure this works
-map.set("n", "<localleader>fc", TypstWatch, "Open typst watch in split")
-map.set("n", "<localleader>fr", function()
-  vim.fn.system("zathura --fork " .. vim.fn.expand("%:p:r") .. ".pdf &")
-end, "Open PDF with Zathura")

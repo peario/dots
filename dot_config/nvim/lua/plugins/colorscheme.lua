@@ -43,6 +43,7 @@ return {
   --- @see https://www.reddit.com/r/neovim/comments/1bw5b35/helpautomatically_switching_neovim_theme_based_on/
   {
     "f-person/auto-dark-mode.nvim",
+    enabled = false,
     lazy = false,
     opts = {
       set_dark_mode = function()

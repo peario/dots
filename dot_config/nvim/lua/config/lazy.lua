@@ -14,12 +14,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local lazyOpts = {
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import/override with your plugins
-    { import = "plugins" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -63,4 +61,20 @@ require("lazy").setup({
       },
     },
   },
+}
+
+local hasNix = vim.fn.executable("nix") == 1
+if hasNix then
+  lazyOpts.spec = vim.list_extend(lazyOpts.spec or {}, {
+    -- extras
+    { import = "lazyvim.plugins.extras.lang.nix" },
+  })
+end
+
+-- needs to be last of the spec extensions
+lazyOpts.spec = vim.list_extend(lazyOpts.spec, {
+  -- import/override with your plugins
+  { import = "plugins" },
 })
+
+require("lazy").setup(lazyOpts)

@@ -22,6 +22,7 @@ return {
   },
   {
     "calops/hmts.nvim",
+    event = { "LazyFile", "VeryLazy" },
     ft = { "nix" },
     version = "*",
     lazy = true,

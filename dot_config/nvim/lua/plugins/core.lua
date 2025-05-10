@@ -1,4 +1,6 @@
 return {
+  { "folke/lazy.nvim", version = false },
+  { "LazyVim/LazyVim", version = false },
   { "https://github.com/luarocks/luarocks" },
   {
     "folke/snacks.nvim",

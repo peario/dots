@@ -44,20 +44,6 @@ return {
     },
     keys = {
       {
-        "<leader>.",
-        function()
-          Snacks.scratch()
-        end,
-        desc = "Toggle Scratch Buffer",
-      },
-      {
-        "<leader>S",
-        function()
-          Snacks.scratch.select()
-        end,
-        desc = "Select Scratch Buffer",
-      },
-      {
         "<leader>n",
         function()
           Snacks.notifier.show_history()
@@ -70,13 +56,6 @@ return {
           Snacks.bufdelete()
         end,
         desc = "Delete Buffer",
-      },
-      {
-        "<leader>cR",
-        function()
-          Snacks.rename.rename_file()
-        end,
-        desc = "Rename File",
       },
       {
         "<leader>gB",
@@ -126,13 +105,6 @@ return {
           Snacks.terminal()
         end,
         desc = "Toggle Terminal",
-      },
-      {
-        "<c-_>",
-        function()
-          Snacks.terminal()
-        end,
-        desc = "which_key_ignore",
       },
       {
         "]]",

@@ -1,1 +1,29 @@
-pwd
+: 1746348614:0;go install mvdan.cc/sh/v3/cmd/shfmt@latest
+: 1746348614:0;~/.go/bin/go install mvdan.cc/sh/v3/cmd/shfmt@latest
+: 1746348614:0;~/.cargo/bin/cargo install shellharden 
+: 1746348614:0;nvim ~/.zshenv 
+: 1746348614:0;clear
+: 1746348614:0;zoxide init zsh 
+: 1746348614:0;zinit
+: 1746348614:0;zinit light
+: 1746348614:0;man zinit
+: 1746348614:0;ls
+: 1746341248:0;pbcopy < time PROFILE_STARTUP=true /bin/zsh -i --login -c echo
+: 1746341421:0;cd .config/zsh
+: 1746341428:0;nvim zstyle.zsh
+: 1746346934:0;eval "$(starship init zsh)"
+: 1746347179:0;starship init zsh
+: 1746347557:0;time PROFILE_STARTUP=true /bin/zsh -i --login -c echo
+: 1746347646:0;echo "$(time PROFILE_STARTUP=true /bin/zsh -i --login -c echo)"
+: 1746347651:0;echo "$(time PROFILE_STARTUP=true /bin/zsh -i --login -c echo)" | grep starship
+: 1746347690:0;PROFILE_STARTUP=true /bin/zsh -i --login -c echo | grep starship
+: 1746347693:0;PROFILE_STARTUP=true /bin/zsh -i --login -c echo
+: 1746347708:0;pbcopy < PROFILE_STARTUP=true /bin/zsh -i --login -c echo
+: 1746347716:0;pbcopy < "$(PROFILE_STARTUP=true /bin/zsh -i --login -c echo)"
+: 1746347984:0;zoxide --help
+: 1746348588:0;man skim
+: 1746348592:0;man sk
+: 1746348594:0;sk --help
+: 1746349541:0;nvim ~/.config/kitty/kitty.conf
+: 1746595969:0;ls -la
+: 1746595971:0;cd ..
