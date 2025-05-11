@@ -26,6 +26,7 @@ return {
     "rmehri01/onenord.nvim",
     lazy = false,
     priority = 1000,
+    enabled = true,
     opts = {
       styles = {
         comments = "italic",
@@ -41,19 +42,19 @@ return {
   -- automatic colorscheme switching (depending on OS-colorscheme)
   --- requires a single theme(-name) which supports switching based on `vim.o.background` value
   --- @see https://www.reddit.com/r/neovim/comments/1bw5b35/helpautomatically_switching_neovim_theme_based_on/
-  {
-    "f-person/auto-dark-mode.nvim",
-    enabled = false,
-    lazy = false,
-    opts = {
-      set_dark_mode = function()
-        vim.api.nvim_set_option_value("background", "dark", {})
-      end,
-      set_light_mode = function()
-        vim.api.nvim_set_option_value("background", "light", {})
-      end,
-      update_interval = 3000,
-      fallback = "dark",
-    },
-  },
+  -- {
+  --   "f-person/auto-dark-mode.nvim",
+  --   enabled = false,
+  --   lazy = false,
+  --   opts = {
+  --     set_dark_mode = function()
+  --       vim.api.nvim_set_option_value("background", "dark", {})
+  --     end,
+  --     set_light_mode = function()
+  --       vim.api.nvim_set_option_value("background", "light", {})
+  --     end,
+  --     update_interval = 3000,
+  --     fallback = "dark",
+  --   },
+  -- },
 }

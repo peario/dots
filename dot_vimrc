@@ -1,0 +1,312 @@
+" vim: ft=vim
+
+" ==> Essentials
+let mapleader = " "        " Sets <leader> to space for use in mappings
+let maplocalleader = ","   " Sets <localleader> to , for use in filetype or plugin-specific environments
+
+" Explicitly set proivders for faster startup
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_node_provider = 0
+
+" Enable python3 provider for UltiSnips
+let g:loaded_python3_provider = 1
+
+set nocompatible " Makes 'vim' less compatible with 'vi' which otherwise might affect options
+
+if has('termguicolors')
+	set termguicolors "Enable 24-bit RGB color
+endif
+
+if !has('gui_running')
+	set t_Co=256 " Maximum number of colors that can be displayed
+endif
+
+if has('persistent_undo')
+	set undodir=$HOME/.vim/undo "Where to store undofiles
+	set undofile " Track undo's between sessions
+	set undolevels=10000 " How many undo's to keep track of
+endif
+
+" Setup netrw to be like NERDtree
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_browse_split=3
+let g:netrw_altv=1
+let g:netrw_winsize=25
+
+" ==> Options
+
+filetype plugin indent on   " Enable filetype specific options, e.g. ftplugin/, indent/ and syntax/
+syntax on 		            " Enable syntax highlighting
+
+" ==> Options ==> Behavior
+
+set history=1000
+set backspace=eol,start,indent
+set nobackup
+set nowritebackup
+set clipboard="unnamedplus"
+set completeopt="menu,menuone,noselect"
+set encoding=utf-8
+set splitbelow
+set splitright
+set splitkeep="screen"
+set timeoutlen=500
+set updatetime=400
+set virtualedit="block"
+set mouse="nv"
+set nospell
+set spelllang=sv_se,en_us
+
+" ==> Options ==> Look and feel
+
+set number
+set relativenumber
+set signcolumn=yes
+set nowrap
+set linebreak
+set textwidth=500
+set conceallevel=2
+set foldlevel=0
+set foldlevelstart=99
+set noshowmode
+set pumheight=10
+set scrolloff=4
+set sidescrolloff=8
+set winminwidth=5
+set laststatus=2 " For statusline
+
+" ==> Options ==> Searching
+
+set smartcase
+set ignorecase
+set hlsearch
+set incsearch
+set grepprg="rg --vimgrep --smart-case --no-heading"
+set grepformat="%f:%l:%c:%m"
+set wildmode="longest:full,full"
+set wildmenu
+
+" ==> Options ==> Indentation
+
+" Before modifying either tab or indent related option, maybe read:
+" - Tab: https://neovim.io/doc/user/options.html#'tabstop'
+" - Indent: https://neovim.io/doc/user/options.html#'smartindent' and https://neovim.io/doc/user/options.html#'cindent'
+
+" Smart
+set autoindent
+set smartindent
+set smarttab
+
+" Tab
+set expandtab
+set tabstop=4
+set softtabstop=4
+
+" Shift
+set shiftround
+set shiftwidth=4
+
+" ==> Mappings
+
+" Vertical movement works as usual, even across wrapped lines
+nmap <silent> <expr> j v:count == 0 ? 'gj' : 'j'
+nmap <silent> <expr> <Down> v:count == 0 ? 'gj' : 'j'
+nmap <silent> <expr> k v:count == 0 ? 'gk' : 'k'
+nmap <silent> <expr> <Up> v:count == 0 ? 'gk' : 'k'
+
+xmap <silent> <expr> j v:count == 0 ? 'gj' : 'j'
+xmap <silent> <expr> <Down> v:count == 0 ? 'gj' : 'j'
+xmap <silent> <expr> k v:count == 0 ? 'gk' : 'k'
+xmap <silent> <expr> <Up> v:count == 0 ? 'gk' : 'k'
+
+" ==> Mappings ==> Quality of Life
+
+" u is undo, U is redo
+nmap U :redo<CR>
+
+" File save and file new
+nmap <leader>fs :w<CR>
+nmap <leader>fn :enew<CR>
+
+" Quit/close window
+nmap <leader>c :q<CR>
+nmap <leader>qq :qa<CR>
+
+" Clear matches
+nmap <leader>H :nohl<CR>
+
+" keywordprg
+nmap <leader>K :norm! K<CR>
+
+" Location list and Quickfix
+nmap <leader>xl :lopen<CR>
+nmap <leader>xq :copen<CR>
+
+" Better indenting
+vmap < <gv
+vmap > >gv
+
+" Change word below cursor
+nmap <C-c> :norm! ciw<CR>i
+xmap <C-c> :norm! ciw<CR>i
+
+" Select everything in buffer
+map <C-a> :normal! GVgg<CR>
+
+" Fix indentation
+nmap <leader>I :normal! mzgg=G`z<CR>
+
+" Fix spelling (replaces the word with first valid suggestion)
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Easily move cursor between windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Saner behavior of n and N
+nmap <expr> n 'Nn'[v:searchforward].'zv'
+xmap <expr> n 'Nn'[v:searchforward]
+omap <expr> n 'Nn'[v:searchforward]
+
+nmap <expr> N 'nN'[v:searchforward].'zv'
+xmap <expr> N 'nN'[v:searchforward]
+omap <expr> N 'nN'[v:searchforward]
+
+" ==> Mappings ==> Buffers and Tabs
+
+" Buffers -> Search through open buffers
+nmap <leader>, :Buffers<CR>
+nmap <leader>bb :Buffers<CR>
+
+" Close and create tabs
+nmap <leader>bd :tabclose<CR>
+nmap <leader>bn :tabnew<CR>
+
+" Move between tabs
+nmap H :tabn<CR>
+nmap L :tabp<CR>
+
+" ==> Mappings ==> Navigation
+
+" File browser (modified netrw)
+nmap <leader>e :Vexplore<CR>
+
+" Fuzzy finder -> files from cwd
+nmap <leader><leader> :Files<CR>
+nmap <leader>ff :Files<CR>
+
+" Fuzzy finder -> Files using git
+nmap <leader>fg :GFiles<CR>
+
+" Fuzzy finder -> History (files, commands, searches)
+nmap <leader>sf :History<CR>
+nmap <leader>sc :History:<CR>
+nmap <leader>ss :History/<CR>
+
+" Ripgrep -> Grep search from cwd
+nmap <leader>g :Rg<CR>
+nmap <leader>fg :Rg<CR>
+
+" ==> Auto commands
+
+" Set options in files textfiles (markdown, latex, etc.)
+function! OptionsForTextFiles()
+  setlocal spell
+  setlocal wrap
+endfunction
+
+augroup spelling  |
+  autocmd!        | 
+  autocmd FileType text,plaintex,typst,gitcommit,markdown,tex call OptionsForTextFiles() |
+augroup END
+
+" Make closing some windows easier
+augroup close_with_q |
+    autocmd! |
+    autocmd FileType checkhealth,help,lspinfo,notify,qf,startuptime,netrw nmap <buffer> q :close<CR> |
+augroup END
+
+" ==> Plugins (via vim-plug)
+
+call plug#begin('~/.vim/plugged')
+
+" Sensible defaults
+Plug 'tpope/vim-sensible'
+
+" More easily add surroundings
+Plug 'tpope/vim-surround'
+
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+
+" Automatically end certain structures
+Plug 'tpope/vim-endwise'
+
+" Auto pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Lint engine
+Plug 'dense-analysis/ale'
+
+" Statusline
+Plug 'itchyny/lightline.vim'
+
+" Fuzzy finder (telescope is based on this)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Colorschemes
+Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/everforest'
+
+" Snippets
+Plug 'sirver/ultisnips'
+  let g:UltiSnipsExpandTrigger = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+  set rtp+=~/.vim/UltiSnips/greek
+
+" VimTeX (LaTeX for Vim)
+Plug 'lervag/vimtex' {'for': 'tex','tag': 'v2.16'}
+  let &rtp = '~/.vim/plugged/vimtex,' . &rtp
+  let &rtp .= ',~/.vim/plugged/vimtex/after'
+  let g:vimtex_latexmk_continuous=0
+  let g:tex_flavor='latex'
+  let g:Tex_DefaultTargetFormat='pdf'
+  let g:vimtex_indent_enabled=1
+  " let g:vimtex_completion_enabled=0
+  let g:vimtex_syntax_enabled=1
+  let g:vimtex_view_enabled=1
+  let g:vimtex_view_automatic=1
+  let g:vimtex_view_general_viewer='zathura'
+  let g:vimtex_view_method='zathura'
+  let g:vimtex_quickfix_mode=0
+  let g:vimtex_compiler_latexmk = {
+        \ 'callback': 0,
+        \}
+
+" NOTE: The plugin 'lervag/vimtex' contains the features this plugin provides.
+" Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+"   set conceallevel=1
+"   let g:tex_conceal='abdmg'
+"   hi Conceal ctermbg=none
+
+call plug#end()
+
+" ==> Plugins ==> After
+
+" Colorscheme
+set background=dark
+
+let g:lightline = {
+  \ 'colorscheme': 'nord',
+  \ }
+
+colorscheme nord
+
+" Disable multiline for autopairs
+let g:AutoPairsMultilineClose = 0

@@ -1,5 +1,8 @@
 theme = dark:onenord,light:onenord_light
 
+window-height = 28
+window-width = 90
+
 font-family = "Maple Mono NF"
 font-size = 18
 
@@ -14,5 +17,6 @@ command = "/bin/zsh"
 
 # Ghostty's config is of type `key=value`.
 # Codeblocks in Ghostty's docs use filetype (and syntax highlight) for `ini`.
+# See: https://ghostty.org/docs/config#syntax
 #
 # vim:ft=ini
