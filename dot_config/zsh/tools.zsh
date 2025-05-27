@@ -111,17 +111,25 @@ if ! (( $+commands[g] )) || (( $+commands[g])); then
   zi ice from"gh-r" as"program"
   zi light voidint/g
 
+  # Required for custom go install (via g)
+  export GOROOT="$HOME/.g/go"
+  export GOPATH="${GOPATH:-$HOME/go}"
+  # [ -d "$HOME/.g/bin" ] && path+=("$HOME/.g/bin")
+  [ -d "$GOROOT/bin" ] && path+=("$GOROOT/bin")
+  [ -d "$GOPATH/bin" ] && path+=("$GOPATH/bin")
+
+  # Tells g from where to install go binaries
+  export G_MIRROR="https://golang.google.cn/dl/"
+
   zsh-defer g self update
 fi
 
 # Golang
-if [ -d "$HOME/.go" ] || [ -d "$HOME/go" ] || (( $+commands[go] )); then
-  [ -d "$HOME/.go" ] && export GOROOT=${GOROOT:-$HOME/.go}
-  [ -d "$HOME/go" ] && export GOPATH=${GOPATH:-$HOME/go}
-  [ -d "$HOME/go/bin" ] && path+=("$HOME/go/bin")
-
-  path+=(/usr/local/go/bin)
-fi
+# NOTE: this is not needed as long as `g` is used.
+# if [ -d "$HOME/.go" ] || [ -d "$HOME/go" ] || (( $+commands[go] )); then
+#   [ -d "$HOME/.go" ] && export GOROOT=${GOROOT:-$HOME/.go}
+#   [ -d "$HOME/go" ] && export GOPATH=${GOPATH:-$HOME/go}
+# fi
 
 # Rust
 if [ -d "$HOME/.cargo/bin" ]; then
@@ -133,6 +141,16 @@ if [ -d "$HOME/.cargo/bin" ]; then
       export PATH="$HOME/.cargo/bin:$PATH"
       ;;
   esac
+
+  if [ -x /Users/peario/.cargo/bin/cargo-ndk-env ]; then
+    CARGO_NDK_ENV="$EXTRAS_PATH/cargo_ndk_env.zsh"
+
+    if [[ ! -f $CARGO_NDK_ENV || $CARGO_NDK_ENV(#qN.mh+24) ]]; then
+      cargo ndk-env >| "$CARGO_NDK_ENV"
+    fi
+
+    source "$CARGO_NDK_ENV"
+  fi
 fi
 
 # Nim
@@ -156,7 +174,7 @@ fi
 if (( $+commands[uv] )); then
   UV_COMP="$COMPLETIONS_PATH/uv.zsh"
 
-  if [[ ! -f $UV_COMP || $POETRY_COMP_2(#qN.mh+24) ]]; then
+  if [[ ! -f $UV_COMP || $UV_COMP(#qN.mh+24) ]]; then
     uv generate-shell-completion zsh >| "$UV_COMP"
   fi
 

@@ -1,4 +1,6 @@
+default_mode "locked"
 keybinds clear-defaults=true {
+    normal {}
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }

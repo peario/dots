@@ -143,6 +143,7 @@ return {
         nls.builtins.diagnostics.zsh,
         -- Formatting
         -- nls.builtins.formatting.asmfmt,
+        nls.builtins.formatting.asmfmt,
         nls.builtins.formatting.buf,
         nls.builtins.formatting.cbfmt,
         nls.builtins.formatting.clang_format,
@@ -203,6 +204,8 @@ return {
         cssls = {
           filetypes_include = { "css", "scss", "less", "sass", "html", "vue", "svelte" },
         },
+        ---@diagnostic disable-next-line: missing-fields
+        asm_lsp = {},
       },
     },
   },

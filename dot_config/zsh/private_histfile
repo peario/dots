@@ -18,13 +18,8 @@
 : 1746357405:0;perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5
 : 1746357666:0;which perl
 : 1746357669:0;which perl5
-: 1746357695:0;which go
 : 1746357821:0;ls -la ~/.g/env
-: 1746358335:0;g version
-: 1746358341:0;go version
-: 1746358381:0;g env
 : 1746358393:0;g completions
-: 1746358413:0;g
 : 1746358416:0;g self
 : 1746358554:0;g -v
 : 1746358609:0;g -v | awk '/\d\.\d\.\d\./ { print $1 }'
@@ -114,59 +109,38 @@
 : 1746595874:0;time /bin/zsh -i --login -c echo
 : 1746595894:0;hyperfine --warmup 10 --runs 100 "/bin/zsh -i --login -c echo"
 : 1746596001:0;rm -rf zsh.bak
-: 1746596235:0;cd nvim
 : 1746596403:0;cargo install --git https://github.com/Myriad-Dreamin/tinymist --locked tinymist\
 
 : 1746596897:0;nvim lua/plugins/writing.lua
 : 1746598768:0;nvim .zshrc
 : 1746613064:0;brew search reaper
 : 1746613069:0;brew install --cask reaper
-: 1746640001:0;cargo
-: 1746640005:0;cd code
 : 1746640015:0;cd dsa
 : 1746680325:0;brew search minecraft
 : 1746680333:0;brew install --cask minecraft
 : 1746680399:0;brew uninstall minecraft
-: 1746681019:0;cd learning
 : 1746681651:0;mkdir playground
 : 1746681657:0;lt learning
 : 1746681686:0;rm -rf learning
-: 1746681694:0;cd playground
-: 1746681728:0;cargo new serve --bin
-: 1746681732:0;cd serve
-: 1746681737:0;lt
-: 1746681961:0;cargo run
 : 1746681976:0;cargo run "some path"
-: 1746681988:0;nvim Cargo.toml
-: 1746681999:0;nvim src/main.rs
-: 1746766231:0;rustc --version
 : 1746859567:0;which php
 : 1746859571:0;which pnpm
-: 1746859581:0;fnm list-remote
 : 1746859598:0;fnm install v24.0.1
-: 1746859604:0;fnm
 : 1746859611:0;fnm use v24.0.1
-: 1746859617:0;fnm current
-: 1746859619:0;node --version
 : 1746859719:0;brew info pnpm
 : 1746860368:0;npm i -g pnpm@latest-10
-: 1746861118:0;cd Code
-: 1746861120:0;cd peario
 : 1746861471:0;pnpx sv create leaf
 : 1746861549:0;cd leaf
-: 1746861553:0;git init
 : 1746861570:0;git commit -sm "feat: new project"
 : 1746862852:0;git commit -sm "feat: update prettier and format files"
 : 1746862934:0;pnpm i -D @lucide/svelte
 : 1746862968:0;pnpm add -D @sveltejs/adapter-static
 : 1746862975:0;pnpm approve-builds
 : 1746863197:0;pnpm create tauri-app
-: 1746863245:0;la leaf
 : 1746863260:0;mv -r leaf/.vscode .
 : 1746863264:0;mv leaf/.vscode .
 : 1746863269:0;mv leaf/src-tauri .
 : 1746863289:0;nvim leaf/vite.config.js
-: 1746863875:0;nvim .gitignore
 : 1746863949:0;pnpm add -D @tauri-apps/cli
 : 1746863974:0;pnpm add @tauri-apps/api @tauri-apps/plugin-opener
 : 1746864064:0;pnpm dev
@@ -182,80 +156,579 @@
 : 1746865387:0;git restore svelte.config.js
 : 1746865392:0;nvim svelte.config.js
 : 1746865448:0;git restore tsconfig.json
-: 1746865451:0;nvim .editorconfig
 : 1746865499:0;nvim vite.config.ts
 : 1746865600:0;git diff --staged static/svelte.svg
 : 1746865620:0;git add -A
 : 1746865639:0;git commit -sm "feat: add gitattributes and editorconfig"
 : 1746866064:0;nvim src-tauri/tauri.conf.json
 : 1746866136:0;nvim src-tauri/capabilities/desktop.json
-: 1746867078:0;git add .
 : 1746867165:0;pnpm tauri dev
 : 1746867229:0;raycast
-: 1746880855:0;brew update && brew upgrade
 : 1746880862:0;cargo install --locked zellij
-: 1746881551:0;nvim
-: 1746881554:0;cd
 : 1746881557:0;cd .config
-: 1746881568:0;cd zellij
-: 1746881605:0;nvim config.kdl
 : 1746883756:0;nvim ../ghostty/config
-: 1746883969:0;cd ..
 : 1746883970:0;cd zsh
-: 1746883971:0;la
-: 1746883979:0;zellij --help
 : 1746884136:0;zellij setup --help
 : 1746884150:0;zellij setup --generate-auto-start zsh
-: 1746884339:0;clear
 : 1746884381:0;nvim .config/zellij/config.kdl
 : 1746884689:0;zr
 : 1746887037:0;zellij setup --generate-completion zsh
-: 1746887472:0;nvim .config/ghostty/config
 : 1746887547:0;nvim .config
-: 1746887849:0;nvim .config/zsh/tools.zsh
-: 1746887858:0;ls
 : 1746888028:0;zellij --
 : 1746888107:0;source <(zellij setup --generate-completion zsh)
 : 1746888111:0;source <(zellij setup --generate-completion zsh | sed '/_zellij "$@"/d')
 : 1746888174:0;zellij setup --generate-completion zsh | sed '/_zellij "$@"/d'
-: 1746894436:0;zellij
 : 1746894442:0;cd .config/zsh
 : 1746894446:0;nvim tools.zsh
-: 1746894468:0;git s
 : 1746895319:0;im
-: 1746895320:0;vim
 : 1746895356:0;rm .config/zsh/.zcompdump
 : 1746895383:0;vim .config/zsh/tools.zsh
 : 1746895445:0;zsh
-: 1746895448:0;exit
-: 1746895583:0;chezmoi cd
-: 1746895586:0;git s
 : 1746895617:0;chezmoi re-add ~/.config/nvim ~/.config/zsh
-: 1746895625:0;git s
-: 1746895656:0;chezmoi re-add ~/.config/zellij
 : 1746895665:0;chezmoi add ~/.config/zellij
-: 1746895666:0;git s
-: 1746895668:0;git add .
-: 1746895669:0;git s
 : 1746895683:0;git diff --staged run_setup_go.sh
-: 1746895689:0;git s
 : 1746895700:0;nvim .chezmoiexternal.toml
-: 1746895726:0;git s
-: 1746895728:0;git add .
-: 1746895730:0;la
 : 1746895741:0;la dot_vim
 : 1746895750:0;lt dot_vim
-: 1746895768:0;git s
 : 1746895839:0;git commit -sm "feat: optimize zsh, minimalize nvim and more"
-: 1746895850:0;git s
-: 1746895855:0;git push origin master
-: 1746895863:0;chezmoi apply
-: 1746895875:0;chezmoi re-add ~/.config/ghostty
-: 1746895877:0;git s
-: 1746895879:0;git add .
 : 1746895883:0;chezmoi apply
-: 1746895898:0;la
 : 1746895901:0;la dot_config
 : 1746895909:0;la dot_config/zsh
 : 1746895924:0;rm -rf dot_config/zsh
 : 1746895935:0;chezmoi add ~/.config/zsh
+: 1746899525:0;go install github.com/zk-org/zk
+: 1746899532:0;go install github.com/zk-org/zk@latest
+: 1746899919:0;brew info zk
+: 1746899927:0;go uninstall zk
+: 1746899936:0;which zk
+: 1746899955:0;rm ~/go/bin/zk
+: 1746899958:0;brew install zk
+: 1746899962:0;zk
+: 1746899982:0;vim run_setup_go.sh
+: 1746900088:0;nvim run_setup_homebrew.sh
+: 1746900368:0;git commit -sm "fix: remove zk-org/zk from go setup script - install issue"
+: 1746900583:0;la ~/.vim
+: 1746900587:0;la ~/.vim/plugged
+: 1746900624:0;rm -rf .vim/plugged
+: 1746900678:0;chezmoi re-add ~/.vim
+: 1746900691:0;vim .chezmoiignore
+: 1746900866:0;chezmoi add ~/.vim
+: 1746902343:0;vim .gitignore
+: 1746902375:0;cat .gitignore
+: 1746902471:0;git commit -sm "feat: update ignore-list for chezmoi & git"
+: 1746902536:0;cd .vim
+: 1746902561:0;chezmoi add .vimrc
+: 1746902567:0;cat .viminfo
+: 1746902577:0;cat .sh_history
+: 1746902583:0;cat bat_comp.zsh
+: 1746902587:0;rm bat_comp.zsh
+: 1746902607:0;rm tmux-client-2140.log
+: 1746902608:0;vim
+: 1746902613:0;vim .vimrc
+: 1746941795:0;chezmoi re-add ~/.vimrc
+: 1746942150:0;nvim lua/plugins/colorscheme.lua
+: 1746942575:0;which nvim
+: 1746942613:0;cat config.kdl
+: 1746942714:0;a
+: 1746943298:0;rm config.kdl.bak
+: 1746943300:0;rm config.kdl.bak.1
+: 1746943641:0;rm config.kdl
+: 1746943644:0;mv config.kdl.bak config.kdl
+: 1746943895:0;chezmoi re-add ~/.config/nvim
+: 1746944106:0;zellij plugin
+: 1746944241:0;cd themes
+: 1746944249:0;touch onenord.kdl
+: 1746944252:0;nvim onenord.kdl
+: 1746944407:0;zellij
+: 1746944418:0;nvim themes/onenord.kdl
+: 1746948700:0;zellij plugin -f -- https://github.com/imsnif/theme-tester/releases/latest/download/theme-tester.wasm /c
+: 1746948703:0;zellij plugin -f -- https://github.com/imsnif/theme-tester/releases/latest/download/theme-tester.wasm -c
+: 1746948704:0;zellij plugin -f -- https://github.com/imsnif/theme-tester/releases/latest/download/theme-tester.wasm -a
+: 1746948754:0;zellij k joyous-magpie
+: 1746948771:0;zellij k diligent-cymbal
+: 1746948781:0;zellij k likabile-iguanadon
+: 1746948830:0;zellij k likable-iguanadon
+: 1746948842:0;zellij k fabulous-kangaroo
+: 1746948849:0;zellij k curious-salamander
+: 1746948856:0;zellij k fabulous-weasel
+: 1746948861:0;zellij plugin -f -- https://github.com/imsnif/theme-tester/releases/latest/download/theme-tester.wasm -C
+: 1746948891:0;zellij d joyous-magpie
+: 1746948898:0;zellij d judicious-duck
+: 1746948908:0;zellij d likable-iguanadon
+: 1746948915:0;zellij d quadratic-panda
+: 1746948921:0;zellij d undulating-tiger
+: 1746948931:0;zellij d adept-kangaroo
+: 1746948936:0;zellij list-sessions
+: 1746963432:0;git clone https://github.com/imsnif/theme-tester.git
+: 1746963462:0;cargo build --release
+: 1746963479:0;cargo build --release --target wasm32-wasi
+: 1746963558:0;cd theme-tester
+: 1746963813:0;rustup target add wasm32-unknown-emscripten
+: 1746963850:0;rustup target add wasm32-unknown-unknown
+: 1746963857:0;rustup target add wasm32-wasip2
+: 1746963911:0;rustup target add wasm32-wasip1
+: 1746963913:0;rustup target add wasm32-wasi
+: 1746964003:0;cargo install cargo-component --locked
+: 1746964178:0;zellij -l ./zellij.kdl
+: 1746964202:0;rustc --help
+: 1746964253:0;rustc --print target-list
+: 1746964259:0;rustc --print target-list | grep wasm
+: 1746964300:0;rustup target add wasm64-unknown-unknown
+: 1746965684:0;rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android\
+
+: 1746965688:0;cargo install cargo-ndk
+: 1746965723:0;cargo ndk-env
+: 1746966025:0;rustup target add x86_64-apple-darwin aarch64-apple-darwin x86_64-apple-ios aarch64-apple-ios aarch64-apple-ios-sim
+: 1746966033:0;cargo install cargo-cocoapods
+: 1746966057:0;cargo pod --help
+: 1746966125:0;rustup target add aarch64-apple-ios x86_64-apple-ios armv7-apple-ios i386-apple-ios
+: 1746966135:0;rustup target add aarch64-apple-ios x86_64-apple-ios armv7s-apple-ios i386-apple-ios
+: 1746966622:0;brew search zstd
+: 1746966952:0;which llvm
+: 1746966956:0;brew search llvm
+: 1746966966:0;brew install llvm@18
+: 1746966993:0;cargo install wasmer-cli --features "singlepass,cranelift,llvm,v8,wasmi"
+: 1746971850:0;cargo install wasmer-cli --features "singlepass,cranelift,v8,wasmi"
+: 1746972181:0;zellij plugin -f -- https://github.com/imsnif/theme-tester/releases/latest/download/theme-tester.wasm
+: 1746974414:0;nvim .config/ghostty/config
+: 1746974439:0;chezmoi re-add ~/.config/ghostty
+: 1746974443:0;chezmoi re-add ~/.config/zellij
+: 1746974448:0;chezmoi cd
+: 1746974502:0;git commit -sm "feat: update config/theme for ghostty, zellij and nvim"
+: 1746974507:0;git push origin master
+: 1747025372:0;cd layouts
+: 1747025392:0;touch basic-rust.kdl
+: 1747025427:0;zellij --help
+: 1747025531:0;zellij -l basic-rust.kdl
+: 1747026587:0;cp basic-rust.kdl nvim.kdl
+: 1747026732:0;zellij -l strider
+: 1747027738:0;zellij action new-pane -l strider
+: 1747027757:0;zellij action new-pane --layout strider
+: 1747027761:0;zellij action new-pane --help
+: 1747027774:0;zellij action new-pane -p strider
+: 1747028529:0;macchina
+: 1747028576:0;4
+: 1747028614:0;10
+: 1747028786:0;cargo new serve --bin
+: 1747028818:0;nvim nvim.kdl
+: 1747028843:0;rm basic-rust.kdl
+: 1747028849:0;mv nvim.kdl basic-rust.kdl
+: 1747028871:0;nvim basic-rust.kdl
+: 1747029129:0;cd serve
+: 1747029134:0;cd code/peario/serve
+: 1747029137:0;zellij -l basic-rust
+: 1747123282:0;gcc --version
+: 1747123344:0;as
+: 1747123347:0;as --help
+: 1747123357:0;which as
+: 1747123358:0;which ld
+: 1747123361:0;which gdb
+: 1747123371:0;which gcc
+: 1747123378:0;brew search gdb
+: 1747123397:0;brew info aarch64-elf-gdb
+: 1747123407:0;brew info arm-none-eabi-gdb
+: 1747123444:0;brew install aarch64-elf-gdb arm-none-eabi-gdb gdb
+: 1747123516:0;which security
+: 1747123519:0;cd Downloads
+: 1747123524:0;rm -rf theme-tester
+: 1747123537:0;security find-certificate -p -c gdb-cert | openssl x509 -checkend 0
+: 1747125591:0;security find-certificate -c gdb-cert |grep System.keychain
+: 1747125598:0;security find-certificate -c gdb-cert
+: 1747125614:0;security find-certificate -p -c gdb-cert | openssl x509 -checkend 0\
+
+: 1747125703:0;security dump-trust-settings -d
+: 1747125728:0;touch gdb-entitlement.xml
+: 1747125730:0;nvim gdb-entitlement.xml
+: 1747125755:0;codesign --entitlements gdb-entitlement.xml -fs gdb-cert $(which gdb)
+: 1747125817:0;codesign --entitlements gdb-entitlement.xml -enable-codesign=gdb-cert -fs gdb-cert $(which gdb)
+: 1747125875:0;codesign -vv $(which gdb)
+: 1747125894:0;codesign -d --entitlements :- $(which gdb)
+: 1747129678:0;g version
+: 1747129724:0;g i 1.24.3
+: 1747129820:0;g ls
+: 1747129823:0;g use 1.24.3
+: 1747129881:0;la .g
+: 1747129888:0;cat .g/env
+: 1747129960:0;nvim .config/zsh/tools.zsh
+: 1747130399:0;la /usr/local/go
+: 1747131001:0;go help
+: 1747131016:0;g update
+: 1747131048:0;la go/bin/go
+: 1747131082:0;rm go/bin/{go,gofmt}
+: 1747131097:0;go install github.com/pb-/gotypist@latest
+: 1747131699:0;go install github.com/ddddddO/gtree/cmd/gtree@latest
+: 1747131779:0;go
+: 1747131783:0;g l
+: 1747131803:0;go install github.com/itchyny/bed/cmd/bed@latest
+: 1747131911:0;cd code
+: 1747131916:0;gdb --help
+: 1747131930:0;cd courses
+: 1747131935:0;cd playground
+: 1747131945:0;la notebook
+: 1747131953:0;mkdir learning
+: 1747131954:0;cd learning
+: 1747131956:0;mkdir asm
+: 1747131966:0;mkdir arm64
+: 1747131981:0;mkdir hello_world
+: 1747131996:0;rm -rf .git
+: 1747131999:0;cd asm
+: 1747132002:0;cd arm64
+: 1747132004:0;cd hello_world
+: 1747132010:0;touch hello.s
+: 1747132226:0;ld hello.o -o hello
+: 1747132301:0;man as
+: 1747132330:0;clang -arch arm64 hello.s -o hello.o
+: 1747132352:0;clang -arch arm64 hello.s -o hello.o -v
+: 1747132421:0;as hello.s -o hello.o
+: 1747132447:0;chmod +x hello.o
+: 1747132449:0;./hello.o
+: 1747132905:0;as hello.s -Q -arch arm64
+: 1747132963:0;rm hello.o
+: 1747133264:0;as -Q -arch arm64 hello.s
+: 1747133270:0;file hello.o
+: 1747133280:0;ld -o hello hello.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64
+: 1747133514:0;rm hello hello.o
+: 1747133520:0;touch .gitignore
+: 1747133579:0;hello
+: 1747133582:0;./hello
+: 1747133622:0;rm -f hello{,.o}
+: 1747135282:0;d ..
+: 1747135296:0;touch README.md
+: 1747135347:0;mv hello_world "Chapter 01"
+: 1747135397:0;cp -r Chapter\ 01 Chapter\ 02
+: 1747135765:0;echo hello{,.o}
+: 1747135812:0;echo {movexamps,addexamp{1,2},codesnippets}{,.o}
+: 1747135912:0;echo "Removing: " {movexamps,addexamp{1,2},codesnippets}{,.o}
+: 1747135920:0;echo "Removing files:" {movexamps,addexamp{1,2},codesnippets}{,.o}
+: 1747135957:0;make clean
+: 1747136161:0;cp ../Chapter\ 01/hello.s .
+: 1747136164:0;nvim hello.s
+: 1747136503:0;cd nvim
+: 1747136530:0;rg null-ls
+: 1747136535:0;nvim lua/plugins/lsp.lua
+: 1747137082:0;nvim lua/plugins/mason.lua
+: 1747137101:0;nvim addexamp1.s
+: 1747139000:0;cargo install cargo-asm
+: 1747139013:0;cargo
+: 1747139018:0;cargo update
+: 1747139025:0;cargo update-binaries
+: 1747139040:0;cargo install-update -a
+: 1747148018:0;cd Chapter\ 02
+: 1747148036:0;mkdir guess_the_number
+: 1747148038:0;cd guess_the_number
+: 1747148045:0;rm -r guess_the_number
+: 1747148061:0;cp Chapter\ 01 Guess\ The\ Number
+: 1747148069:0;cp -r Chapter\ 01 Guess\ The\ Number
+: 1747148070:0;cd Guess\ The\ Number
+: 1747148074:0;nvim Makefile
+: 1747148700:0;nvim main.s
+: 1747148911:0;mkdir c_to_asm
+: 1747148913:0;cd c_to_asm
+: 1747148924:0;touch test.c
+: 1747148931:0;touch Makefile
+: 1747148933:0;nvim test.c
+: 1747149238:0;nvim ../Makefile
+: 1747149333:0;gcc --help
+: 1747149442:0;gcc -o test test.c
+: 1747149527:0;rm test
+: 1747149530:0;git add ..
+: 1747149533:0;make
+: 1747149537:0;./test
+: 1747149671:0;make asm
+: 1747284090:0;cd
+: 1747284095:0;rm gdb-entitlement.xml
+: 1747284105:0;nvim .kshrc
+: 1747284122:0;rm .kshrc
+: 1747284128:0;cd .config/
+: 1747284167:0;la nvim
+: 1747284169:0;la nvim.bak
+: 1747284182:0;which reset
+: 1747284185:0;reset --help
+: 1747284276:0;mkdir -p neovim
+: 1747284285:0;git clone https://github.com/NvChad/starter NvChad
+: 1747284374:0;NVIM_APPNAME=neovim/NvChad
+: 1747284376:0;NVIM_APPNAME=neovim/NvChad nvim
+: 1747284421:0;mv nvim neovim/LazyVim
+: 1747284431:0;man ln
+: 1747284589:0;pwd
+: 1747284607:0;ln -s /Users/peario/.config/neovim/LazyVim /Users/peario/.config/nvim
+: 1747284615:0;rm nvim.bak
+: 1747284623:0;rm -r nvim.bak
+: 1747284639:0;rm -rf nvim.bak
+: 1747284657:0;cd neovim
+: 1747284709:0;nvim LazyVim
+: 1747284833:0;echo $SHELL
+: 1747284838:0;echo $NVIM_APPNAME
+: 1747284841:0;nvim
+: 1747284900:0;la leaf
+: 1747284907:0;rm -rf leaf
+: 1747284919:0;la shelly
+: 1747284928:0;cat shelly/Cargo.toml
+: 1747284943:0;rm -rf shelly
+: 1747284948:0;la eagle
+: 1747284953:0;la aqua
+: 1747284960:0;rm -rf aqua
+: 1747284964:0;la dots
+: 1747284968:0;rm -rf dots
+: 1747285669:0;git commit -sm "feat: initial commit"
+: 1747285980:0;cd zellij
+: 1747285982:0;nvim config.kdl
+: 1747555869:0;vim --help
+: 1747557156:0;nvim -V1 -v
+: 1747557165:0;nvim --help
+: 1747557191:0;nvim --clean
+: 1747557620:0;vim --version
+: 1747811789:0;lt
+: 1747811801:0;cargo new svim
+: 1747811849:0;nvim .gitattributes
+: 1747812208:0;rustc --version
+: 1747976161:0;fnm list-remote
+: 1747976182:0;fnm install latest
+: 1747976190:0;fnm --help
+: 1747976222:0;fnm install v24.1.0
+: 1747976231:0;fnm use v24.1.0
+: 1747976234:0;node --version
+: 1747976238:0;npm --version
+: 1747976240:0;fnm
+: 1747976242:0;fnm current
+: 1747976287:0;mv svim{,.bak}
+: 1747977272:0;mkdir svim
+: 1747977329:0;cp ../svim.bak/readme.md .
+: 1747977395:0;touch .git{ignore,attributes}
+: 1747977400:0;touch .editorconfig
+: 1747977420:0;nvim .gitignore
+: 1747978641:0;i
+: 1747978673:0;go get -u github.com/urfave/cli/v3@latest
+: 1747978707:0;go get github.com/urfave/cli/v3
+: 1747978720:0;go get -u github.com/urfave/cli/v3
+: 1747978733:0;go get -u github.com/charmbracelet/huh
+: 1747978748:0;go get -u github.com/lus/fluent.go/fluent
+: 1747979328:0;git describe --tags
+: 1747979333:0;git describe
+: 1747979336:0;git describe --help
+: 1747979402:0;date -u "+%Y-%m-%d %H:%M:%S"
+: 1747979443:0;go version | sed -r 's/go version go(.*)\ .*/\1/'
+: 1747981144:0;git log -n 1
+: 1747981199:0;go get -u github.com/franela/goblin
+: 1748004967:0;cargo install just
+: 1748005466:0;la svim.bak
+: 1748005474:0;rm -rf svim
+: 1748005478:0;mv svim.bak svim
+: 1748005480:0;cd svim
+: 1748005485:0;nvim Cargo.toml
+: 1748069211:0;git --help
+: 1748072158:0;git
+: 1748072586:0;cargo --version
+: 1748083104:0;mv svim{,.rs}
+: 1748083312:0;go install github.com/spf13/cobra-cli@latest
+: 1748083342:0;cobra-cli
+: 1748083351:0;echo "$GOBIN"
+: 1748083357:0;nvim ~/.config/zsh/tools.zsh
+: 1748083378:0;echo "$GOROOT"
+: 1748083383:0;la .g/go
+: 1748083395:0;la .go/bin
+: 1748083400:0;g
+: 1748083401:0;g env
+: 1748083532:0;g lr
+: 1748083537:0;go version
+: 1748083538:0;go env
+: 1748083632:0;la go/bin
+: 1748083675:0;la "$GOPATH/bin"
+: 1748083696:0;la "$GOPATH"
+: 1748083745:0;which go
+: 1748083855:0;la "${GOPATH:-$HOME/go/bin}"
+: 1748083961:0;la "${GOPATH:-$HOME/go}/bin"
+: 1748084098:0;la $GOROOT
+: 1748084114:0;la .g/bin
+: 1748084144:0;la .g/
+: 1748084234:0;la .g/go/
+: 1748084237:0;la .g/go/go
+: 1748084239:0;la .g/go/bin
+: 1748084243:0;la $GOROOT/bin
+: 1748084250:0;echo $GOROOT
+: 1748084286:0;reset
+: 1748084301:0;echo $GOPATH
+: 1748084311:0;cd peario
+: 1748084442:0;mkdir svim.go
+: 1748088257:0;cd svim.go
+: 1748088262:0;go mod init github.com/peario/svim
+: 1748088409:0;go get -u github.com/franela/goblin github.com/urfave/cli/v3
+: 1748088457:0;mkdir -p cmd/svim pkg
+: 1748088469:0;cp -r ../svim.rs/readme.md .
+: 1748088474:0;git init
+: 1748088481:0;touch cmd/svim/main.go
+: 1748088510:0;mkdir .vscode .devcontainer
+: 1748088515:0;nvim .devcontainer/Dockerfile
+: 1748088971:0;mv readme.md README.md
+: 1748088987:0;git remote add origin git@github.com:peario/svim.git
+: 1748088996:0;git pull origin master
+: 1748089003:0;git fetch
+: 1748089011:0;git pull
+: 1748089017:0;git br
+: 1748089031:0;touch justfile
+: 1748089032:0;cd justfile
+: 1748089045:0;touch .git{ignore,attributes} .editorconfig
+: 1748089049:0;nvim .editorconfig
+: 1748113415:0;cd svim.rs
+: 1748113421:0;git add .
+: 1748113422:0;git s
+: 1748113430:0;nvim src/main.rs
+: 1748156324:0;exit
+: 1748156913:0;git --version
+: 1748162271:0;nvim --version
+: 1748256975:0;cargo run
+: 1748282195:0;cd Code
+: 1748282195:0;ls
+: 1748282202:0;mkdir cybersecurity
+: 1748282203:0;cd cybersecurity
+: 1748282214:0;mkdir vpn hackthebox tryhackme
+: 1748282217:0;cd vpn
+: 1748282228:0;brew update && brew upgrade
+: 1748282313:0;brew search openvpn
+: 1748282321:0;brew install openvpn
+: 1748282577:0;mv ~/Downloads/academy-regular.ovpn htb-academy-regular-eu-3.ovpn
+: 1748282677:0;brew search virtual
+: 1748283147:0;brew install --cask virtualbox
+: 1748283291:0;openvpn htb-academy-regular-eu-3.ovpn
+: 1748283538:0;cd hackthebox
+: 1748283548:0;mkdir web
+: 1748283549:0;cd web
+: 1748283595:0;curl -O 83.136.248.27:31522/download.php
+: 1748283605:0;cat download.php
+: 1748283621:0;cat download.php | pbcopy
+: 1748283793:0;curl 83.136.248.27:31522 -vvv
+: 1748284175:0;curl http://94.237.123.87:44669/search.php?search=le -v
+: 1748284195:0;curl http://94.237.123.87:44669/search.php?search=le -v -H 'Authorization: Basic YWRtaW46YWRtaW4='
+: 1748284208:0;curl http://94.237.123.87:44669/search.php?search=lea -v -H 'Authorization: Basic YWRtaW46YWRtaW4='
+: 1748284213:0;curl http://94.237.123.87:44669/search.php?search=l -v -H 'Authorization: Basic YWRtaW46YWRtaW4='
+: 1748284381:0;curl -X POST -d '{"search":"london"}' -b 'PHPSESSID=c1nsa6op7vtk7kdis7bcnbadf1' -H 'Content-Type: application/json' http://94.237.123.87:47140/search.php
+: 1748284428:0;curl -X POST -d '{"search":"london"}' -b 'PHPSESSID=0tkkhgbq66fssn9sv49if0pjls' -H 'Content-Type: application/json' http://94.237.123.87:47140/search.php
+: 1748284464:0;curl -X POST -d '{"search":"flag"}' -b 'PHPSESSID=0tkkhgbq66fssn9sv49if0pjls' -H 'Content-Type: application/json' http://94.237.123.87:47140/search.php
+: 1748284547:0;curl -X PUT http://<SERVER_IP>:<PORT>/api.php/city/london -d '{"city_name":"New_HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+: 1748284562:0;curl -X PUT http://94.237.59.174:58060/api.php/city/london -d '{"city_name":"New_HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'
+: 1748284595:0;curl - http://94.237.59.174:58060/api.php/city/london -H 'Content-Type: application/json'
+: 1748284599:0;curl -s http://94.237.59.174:58060/api.php/city/london -H 'Content-Type: application/json'
+: 1748284608:0;curl -s http://94.237.59.174:58060/api.php/city/New_HTB_City -H 'Content-Type: application/json'
+: 1748284634:0;curl -X DELETE http://94.237.59.174:58060/api.php/city/New_HTB_City
+: 1748284636:0;curl -s http://94.237.59.174:58060/api.php/city/New_HTB_City | jq
+: 1748284749:0;curl -X POST http://94.237.59.174:58060/api.php/city/ -d '{"city_name":"flag", "country_name":"HTB"}' -H 'Content-Type: application/json'
+: 1748284751:0;curl -s http://94.237.59.174:58060/api.php/city/flag | jq
+: 1748284793:0;curl -s http://94.237.59.174:58060/api.php/city | jq
+: 1748284874:0;curl -s http://94.237.58.82:37079/api.php/city | jq | grep flag
+: 1748284914:0;curl -X PUT http://94.237.59.174:58060/api.php/city/london -d '{"city_name":"flag", "country_name":"HTB"}' -H 'Content-Type: application/json'
+: 1748284935:0;curl -X PUT http://94.237.58.82:37079/api.php/city/london -d '{"city_name":"flag", "country_name":"HTB"}' -H 'Content-Type: application/json'
+: 1748284947:0;curl -X DELETE http://94.237.59.174:58060/api.php/city/Leeds
+: 1748284954:0;curl -X DELETE http://94.237.58.82:37079/api.php/city/Leeds
+: 1748284959:0;curl -s http://94.237.58.82:37079/api.php/city | jq
+: 1748285011:0;cd .
+: 1748285013:0;cd ..
+: 1748285015:0;mkdir nmap
+: 1748285016:0;cd nmap
+: 1748285087:0;cargo install rustscan
+: 1748285151:0;brew search dirbuster
+: 1748285193:0;go install github.com/OJ/gobuster@latest
+: 1748285256:0;go install github.com/ffuf/ffuf/v2@latest
+: 1748285450:0;brew search hydra
+: 1748285454:0;brew install hydra
+: 1748285780:0;pipx ensurepath
+: 1748285785:0;pipx install git+https://github.com/Pennyw0rth/NetExec
+: 1748285863:0;brew install hettysoft/tap/hetty
+: 1748285947:0;go install -v github.com/j3ssie/osmedeus@latest\
+
+: 1748286032:0;brew search nmap
+: 1748286039:0;brew install nmap
+: 1748286061:0;chmod go-w /opt/homebrew/Cellar
+: 1748286063:0;clear
+: 1748348698:0;rustscan
+: 1748348747:0;nmap -sS localhost
+: 1748348751:0;sudo nmap -sS localhost
+: 1748349253:0;sudo nmap 10.129.2.18 -sn -oA host -PE --reason
+: 1748349972:0;nmap -sS 10.129.2.49
+: 1748349976:0;sudo nmap -sS 10.129.2.49
+: 1748350084:0;sudo nmap 10.129.2.49 -Pn -n --disable-arp-ping --packet-trace -p 445 --reason -sV
+: 1748350152:0;brew search xsltproc
+: 1748350156:0;xsltproc
+: 1748350201:0;sudo nmap 10.129.2.49 -p- -oX target
+: 1748350249:0;cat target
+: 1748350266:0;rm host.gnmap host.nmap host.xml target
+: 1748350276:0;sudo nmap 10.129.2.49 -p- -oA target
+: 1748350497:0;xsltproc target.xml -o target.html
+: 1748350502:0;open target.html
+: 1748350665:0;sudo nmap 10.129.2.49 -p- -sV -v
+: 1748350693:0;sudo nmap 10.129.2.49 -p- -sV
+: 1748351014:0;rustscan 10.129.2.49
+: 1748351110:0;rustscan -a 10.129.2.49 -b 10
+: 1748351427:0;rustscan -a 10.129.2.49 -p 80 -- -sV --script '"(vuln and safe) or default"'
+: 1748351457:0;la
+: 1748351477:0;rustscan -a 10.129.2.49 -p 80 -- -sV --script 'vuln'
+: 1748351718:0;rustscan -a 10.129.2.49 -p 22,80,110,139,143,445,31337 --scan-order "random" -- -sV
+: 1748351925:0;sudo nmap 10.129.2.49 -p 80 -sV --script vuln
+: 1748352068:0;sudo nmap 10.129.2.49 -p 80 -sV --script version,discovery
+: 1748352148:0;sudo nmap 10.129.2.49
+: 1748352169:0;sudo nmap 10.129.2.49 -p 80 -A
+: 1748352265:0;sudo nmap 10.129.2.49 -p 80 -A --script vuln,dos,exploit
+: 1748352448:0;rustscan -a 10.129.2.49 -p 80 -- -sV --script 'vuln,dos,exploit'
+: 1748353495:0;sudo nmap 10.129.2.49 -p 80 -A --script vuln
+: 1748353551:0;sudo nmap 10.129.2.49 -p 22 -A --script vuln
+: 1748353557:0;sudo nmap 10.129.2.49 -p 22 -A
+: 1748353572:0;rustscan -a 10.129.2.49 -p 22,80,110,139,143,445,31337
+: 1748353596:0;rustscan -a 10.129.2.49 -p 22,80,110,139,143,445,31337 -- -A
+: 1748353824:0;rustscan -a 10.129.2.49 -p 80 -- -A
+: 1748353847:0;rustscan -a 10.129.2.49 -p 80 -- -A -sC
+: 1748354056:0;rustscan -a 10.129.2.49 -p 80 -- -A --script 'vuln'
+: 1748354116:0;rustscan -a 10.129.2.49 -p 80 -- -A --script 'http-enum'
+: 1748354143:0;rustscan -a 10.129.2.49 -p 80 -- --script 'http-enum'
+: 1748354548:0;rustscan -a 10.129.219.15
+: 1748354579:0;sudo nmap 10.129.219.15 -A
+: 1748354750:0;sudo nmap -sS 10.129.219.10
+: 1748354849:0;sudo nmap -sS 10.129.219.10 -sV
+: 1748355006:0;sudo nmap -sV 10.129.219.10 -p 22,80
+: 1748355140:0;sudo nmap -sU 10.129.218.243 -p 22,80
+: 1748355145:0;sudo nmap -sU 10.129.218.243
+: 1748355197:0;sudo nmap -sU 10.129.218.243 -F
+: 1748355355:0;sudo nmap -sV 10.129.218.243 -p 53,68,137,138
+: 1748355440:0;sudo nmap -sU 10.129.218.243 -Pn --disable-arp-pring --packet-trace --reason -p 53,68,137,138
+: 1748355449:0;sudo nmap -sU 10.129.218.243 -Pn --disable-arp-ping --packet-trace --reason -p 53,68,137,138
+: 1748355501:0;sudo nmap -sU 10.129.218.243 --packet-trace -p 53
+: 1748355570:0;sudo nmap -sU 10.129.218.243 -sV -p 53
+: 1748355789:0;sudo nmap -sS 10.129.218.223
+: 1748355802:0;sudo nmap -sS 10.129.218.223 -sV
+: 1748355823:0;sudo nmap -sU 10.129.218.223 -sV
+: 1748357321:0;rustscan -a 10.129.218.205 -- -sU -T2 --max-rate 10 -f -D RND:10
+: 1748357346:0;rustscan -a 10.129.218.205 -- -sU -F
+: 1748357452:0;rustscan -a 10.129.218.205 -p 80,22 -- --script vuln
+: 1748357523:0;rustscan -a 10.129.218.205 -p 80,22 -- --script service
+: 1748357621:0;man nmap
+: 1748357689:0;rustscan -a 10.129.218.205 -p 53
+: 1748357732:0;nmap -sS 10.129.218.205
+: 1748357736:0;sudo nmap -sS 10.129.218.205
+: 1748357755:0;sudo nmap -sU 10.129.218.205
+: 1748357794:0;sudo nmap -sA 10.129.218.205
+: 1748357879:0;sudo nmap -sS 10.129.218.205 -Pn -n --disable-arp-ping --packet-trace
+: 1748357894:0;sudo nmap -sA 10.129.218.205 -Pn -n --disable-arp-ping
+: 1748358007:0;sudo nmap -sS 10.129.218.205 -p 53
+: 1748358083:0;sudo nmap -sS 10.129.218.205 -p50000 -Pn -n --disable-arp-ping
+: 1748358096:0;which nc
+: 1748358098:0;nc --help
+: 1748358099:0;man nc
+: 1748358126:0;nc -nv --source-port 53 10.129.218.205 50000
+: 1748358132:0;ncat -nv --source-port 53 10.129.218.205 50000
+: 1748369614:0;sudo openvpn htb-academy-regular-eu-3.ovpn
+: 1748370918:0;curl -s 94.237.58.230:36673/serial.php -X POST
+: 1748370957:0;curl -s 94.237.58.230:36673/serial.php -X POST | base64 -d
+: 1748371066:0;curl -s 94.237.58.230:36673/serial.php -X POST -d "7h15_15_a_s3cr37_m3554g3"
+: 1748371072:0;curl -s 94.237.58.230:36673/serial.php -X POST -d "serial=7h15_15_a_s3cr37_m3554g3"
+: 1748371417:0;curl -s http://94.237.48.12:36299/keys.php -X POST
+: 1748371434:0;curl -s http://94.237.48.12:36299/keys.php -X POST | base64 -d
+: 1748371467:0;curl -s http://94.237.48.12:36299/keys.php -X POST | xxd -p
+: 1748371486:0;curl -s http://94.237.48.12:36299/keys.php -X POST | xxd -p -r
+: 1748371530:0;curl -s http://94.237.48.12:36299/keys.php -X POST -d "serial=API_p3n_73571n6_15_fun"
+: 1748371539:0;curl -s http://94.237.48.12:36299/keys.php -X POST -d "serial=API_p3n_73571n6_15_fun" | xxd -p -r
+: 1748371557:0;curl -s http://94.237.48.12:36299/keys.php -X POST -d "key=API_p3n_73571n6_15_fun" | xxd -p -r
+: 1748371565:0;curl -s http://94.237.48.12:36299/keys.php -X POST -d "key=API_p3n_73571n6_15_fun"
+: 1748373295:0;cd zsh
+: 1748373296:0;la
+: 1748373297:0;git s
+: 1748373320:0;chezmoi re-add ~/.config/zellij ~/.config/zsh ~/.config/nvim
+: 1748373321:0;nvim
+: 1748373466:0;chezmoi re-add ~/.config/zellij ~/.config/zsh ~/.config/nvim
