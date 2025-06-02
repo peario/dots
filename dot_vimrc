@@ -15,17 +15,17 @@ let g:loaded_python3_provider = 1
 set nocompatible " Makes 'vim' less compatible with 'vi' which otherwise might affect options
 
 if has('termguicolors')
-	set termguicolors "Enable 24-bit RGB color
+    set termguicolors "Enable 24-bit RGB color
 endif
 
 if !has('gui_running')
-	set t_Co=256 " Maximum number of colors that can be displayed
+    set t_Co=256 " Maximum number of colors that can be displayed
 endif
 
 if has('persistent_undo')
-	set undodir=$HOME/.vim/undo "Where to store undofiles
-	set undofile " Track undo's between sessions
-	set undolevels=10000 " How many undo's to keep track of
+    set undodir=$HOME/.vim/undo "Where to store undofiles
+    set undofile " Track undo's between sessions
+    set undolevels=10000 " How many undo's to keep track of
 endif
 
 " Setup netrw to be like NERDtree
@@ -215,13 +215,13 @@ nmap <leader>fg :Rg<CR>
 
 " Set options in files textfiles (markdown, latex, etc.)
 function! OptionsForTextFiles()
-  setlocal spell
-  setlocal wrap
+    setlocal spell
+    setlocal wrap
 endfunction
 
 augroup spelling  |
-  autocmd!        | 
-  autocmd FileType text,plaintex,typst,gitcommit,markdown,tex call OptionsForTextFiles() |
+    autocmd!        | 
+    autocmd FileType text,plaintex,typst,gitcommit,markdown,tex call OptionsForTextFiles() |
 augroup END
 
 " Make closing some windows easier
@@ -265,29 +265,29 @@ Plug 'sainnhe/everforest'
 
 " Snippets
 Plug 'sirver/ultisnips'
-  let g:UltiSnipsExpandTrigger = '<tab>'
-  let g:UltiSnipsJumpForwardTrigger = '<tab>'
-  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-  set rtp+=~/.vim/UltiSnips/greek
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+set rtp+=~/.vim/UltiSnips/greek
 
 " VimTeX (LaTeX for Vim)
-Plug 'lervag/vimtex' {'for': 'tex','tag': 'v2.16'}
-  let &rtp = '~/.vim/plugged/vimtex,' . &rtp
-  let &rtp .= ',~/.vim/plugged/vimtex/after'
-  let g:vimtex_latexmk_continuous=0
-  let g:tex_flavor='latex'
-  let g:Tex_DefaultTargetFormat='pdf'
-  let g:vimtex_indent_enabled=1
-  " let g:vimtex_completion_enabled=0
-  let g:vimtex_syntax_enabled=1
-  let g:vimtex_view_enabled=1
-  let g:vimtex_view_automatic=1
-  let g:vimtex_view_general_viewer='zathura'
-  let g:vimtex_view_method='zathura'
-  let g:vimtex_quickfix_mode=0
-  let g:vimtex_compiler_latexmk = {
-        \ 'callback': 0,
-        \}
+Plug 'lervag/vimtex', {'for': 'tex','tag': 'v2.16'}
+let &rtp = '~/.vim/plugged/vimtex,' . &rtp
+let &rtp .= ',~/.vim/plugged/vimtex/after'
+let g:vimtex_latexmk_continuous=0
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:vimtex_indent_enabled=1
+" let g:vimtex_completion_enabled=0
+let g:vimtex_syntax_enabled=1
+let g:vimtex_view_enabled=1
+let g:vimtex_view_automatic=1
+let g:vimtex_view_general_viewer='zathura'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let g:vimtex_compiler_latexmk = {
+            \ 'callback': 0,
+            \}
 
 " NOTE: The plugin 'lervag/vimtex' contains the features this plugin provides.
 " Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
@@ -303,8 +303,8 @@ call plug#end()
 set background=dark
 
 let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ }
+            \ 'colorscheme': 'nord',
+            \ }
 
 colorscheme nord
 

@@ -37,7 +37,8 @@ if (( $+commands[bat] )); then
 
   export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
-  alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+  # FIX: This breaks cli tools which have -h as actual flag, such as `redis-cli -h` for hostname
+  # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
   alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
   # replace default `cat` with `bat`
@@ -309,6 +310,22 @@ if (( $+commands[deno] )); then
   source "$DENO_COMP"
 fi
 
+# rbenv - ruby version manager
+if [[ -x /opt/homebrew/bin/rbenv ]]; then
+  RBENV_INIT="$INITS_PATH/rbenv.zsh"
+
+  if [[ ! -f $RBENV_INIT || $RBENV_INIT(#qN.mh+24) ]]; then
+    /opt/homebrew/bin/rbenv init - --no-rehash zsh >| "$RBENV_INIT"
+  fi
+
+  # if [[ -d "$HOME/.rbenv/shims" ]]; then
+  #   unset ruby gem
+  #   path+=("$HOME/.rbenv/shims")
+  # fi
+
+  source "$RBENV_INIT"
+fi
+
 # Lua v5.1 (custom install)
 if [[ -d "$HOME/.lua" ]]; then
   export LUA="$HOME/.lua"
@@ -337,7 +354,8 @@ if (( $+commands[zellij] )); then
     # zellij setup --generate-completion zsh >| "$ZELLIJ_COMP"
   fi
 
-  source "$ZELLIJ_INIT"
+  # NOTE: Disable Zellij auto-start
+  # source "$ZELLIJ_INIT"
   source "$ZELLIJ_COMP"
 fi
 

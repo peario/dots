@@ -21,6 +21,9 @@ export HISTFILE="$ZDOTDIR/histfile"
 export HISTSIZE=5000
 export SAVEHIST=3000
 
+# 2.1. share history between terminal sessions
+setopt SHARE_HISTORY
+
 # 3. Initialize Zinit (fast plugin manager)
 ZINIT_HOME="${ZDOTDIT:-$HOME/.config/zsh}/zinit"
 if [ ! -f "$ZINIT_HOME/zinit.zsh" ]; then

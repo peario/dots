@@ -45,7 +45,7 @@
   undo = reset HEAD~1 --mixed
   res = !git reset --hard
   done = !git push origin HEAD
-  lg = !git log --format='(%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]' --abbrev-commit -30
+  lg = !git log --format='%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]' --abbrev-commit -30
 
 [interactive]
   diffFilter = delta --color-only
