@@ -1,4 +1,6 @@
 #!/usr/bin/zsh
+# shellcheck shell=zsh
+#
 # Aliases go here
 
 # Development tools

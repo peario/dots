@@ -2,10 +2,10 @@
 # Zsh options (miscellaneous)
 
 # Enable vi-mode keybindings (modal editing)
-# bindkey -v
+bindkey -v
 
 # Enable emacs-mode keybindings (more similar to regular typing)
-bindkey -e
+# bindkey -e
 
 # Custom TIMEFMT for 'time' keyword (real/user/sys format)
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'

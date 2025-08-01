@@ -3,8 +3,25 @@
 --max-columns=150
 --max-columns-preview
 
+# Some useful flags for either performance and/or accuracy
+--smart-case
+--infercase
+--hidden
+--follow
+--trim
+
 # ignore git and vendor files
 --glob=!.git/*
+--glob=!.hg/*
+--glob=!node_modules/*
+--glob=!.cache/*
+--glob=!dist/*
+--glob=!build/*
+--glob=!target/*
+--glob=!.next/*
+--glob=!.svelte-kit/*
+--glob=!.turbo/*
+--glob=!coverage/*
 --glob=!vendor/*
-
---smart-case
+--glob=!*.min.*
+--glob=!*.map

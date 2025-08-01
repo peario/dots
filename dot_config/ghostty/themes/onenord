@@ -26,3 +26,5 @@ foreground = #E5E9F0
 cursor-color = #3879C5
 selection-background = #3F4758
 selection-foreground = #E5E9F0
+
+# vim:ft=ini

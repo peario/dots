@@ -1,3 +1,5 @@
+# shellcheck shell=zsh
+
 # 1. Starting conditional profiling via:
 # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
 # INFO: TOTAL STARTUP TIME SHOULD AT MAX BE 7ms!
@@ -6,10 +8,10 @@
 # Run this to get a profile trace and exit: time zsh -i -c echo
 # Or: time PROFILE_STARTUP=true /bin/zsh -i --login -c echo
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    zmodload zsh/zprof        # start timer
-    PS4='%D{%s%3>u} %N:%i> '  # timestamp each command (for xtrace)
-    exec 3>&2 2>$ZDOTDIR/zsh-start.log
-    setopt xtrace prompt_subst
+  zmodload zsh/zprof        # start timer
+  PS4='%D{%s%3>u} %N:%i> '  # timestamp each command (for xtrace)
+  exec 3>&2 2>$ZDOTDIR/zsh-start.log
+  setopt xtrace prompt_subst
 fi
 
 # 2. Environmental variables (early)
@@ -20,6 +22,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export HISTFILE="$ZDOTDIR/histfile"
 export HISTSIZE=5000
 export SAVEHIST=3000
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # 2.1. share history between terminal sessions
 setopt SHARE_HISTORY
@@ -70,6 +74,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC="true"
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_AUTOSUGGEST_HISTORY_IGNORE=$'*\n*'
 
+# in addition to zsh-autosuggestions, also install:
+# - fast-syntax-highlighting
+# - zsh-completions
 zinit wait lucid light-mode for \
   zdharma-continuum/fast-syntax-highlighting \
   atload:"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
@@ -89,7 +96,7 @@ fi
 zinit cdreplay -q   # PERF: ~1ms (replay any deferred compdefs)
 
 # NOTE: bashcompinit is disabled due to high cost (~466ms)
-# autoload -Uz bashcompinit; bashcompinit  # PERF: ~466ms (commented out)
+autoload -Uz bashcompinit; bashcompinit  # PERF: ~466ms (commented out)
 
 # 8. Load conditional assignments for tooling (eg. bat, starship)
 # This requires to load after `compinit` due to completions (compdefs)
@@ -101,7 +108,7 @@ zinit cdreplay -q   # PERF: ~1ms (replay any deferred compdefs)
 
 # 9. End profiling
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace         # stop tracing
-    exec 2>&3 3>&-          # restore stderr
-    zprof                   # show profile report
+  unsetopt xtrace         # stop tracing
+  exec 2>&3 3>&-          # restore stderr
+  zprof                   # show profile report
 fi

@@ -1,0 +1,17 @@
+-- return {
+--   s({ trig = "eq", name = "Equal", dscr = "Create an equal comparison" }, { t("==") }),
+--   s({ trig = "neq", name = "Not equal", dscr = "Create a not equal comparison" }, { t("!=") }),
+--   s({ trig = "eqe", name = "Equal exact", dscr = "Create an exact equal comparison" }, { t("===") }),
+--   s({ trig = "lt", name = "Less than", dscr = "Create a less than comparison" }, { t("<") }),
+--   s({
+--     trig = "lte",
+--     name = "Less than or equal to",
+--     dscr = "Create a less then or equal comparison",
+--   }, { t("<=") }),
+--   s({ trig = "gt", name = "Greater than", dscr = "Create a greater than comparison" }, { t(">") }),
+--   s({
+--     trig = "gte",
+--     name = "Greater than or equal to",
+--     dscr = "Create a greater than or equal to comparison",
+--   }, { t(">=") }),
+-- }

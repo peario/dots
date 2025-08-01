@@ -1,0 +1,54 @@
+snippet cod "Code (file)"
+  #let ${1:subj} = read("${2:filepath}/${1:subj}.${3:extension}")
+  #{linebreak();raw(${1:subj}, lang: "${4:programming lang}")}
+
+snippet fig "Figure environment"
+  #figure(
+    image("${1:filename_incl_path}", width: 100%),
+    caption: [${2:description}]
+  ) <${3:label}>
+
+snippet incl "include file"
+  #include "${1:filename_incl_path}"
+
+snippet hd "set head numbering"
+  #set heading(numbering: "${1:1.1}")
+
+snippet h1 "header"
+  = ${1:text}
+
+snippet h2 "sub-header"
+  == ${1:text}
+
+snippet it "italic"
+  _${1:text}_ ${0}
+
+snippet  ""
+
+snippet lnk "insert link with label"
+  #link("${1:url}")[${2:label}]
+
+snippet land "orient page to landscape mode"
+  // set page to landscape
+  #set page(
+    flipped: true,
+  )
+
+  ${0}
+
+  // set page back to portrait
+  #set page(
+    flipped: false,
+  )
+
+snippet note "Note block"
+  #import "template.typ": * // from github.com/ckunte/note
+  #show: note.with(
+    title: [${1:title}],
+    author: "${2:author}",
+    paper: "a4",
+  ) // content from here-on
+  ${3}
+
+snippet pb "page break"
+  #pagebreak(weak: true)

@@ -1,20 +1,11 @@
 #!/usr/bin/env zsh
+# shellcheck shell=zsh
+#
 # CLI tools for initialization
 
 COMPLETIONS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/completions"
 EXTRAS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/extras"
 INITS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/inits"
-
-# Zoxide - Advanced cd
-if (( $+commands[zoxide] )); then
-  ZOXIDE_COMP="$COMPLETIONS_PATH/zoxide.zsh"
-
-  if [[ ! -f $ZOXIDE_COMP || $ZOXIDE_COMP(#qN.mh+24) ]]; then
-    zoxide init zsh --cmd cd >| "$ZOXIDE_COMP"
-  fi
-
-  source "$ZOXIDE_COMP"
-fi
 
 # Delta - git diff viewer
 if (( $+commands[delta] )); then
@@ -48,6 +39,18 @@ if (( $+commands[bat] )); then
   # source "$BAT_COMP"
 fi
 
+# bob - neovim version manager
+if (( $+commands[bob] )); then
+  BOB_COMP="$COMPLETIONS_PATH/bob.zsh"
+
+  if [[ ! -f $BOB_COMP || $BAT_COMP(#qN.mh+24) ]]; then
+    bob complete zsh >| "$BOB_COMP"
+  fi
+
+  source "$BOB_COMP"
+fi
+
+
 # brew (homebrew) - a package manager
 # NOTE: Can't check for `(( $+commands[brew] ))`
 #       as `/opt/homebrew/bin` isn't part of `$PATH`.
@@ -74,7 +77,7 @@ if (( $+commands[gh] )); then
   GH_COMP="$COMPLETIONS_PATH/gh.zsh"
 
   if [[ ! -f $GH_COMP || $GH_COMP(#qN.mh+24) ]]; then
-     gh completion -s zsh >| "$GH_COMP"
+    gh completion -s zsh >| "$GH_COMP"
   fi
 
   source "$GH_COMP"
@@ -85,7 +88,7 @@ if (( $+commands[perl] )); then
   PERL5_COMP="$COMPLETIONS_PATH/perl5.zsh"
 
   if [[ ! -f $PERL5_COMP || $PERL5_COMP(#qN.mh+24) ]]; then
-     perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5 >| "$PERL5_COMP"
+    perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5 >| "$PERL5_COMP"
   fi
 
   source "$PERL5_COMP"
@@ -237,27 +240,27 @@ fi
 
 # FNM - Node.js Version Manager
 if (( $+commands[fnm] )); then
-    FNM_COMP="$COMPLETIONS_PATH/fnm.zsh"
-    FNM_EXTRAS="$EXTRAS_PATH/fnm.zsh"
+  FNM_COMP="$COMPLETIONS_PATH/fnm.zsh"
+  FNM_EXTRAS="$EXTRAS_PATH/fnm.zsh"
 
-    FNM_PATH="$HOME/.local/share/fnm"
+  FNM_PATH="$HOME/.local/share/fnm"
 
-    if [[ ! -f $FNM_EXTRAS || $FNM_EXTRAS(#qN.mh+24) ]]; then
-      fnm env >| "$FNM_EXTRAS"
-    fi
+  if [[ ! -f $FNM_EXTRAS || $FNM_EXTRAS(#qN.mh+24) ]]; then
+    fnm env >| "$FNM_EXTRAS"
+  fi
 
-    if [[ ! -f $FNM_COMP || $FNM_COMP(#qN.mh+24) ]]; then
-      fnm completions --shell zsh >| "$FNM_COMP"
-    fi
+  if [[ ! -f $FNM_COMP || $FNM_COMP(#qN.mh+24) ]]; then
+    fnm completions --shell zsh >| "$FNM_COMP"
+  fi
 
-    # Shorthand test if path exists, if not install FNM to $FNM_PATH
-    # The latter part of this command can be used to update FNM.
-    [ ! -d "$FNM_PATH" ] && { curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$FNM_PATH" --skip-shell; }
+  # Shorthand test if path exists, if not install FNM to $FNM_PATH
+  # The latter part of this command can be used to update FNM.
+  [ ! -d "$FNM_PATH" ] && { curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$FNM_PATH" --skip-shell; }
 
-    path+=("$FNM_PATH")
+  path+=("$FNM_PATH")
 
-    source "$FNM_EXTRAS"
-    source "$FNM_COMP"
+  source "$FNM_EXTRAS"
+  source "$FNM_COMP"
 fi
 
 if (( $+commands[node] )); then
@@ -282,10 +285,10 @@ fi
 
 # Bun
 if (( $+commands[bun] )); then
-    export BUN_INSTALL="$HOME/.bun"
+  export BUN_INSTALL="$HOME/.bun"
 
-    [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-    path+=("$BUN_INSTALL/bin")
+  [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+  path+=("$BUN_INSTALL/bin")
 fi
 
 # Chezmoi (dotfiles manager)
@@ -359,6 +362,18 @@ if (( $+commands[zellij] )); then
   source "$ZELLIJ_COMP"
 fi
 
+# Zoxide - Advanced cd
+if (( $+commands[zoxide] )); then
+  ZOXIDE_COMP="$COMPLETIONS_PATH/zoxide.zsh"
+
+  if [[ ! -f $ZOXIDE_COMP || $ZOXIDE_COMP(#qN.mh+24) ]]; then
+    zoxide init zsh --cmd cd >| "$ZOXIDE_COMP"
+  fi
+
+  source "$ZOXIDE_COMP"
+fi
+
+# Macchina - a neofetch alternative
 if (( $+commands[macchina] )); then
   macchina
 fi

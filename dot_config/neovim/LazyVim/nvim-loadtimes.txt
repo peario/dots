@@ -1,0 +1,41 @@
+Total: 93 plugins
+
+Loaded (34)
+[ ] is default (boxes)
+[x] Plugin: bufferline.nvim (1.83ms) Dependencies:   VeryLazy
+[ ] Plugin: catppuccin (1.05ms) Dependencies:   start
+[x] Plugin: conform.nvim (7.26ms) Dependencies:  󰢱 conform  LazyVim
+[ ] Plugin: everforest-nvim (1.68ms) Dependencies:   start
+[x] Plugin: flash.nvim (1.07ms) Dependencies:   VeryLazy
+[ ] Plugin: headlines.nvim (13.84ms) Dependencies:   start
+[ ] Plugin: hmts.nvim (0.36ms) Dependencies:   start
+[x] Plugin: lazy.nvim (28.68ms) Dependencies:   init.lua
+[x] Plugin: LazyVim (5.48ms) Dependencies:   start
+[x] Plugin: lualine.nvim (10.64ms) Dependencies:   VeryLazy
+[ ] Plugin: luarocks (0.16ms) Dependencies:   start
+[x] Plugin: nvim-lspconfig (26.51ms) Dependencies:   LazyFile
+[x] Plugin: mason-lspconfig.nvim (0.05ms) Dependencies:   mason-tool-installer.nvim
+[ ] Plugin: mason-nvim-dap.nvim (0.04ms) Dependencies:  󰢱 mason-nvim-dap.mappings.source  mason-tool-installer.nvim
+[ ] Plugin: mason-tool-installer.nvim (18.26ms) Dependencies:   start
+[x] Plugin: mason.nvim (14.96ms) Dependencies:   mason-tool-installer.nvim
+[x] Plugin: mini.ai (0.6ms) Dependencies:   VeryLazy
+[ ] Plugin: mini.comment (0.47ms) Dependencies:   VeryLazy
+[x] Plugin: mini.pairs (1.02ms) Dependencies:   VeryLazy
+[x] Plugin: noice.nvim (1ms) Dependencies:   VeryLaz
+[x] Plugin: nui.nvim (0.05ms) Dependencies:  󰢱 nui.object  noice.nvim
+[x] Plugin: nvim-lint (0.81ms) Dependencies:   LazyFile
+[x] Plugin: nvim-treesitter (9.79ms) Dependencies:   headlines.nvim
+[ ] Plugin: nvim-treesitter-endwise (1.91ms) Dependencies:   nvim-treesitter
+[x] Plugin: nvim-treesitter-textobjects (1.72ms) Dependencies:   VeryLazy
+[x] Plugin: nvim-ts-autotag (1.6ms) Dependencies:   LazyFile
+[ ] Plugin: nvim-web-devicons (0.11ms) Dependencies:   start
+[ ] Plugin: onenord.nvim (3.01ms) Dependencies:  colorscheme onenord  LazyVim
+[ ] Plugin: rose-pine (0.5ms) Dependencies:   start
+[x] Plugin: snacks.nvim (1.39ms) Dependencies:   start
+[x] Plugin: trouble.nvim (2.21ms) Dependencies:  󰢱 trouble  lualine.nvim
+[x] Plugin: ts-comments.nvim (0.34ms) Dependencies:   VeryLazy
+[ ] Plugin: typst-preview.nvim (1.47ms) Dependencies:   start
+[ ] Plugin: typst.vim (0.14ms) Dependencies:   start
+[ ] Plugin: vim-fetch (0.25ms) Dependencies:   start
+[ ] Plugin: vim-matchup (1.91ms) Dependencies:   nvim-treesitter
+[x] Plugin: which-key.nvim (0.54ms) Dependencies:   VeryLazy

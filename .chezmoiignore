@@ -1,4 +1,5 @@
 README.md
 
+dot_config/**/*_backup/**
 dot_config/zsh/private_histfile
 dot_vim/plugged
