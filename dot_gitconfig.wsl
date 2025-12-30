@@ -6,6 +6,8 @@
   pager = delta
   editor = nvim
   longpaths = true
+  # this is required for windows wsl and 1password integration
+  sshCommand = ssh.exe
 
 [user]
   name = Peario
