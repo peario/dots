@@ -5,3 +5,6 @@ dot_config/zsh/private_histfile
 dot_vim/plugged
 
 scripts/
+
+# These should be manually tracked and added.
+dot_gitconfig.*
