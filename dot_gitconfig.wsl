@@ -11,7 +11,7 @@
   name = Peario
   email = 115320609+peario@users.noreply.github.com
   gpgSign = true
-  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+Xgd//jAR4Qfo8l0MtgbIpAn1Y0HCxx4aAuke2r1pf
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+Xgd//jAR4Qfo8l0MtgbIpAn1Y0HCxx4aAuke2r1pf
 
 [gpg]
   format = ssh
