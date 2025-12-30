@@ -6,14 +6,14 @@
   pager = delta
   editor = nvim
   longpaths = true
-  # this is required for windows wsl and 1password integration
+  # required for wsl, git and 1password integration
   sshCommand = ssh.exe
 
 [user]
   name = Peario
   email = 115320609+peario@users.noreply.github.com
   gpgSign = true
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+Xgd//jAR4Qfo8l0MtgbIpAn1Y0HCxx4aAuke2r1pf
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+Xgd//jAR4Qfo8l0MtgbIpAn1Y0HCxx4aAuke2r1pf
 
 [gpg]
   format = ssh
@@ -25,7 +25,7 @@
   rebase = true
 
 [commit]
-  gpgsign = true
+  gpgSign = true
 
 [tag]
   gpgSign = true

@@ -33,13 +33,24 @@ if (( $+commands[bat] )); then
 fi
 
 # bob - neovim version manager
-if (( $+commands[bob] )); then
+if (( $+commands[bob] )) || [[ -x "$HOME/.cargo/bin/bob" ]]; then
+  BOB_SHARE="$HOME/.local/share/bob"
+  BOB_ENV="$BOB_SHARE/env"
   BOB_COMP="$COMPLETIONS_PATH/bob.zsh"
   BOB_CONFIG="$HOME/.config/bob/config"
 
-  if [[ ! -f $BOB_COMP || $BOB_COMP(#qN.mh+24) ]]; then
-    bob complete zsh >| "$BOB_COMP"
+  # if this file exists, then source it.
+  if [[ -x "$BOB_ENV/env.sh" ]]; then
+    source "$BOB_ENV/env.sh"
   fi
+
+  # for some reason is "bob" not accessible from the zsh config????
+  # so calling "bob" from here will result in an error and cancelation of the rest of the bob section???
+  #
+  # TODO: Resolve this issue.
+  #if [[ ! -f $BOB_COMP || $BOB_COMP(#qN.mh+24) ]]; then
+  #  bob complete zsh >| "$BOB_COMP"
+  #fi
 
   for file in "$BOB_CONFIG"/*.{json,toml}; do 
     BOB_CONFIG="$file"
@@ -49,6 +60,11 @@ if (( $+commands[bob] )); then
 	break
     fi
   done
+
+  # Add bob-nvim to path because for some reason it didn't do it...
+  if [[ -x "$BOB_SHARE/nvim-bin/nvim" ]]; then
+      export PATH="$PATH:$BOB_SHARE/nvim-bin"
+  fi
 
   source "$BOB_COMP"
 fi
@@ -96,8 +112,12 @@ if (( $+commands[gh] )); then
   source "$GH_COMP"
 fi
 
-if (( $+commands[br])) || (( $+commands[broot] )); then
-  BR_FUNCTION="$HOME/.config/broot/launcher/bash/br"
+# broot - a convienent dir finder and navigator
+#
+# NOTE: don't search for "br" as it's an alias/function made accessible with "$BR_FUNCTION".
+if (( $+commands[broot] )) || [[ -x "$HOME/.cargo/bin/broot" ]]; then
+  BR_CONFIG="$HOME/.config/broot"
+  BR_FUNCTION="$BR_CONFIG/launcher/bash/br"
 
   if [[ -f $BR_FUNCTION ]]; then
     source "$BR_FUNCTION"
@@ -105,15 +125,15 @@ if (( $+commands[br])) || (( $+commands[broot] )); then
 fi
 
 # perl5
-if (( $+commands[perl] )); then
-  PERL5_COMP="$COMPLETIONS_PATH/perl5.zsh"
-
-  if [[ ! -f $PERL5_COMP || $PERL5_COMP(#qN.mh+24) ]]; then
-    perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5 >| "$PERL5_COMP"
-  fi
-
-  source "$PERL5_COMP"
-fi
+#if (( $+commands[perl] )); then
+#  PERL5_COMP="$COMPLETIONS_PATH/perl5.zsh"
+#
+#  if [[ ! -f $PERL5_COMP || $PERL5_COMP(#qN.mh+24) ]]; then
+#    perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5 >| "$PERL5_COMP"
+#  fi
+#
+#  source "$PERL5_COMP"
+#fi
 
 # Java / Kotlin
 JAVA_HOME="${JAVA_HOME:-$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home}"

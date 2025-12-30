@@ -45,3 +45,9 @@ if (( $+commands[eza] )); then
   alias lt="eza -a --tree --git-ignore $extra_opts"
   alias li="eza -la --git-ignore $extra_opts"
 fi
+
+# Easier checking of PATH
+gpath () {
+    # NOTE: Don't add "-i" (interactive) to sk (skim) as it will cause the entire line of code below to fail.
+    echo "$PATH" | tr ":" "\n" | uniq | sort | sk --ansi -c "rg --color=always {}"
+}
