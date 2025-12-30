@@ -112,3 +112,5 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
   exec 2>&3 3>&-          # restore stderr
   zprof                   # show profile report
 fi
+
+source /Users/peario/.config/broot/launcher/bash/br

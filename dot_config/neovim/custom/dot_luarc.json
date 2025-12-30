@@ -1,14 +1,5 @@
 {
-	"diagnostics.globals": [
-		"vim",
-		"postfix",
-		"fmta",
-		"s", 
-		"sn", 
-		"d", 
-		"i", 
-		"c", 
-		"t", 
-		"f"
-	]
+  "diagnostics.globals": [
+    "vim"
+  ]
 }

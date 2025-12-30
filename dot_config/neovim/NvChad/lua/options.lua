@@ -47,6 +47,7 @@ opt.linebreak = true
 opt.wrap = false
 opt.list = true
 opt.number = true
+opt.relativenumber = true
 opt.pumblend = 10
 opt.pumheight = 10
 opt.ruler = false

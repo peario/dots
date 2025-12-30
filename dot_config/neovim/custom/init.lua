@@ -1,14 +1,11 @@
+-- fallback to `vim.loop` if `vim.uv` is not available
 vim.uv = vim.uv or vim.loop
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 if vim.loader then
-  vim.loader.enable(true)
+	vim.loader.enable(true)
 end
 
--- Bootstrap lazy.nvim, configs and plugins
-require("config.lazy").load({
-  -- debug = false,
-  -- profiling = {
-  --   loader = false,
-  --   require = false,
-  -- },
-})
+require("config.lazy").load()

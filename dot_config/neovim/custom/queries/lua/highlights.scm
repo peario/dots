@@ -1,7 +1,10 @@
 ;; extends
 
+; for vim global module
 ((identifier) @namespace.builtin
               (#eq? @namespace.builtin "vim"))
 
-((identifier) @namespace.builtin
-              (#eq? @namespace.builtin "Peario"))
+; for local modules
+((identifier) @variable.builtin
+              (#eq? @variable.builtin "M"))
+

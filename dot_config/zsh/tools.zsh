@@ -26,14 +26,7 @@ if (( $+commands[bat] )); then
     bat --completion zsh >| "$BAT_COMP"
   fi
 
-  export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
-
-  # FIX: This breaks cli tools which have -h as actual flag, such as `redis-cli -h` for hostname
-  # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-  alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
-
-  # replace default `cat` with `bat`
-  unset cat; alias cat='bat --paging=never'
+  # aliases and exports are in `./alias.zsh`
 
   # FIX: bat completion is broken.
   # source "$BAT_COMP"
@@ -42,14 +35,34 @@ fi
 # bob - neovim version manager
 if (( $+commands[bob] )); then
   BOB_COMP="$COMPLETIONS_PATH/bob.zsh"
+  BOB_CONFIG="$HOME/.config/bob/config"
 
-  if [[ ! -f $BOB_COMP || $BAT_COMP(#qN.mh+24) ]]; then
+  if [[ ! -f $BOB_COMP || $BOB_COMP(#qN.mh+24) ]]; then
     bob complete zsh >| "$BOB_COMP"
   fi
+
+  for file in "$BOB_CONFIG"/*.{json,toml}; do 
+    BOB_CONFIG="$file"
+
+    if [[ -f "$BOB_CONFIG" ]]; then
+        export BOB_CONFIG
+	break
+    fi
+  done
 
   source "$BOB_COMP"
 fi
 
+# task - task runner / build tool
+if (( $+commands[task] )); then
+  TASK_COMP="$COMPLETIONS_PATH/task.zsh"
+
+  if [[ ! -f $TASK_COMP || $TASK_COMP(#qN.mh+24) ]]; then
+    task --completion zsh >| "$TASK_COMP"
+  fi
+
+  source "$TASK_COMP"
+fi
 
 # brew (homebrew) - a package manager
 # NOTE: Can't check for `(( $+commands[brew] ))`
@@ -81,6 +94,14 @@ if (( $+commands[gh] )); then
   fi
 
   source "$GH_COMP"
+fi
+
+if (( $+commands[br])) || (( $+commands[broot] )); then
+  BR_FUNCTION="$HOME/.config/broot/launcher/bash/br"
+
+  if [[ -f $BR_FUNCTION ]]; then
+    source "$BR_FUNCTION"
+  fi
 fi
 
 # perl5
@@ -146,15 +167,15 @@ if [ -d "$HOME/.cargo/bin" ]; then
       ;;
   esac
 
-  if [ -x /Users/peario/.cargo/bin/cargo-ndk-env ]; then
-    CARGO_NDK_ENV="$EXTRAS_PATH/cargo_ndk_env.zsh"
-
-    if [[ ! -f $CARGO_NDK_ENV || $CARGO_NDK_ENV(#qN.mh+24) ]]; then
-      cargo ndk-env >| "$CARGO_NDK_ENV"
-    fi
-
-    source "$CARGO_NDK_ENV"
-  fi
+  # if [ -x /Users/peario/.cargo/bin/cargo-ndk-env ]; then
+  #   CARGO_NDK_ENV="$EXTRAS_PATH/cargo_ndk_env.zsh"
+  #
+  #   if [[ ! -f $CARGO_NDK_ENV || $CARGO_NDK_ENV(#qN.mh+24) ]]; then
+  #     cargo ndk-env >| "$CARGO_NDK_ENV"
+  #   fi
+  #
+  #   source "$CARGO_NDK_ENV"
+  # fi
 fi
 
 # Nim

@@ -1,7 +1,19 @@
-theme = dark:onenord,light:onenord_light
+# theme = dark:evergarden-spring-green,light:evergarden-summer-green
+theme = dark:Catppuccin Macchiato,light:Catppuccin Latte
 
+# Window settings
 window-height = 28
 window-width = 90
+window-padding-x = 8
+window-padding-y = 8
+window-colorspace = display-p3
+
+# MacOS settings
+macos-titlebar-style = hidden
+
+# Other
+background-opacity = 0.9
+background-blur-radius = 20
 
 font-family = "Maple Mono NF"
 font-size = 18
@@ -13,10 +25,10 @@ font-size = 18
 # - `right`: Right Option will be treated as Alt.
 macos-option-as-alt = true
 
-command = "/bin/zsh"
+command = /bin/zsh
 
 # Ghostty's config is of type `key=value`.
 # Codeblocks in Ghostty's docs use filetype (and syntax highlight) for `ini`.
 # See: https://ghostty.org/docs/config#syntax
 #
-# vim:ft=ini
+# vim:ft=ini:cms=#\ %s

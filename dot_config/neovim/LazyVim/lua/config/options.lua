@@ -32,6 +32,9 @@ vim.opt.softtabstop = 2
 -- Searching
 vim.opt.grepprg = "rg --vimgrep --smart-case --no-heading"
 
+vim.opt.number = true
+vim.opt.relativenumber = false
+
 -- Language
 vim.opt.spelllang = { "sv", "en_us" }
 

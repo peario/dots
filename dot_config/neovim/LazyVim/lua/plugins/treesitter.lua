@@ -2,29 +2,15 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      endwise = {
-        enable = true,
-      },
-      matchup = {
-        enable = true,
-        disable = {},
-      },
-      autotag = {
-        enable = true,
-      },
+      endwise = { enable = true },
+      matchup = { enable = true },
+      autotag = { enable = true },
     },
     dependencies = {
-      --- WARN: Use `metiulekm` (fork) until `RRethy` (original) is fixed
-      "metiulekm/nvim-treesitter-endwise",
+      --- WARN: Use `brianhuster` (fork) until `RRethy` (original) is fixed
+      "brianhuster/treesitter-endwise.nvim",
       -- "RRethy/nvim-treesitter-endwise",
       "andymass/vim-matchup",
     },
-  },
-  {
-    "calops/hmts.nvim",
-    event = { "LazyFile", "VeryLazy" },
-    ft = { "nix" },
-    version = "*",
-    lazy = true,
   },
 }

@@ -1,115 +1,114 @@
-vim.g.mapleader = " "
-vim.g.localmapleader = "\\"
+local options = {
+  g = {
+    -- Explicit providers
+    loaded_ruby_provider = 0,
+    loaded_perl_provider = 0,
+    loaded_node_provider = 0,
+    -- For snippets
+    loaded_python3_provider = 1
+  },
+  opt = {
+    -- Behavior
+    autowrite = true,
+    history = 3000,
+    backspace = "eol,start,indent",
+    clipboard = vim.env.SSH_TTY and "" or "unnamedplus",
+    completeopt = "menu,menuone,noselect",
+    encoding = "utf-8",
+    splitbelow = true,
+    splitright = true,
+    splitkeep = "screen",
+    timeoutlen = 300,
+    updatetime = 200,
+    virtualedit = "block",
+    mouse = "nv",
+    spell = false,
+    spelllang = { "sv", "en" },
+    confirm = true,
+    formatoptions = "jcroqlnt", -- tcqj
+    jumpoptions = "view",
+    sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" },
+    
+    -- Look and feel
+    termguicolors = vim.fn.has("termguicolors") == 1,
+    number = true,
+    relativenumber = false,
+    cursorline = false,
+    signcolumn="yes",
+    ruler = false,
+    wrap = false,
+    linebreak = true,
+    textwidth = 500,
+    conceallevel = 2,
+    foldlevel = 0,
+    foldlevelstart = 99,
+    foldmethod = "indent",
+    showmode = false,
+    pumheight = 10,
+    pumblend = 10,
+    scrolloff = 4,
+    sidescrolloff = 8,
+    winminwidth = 5,
+    laststatus = 2,
+    list = true,
+    fillchars = {
+      foldopen = "",
+      foldclose = "",
+      fold = " ",
+      foldsep = " ",
+      diff = "╱",
+      eob = " ",
+    },
 
--- Providers
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
+    -- Searching
+    smartcase = true,
+    ignorecase = true,
+    infercase = true,
+    tagcase = "followscs",
+    hlsearch = true,
+    incsearch = true,
+    wildmenu = true,
+    wildmode = "longest:full,full",
+    -- wildignore = { },
 
--- Plugin related
-vim.g.snacks_animate = true
-vim.g.trouble_lualine = true
+    grepformat = "%f:%l:%c:%m",
+    grepprg = [[rg --vimgrep --no-heading --smart-case --hidden --follow --trim ]]
+      .. [[--glob '!.git/*' --glob '!node_modules/*' --glob '!.cache/*' ]]
+      .. [[--glob '!dist/*' --glob '!coverage/*' --glob '!*.min.*' ]],
 
--- Neovim options
-local opt = vim.opt
+    -- Indentations, tabs and shifts
+    autoindent = true,
+    smartindent = true,
+    smarttab = true,
 
--- Release dependant
-if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-  opt.foldexpr = "v:lua.require'util'.ui.foldexpr()"
-  opt.foldmethod = "expr"
-  opt.foldtext = ""
-else
-  opt.foldmethod = "indent"
-  opt.foldtext = "v:lua.require'util'.ui.foldtext()"
+    expandtab = true,
+    tabstop = 2,
+    softtabstop = 2,
+
+    shiftround = true,
+    shiftwidth = 2,
+
+    -- Data, undo and backup
+    backupdir = vim.fn.stdpath("state") .. "/backup",
+    directory = vim.fn.stdpath("state") .. "/swap",
+    undodir = vim.fn.stdpath("state") .. "/undo",
+
+    backup = false,
+    swapfile = false,
+    undolevels = 10000,
+  },
+}
+
+-- apply options above
+--
+-- vim.[ set ].[ key ] = [ value ]
+for set, scope in pairs(options) do
+  for key, value in pairs(scope) do
+    vim[set][key] = value
+  end
 end
 
--- Behavior
-opt.autowrite = true
-opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
-opt.confirm = true
--- opt.formatexpr = "v:lua.require'util'.format.formatexpr()"
-opt.formatoptions = "jcroqlnt" -- tcqj
-opt.jumpoptions = "view"
-opt.mouse = "nv"
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+-- For options which could not be set via the format above
+local opt = vim.opt
+
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.splitbelow = true
-opt.splitright = true
-opt.splitkeep = "screen"
-opt.timeoutlen = 300
-opt.updatetime = 200
-opt.virtualedit = "block"
-
--- User interface
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2
-opt.cursorline = false
-opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
-opt.foldlevel = 99
-opt.laststatus = 3
-opt.linebreak = true
-opt.wrap = false
-opt.list = true
-opt.number = true
-opt.relativenumber = true
-opt.pumblend = 10
-opt.pumheight = 10
-opt.ruler = false
-opt.scrolloff = 4
-opt.sidescrolloff = 8
-opt.showmode = false
-opt.signcolumn = "yes"
-opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
-opt.termguicolors = true
-opt.winminwidth = 5
-
--- Search and replace
-opt.smartcase = true
-opt.ignorecase = true
-opt.tagcase = "followscs"
-
-opt.inccommand = "nosplit"
-
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep --hidden -g !.git"
-opt.wildmode = "longest:full,full"
-opt.wildignore = {
-  "**/node_modules/**", -- Node.js
-  "**/coverage/**", -- ???
-  "**/.idea/**", -- JetBrains IDE
-  "**/.git/**", -- Git
-  "**/.nuxt/**", -- Nuxt.js
-  "**/target/**", -- Rust
-}
-
--- tabs, shifts and indentation
-opt.expandtab = true
-opt.smarttab = true
-opt.tabstop = 4
-opt.softtabstop = 4
-
-opt.autoindent = true
-opt.smartindent = true
-
-opt.shiftwidth = 4
-opt.shiftround = true
-
--- Spelling
-opt.spelllang = { "sv", "en" }
-
--- Data and backup
-opt.directory = vim.fn.stdpath("config") .. "/.swap//"
-opt.backupdir = vim.fn.stdpath("config") .. "/.backup//"
-opt.undodir = vim.fn.stdpath("config") .. "/.undo//"
-opt.swapfile = true
-opt.backup = true
-opt.undofile = true

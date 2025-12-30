@@ -1,48 +1,51 @@
---- Convenient function to create an augroup.
----@param name string
----@return integer
 local function augroup(name)
-  return vim.api.nvim_create_augroup("peario_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("peario." .. name, { clear = true })
 end
 
---- Convenient shortened variable for creating autocmd.
 local autocmd = vim.api.nvim_create_autocmd
 
--- Check if we need to reload the file when it changed.
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group = augroup("checktime"),
+-- Numbertoggle autocmds, taken from:
+--   https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/lua/rockyz/autocmds.lua
+local numbertoggle_exclude_ft = { "qf" }
+
+-- Toggle relative number on
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  group = augroup("numbertoggle_on"),
+  pattern = "*",
   callback = function()
-    if vim.o.buftype ~= "nofile" then
-      vim.cmd("checktime")
+    if vim.tbl_contains(numbertoggle_exclude_ft, vim.bo.filetype) then return end
+
+    if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, "i") then
+      vim.wo.relativenumber = true
     end
-  end,
+  end
 })
 
--- HIghlight on yank.
-autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    (vim.hl or vim.highlight).on_yank()
-  end,
+-- Toggle relative number off
+autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  group = augroup("numbertoggle_off"),
+  pattern = "*",
+  callback = function(args)
+    if vim.tbl_contains(numbertoggle_exclude_ft, vim.bo.filetype) then return end
+
+    if vim.wo.nu then
+      vim.wo.relativenumber = false
+    end
+
+    if args.event == 'CmdlineEnter' then
+      if not vim.tbl_contains({ '@', '-' }, vim.v.event.cmdtype) then
+        vim.cmd.redraw()
+      end
+    end
+  end
 })
 
--- Resize splits if window got resized.
-autocmd("VimResized", {
-  group = augroup("resize_splits"),
-  callback = function()
-    local current_tab = vim.fn.tabpagenr()
-    vim.cmd("tabdo wincmd =")
-    vim.cmd("tabnext " .. current_tab)
-  end,
-})
-
--- Go to last loc when opening a buffer.
+-- Go to last loc when opening a buffer
 autocmd("BufReadPost", {
   group = augroup("last_loc"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
-
     if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].last_loc then
       return
     end
@@ -54,6 +57,35 @@ autocmd("BufReadPost", {
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
+})
+
+-- Check if we need to reload the file when it changed
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = augroup("checktime"),
+  pattern = "*",
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd.redraw()
+    end
+  end
+})
+
+-- Highlight on yank
+autocmd("TextYankPost", {
+  group = augroup("highlight_yank"),
+  callback = function()
+    (vim.hl or vim.highlight).on_yank({ timeout = 300, priority = 65535 })
+  end
+})
+
+-- Resize splits if window got resized
+autocmd("VimResized", {
+  group = augroup("resize_splits"),
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
+  end
 })
 
 -- Close some filetypes with <q>
@@ -82,12 +114,16 @@ autocmd("FileType", {
       vim.keymap.set("n", "q", function()
         vim.cmd("close")
         pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
-      end, { buffer = event.buf, silent = true, desc = "Quit buffer" })
+      end, {
+          buffer = event.buf,
+          silent = true,
+          desc = "Quit buffer"
+        })
     end)
   end,
 })
 
--- Make it easier to close man-files when opened inline.
+-- Makei t easier to close man-files when opened inline
 autocmd("FileType", {
   group = augroup("man_unlisted"),
   pattern = { "man" },
@@ -96,17 +132,17 @@ autocmd("FileType", {
   end,
 })
 
--- Wrap and check for spell in text filetypes.
+-- Wrap and check for spell in text filetypes
 autocmd("FileType", {
   group = augroup("wrap_spell"),
-  pattern = { "text", "plaintex", "tex", "typst", "gitcommit", "markdown" },
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown", "mdx" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
   end,
 })
 
--- Fix conceallevel for json files.
+-- Fix conceallevel for json files
 autocmd("FileType", {
   group = augroup("json_conceal"),
   pattern = { "json", "jsonc", "json5" },
@@ -115,7 +151,7 @@ autocmd("FileType", {
   end,
 })
 
--- Auto create dirs when saving a file, in case some intermediate directory does not exist.
+-- auto create dir when saving a file, in case some intermediate directory does not exist
 autocmd("BufWritePre", {
   group = augroup("auto_create_dir"),
   callback = function(event)
@@ -127,10 +163,52 @@ autocmd("BufWritePre", {
   end,
 })
 
--- Append backup files with timestamp
-autocmd("BufWritePre", {
+-- Command-line window
+autocmd("CmdWinEnter", {
+  group = augroup("cmdwin"),
+  callback = function(args)
+    -- Execute command and stay in the command-line window
+    vim.keymap.set({ "n", "i" }, "<S-CR>", "<CR>q:", { buffer = args.buf })
+    vim.keymap.set("n", "q", ":q<CR>", { buffer = args.buf, nowait = true, silent = true })
+  end
+})
+
+-- Terminal
+autocmd({ "TermOpen", "BufWinEnter", "WinEnter" }, {
+  group = augroup("terminal.start_insert"),
+  pattern = "term://*",
   callback = function()
-    local extension = "~" .. vim.fn.strftime("%Y-%m-%d-%H%M%S")
-    vim.o.backupext = extension
-  end,
+    vim.cmd.startinsert()
+  end
+})
+
+-- Reset maximize status
+-- Close windo by :quit will resize all windows so the maximization status should be reset
+autocmd("QuitPre", {
+  group = augroup("reset_win_maximize"),
+  callback = function(args)
+    local tab = vim.api.nvim_get_current_tabpage()
+    vim.t[tab].maximized_win = nil
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
+      if vim.w[win].maximized then
+        vim.w[win].maximized = nil
+      end
+    end
+  end
+})
+
+-- Set CursorLine of not-current windows
+local cursorline_nc = augroup("cursorline_nc")
+autocmd({ "VimEnter", "WinEnter", "TabEnter", "BufEnter" }, {
+  group = cursorline_nc,
+  callback = function()
+    vim.opt_local.winhighlight:remove("CursorLine")
+  end
+})
+
+autocmd("WinLeave", {
+  group = cursorline_nc,
+  callback = function()
+    vim.opt_local.winhighlight:append({ CursorLine = "CursorLineNC" })
+  end
 })

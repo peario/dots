@@ -6,9 +6,11 @@ vim.g.maplocalleader = "\\"
 
 -- Disable some default providers
 vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+-- Let Python be enabled for snippets
+vim.g.loaded_python3_provider = 0
 
 -- Load lazy.nvim
 require("configs.lazy").load({
@@ -16,7 +18,7 @@ require("configs.lazy").load({
   --   loader = false,
   --   require = false,
   -- }
-})
+  })
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")

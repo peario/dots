@@ -1,5 +1,4 @@
-std = "vim"
+std = "neovim"
 
-[lints]
+[rules]
 mixed_table = "allow"
-
