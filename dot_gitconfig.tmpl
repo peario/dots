@@ -7,7 +7,13 @@
   editor = nvim
   longpaths = true
   ; Required for wsl, git and 1Password integration
-  sshCommand = ssh{{- if (eq .chezmoi.os "windows") }}.exe{{- else if (contains "-WSL2" .chezmoi.kernel.osrelease) }}.exe{{- end }}
+  {{- if (eq .chezmoi.os "windows") }}
+  sshCommand = ssh.exe
+  {{- else if (eq .chezmoi.os "linux") }}
+  sshCommand = ssh{{- if (contains "-WSL2" .chezmoi.kernel.osrelease) }}.exe{{- end }}
+  {{- else }}
+  sshCommand = ssh
+  {{- end }}
 
 [user]
   name = Peario
@@ -19,21 +25,19 @@
   format = ssh
 
 [gpg "ssh"]
-  ; program = "/mnt/c/Users/freda/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
   {{- if (eq .chezmoi.os "darwin") }}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
   {{- else if (eq .chezmoi.os "windows") }}
   program = "C:/Users/{{ .chezmoi.username }}/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
-
-  {{- else if (contains "-WSL2" .chezmoi.kernel.osrelease) }}
+  {{- else if (eq .chezmoi.os "linux") }}
+  {{- if (contains "-WSL2" .chezmoi.kernel.osrelease) }}
   ; TODO: make `freda` dynamically linked to the `.chezmoi.username` that is of Windows os
   program = "/mnt/c/Users/freda/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
-
   {{- else }}
-  ; not sure if path is needed?
   program = ""
-
+  {{- end }}
+  {{- else }}
+  program = ""
   {{- end }}
 
 [pull]
