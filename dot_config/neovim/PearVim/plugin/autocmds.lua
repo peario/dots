@@ -125,7 +125,11 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   group = augroup("json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
+  pattern = {
+    "json",
+    -- "jsonc",
+    "json5",
+  },
   callback = function() vim.opt_local.conceallevel = 0 end,
 })
 

@@ -12,8 +12,8 @@ now(function()
     },
     filename = {
       [".env"] = "dotenv",
-      ["tsconfig.json"] = "jsonc",
-      ["jsconfig.json"] = "jsonc",
+      -- ["tsconfig.json"] = "jsonc",
+      -- ["jsconfig.json"] = "jsonc",
       [".yamlfmt"] = "yaml",
     },
     pattern = {
@@ -65,7 +65,7 @@ now(function()
       "javascript",
       "jsdoc",
       "json",
-      "jsonc",
+      -- "jsonc",
       "lua",
       "luadoc",
       "luap",
