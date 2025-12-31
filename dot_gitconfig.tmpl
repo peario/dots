@@ -2,12 +2,12 @@
   defaultBranch = master
 
 [core]
-  # https://github.com/dandavison/delta
+  ; https://github.com/dandavison/delta
   pager = delta
   editor = nvim
   longpaths = true
-  # required for wsl, git and 1password integration
-  sshCommand = ssh.exe
+  ; Required for wsl, git and 1Password integration
+  sshCommand = ssh{{- if (eq .chezmoi.os "windows") }}.exe{{- else if (contains "-WSL2" .chezmoi.kernel.osrelease) }}.exe{{- end }}
 
 [user]
   name = Peario
@@ -19,7 +19,22 @@
   format = ssh
 
 [gpg "ssh"]
+  ; program = "/mnt/c/Users/freda/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+  {{- if (eq .chezmoi.os "darwin") }}
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+  {{- else if (eq .chezmoi.os "windows") }}
+  program = "C:/Users/{{ .chezmoi.username }}/AppData/Local/Microsoft/WindowsApps/op-ssh-sign.exe"
+
+  {{- else if (contains "-WSL2" .chezmoi.kernel.osrelease) }}
+  ; TODO: make `freda` dynamically linked to the `.chezmoi.username` that is of Windows os
   program = "/mnt/c/Users/freda/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+
+  {{- else }}
+  ; not sure if path is needed?
+  program = ""
+
+  {{- end }}
 
 [pull]
   rebase = true
@@ -52,11 +67,11 @@
   diffFilter = delta --color-only
 
 [delta]
-  navigate = true # use n and N to move between diff sections
+  navigate = true ; use n and N to move between diff sections
 
-  # delta detects terminal colors automatically; set one of these to disable auto-detection
-  # dark = true
-  # light = true
+  ; delta detects terminal colors automatically; set one of these to disable auto-detection
+  ; dark = true
+  ; light = true
 
 [merge]
   conflictstyle = diff3
