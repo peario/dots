@@ -1,79 +1,79 @@
 # Please make sure that all packages are listed in alphanumerical order.
 [packages.darwin]
 brews = [
-	"age", # for security
-	"bash",
-	"bash-completion",
-	"brotli", # compression algo?
-	"bun",
-	"ca-certificates",
-	"chafa", # img viewer
-	"chezmoi",
-	"curl",
-	"curlie", # more advanced curl
-	"direnv",
-	"gcc", # c compiler
-	"gdb", # c/rust debugger
-	"git", 
-	"git-lfs", 
-	"llvm",
-	"llvm@18",
-	"llvm@20",
-	"man-db",
-	"mas", # to install App Store (mac) via Homebrew
-	"ncurses",
-	"pinentry",
-	"python-packaging",
-	"python-setuptools",
-	"python@3.14",
-	"qemu",
-	"readline",
-	"sherlock",
-	"sqlite",
-	"sqruff",
-	"tlrc",
-	"tmux",
-	"tree-sitter-cli",
-	"ueberzugpp",
-	"wget",
-	"whalebrew", # to install/manage(?) docker via homebrew
-	"xz",
-	"yt-dlp",
-	"zathura",
-	"zig",
-	"zk",
-	"zsh-completions"
+  "age",               # for security
+  "bash",
+  "bash-completion",
+  "brotli",            # compression algo?
+  "bun",
+  "ca-certificates",
+  "chafa",             # img viewer
+  "chezmoi",
+  "curl",
+  "curlie",            # more advanced curl
+  "direnv",
+  "gcc",               # c compiler
+  "gdb",               # c/rust debugger
+  "git",
+  "git-lfs",
+  "llvm",
+  "llvm@18",
+  "llvm@20",
+  "man-db",
+  "mas",               # to install App Store (mac) via Homebrew
+  "ncurses",
+  "pinentry",
+  "python-packaging",
+  "python-setuptools",
+  "python@3.14",
+  "qemu",
+  "readline",
+  "sherlock",
+  "sqlite",
+  "sqruff",
+  "tlrc",
+  "tmux",
+  "tree-sitter-cli",
+  "ueberzugpp",
+  "wget",
+  "whalebrew",         # to install/manage(?) docker via homebrew
+  "xz",
+  "yt-dlp",
+  "zathura",
+  "zig",
+  "zk",
+  "zsh-completions",
 ]
 casks = [
-      	"1password",
-      	"1password-cli",
-      	"balenaetcher", # for making bootable drives and such
-      	"discord",
-      	"docker-desktop",
-      	"firefox",
-      	"font-lilex-nerd-font",
-      	"font-maple-mono",
-      	"font-maple-mono-nf",
-      	"ghostty", # main terminal
-      	"handbrake-app", # open source transcoder for audio files
-      	"hiddenbar", # utility tool for hiding services/programs at top middle (next to kb locale)
-      	"inkscape", # drawing program, convenient for LaTeX
-      	"insomnia", # for testing/mocking web API, better than postman, posting.sh and httpie
-      	"jetbrains-toolbox",
-      	"kitty", # backup terminal
-      	"microsoft-auto-update",
-      	"microsoft-office",
-      	"obsidian",
-      	"powershell",
-      	"raycast",
-      	"rectangle",
-      	"shifty", # better control of automatic switching between light and dark mode (depending on daytime)
-      	"sioyek", # pdf viewer
-      	"spotify",
-      	"steam",
-      	"tidal",
-      	"virtualbox",
-      	"visual-studio-code",
-      	"vlc",
-      	"vlcstreamer"
+  "1password",
+  "1password-cli",
+  "balenaetcher",          # for making bootable drives and such
+  "discord",
+  "docker-desktop",
+  "firefox",
+  "font-lilex-nerd-font",
+  "font-maple-mono",
+  "font-maple-mono-nf",
+  "ghostty",               # main terminal
+  "handbrake-app",         # open source transcoder for audio files
+  "hiddenbar",             # utility tool for hiding services/programs at top middle (next to kb locale)
+  "inkscape",              # drawing program, convenient for LaTeX
+  "insomnia",              # for testing/mocking web API, better than postman, posting.sh and httpie
+  "jetbrains-toolbox",
+  "kitty",                 # backup terminal
+  "microsoft-auto-update",
+  "microsoft-office",
+  "obsidian",
+  "powershell",
+  "raycast",
+  "rectangle",
+  "shifty",                # better control of automatic switching between light and dark mode (depending on daytime)
+  "sioyek",                # pdf viewer
+  "spotify",
+  "steam",
+  "tidal",
+  "virtualbox",
+  "visual-studio-code",
+  "vlc",
+  "vlcstreamer",
 ]

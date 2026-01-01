@@ -1,0 +1,86 @@
+#!/bin/bash
+set -euo pipefail # Exit on error, undefined vars, pipefailures
+
+{{/* Install Rust if cargo missing */}}
+{{ if not (lookPath "cargo") }}
+echo "[rust]: installing rust."
+
+  {{ if (eq .chezmoi.os "windows") }}
+    {{/* Windows: Download rustup-init.exe + install GNU toolchain (no admin/VS needed) */}}
+    powershell -Command "Invoke-WebRequest -Uri 'https://www.rust-lang.org/tools/install' -OutFile 'rustup-init.exe'"
+    ./rustup-init.exe -y --default--toolchain stable-x86_64-pc-windows-gnu
+    del rustup-init.exe
+
+  {{ else }}
+    {{/* Unix: Check compiler, install if missing */}}
+
+    {{ if or (lookPath "gcc") (lookPath "clang") }}
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+
+    {{ else }}
+      {{ if (eq .chezmoi.os "darwin") }}
+      echo "[rust]: installing Xcode command line tools..."
+      xcode-select --install
+
+      {{ else }}
+        echo "[rust] - ERROR: no C compiler (gcc/clang) found."
+        echo "[rust] - ERROR: install build-essential (linux) or Xcode (macOS)."
+        exit 1
+
+      {{ end }}
+      curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+    {{ end }}
+  {{ end }}
+
+  {{/* Reload Cargo PATH */}}
+  source "{{ .chezmoi.homeDir }}/.cargo/env"
+
+{{ end }}
+
+{{/* Before installing packages, update rust via rustup (if available) */}}
+{{ if (lookPath "rustup") }}
+  echo "[rust]: update self."
+  rustup self update
+
+  echo "[rust]: install stable toolchain."
+  rustup install stable
+
+  echo "[rust]: install nightly toolchain."
+  rustup install nightly
+
+  {{ if (eq .chezmoi.os "windows") }}
+    echo "[rust]: install nightly-msvc toolchain."
+    rustup install nightly-msvc
+
+    {{/* When using `rustup default` it also installs the toolchain if not present. */}}
+    echo "[rust]: set stable-msvc as default toolchain."
+    rustup default stable-msvc
+
+  {{ else }}
+    echo "[rust]: set stable as default toolchain."
+    rustup default stable
+
+  {{ end }}
+
+{{ end }}
+
+{{/* Now install packages (only if cargo is available) */}}
+{{ if (lookPath "cargo") }}
+  echo "[rust]: installing cargo packages..."
+
+  {{ range .packages.rust.install }}
+    cargo install {{ . | quote }}
+  {{ end }}
+
+  {{ range .packages.rust.locked }}
+    cargo install --locked {{ . | quote }}
+  {{ end }}
+
+  echo "[rust]: all packages installed."
+
+{{ else }}
+  echo "[rust] - ERROR: cargo not in PATH after install."
+  echo "[rust] - ERROR: Run 'source ~/.cargo/env and retry OR start a new shell."
+
+{{ end }}

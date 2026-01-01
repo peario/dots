@@ -1,0 +1,29 @@
+# Packages to be installed via rust
+[packages.rust]
+install = [
+  "bob-nvim",       # a neovim version manager
+  "cargo-binutils", # cargo subcommands to invoke the LLVM tools shipped with the Rust toolchain
+  "cargo-bloat",    # check what takes up the most amount of space in a project
+  "cargo-update",   # update installed binaries
+  "flash-watcher",  # a blazingly fast file watcher
+  "git-delta",      # syntax highlighted pager and for diffs, grep and blames
+  "eza",            # a modern alternative to ls
+  "fd-find",        # a fast alternative to find
+  "fnm",            # a node version manager
+  "just",           # a command runner (like make)
+  "macchina",       # system information fetcher (like neofetch)
+  "ripgrep",        # recursively search dirs and subdirs with regex
+  "silicon",        # take screenshots of code
+  "skim",           # alternative to fzf
+  "viu",            # terminal image viewer
+]
+locked = [
+  "ast-grep",      # structual search and replace
+  "bat",           # a cat clone with syntax highlight
+  "bottom",        # cross-platform graphical process/system monitor
+  "broot",         # a new way to see and navigate directory trees
+  "cargo-mutants", # injects bugs and checks if tests catches them
+  "hyperfine",     # a cli benchmarking tool
+  "starship",      # cross-shell prompt
+  "zoxide",        # a smarter cd command
+]

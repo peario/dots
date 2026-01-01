@@ -1,0 +1,20 @@
+# Packages to be installed via go
+[packages.go]
+latest = [
+  "air-verse/air",
+  "spf13/cobra-cli",
+  "junegunn/fzf",
+  "dundee/gdu",
+  "pb-/gotypist",
+  "jesseduffield/lazygit",
+  "jesseduffield/lazydocker",
+  "BurntSushi/toml/cmd/tomlv",
+  "wailsapp/wails/v2/cmd/wails",
+]
+specific = []
+
+# Version manager
+[manager.go]
+name = "g"
+git_repo = "https://github.com/voidint/g"
+installer_url = "https://raw.githubusercontent.com/voidint/g/master/install.sh"

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail # Exit on error, undefined vars, pipefailures
+
+{{/* Check first if `g` - go version manager is installed */}}
+{{ if not (lookPath "g") }}
+  echo "[go]: installing g (go version manager)"
+  curl -sSL {{ .manager.go.installer_url | quote }} | bash
+
+{{ end }}
+
+
