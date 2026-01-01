@@ -17,9 +17,7 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python_provider = 0
-
--- Enable this as some plugins (i.e. snippets) use Python3
-vim.g.loaded_python3_provider = 1
+vim.g.loaded_python3_provider = 0
 
 -- netrw (NERDtree style)
 vim.g.netrw_banner = 0 -- Hide banner
@@ -40,11 +38,14 @@ opt.autowrite = true
 opt.history = 2000
 -- opt.backspace = "eol,start,indent"
 opt.backspace = vim.list_extend(vim.opt.backspace:get(), { "nostop" }) -- don't stop backspace at insert
-opt.clipboard = "unnamedplus"
-opt.completeopt = "menuone,noselect"
+opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus" -- sync with system clipboard
+
 if vim.fn.has("nvim-0.11") == 1 then
   opt.completeopt = "menuone,noselect,fuzzy,nosort"
+else
+  opt.completeopt = "menuone,noselect"
 end
+
 opt.encoding = "utf-8"
 opt.splitbelow = true
 opt.splitright = true

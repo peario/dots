@@ -1,7 +1,7 @@
 ---@diagnostic disable-next-line: unused-local
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-now(function()
+later(function()
   -- Add custom filetypes
   vim.filetype.add({
     extension = {
@@ -26,9 +26,15 @@ now(function()
     -- Use "main" while also monitoring updates in "main"
     checkout = "main",
     monitor = "main",
-    -- Perform action after every checkout
     hooks = {
-      post_checkout = function() vim.cmd("TSUpdate") end,
+      post_checkout = function()
+        -- Only update if this is actually a fresh checkout
+        local treesitter_path = vim.fn.stdpath("data") .. "/site/pack/deps/opt/nvim-treesitter"
+        if vim.fn.isdirectory(treesitter_path) == 1 then
+          -- Only attempt to update parsers if the treesitter path exists
+          vim.cmd("TSUpdate")
+        end
+      end,
     },
   })
 
@@ -65,7 +71,6 @@ now(function()
       "javascript",
       "jsdoc",
       "json",
-      -- "jsonc",
       "lua",
       "luadoc",
       "luap",
@@ -87,7 +92,9 @@ now(function()
   }
 
   require("nvim-treesitter").setup(opts)
-  require("nvim-treesitter").install(opts.ensure_installed)
+
+  -- NOTE: This function can cause up to ~60s blocking on startup. Be careful.
+  -- vim.schedule(function() require("nvim-treesitter").install(opts.ensure_installed) end)
 end)
 
 later(function() add({ source = "calops/hmts.nvim" }) end)

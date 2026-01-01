@@ -74,9 +74,7 @@ now(function()
 
   require("mason-lspconfig").setup({
     -- Only LSPs goes in here
-    ensure_installed = {
-      vim.fn.executable("nix") == 1 and "nil_ls", -- only install if nix binary is available
-    },
+    ensure_installed = {},
   })
 
   -- Debuggers
@@ -93,6 +91,8 @@ now(function()
     -- online, please don't ask me how to install them :)
     ensure_installed = {
       -- Update this to ensure that you have the debuggers for the langs you want
+      "codelldb",
+      "delve",
     },
   })
 
