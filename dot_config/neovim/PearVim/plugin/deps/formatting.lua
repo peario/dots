@@ -46,7 +46,6 @@ later(function()
       lua = { "stylua" },
       markdown = { "prettier", "cbfmt", "markdownlint-cli2", "markdown-toc" },
       ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
-      nix = vim.fn.executable("nix") == 1 and { "nixfmt" },
       sh = { "shfmt" },
       sql = { "sqruff" },
       toml = { "taplo" },

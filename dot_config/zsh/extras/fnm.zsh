@@ -1,5 +1,5 @@
-export PATH="/run/user/1000/fnm_multishells/49379_1767109091208/bin":$PATH
-export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/49379_1767109091208"
+export PATH="/run/user/1000/fnm_multishells/5131_1767289492085/bin":$PATH
+export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/5131_1767289492085"
 export FNM_VERSION_FILE_STRATEGY="local"
 export FNM_DIR="/home/peario/.local/share/fnm"
 export FNM_LOGLEVEL="info"

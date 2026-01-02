@@ -91,7 +91,12 @@ later(function()
     },
   }
 
-  require("nvim-treesitter").setup(opts)
+  -- Don't call require('nvim-treesitter').setup() at startup]
+  -- Instead, setup only when first opening a file
+  vim.api.nvim_create_autocmd("FileType", {
+    once = true,
+    callback = function() require("nvim-treesitter").setup(opts) end,
+  })
 
   -- NOTE: This function can cause up to ~60s blocking on startup. Be careful.
   -- vim.schedule(function() require("nvim-treesitter").install(opts.ensure_installed) end)

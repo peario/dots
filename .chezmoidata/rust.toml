@@ -15,6 +15,7 @@ install = [
   "ripgrep",        # recursively search dirs and subdirs with regex
   "silicon",        # take screenshots of code
   "skim",           # alternative to fzf
+  "television",     # An incredibly fast and portable fuzzy finder
   "viu",            # terminal image viewer
 ]
 locked = [

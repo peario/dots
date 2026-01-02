@@ -24,7 +24,7 @@ later(function()
   vim.g.mkdp_auto_close = 0
 end)
 
-now(function()
+later(function()
   -- Dependencies
   add({ source = "nvim-treesitter/nvim-treesitter" })
   add({ source = "nvim-mini/mini.icons" })

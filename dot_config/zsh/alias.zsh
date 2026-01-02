@@ -46,6 +46,16 @@ if (( $+commands[eza] )); then
   alias li="eza -la --git-ignore $extra_opts"
 fi
 
+# Make apps installed via Winget on windows more easily accessible
+if (which winget.exe && echo true || echo false)>/dev/null; then
+  alias winget="$(which winget.exe)"
+fi
+
+## Use fzf installed via winget
+if (which fzf.exe && echo true || echo false)>/dev/null; then
+  alias fzf="$(which fzf.exe)"
+fi
+
 # Easier checking of PATH
 gpath () {
     # NOTE: Don't add "-i" (interactive) to sk (skim) as it will cause the entire line of code below to fail.

@@ -2,7 +2,7 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 -- Icons
-now(function()
+later(function()
   require("mini.icons").setup({
     ---@see Mini.icons https://github.com/echasnovski/mini.icons/blob/main/lua/mini/icons.lua#L865
     file = {
@@ -125,7 +125,7 @@ later(function()
 end)
 
 -- Better text-objects
-now(function()
+later(function()
   local ai = require("mini.ai")
 
   require("mini.ai").setup({
@@ -150,7 +150,7 @@ now(function()
 end)
 
 -- Manage character pairs (), [], {}, etc.
-now(function()
+later(function()
   local opts = {
     modes = { insert = true, command = true, terminal = false },
     -- skip autopair when next character is one of these

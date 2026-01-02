@@ -3,9 +3,9 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 now(function() add({ source = "nvim-lua/plenary.nvim" }) end)
 
-now(function() add({ source = "b0o/SchemaStore.nvim" }) end)
+later(function() add({ source = "b0o/SchemaStore.nvim" }) end)
 
-now(function()
+later(function()
   add({
     source = "folke/which-key.nvim",
     depends = { "nvim-mini/mini.icons" },
@@ -53,7 +53,7 @@ now(function()
   wk.setup(opts)
 end)
 
-now(function()
+later(function()
   add({ source = "ibhagwan/fzf-lua" })
 
   add({

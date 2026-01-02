@@ -2,7 +2,7 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 -- snippets
--- now(function()
+-- later(function()
 --   local build = function()
 --     local out = vim.fn.system({ "make", " install_jsregexp" })
 --
@@ -42,7 +42,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 -- end)
 
 -- blink
-now(function()
+later(function()
   add({
     source = "saghen/blink.cmp",
     checkout = "v1.6.0",

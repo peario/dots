@@ -1,7 +1,7 @@
 ---@diagnostic disable-next-line: unused-local
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-now(function()
+later(function()
   -- While within (neo)vim, add mason binaries to PATH.
   vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
@@ -124,7 +124,7 @@ now(function()
 end)
 
 -- Nonels
-now(function()
+later(function()
   add({
     source = "nvimtools/none-ls.nvim",
     depends = { "nvim-lua/plenary.nvim" },
@@ -160,7 +160,7 @@ now(function()
 end)
 
 -- Setup for rust
-now(function()
+later(function()
   add({ source = "Saecki/crates.nvim" })
 
   require("crates").setup({

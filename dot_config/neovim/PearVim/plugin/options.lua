@@ -38,7 +38,22 @@ opt.autowrite = true
 opt.history = 2000
 -- opt.backspace = "eol,start,indent"
 opt.backspace = vim.list_extend(vim.opt.backspace:get(), { "nostop" }) -- don't stop backspace at insert
+
 opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus" -- sync with system clipboard
+if vim.fn.executable("win32yank") == 1 then
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "win32yank -i --crlf",
+      ["*"] = "win32yank -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank -i --lf",
+      ["*"] = "win32yank -i --lf",
+    },
+    cache_enabled = 0
+  }
+end
 
 if vim.fn.has("nvim-0.11") == 1 then
   opt.completeopt = "menuone,noselect,fuzzy,nosort"
@@ -111,7 +126,7 @@ if vim.fn.has("nvim-0.12") == 1 then
   opt.pummaxwidth = 100
   -- opt.completefuzzycollect = "keyword,files,whole_line"
 
-  require("vim._extui").enable({})
+  -- require("vim._extui").enable({})
 
   -- increase pum height when performing a search
   --  `pumheight` = maximum amount of items in the popup menu
@@ -120,7 +135,8 @@ if vim.fn.has("nvim-0.12") == 1 then
   vim.cmd([[autocmd CmdlineLeave [/\?] set pumheight&]])
 
   -- when only one match left in search, quietly auto-complete the match
-  vim.cmd([[autocmd CmdlineChanged [:/\?@] call wildtrigger()]])
+  -- This can be very annoying as once this match is completed, you can't delete or go back. You will have to exit (via esc).
+  -- vim.cmd([[autocmd CmdlineChanged [:/\?@] call wildtrigger()]])
   opt.wildmenu = true
   opt.wildmode = "longest:full,full"
   opt.wildoptions = "pum,fuzzy"
