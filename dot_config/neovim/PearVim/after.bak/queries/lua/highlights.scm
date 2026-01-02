@@ -4,4 +4,4 @@
               (#eq? @namespace.builtin "vim"))
 
 ((identifier) @namespace.builtin
-              (#eq? @namespace.builtin "PearVim"))
+              (#eq? @namespace.builtin "Pear"))

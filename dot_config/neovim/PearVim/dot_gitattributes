@@ -1,7 +1,7 @@
-*     text=auto
+* 		text=auto
 
-*.lua text
-*.md  text diff=markdown linguist-detectable
+*.lua 		text
+*.md 		text diff=markdown linguist-detectable=true
 
-.gitattributes  text
-.gitignore      text
+.gitattributes 	text
+.gitignore 	text
