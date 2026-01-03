@@ -14,13 +14,25 @@ end
 vim.api.nvim_create_autocmd("VimLeavePre", {
   once = true,
   callback = function()
+    local function trim(s)
+      return s:match("^%s*(.-)%s*$")
+    end
+
     local out = {
-      "-------------------------------------------------------------",
-      "| ELAPSE      | BLOCK       | EVENT                         |",
-      "-------------------------------------------------------------",
+      "----------------------------------------------------------------",
+      -- "| ELAPSE      | BLOCK       | EVENT                           |",
+      string.format("| %-13s | %-13s | %-28s |", "ELAPSE", "BLOCK", "EVENT"),
+      "----------------------------------------------------------------",
     }
+    ---@type string
+    local o_elapse, o_block, o_label
     for _, m in ipairs(marks) do
-      out[#out+1] = string.format("| %-12s| %-12s| %s", string.format("%4.3f ms", m.elapse), string.format("%4.3f ms", m.block), string.format("%-30s|", m.label))
+      o_elapse = trim(string.format("%4.3f ms", m.elapse))
+      o_block = trim(string.format("%4.3f ms", m.block))
+      o_label = trim(string.format("%s", m.label))
+
+      -- out[#out+1] = string.format("|%-13s|%-13s|%-30s|", string.format(" %4.3f ms", m.elapse), string.format(" %4.3f ms", m.block), string.format(" %-30s", m.label))
+      out[#out+1] = string.format("| %-13s | %-13s | %-28s |", o_elapse, o_block, o_label)
     end
 
     local t_block = 0 ---@type float
@@ -31,9 +43,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     -- Add total time at the end
     -- local block_ms = (marks[#marks].block - uv.hrtime()) / 1e6
     local elapse_ms = (uv.hrtime() - T_start) / 1e6
-    out[#out + 1] = "-------------------------------------------------------------"
-    out[#out + 1] = ("| %-12s| %-12s| %-31s|"):format(string.format("%6.3f ms ", elapse_ms), string.format("%6.3f ms  ", t_block), "TOTAL")
-    out[#out + 1] = "-------------------------------------------------------------"
+    o_elapse = trim(string.format("%5.3f ms", elapse_ms))
+    o_block = trim(string.format("%5.3f ms", t_block))
+    o_label = trim(string.format("%s", "TOTAL"))
+    out[#out + 1] = "----------------------------------------------------------------"
+    -- out[#out + 1] = ("| %-13s | %-13s | %-31s |"):format(string.format(" %6.3f ms ", elapse_ms), trim(string.format(" %6.3f ms ", t_block)), " TOTAL")
+    out[#out + 1] = ("| %-13s | %-13s | %-28s |"):format(o_elapse, o_block, o_label)
+    out[#out + 1] = "----------------------------------------------------------------"
 
     vim.fn.writefile(out, "/tmp/pearvim-profile.txt")
   end,

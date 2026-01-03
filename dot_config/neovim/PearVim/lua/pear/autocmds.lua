@@ -138,9 +138,9 @@ autocmd("FileType", {
   desc = "Enable spelling and wrapping in text files.",
   group = augroup("wrap_spell_in_text"),
   pattern = { "txt", "text", "plaintex", "tex", "typst", "gitcommit", "markdown" },
-  callback = function(event)
-    vim.bo[event.buf].wrap = true
-    vim.bo[event.buf].spell = true
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
   end,
 })
 
@@ -152,8 +152,8 @@ autocmd("FileType", {
     "json5",
     -- "jsonc",
   },
-  callback = function(event)
-    vim.bo[event.buf].conceallevel = 0
+  callback = function()
+    vim.opt_local.conceallevel = 0
   end,
 })
 
