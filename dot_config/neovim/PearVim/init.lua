@@ -11,7 +11,7 @@ local function mark(label, t0)
 end
 
 -- Register the dump to happen exactly when you quit
-vim.api.nvim_create_autocmd("VimLeavePre", {
+vim.api.nvim_create_autocmd("VimEnter", {
   once = true,
   callback = function()
     local function trim(s)
@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 
     local out = {
       "----------------------------------------------------------------",
-      -- "| ELAPSE      | BLOCK       | EVENT                           |",
       string.format("| %-13s | %-13s | %-28s |", "ELAPSE", "BLOCK", "EVENT"),
       "----------------------------------------------------------------",
     }
@@ -31,7 +30,6 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
       o_block = trim(string.format("%4.3f ms", m.block))
       o_label = trim(string.format("%s", m.label))
 
-      -- out[#out+1] = string.format("|%-13s|%-13s|%-30s|", string.format(" %4.3f ms", m.elapse), string.format(" %4.3f ms", m.block), string.format(" %-30s", m.label))
       out[#out+1] = string.format("| %-13s | %-13s | %-28s |", o_elapse, o_block, o_label)
     end
 
@@ -40,14 +38,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
       t_block = t_block + m.block
     end
 
-    -- Add total time at the end
-    -- local block_ms = (marks[#marks].block - uv.hrtime()) / 1e6
     local elapse_ms = (uv.hrtime() - T_start) / 1e6
-    o_elapse = trim(string.format("%5.3f ms", elapse_ms))
+    -- o_elapse = trim(string.format("%5.3f ms", elapse_ms))
+    o_elapse = trim(string.format("%5.3f ms", (uv.hrtime() - T_start) / 1e6))
     o_block = trim(string.format("%5.3f ms", t_block))
     o_label = trim(string.format("%s", "TOTAL"))
+
     out[#out + 1] = "----------------------------------------------------------------"
-    -- out[#out + 1] = ("| %-13s | %-13s | %-31s |"):format(string.format(" %6.3f ms ", elapse_ms), trim(string.format(" %6.3f ms ", t_block)), " TOTAL")
     out[#out + 1] = ("| %-13s | %-13s | %-28s |"):format(o_elapse, o_block, o_label)
     out[#out + 1] = "----------------------------------------------------------------"
 
@@ -131,14 +128,13 @@ do
     spec = {
       { import = "pear.plugins" },
     },
+    -- git = { url_format = "git@github.com:%s.git" },
     install = { colorscheme = { "catppuccin" } },
-    diff = {
-      cmd = "terminal_git",
-    },
+    diff = { cmd = "terminal_git" },
     checker = { enabled = true },
     change_detection = {
       enabled = true,
-      notify = true, -- switch to false later on once everything is setup.
+      notify = false, -- switch to false later on once everything is setup.
     },
     performance = {
       cache = { enabled = true },

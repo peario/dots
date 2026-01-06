@@ -125,6 +125,27 @@ autocmd("FileType", {
   end,
 })
 
+-- Add filetypes for use in the autocmd for adding keybinds to tv.nvim
+vim.filetype.add({
+  pattern = {
+    ["term://.*television.*"] = "television",
+    ["term://.*%.cargo/bin/tv.*"] = "television",
+  },
+})
+
+autocmd("TermOpen", {
+  desc = "Configure tv.nvim keybinds.",
+  group = augroup("tv_terminal"),
+  callback = function(event)
+    local buf_name = vim.fn.bufname(event.buf)
+    if string.match(buf_name, "television") or string.match(buf_name, "%.cargo/bin/tv") then
+      vim.keymap.set("t", "<esc>", "<C-c>", { buffer = event.buf, silent = true })
+
+      vim.bo[event.buf].filetype = "television"
+    end
+  end,
+})
+
 autocmd("FileType", {
   desc = "Make it easier to close man-files when opened inline.",
   group = augroup("man_unlisted"),
