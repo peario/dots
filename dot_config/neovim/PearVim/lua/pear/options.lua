@@ -172,8 +172,6 @@ opt.pumblend = 0 -- pseudo-transparency
 opt.pummaxwidth = 100 -- max width for pum, 0 = no limit
 
 if vim.fn.has("nvim-0.12") == 1 then
-  -- opt.completefuzzycollect = "keyword,files,whole_line"
-
   -- require("vim._extui").enable({})
 
   opt.wildmenu = true
@@ -187,8 +185,10 @@ if vim.fn.has("nvim-0.12") == 1 then
   map("c", "<Up>", "<C-u><Up>")
   map("c", "<Down>", "<C-u><Down>")
 
-  map("c", "<Tab>", [[cmdcomplete_info().pum_visible ? "\<C-n>" : "\<Tab>"]], { expr = true })
-  map("c", "<S-Tab>", [[cmd_complete_info().pum_visible ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+  -- Set wildcharm to a hidden key (e.g., Ctrl-z)
+  opt.wildcharm = 26 -- This is the internal code/char code for <C-z>
+  map("c", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<C-z>"]], { expr = true })
+  map("c", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 end
 
 -- Make background transparent
