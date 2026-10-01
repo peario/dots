@@ -63,7 +63,7 @@ function __zoxide_z() {
     __zoxide_doctor
     if [[ "$#" -eq 0 ]]; then
         __zoxide_cd ~
-    elif [[ "$#" -eq 1 ]] && { [[ -d "$1" ]] || [[ "$1" = '-' ]] || [[ "$1" =~ ^[-+][0-9]$ ]]; }; then
+    elif [[ "$#" -eq 1 ]] && { [[ -d "$1" ]] || [[ "$1" = '-' ]] || [[ "$1" =~ ^[-+][0-9]+$ ]]; }; then
         __zoxide_cd "$1"
     elif [[ "$#" -eq 2 ]] && [[ "$1" = "--" ]]; then
         __zoxide_cd "$2"
@@ -86,11 +86,11 @@ function __zoxide_zi() {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-function cd() {
+function z() {
     __zoxide_z "$@"
 }
 
-function cdi() {
+function zi() {
     __zoxide_zi "$@"
 }
 
@@ -129,7 +129,7 @@ if [[ -o zle ]]; then
     function __zoxide_z_complete_helper() {
         if [[ -n "${__zoxide_result}" ]]; then
             # shellcheck disable=SC2034,SC2296
-            BUFFER="cd ${(q-)__zoxide_result}"
+            BUFFER="z ${(q-)__zoxide_result}"
             __zoxide_result=''
             \builtin zle reset-prompt
             \builtin zle accept-line
@@ -139,7 +139,7 @@ if [[ -o zle ]]; then
     }
     \builtin zle -N __zoxide_z_complete_helper
 
-    [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete cd
+    [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
 # =============================================================================

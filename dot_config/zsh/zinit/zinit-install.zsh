@@ -267,9 +267,11 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
                 }
             }
 
-            # --move is default (or as explicit, when extract'!…' is given)
-            # Also possible is --move2 when extract'!!…' given
-            ziextract "$fname" ${ICE[extract]---move} ${${(M)ICE[extract]:#!([^!]|(#e))*}:+--move} ${${(M)ICE[extract]:#!!*}:+--move2}
+            # When extract ice is set, the ∞zinit-extract-hook will handle
+            # extraction; otherwise extract here with --move as default.
+            if (( !${+ICE[extract]} )); then
+                ziextract "$fname" --move
+            fi
             return 0
         ) && {
             reply=( "$user" "$plugin" )
@@ -356,7 +358,8 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
         if [[ $site = */releases ]] {
             local tag_version=${ICE[ver]}
             if [[ -z $tag_version ]]; then
-                tag_version="$({.zinit-download-file-stdout $site/latest || .zinit-download-file-stdout $site/latest 1;} 2>/dev/null | command grep -i -m 1 -o 'href=./'$user'/'$plugin'/releases/tag/[^"]\+')"
+                local url="https://$site/latest"
+                tag_version="$({.zinit-download-file-stdout $url || .zinit-download-file-stdout $url 1;} 2>/dev/null | command grep -i -m 1 -o 'href=./'$user'/'$plugin'/releases/tag/[^"]\+')"
                 tag_version=${tag_version##*/}
             fi
             local url=$site/expanded_assets/$tag_version
@@ -367,7 +370,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
             [[ -d "$local_path" ]] || return 1
 
             (
-                () { setopt localoptions noautopushd; builtin cd -q "$local_path"; } || return 1
+                .zinit-cd-quiet "$local_path" || return 1
                 integer count
 
                 for REPLY ( $reply ) {
@@ -396,7 +399,11 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
                     [[ -d ._zinit ]] || return 2
                     builtin print -r -- $url >! ._zinit/url || return 3
                     builtin print -r -- ${REPLY} >! ._zinit/is_release${count:#1} || return 4
-                    ziextract ${REPLY:t} ${${${#reply}:#1}:+--nobkp} ${${(M)ICE[extract]:#!([^!]|(#e))*}:+--move} ${${(M)ICE[extract]:#!!*}:+--move2}
+                    # When extract ice is set, the ∞zinit-extract-hook will
+                    # handle extraction; otherwise extract here (no move).
+                    if (( !${+ICE[extract]} )); then
+                        ziextract ${REPLY:t} ${${${#reply}:#1}:+--nobkp}
+                    fi
                 }
                 return $?
             ) || {
@@ -407,7 +414,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
             [[ -d "$local_path" ]] || return 1
 
             (
-                () { setopt localoptions noautopushd; builtin cd -q "$local_path"; } || return 1
+                .zinit-cd-quiet "$local_path" || return 1
                 .zinit-get-cygwin-package "$remote_url_path" || return 1
                 builtin print -r -- $REPLY >! ._zinit/is_release
                 ziextract "$REPLY"
@@ -416,9 +423,15 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
             case ${ICE[proto]} in
                 (|ftp(|s)|git|http(|s)|rsync|ssh)
                     :zinit-git-clone() {
+                        local clone_url
+                        if [[ ${ICE[proto]} == "ssh" ]]; then
+                            clone_url="git@${site:-${ICE[from]:-github.com}}:$remote_url_path"
+                        else
+                            clone_url="${ICE[proto]:-https}://${site:-${ICE[from]:-github.com}}/$remote_url_path"
+                        fi
                         command git clone --progress ${(s: :)ICE[cloneopts]---recursive} \
                             ${(s: :)ICE[depth]:+--depth ${ICE[depth]}} \
-                            "${ICE[proto]:-https}://${site:-${ICE[from]:-github.com}}/$remote_url_path" \
+                            "$clone_url" \
                             "$local_path" \
                             --config transfer.fsckobjects=false \
                             --config receive.fsckobjects=false \
@@ -442,7 +455,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
                     }
                     ;;
                 (*)
-                    builtin print -Pr "${ZINIT[col-error]}Unknown protocol:%f%b ${ICE[proto]}."
+                    builtin print -Pr "${ZINIT[col-error]}Unknown protocol:%f%b ${ICE[proto]}. Expected one of: git, http, https, ssh, ftp, ftps, rsync."
                     return 1
             esac
 
@@ -653,6 +666,16 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
     builtin emulate -LR zsh ${=${options[xtrace]:#off}:+-o xtrace}
     setopt localtraps extendedglob
 
+    # Authenticate GitHub API requests when a token is available — the anonymous
+    # limit of 60 requests/hour/IP is too low for e.g. CI runners. Restricted to
+    # api.github.com so the token is never sent to any other host.
+    local -a curl_auth wget_auth
+    local gh_token=${GITHUB_TOKEN:-$GH_TOKEN}
+    if [[ $url == https://api.github.com/* && -n $gh_token ]] {
+        curl_auth=( -H "Authorization: Bearer $gh_token" )
+        wget_auth=( --header="Authorization: Bearer $gh_token" )
+    }
+
     # Return file directly for file:// urls, wget doesn't support this schema
     if [[ "$url" =~ ^file:// ]] {
         local filepath=${url##file://}
@@ -669,12 +692,12 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
 
         if (( ${+commands[curl]} )); then
             if [[ -n $progress ]]; then
-                command curl --progress-bar -fSL "$url" 2> >(.zinit-single-line >&2) || return 1
+                command curl --retry 2 --retry-delay 1 "${curl_auth[@]}" --progress-bar -fSL "$url" 2> >(.zinit-single-line >&2) || return 1
             else
-                command curl -fsSL "$url" || return 1
+                command curl --retry 2 --retry-delay 1 "${curl_auth[@]}" -fsSL "$url" || return 1
             fi
         elif (( ${+commands[wget]} )); then
-            command wget ${${progress:--q}:#1} "$url" -O - || return 1
+            command wget --tries=3 "${wget_auth[@]}" ${${progress:--q}:#1} "$url" -O - || return 1
         elif (( ${+commands[lftp]} )); then
             command lftp -c "cat $url" || return 1
         elif (( ${+commands[lynx]} )); then
@@ -688,12 +711,12 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
     } else {
         if type curl 2>/dev/null 1>&2; then
             if [[ -n $progress ]]; then
-                command curl --progress-bar -fSL "$url" 2> >(.zinit-single-line >&2) || return 1
+                command curl --retry 2 --retry-delay 1 "${curl_auth[@]}" --progress-bar -fSL "$url" 2> >(.zinit-single-line >&2) || return 1
             else
-                command curl -fsSL "$url" || return 1
+                command curl --retry 2 --retry-delay 1 "${curl_auth[@]}" -fsSL "$url" || return 1
             fi
         elif type wget 2>/dev/null 1>&2; then
-            command wget ${${progress:--q}:#1} "$url" -O - || return 1
+            command wget --tries=3 "${wget_auth[@]}" ${${progress:--q}:#1} "$url" -O - || return 1
         elif type lftp 2>/dev/null 1>&2; then
             command lftp -c "cat $url" || return 1
         else
@@ -764,7 +787,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
 
     if [[ "$update" = "-t" ]]; then
         (
-            () { setopt localoptions noautopushd; builtin cd -q "$directory"; }
+            .zinit-cd-quiet "$directory"
             local -a out1 out2
             out1=( "${(f@)"$(LANG=C svn info -r HEAD)"}" )
             out2=( "${(f@)"$(LANG=C svn info)"}" )
@@ -777,7 +800,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
         return $?
     fi
     if [[ "$update" = "-u" && -d "$directory" && -d "$directory/.svn" ]]; then
-        ( () { setopt localoptions noautopushd; builtin cd -q "$directory"; }
+        ( .zinit-cd-quiet "$directory"
           command svn update
           return $? )
     else
@@ -888,7 +911,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
     (
         if [[ $url = (ftp(|s)|http(|s)|scp)://* ]] {
             (
-                () { setopt localoptions noautopushd; builtin cd -q "$local_dir"; } || return 4
+                .zinit-cd-quiet "$local_dir" || return 4
 
                 (( !OPTS[opt_-q,--quiet] )) && +zi-log "{i} Downloading {file}$sname{rst} ${${ICE[svn]+" (with Subversion)"}:-" (with curl, wget, lftp)"}{rst}"
 
@@ -1436,13 +1459,28 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
   if [[ -z $urlpart ]]; then
     local tag_version=${ICE[ver]}
     if [[ -z $tag_version ]]; then
-      local releases_url=https://github.com/$user/$plugin/releases/latest
-      tag_version="$( { .zinit-download-file-stdout $releases_url || .zinit-download-file-stdout $releases_url 1; } 2>/dev/null | command grep -m1 -o 'href=./'$user'/'$plugin'/releases/tag/[^"]\+' )"
+      # Try GitHub API first, fallback to HTML parsing
+      local api_url=https://api.github.com/repos/$user/$plugin/releases/latest
+      tag_version="$( { .zinit-download-file-stdout $api_url || .zinit-download-file-stdout $api_url 1; } 2>/dev/null | command grep -o '"tag_name"[[:space:]]*:[[:space:]]*"[^"]\+"' | command grep -o '"[^"]*"$' | tr -d '"' )"
+      # Fallback to original method if API fails
+      if [[ -z $tag_version ]]; then
+        local releases_url=https://github.com/$user/$plugin/releases/latest
+        tag_version="$( { .zinit-download-file-stdout $releases_url || .zinit-download-file-stdout $releases_url 1; } 2>/dev/null | command grep -m1 -o 'href=./'$user'/'$plugin'/releases/tag/[^"]\+' )"
+      fi
       tag_version=${tag_version##*/}
     fi
     local url=https://github.com/$user/$plugin/releases/expanded_assets/$tag_version
   else
     local url=https://$urlpart
+  fi
+  if [[ "${ICE[bpick]}" == "src" ]]; then
+    +zi-log "{dbg} {b}gh-r{rst}: bpick\"src\" detected, targeting source code tarball for tag: {version}$tag_version{rst}"
+    # Construct the URL path for the auto-generated source code archive
+    reply=( "/$user/$plugin/archive/refs/tags/$tag_version.tar.gz" )
+    # Ensure the reply isn't empty if tag_version was somehow missed
+    [[ -n "$tag_version" ]] && return 0
+    +zi-log "{e} {b}gh-r{rst}: Could not determine tag version, cannot use bpick\"src\"."
+    return 1
   fi
   init_list=( ${(@f)"$( { .zinit-download-file-stdout $url || .zinit-download-file-stdout $url 1; } 2>/dev/null | command grep -i -o 'href=./'$user'/'$plugin'/releases/download/[^"]\+')"} )
   init_list=(${(L)init_list[@]#href=?})
@@ -1458,7 +1496,7 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
         +zi-log "{e} {b}gh-r{rst}: {ice}bpick{rst} ice found no release assets To fix, modify the {ice}bpick{rst} glob pattern {glob}$bpick{rst}"
       fi
     else
-      local junk='*((s(ha256|ig|um)|386|asc|md5|txt|vsix)*|(apk|b3|deb|json|pkg|rpm|sh|zst)(#e))';
+      local junk='*((s(ha256|ig|um)|386|asc|md5|txt|vsix)*|(apk|b3|deb|json|pkg|rpm|sh)(#e))|*.pkg.tar.zst|(*.zst~*.tar.zst)';
       # print -l ${${(m@)list:#${~junk}}:t}
       filtered=( ${(m@)list:#(#i)${~junk}} ) && (( $#filtered > 0 )) && list=( ${filtered[@]} )
     fi
@@ -1486,9 +1524,9 @@ builtin source "${ZINIT[BIN_DIR]}/zinit-side.zsh" || {
 } # ]]]
 # FUNCTION: ziextract [[[
 # If the file is an archive, it is extracted by this function.
-# Next stage is scanning of files with the common utility file
-# to detect executables. They are given +x mode. There are also
-# messages to the user on performed actions.
+# Executable permissions are determined solely by the execute bit already
+# stored in the archive — i.e. whatever the package author intended.
+# No heuristics (file(1), shebang scanning, etc.) are applied.
 #
 # $1 - url
 # $2 - file
@@ -1515,7 +1553,7 @@ ziextract() {
         # First try known file extensions
         local -aU files
         integer ret_val
-        files=( (#i)**/*.(zip|rar|7z|tgz|tbz|tbz2|tar.gz|tar.bz2|tar.7z|txz|tar.xz|gz|xz|tar|dmg|exe)~(*/*|.(_backup|git))/*(-.DN) )
+        files=( (#i)**/*.(zip|rar|7z|tgz|tbz|tbz2|tar.gz|tar.bz2|tar.7z|txz|tar.xz|tar.zst|gz|xz|tar|dmg|exe)~(*/*|.(_backup|git))/*(-.DN) )
         for file ( $files ) {
             ziextract "$file" $opt_move $opt_move2 $opt_norm $opt_nobkp ${${${#files}:#1}:+--nobkp}
             ret_val+=$?
@@ -1626,6 +1664,9 @@ ziextract() {
         ((#i)*.tar.7z|(#i)*.t7z)
             →zinit-extract() { →zinit-check 7z "$file" || return 1; command 7z x -so "$file" | command tar --no-same-owner -xf -; }
             ;;
+        ((#i)*.tar.zst)
+            →zinit-extract() { →zinit-check zstd "$file" || return 1; command zstd -dc "$file" | command tar --no-same-owner -xf -; }
+            ;;
         ((#i)*.tar)
             →zinit-extract() { →zinit-check tar "$file" || return 1; command tar --no-same-owner -xf "$file"; }
             ;;
@@ -1726,16 +1767,35 @@ ziextract() {
         unfunction -- →zinit-extract →zinit-check
     } else {
         integer warning=1
+        # Not an archive and no explicit type claimed — treat as a plain single
+        # file (e.g. a bare gh-r release binary). HTTP downloads carry no exec
+        # bit, so mark the file executable and let the execs collection below
+        # pick it up and report success.
+        if [[ -z $ext ]] {
+            warning=0
+            (( !OPTS[opt_-q,--quiet] )) && \
+                +zi-log "{info}[{pre}ziextract{info}]{rst}" \
+                    "\`{file}${file}{rst}' is not an archive — keeping it as a plain file."
+            command chmod a+x "$file"
+        }
     }
     unfunction -- .zinit-extract-wrapper
 
+    # Glob qualifier legend:
+    #   (DN-.)  — D=include dotfiles, N=null glob (no error if empty),
+    #             -=no symlinks, .=regular files  → all regular files
+    #   (DN-*.) — same plus *=has execute bit set → files already marked
+    #             executable by the archive extractor
     local -aU execs
-    execs=( **/*~(._zinit(|/*)|.git(|/*)|.svn(|/*)|.hg(|/*)|._backup(|/*))(DN-.) )
-    if [[ ${#execs} -gt 0 && -n $execs ]] {
-        execs=( ${(@f)"$( file ${execs[@]} )"} )
-        execs=( "${(M)execs[@]:#[^(:]##:*executable*}" )
-        execs=( "${execs[@]/(#b)([^(:]##):*/${match[1]}}" )
-    }
+    # Collect files that already have the execute bit set in the archive.
+    # This is the authoritative signal: if the package author wanted a file
+    # executable, they set +x when creating the archive. Any file that lacks
+    # +x in the archive (library, documentation, data file, …) should stay
+    # non-executable regardless of its content or extension.
+    # If a poorly maintained package fails to set permissions correctly,
+    # the user can fix it with the atclone/atpull ices — there is no need
+    # for zinit to second-guess the archive on every install.
+    execs=( **/*~(._zinit(|/*)|.git(|/*)|.svn(|/*)|.hg(|/*)|._backup(|/*))(DN-*.) )
 
     builtin print -rl -- ${execs[@]} >! ${TMPDIR:-/tmp}/zinit-execs.$$.lst
     if [[ ${#execs} -gt 0 ]] {
@@ -2061,8 +2121,9 @@ zimv() {
     [[ $eflags == $ex ]] || return 0
     typeset -aU configure_opt=(${(@s; ;)configure})
     configure_opt+=("--prefix=${ZPFX:-${ZINIT[HOME_DIR]}/polaris}")
+    local ___oldcd=$PWD ___oldoldpwd=$OLDPWD
     {
-        builtin cd -- "$dir" || return 1
+        .zinit-cd-quiet "$dir" || return 1
         if [[ -n *(#i)makefile(#qN) ]]; then
             return 0
         elif [[ -z *(#i)configure(#qN) ]]; then
@@ -2088,6 +2149,8 @@ zimv() {
             +zi-log "{e} ${ice} Failed project configuration"
             return 1
         fi
+    } always {
+        .zinit-restore-dir "$___oldcd" "$___oldoldpwd"
     }
 } # ]]]
 # FUNCTION: ∞zinit-configure-e-hook [[[
@@ -2222,19 +2285,18 @@ __zinit-cmake-base-hook () {
 
     local rc=0
     [[ -n $atclone ]] && .zinit-countdown atclone && {
-        local ___oldcd=$PWD
+        local ___oldcd=$PWD ___oldoldpwd=$OLDPWD
 
-        (( ${+ICE[nocd]} == 0 )) && {
-            () {
-                setopt localoptions noautopushd
-                builtin cd -q "$dir"
-            }
+        (( ${+ICE[nocd]} == 0 )) && .zinit-cd-quiet "$dir"
+
+        # Unlike its atpull siblings this evals inline, with no .zinit-at-eval
+        # frame to absorb a `return' from the ice body.
+        {
+            eval "$atclone"
+            rc="$?"
+        } always {
+            .zinit-restore-dir "$___oldcd" "$___oldoldpwd"
         }
-
-        eval "$atclone"
-        rc="$?"
-
-        () { setopt localoptions noautopushd; builtin cd -q "$___oldcd"; }
     }
 
     return "$rc"
@@ -2284,7 +2346,7 @@ __zinit-cmake-base-hook () {
         local -a afr
 
         (
-            () { setopt localoptions noautopushd; builtin cd -q "$dir"; } || return 1
+            .zinit-cd-quiet "$dir" || return 1
             afr=( ${~from}(DN) ) # Expand glob patterns
 
             if (( ! ${#afr} )); then
@@ -2353,13 +2415,11 @@ __zinit-cmake-base-hook () {
     local rc=0
 
     .zinit-countdown atpull && {
-        local ___oldcd=$PWD
-        (( ${+ICE[nocd]} == 0 )) && {
-            () { setopt localoptions noautopushd; builtin cd -q "$dir"; }
-        }
+        local ___oldcd=$PWD ___oldoldpwd=$OLDPWD
+        (( ${+ICE[nocd]} == 0 )) && .zinit-cd-quiet "$dir"
         .zinit-at-eval "$atpull" "$ICE[atclone]"
         rc="$?"
-        () { setopt localoptions noautopushd; builtin cd -q "$___oldcd"; };
+        .zinit-restore-dir "$___oldcd" "$___oldoldpwd"
     }
 
     return "$rc"
@@ -2379,13 +2439,11 @@ __zinit-cmake-base-hook () {
     local rc=0
 
     .zinit-countdown atpull && {
-        local ___oldcd=$PWD
-        (( ${+ICE[nocd]} == 0 )) && {
-            () { setopt localoptions noautopushd; builtin cd -q "$dir"; }
-        }
+        local ___oldcd=$PWD ___oldoldpwd=$OLDPWD
+        (( ${+ICE[nocd]} == 0 )) && .zinit-cd-quiet "$dir"
         .zinit-at-eval "$atpull" $ICE[atclone]
         rc="$?"
-        () { setopt localoptions noautopushd; builtin cd -q "$___oldcd"; };
+        .zinit-restore-dir "$___oldcd" "$___oldoldpwd"
     }
 
     return "$rc"

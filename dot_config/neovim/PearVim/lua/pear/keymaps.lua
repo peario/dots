@@ -47,7 +47,12 @@ end, { desc = "Escape and Clear hlsearch", expr = true })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
-map("n", "<leader>ur", "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
+map(
+  "n",
+  "<leader>ur",
+  "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><cr>",
+  { desc = "Redraw / Clear hlsearch / Diff Update" }
+)
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { desc = "Next Search Result", expr = true })
@@ -72,18 +77,22 @@ map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
 
 -- Commenting
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
-map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
+map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
 -- Location list
 map("n", "<leader>xl", function()
   local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
-  if not success and err then vim.notify(err, vim.log.levels.ERROR) end
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
 end, { desc = "Location List" })
 
 -- Quickfix list
 map("n", "<leader>xq", function()
   local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-  if not success and err then vim.notify(err, vim.log.levels.ERROR) end
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
 end, { desc = "Quickfix List" })
 
 map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
@@ -96,17 +105,31 @@ local diagnostic_goto = function(next, severity)
 
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
-    if go ~= nil then go({ severity = severity }) end
+    if go ~= nil then
+      go({ severity = severity })
+    end
   end
 end
 
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-map("n", "]d", function() diagnostic_goto(true) end, { desc = "Next Diagnostic" })
-map("n", "[d", function() diagnostic_goto(false) end, { desc = "Prev Diagnostic" })
-map("n", "]e", function() diagnostic_goto(true, "ERROR") end, { desc = "Next Error" })
-map("n", "[e", function() diagnostic_goto(false, "ERROR") end, { desc = "Prev Error" })
-map("n", "]w", function() diagnostic_goto(true, "WARN") end, { desc = "Next Warning" })
-map("n", "[w", function() diagnostic_goto(false, "WARN") end, { desc = "Prev Warning" })
+map("n", "]d", function()
+  diagnostic_goto(true)
+end, { desc = "Next Diagnostic" })
+map("n", "[d", function()
+  diagnostic_goto(false)
+end, { desc = "Prev Diagnostic" })
+map("n", "]e", function()
+  diagnostic_goto(true, "ERROR")
+end, { desc = "Next Error" })
+map("n", "[e", function()
+  diagnostic_goto(false, "ERROR")
+end, { desc = "Prev Error" })
+map("n", "]w", function()
+  diagnostic_goto(true, "WARN")
+end, { desc = "Next Warning" })
+map("n", "[w", function()
+  diagnostic_goto(false, "WARN")
+end, { desc = "Prev Warning" })
 
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
@@ -140,18 +163,12 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- native snippets. nvim version < 0.11 required
-map(
-  "s",
-  "<Tab>",
-  function() return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>" end,
-  { desc = "Jump Next", expr = true }
-)
-map(
-  { "i", "s" },
-  "<S-Tab>",
-  function() return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>" end,
-  { desc = "Jump Previous", expr = true }
-)
+map("s", "<Tab>", function()
+  return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+end, { desc = "Jump Next", expr = true })
+map({ "i", "s" }, "<S-Tab>", function()
+  return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+end, { desc = "Jump Previous", expr = true })
 
 -- Netrw
 -- map("n", "<leader>fe", "<cmd>Lexplore %:p:h<CR>", { desc = "File browser" })

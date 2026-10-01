@@ -7,6 +7,9 @@ COMPLETIONS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/completions"
 EXTRAS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/extras"
 INITS_PATH="${ZDOTDIT:-$HOME/.config/zsh}/inits"
 
+# Just to be sure that it's added
+export PATH="$PATH:$HOME/.local/bin"
+
 # Delta - git diff viewer
 if (( $+commands[delta] )); then
   DELTA_COMP="$COMPLETIONS_PATH/delta.zsh"
@@ -37,9 +40,9 @@ if (( $+commands[bob] )) || [[ -x "$HOME/.cargo/bin/bob" ]]; then
   BOB_SHARE="$HOME/.local/share/bob"
   BOB_ENV="$BOB_SHARE/env"
   BOB_COMP="$COMPLETIONS_PATH/bob.zsh"
-  BOB_CONFIG="$HOME/.config/bob/config"
+  BOB_CONFIG="$HOME/.config/bob/config.json"
 
-  # if this file exists, then source it.
+  # if this file exists, source it.
   if [[ -x "$BOB_ENV/env.sh" ]]; then
     source "$BOB_ENV/env.sh"
   fi
@@ -52,20 +55,12 @@ if (( $+commands[bob] )) || [[ -x "$HOME/.cargo/bin/bob" ]]; then
   #  bob complete zsh >| "$BOB_COMP"
   #fi
 
-  for file in "$BOB_CONFIG"/*.{json,toml}; do 
-    BOB_CONFIG="$file"
-
-    if [[ -f "$BOB_CONFIG" ]]; then
-        export BOB_CONFIG
-	break
-    fi
-  done
-
   # Add bob-nvim to path because for some reason it didn't do it...
   if [[ -x "$BOB_SHARE/nvim-bin/nvim" ]]; then
       export PATH="$PATH:$BOB_SHARE/nvim-bin"
   fi
 
+  export BOB_CONFIG
   source "$BOB_COMP"
 fi
 
@@ -115,11 +110,11 @@ fi
 # broot - a convienent dir finder and navigator
 #
 # NOTE: don't search for "br" as it's an alias/function made accessible with "$BR_FUNCTION".
-if (( $+commands[broot] )) || [[ -x "$HOME/.cargo/bin/broot" ]]; then
+if (( $+commands[broot] )) || [ -x "$HOME/.cargo/bin/broot" ]; then
   BR_CONFIG="$HOME/.config/broot"
   BR_FUNCTION="$BR_CONFIG/launcher/bash/br"
 
-  if [[ -f $BR_FUNCTION ]]; then
+  if [ -e $BR_FUNCTION ]; then
     source "$BR_FUNCTION"
   fi
 fi
@@ -134,6 +129,13 @@ fi
 #
 #  source "$PERL5_COMP"
 #fi
+
+# Dotnet
+if (( $+commands[dotnet] )); then
+  if [ -d "$HOME/.dotnet/tools" ]; then
+    export PATH="$HOME/.dotnet/tools:$PATH"
+  fi
+fi
 
 # Java / Kotlin
 JAVA_HOME="${JAVA_HOME:-$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home}"
@@ -162,6 +164,8 @@ if ! (( $+commands[g] )) || (( $+commands[g])); then
   # [ -d "$HOME/.g/bin" ] && path+=("$HOME/.g/bin")
   [ -d "$GOROOT/bin" ] && path+=("$GOROOT/bin")
   [ -d "$GOPATH/bin" ] && path+=("$GOPATH/bin")
+
+  alias ggovm="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
   # Tells g from where to install go binaries
   export G_MIRROR="https://golang.google.cn/dl/"
@@ -408,10 +412,27 @@ if (( $+commands[zoxide] )); then
   ZOXIDE_COMP="$COMPLETIONS_PATH/zoxide.zsh"
 
   if [[ ! -f $ZOXIDE_COMP || $ZOXIDE_COMP(#qN.mh+24) ]]; then
-    zoxide init zsh --cmd cd >| "$ZOXIDE_COMP"
+    # NOTE: DO NOT ADD "--cmd cd", look in ./alias.zsh first!
+    zoxide init zsh >| "$ZOXIDE_COMP"
   fi
 
   source "$ZOXIDE_COMP"
+fi
+
+# Lacy - Magical cd alternative
+# NOTE: needs to be after "zoxide" shell init, to benefit of it as well.
+#
+# Zoxide = quick navigation (cd) to previous (cd) locations
+# Lacy = fuzzy finds a/the location and navigates (cd) to it
+if (( $+commands[lacy] )); then
+  LACY_COMP="$COMPLETIONS_PATH/lacy.zsh"
+
+  if [[ ! -f $LACY_COMP || $LACY_COMP(#qN.mh+24) ]]; then
+    # NOTE: DO NOT ADD "--cmd cd", look in ./alias.zsh first!
+    lacy init zsh >| "$LACY_COMP"
+  fi
+
+  source "$LACY_COMP"
 fi
 
 # Macchina - a neofetch alternative

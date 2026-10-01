@@ -1,0 +1,5 @@
+{
+	"enable_nightly_info": true,
+	"enable_release_build": true,
+	"add_neovim_binary_to_path": true
+}

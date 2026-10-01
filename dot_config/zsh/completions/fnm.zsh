@@ -115,6 +115,7 @@ recursive\:"Use the version of Node defined within the current directory and all
 '--resolve-engines=[Resolve \`engines.node\` field in \`package.json\` whenever a \`.node-version\` or \`.nvmrc\` file is not present. This feature is enabled by default. To disable it, provide \`--resolve-engines=false\`.]' \
 '(--latest)--lts[Install latest LTS]' \
 '(--lts)--latest[Install latest version]' \
+'--use[Use the installed version immediately after installation]' \
 '--corepack-enabled[Enable corepack support for each new installation. This will make fnm call \`corepack enable\` on every Node.js installation. For more information about corepack see <https\://nodejs.org/api/corepack.html>]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
@@ -133,6 +134,7 @@ recursive\:"Use the version of Node defined within the current directory and all
 '--resolve-engines=[Resolve \`engines.node\` field in \`package.json\` whenever a \`.node-version\` or \`.nvmrc\` file is not present. This feature is enabled by default. To disable it, provide \`--resolve-engines=false\`.]' \
 '(--latest)--lts[Install latest LTS]' \
 '(--lts)--latest[Install latest version]' \
+'--use[Use the installed version immediately after installation]' \
 '--corepack-enabled[Enable corepack support for each new installation. This will make fnm call \`corepack enable\` on every Node.js installation. For more information about corepack see <https\://nodejs.org/api/corepack.html>]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
@@ -232,7 +234,7 @@ recursive\:"Use the version of Node defined within the current directory and all
 '--corepack-enabled[Enable corepack support for each new installation. This will make fnm call \`corepack enable\` on every Node.js installation. For more information about corepack see <https\://nodejs.org/api/corepack.html>]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-':version:_default' \
+'::version:_default' \
 && ret=0
 ;;
 (current)
@@ -383,7 +385,7 @@ _fnm_commands() {
 'completions:Print shell completions to stdout' \
 'alias:Alias a version to a common name' \
 'unalias:Remove an alias definition' \
-'default:Set a version as the default version' \
+'default:Set a version as the default version or get the current default version' \
 'current:Print the current Node.js version' \
 'exec:Run a command within fnm context' \
 'uninstall:Uninstall a Node.js version' \
@@ -433,7 +435,7 @@ _fnm__help_commands() {
 'completions:Print shell completions to stdout' \
 'alias:Alias a version to a common name' \
 'unalias:Remove an alias definition' \
-'default:Set a version as the default version' \
+'default:Set a version as the default version or get the current default version' \
 'current:Print the current Node.js version' \
 'exec:Run a command within fnm context' \
 'uninstall:Uninstall a Node.js version' \

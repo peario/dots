@@ -7,7 +7,7 @@
 # Zinit<a name="zinit"></a>
 
 [![MIT License][mit-badge]][mit-link] [![zinit version][ver-badge]][ver-link] [![zunit tests][tests-badge]][tests-link]
-[![Join the chat at https://gitter.im/zdharma-continuum/zinit][gitter-badge]][gitter-link]
+[![Join the chat at https://matrix.to/#/#zdharma-continuum_community:gitter.im][gitter-badge]][gitter-link]
 
 <!-- mdformat-toc start --slug=github --maxlevel=3 --minlevel=2 -->
 
@@ -139,7 +139,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 ```
 
-[compinit](http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Initialization)):
+[compinit](http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Initialization):
 
 If you source `zinit.zsh` after `compinit`, add the following snippet after sourcing `zinit.zsh`:
 
@@ -227,6 +227,9 @@ Zinit can be updated to `self-update` and plugins to `update`.
 ```zsh
 # Self update
 zinit self-update
+
+# Self update, without paging the changelog
+zinit self-update --no-pager
 
 # Plugin update
 zinit update
@@ -338,6 +341,9 @@ ZSH_THEME="robbyrussell"
 # Must Load OMZ Git library
 zi snippet OMZL::git.zsh
 
+# Must Load OMZ Async prompt library
+zi snippet OMZL::async_prompt.zsh 
+
 # Load Git plugin from OMZ
 zi snippet OMZP::git
 zi cdclear -q # <- forget completions provided up to this moment
@@ -404,7 +410,7 @@ zi snippet OMZP::ruby
 ### Use `zi ice svn` if a plugin/snippet requires an entire subdirectory<a name="use-zi-ice-svn-if-a-pluginsnippet-requires-an-entire-subdirectory"></a>
 
 1. [gitfast](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitfast)
-2. [osx](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx)
+2. [macOS](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos)
 
 ```zsh
 zi ice svn
@@ -674,9 +680,9 @@ your `~/.zshrc` there if it contains Zinit commands.
 You can also check out the [Gallery of Zinit Invocations](https://zdharma-continuum.github.io/zinit/wiki/GALLERY/) for
 some additional examples.
 
-Also, two articles on the Wiki present an example setup
-[here](https://zdharma-continuum.github.io/zinit/wiki/Example-Minimal-Setup/) and
-[here](https://zdharma-continuum.github.io/zinit/wiki/Example-Oh-My-Zsh-setup/).
+Also, two articles on the Wiki present a
+[Minimal Setup](https://zdharma-continuum.github.io/zinit/wiki/Example-Minimal-Setup/) and
+[Oh-My-Zsh Setup](https://zdharma-continuum.github.io/zinit/wiki/Example-Oh-My-Zsh-setup/).
 
 # How to Use<a name="how-to-use"></a>
 
@@ -722,7 +728,7 @@ You may safely assume a given ice works with both plugins and snippets unless ex
 | `if`                         | Load plugin or snippet only when given condition is fulfilled, for example: `zinit ice if'[[ -n "$commands[otool]" ]]'; zinit load ...`.                                                                                                                                                                                                                                 |
 | `load`                       | A condition to check which should cause plugin to load. It will load once, the condition can be still true, but will not trigger second load (unless plugin is unloaded earlier, see `unload` below). E.g.: `load'[[ $PWD = */github* ]]'`.                                                                                                                              |
 | `subscribe` / `on-update-of` | Postpone loading of a plugin or snippet until the given file(s) get updated, e.g. `subscribe'{~/files-*,/tmp/files-*}'`                                                                                                                                                                                                                                                  |
-| `trigger-load`               | Creates a function that loads the associated plugin/snippet, with an option (to use it, precede the ice content with `!`) to automatically forward the call afterwards, to a command of the same name as the function. Can obtain multiple functions to create – sparate with `;`.                                                                                       |
+| `trigger-load`               | Creates a function that loads the associated plugin/snippet, with an option (to use it, precede the ice content with `!`) to automatically forward the call afterwards, to a command of the same name as the function. Can obtain multiple functions to create – separate with `;`.                                                                                       |
 | `unload`                     | A condition to check causing plugin to unload. It will unload once, then only if loaded again. E.g.: `unload'[[ $PWD != */github* ]]'`.                                                                                                                                                                                                                                  |
 | `wait`                       | Postpone loading a plugin or snippet. For `wait'1'`, loading is done `1` second after prompt. For `wait'[[ ... ]]'`, `wait'(( ... ))'`, loading is done when given condition is meet. For `wait'!...'`, prompt is reset after load. Zsh can start 80% (i.e.: 5x) faster thanks to postponed loading. **Fact:** when `wait` is used without value, it works as `wait'0'`. |
 
@@ -777,10 +783,10 @@ You may safely assume a given ice works with both plugins and snippets unless ex
 | `id-as`        | Nickname a plugin or snippet, to e.g. create a short handler for long-url snippet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `subst`        | Substitute the given string into another string when sourcing the plugin script, e.g.: `zinit subst'autoload → autoload -Uz' …`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `aliases`      | Load the plugin with the aliases mechanism enabled. Use with plugins that define **and use** aliases in their scripts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `autoload`     | Autoload the given functions (from their files). Equvalent to calling `atinit'autoload the-function'`. Supports renaming of the function – pass `'… → new-name'` or `'… -> new-name'`, e.g.: `zinit autoload'fun → my-fun; fun2 → my-fun2'`.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `autoload`     | Autoload the given functions (from their files). Equivalent to calling `atinit'autoload the-function'`. Supports renaming of the function – pass `'… → new-name'` or `'… -> new-name'`, e.g.: `zinit autoload'fun → my-fun; fun2 → my-fun2'`.                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `bindmap`      | To hold `;`-separated strings like `Key(s)A -> Key(s)B`, e.g. `^R -> ^T; ^A -> ^B`. In general, `bindmap''`changes bindings (done with the `bindkey` builtin) the plugin does. The example would cause the plugin to map Ctrl-T instead of Ctrl-R, and Ctrl-B instead of Ctrl-A. **Does not work with snippets.**                                                                                                                                                                                                                                                                                                                                                                   |
 | `compile`      | Pattern (+ possible `{...}` expansion, like `{a/*,b*}`) to select additional files to compile, e.g. `compile'*.zsh'`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `extract`      | Performs archive extraction supporting multiple formats like `zip`, `tar.gz`, etc. and also notably OS X `dmg` images. If it has no value, then it works in the _auto_ mode – it automatically extracts all files of known archive extensions IF they aren't located deeper than in a sub-directory (this is to prevent extraction of some helper archive files, typically located somewhere deeper in the tree). If no such files will be found, then it extracts all found files of known **type** – the type is being read by the `file` Unix command. If not empty, then takes names of the files to extract. Refer to the Wiki page for further information. |
+| `extract`      | Performs archive extraction supporting multiple formats like `zip`, `tar.gz`, etc. and also notably OS X `dmg` images. Supports optional prefix modifiers and/or an explicit filename. **Without a value** (`extract`): scans the plugin/snippet directory for files with recognized archive extensions (`zip`, `tar.gz`, `gz`, `xz`, etc.) at most one level deep (to avoid unpacking helper archives buried deeper in the tree); if no such files are found, runs the `file` Unix command on all files to detect archives that lack a standard extension (e.g. a file named `binary` that is actually a gzip stream). In both cases the archive is extracted **preserving its internal directory structure** (no flattening). **With a filename** (`extract'file.tar.gz'`): extracts that specific file instead of scanning — useful when a cloned repository contains an embedded archive. Multiple space-separated filenames are supported. **Prefix modifiers** control flattening after extraction and whether the archive is deleted afterwards: `!` flattens one directory level (e.g. `tool-1.2.3/binary` → `binary`), `!!` flattens two levels (e.g. `tool-1.2.3/bin/binary` → `binary`), `-` keeps the archive file instead of deleting it after extraction. Modifiers can be combined: `!-` or `-!` flattens one level and keeps the archive. Examples: `extract'!'`, `extract'!!'`, `extract'-'`, `extract'!-'`, `extract'!tool.tar.gz'` (extract and flatten a specific file). |
 | `service`      | Make following plugin or snippet a _service_, which will be ran in background, and only in single Zshell instance. See [the zservice-\* repositories](https://github.com/orgs/zdharma-continuum/repositories?q=zservice-).                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `light-mode`   | Load the plugin without the investigating, i.e.: as if it would be loaded with the `light` command. Useful for the for-syntax, where there is no `load` nor `light` subcommand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `nocompile`    | Don't try to compile `pick`-pointed files. If passed the exclamation mark (i.e. `nocompile'!'`), then do compile, but after `make''` and `atclone''` (useful if Makefile installs some scripts, to point `pick''` at the location of their installation).                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -790,8 +796,18 @@ You may safely assume a given ice works with both plugins and snippets unless ex
 
 ### Order of Execution<a name="order-of-execution"></a>
 
-Order of execution of related Ice-mods: `atinit` -> `atpull!` -> `make'!!'` -> `mv` -> `cp` -> `make!` ->
-`atclone`/`atpull` -> `make` -> `(plugin script loading)` -> `src` -> `multisrc` -> `atload`.
+Order of execution of related Ice-mods: `atinit` -> `atpull!` -> `make'!!'` -> `mv` -> `cp` ->
+`[compile, unless nocompile is set]` -> `make!` -> `atclone`/`atpull` -> `make` -> `cmake` ->
+`[compile when nocompile'!']` -> `(plugin script loading)` -> `src` -> `multisrc` -> `atload`.
+
+Compilation runs in one of two phases. **By default** the `pick`-pointed files are compiled early –
+right after `cp`, and **before** the `atclone`/`atpull` hooks run – so files already present in the
+repository (or moved into place by `mv`/`cp`) are compiled automatically. A file that is **created by an
+`atclone` or `atpull` hook does not yet exist** at that point, so the default compile skips it. Passing
+the bang form `nocompile'!'` disables the early compile and **defers** compilation to a second phase that
+runs **after** `make''` and `atclone''`/`atpull''`, once the generated file exists (see the `nocompile`
+ice). Bare `nocompile` disables compilation entirely. `make'!!'` is the extra-early make phase before
+`mv`/`cp`/`extract` and the default compile phase.
 
 ## Zinit Commands<a name="zinit-commands"></a>
 
@@ -896,7 +912,7 @@ zinit [options] uncompile PLUGIN
 | Command                                                          | Description                                                                                                                                                                                                                                                                                                                           |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `module`                                                         | Manage binary Zsh module shipped with Zinit, see `zinit module help`.                                                                                                                                                                                                                                                                 |
-| `self-update`                                                    | Updates and compiles Zinit.                                                                                                                                                                                                                                                                                                           |
+| `self-update [-q] [-n]`                                          | Updates and compiles Zinit.<br> `-q` \| `--quiet` – turn off messages from the operation.<br> `-n` \| `--no-pager` – disable the use of the pager for the changelog.                                                                                                                                                                   |
 | `cd {plg-spec}`                                                  | Cd into plugin's directory. Also support snippets if fed with URL.                                                                                                                                                                                                                                                                    |
 | `edit {plg-spec}`                                                | Edit plugin's file with $EDITOR.                                                                                                                                                                                                                                                                                                      |
 | `changes {plg-spec}`                                             | View plugin's git log.                                                                                                                                                                                                                                                                                                                |
@@ -914,7 +930,7 @@ zinit [options] uncompile PLUGIN
 
 ## Updating Zinit and Plugins<a name="updating-zinit-and-plugins"></a>
 
-To update Zinit issue `zinit self-update` in the command line.
+To update Zinit issue `zinit self-update` in the command line. The changelog is shown in a pager – pass `-n`/`--no-pager` to print it to the terminal instead, or `-q`/`--quiet` to skip it.
 
 To update all plugins and snippets, issue `zinit update`. If you wish to update only a single plugin/snippet instead
 issue `zinit update NAME_OF_PLUGIN`. A list of commits will be shown:
@@ -938,7 +954,7 @@ log of the new commits pulled-in in the last update.
 With no Turbo mode in use, compinit can be called normally, i.e.: as `autoload compinit; compinit`. This should be done
 after loading of all plugins and before possibly calling `zinit cdreplay`.
 
-The `cdreplay` subcommand is provided to re-play all catched `compdef` calls. The `compdef` calls are used to define a
+The `cdreplay` subcommand is provided to re-play all caught `compdef` calls. The `compdef` calls are used to define a
 completion for a command. For example, `compdef _git git` defines that the `git` command should be completed by a `_git`
 function.
 
@@ -1055,7 +1071,7 @@ skip_global_compinit=1
 On NixOS, the global `compinit` call can be disabled system-wide by setting the following option in your
 `/etc/nixos/configuration.nix`:
 
-```
+```nix
 # Disable global completion init to speed up `compinit` call in `~/.zshrc`.
 programs.zsh.enableGlobalCompInit = false;
 ```
@@ -1147,6 +1163,22 @@ declare -A ZINIT  # initial Zinit's hash definition, if configuring before loadi
 There is also `$ZPFX`, set by default to `~/.local/share/zinit/polaris` – a directory where software with `Makefile`,
 etc. can be pointed to, by e.g. `atclone'./configure --prefix=$ZPFX'`.
 
+#### Configuring via `zstyle`
+
+As an alternative to pre-setting the `$ZINIT` hash, the same settings can be configured with `zstyle` under the
+`:zinit:config` context. The attribute name is the hash field lowercased with `_` replaced by `-` (e.g.
+`ZINIT[HOME_DIR]` ⇄ `zstyle ':zinit:config' home-dir`). This works for every field in the table above, as well as
+`services-dir`, `module-dir`, `polaris-dir` and `zpfx`.
+
+Precedence is: an explicitly-set `ZINIT[KEY]` wins over a `zstyle`, which in turn wins over the built-in default. So the
+`zstyle` only fills fields you did not set in the hash, keeping the setup fully backward-compatible.
+
+```zsh
+zstyle ':zinit:config' home-dir      ~/.zinit
+zstyle ':zinit:config' bin-dir       ~/.zinit/zinit.git
+zstyle ':zinit:config' mute-warnings 1
+```
+
 ### Non-GitHub (Local) Plugins<a name="non-github-local-plugins"></a>
 
 Use `create` subcommand with user name `_local` (the default) to create plugin's skeleton in `$ZINIT[PLUGINS_DIR]`. It
@@ -1200,11 +1232,11 @@ Do you need help or wish to get in touch with other Zinit users?
 
 - [Open a discussion](https://github.com/zdharma-continuum/zinit/discussions).
 
-- Or via reach out via Gitter
-  [![Join the chat at https://gitter.im/zdharma-continuum/community][gitter-badge]][gitter-link]
+- Or via reach out via Matrix
+  [![Join the chat at https://matrix.to/#/#zdharma-continuum_community:gitter.im][gitter-badge]][gitter-link]
 
 [gitter-badge]: https://badges.gitter.im/zdharma-continuum/zinit.svg
-[gitter-link]: https://gitter.im/zdharma-continuum/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-link]: https://matrix.to/#/#zdharma-continuum_community:gitter.im
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [mit-link]: ./LICENSE
 [tests-badge]: https://github.com/zdharma-continuum/zinit/actions/workflows/tests.yaml/badge.svg

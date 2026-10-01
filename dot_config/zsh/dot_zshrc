@@ -25,15 +25,24 @@ export SAVEHIST=3000
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# 2.1. share history between terminal sessions
+# 2.1. Share history between terminal sessions
 setopt SHARE_HISTORY
 
 # 3. Initialize Zinit (fast plugin manager)
-ZINIT_HOME="${ZDOTDIT:-$HOME/.config/zsh}/zinit"
-if [ ! -f "$ZINIT_HOME/zinit.zsh" ]; then
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "$ZINIT_HOME/zinit.zsh" # Load zinit itself
+
+# This version is from commit 25c18b5b (25th of April, 2025)
+# ZINIT_HOME="${ZDOTDIT:-$HOME/.config/zsh}/zinit"
+# ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# if [ ! -f "$ZINIT_HOME/zinit.zsh" ]; then
+#   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# fi
+# source "$ZINIT_HOME/zinit.zsh" # Load zinit itself
+
+# Latest release; commit 8682ebe (30th of September, 2026)
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # 4. Load modules
 zmodload zsh/complist # enabled before compinit
@@ -106,7 +115,10 @@ autoload -Uz bashcompinit; bashcompinit  # PERF: ~466ms (commented out)
 ## Load after `tools.zsh` as some aliases requires some tools
 [[ -s "$ZDOTDIR/alias.zsh" ]] && source "$ZDOTDIR/alias.zsh"
 
-# 9. End profiling
+# 9. Increase the amount of allowed open file descriptors (mainly for Neovim)
+ulimit -n 8192
+
+# 10. End profiling
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace         # stop tracing
   exec 2>&3 3>&-          # restore stderr

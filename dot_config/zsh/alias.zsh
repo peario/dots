@@ -15,6 +15,13 @@ if (( $+commands[git] )); then
   alias gs="git status"
 fi
 
+## PIP3 as PIP
+if (( $+commands[pip3] )); then
+  if ! (( $+commands[pip] )); then
+    alias pip=pip3
+  fi
+fi
+
 ## Bat and cat
 cat () {
   if (( $+commands[bat] )); then
@@ -25,7 +32,7 @@ cat () {
 }
 
 if (( $+commands[bat] )); then
-  # FIX: This breaks cli tools which have -h as actual flag, such as `redis-cli -h` for hostname
+  # WARN: This breaks cli tools which have -h as actual flag, such as `redis-cli -h` for hostname
   # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
   alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
@@ -33,10 +40,6 @@ if (( $+commands[bat] )); then
 fi
 
 # Navigation
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 if (( $+commands[eza] )); then
   extra_opts="--group-directories-first --git --color=always --icons=always"
   alias ls="eza -a $extra_opts"
@@ -44,6 +47,23 @@ if (( $+commands[eza] )); then
   alias la="eza -la $extra_opts"
   alias lt="eza -a --tree --git-ignore $extra_opts"
   alias li="eza -la --git-ignore $extra_opts"
+fi
+
+if (( $+commands[z] || $+commands[zoxide] )) && (( $+commands[lacy] )); then
+  z_br() {
+    if [[ $# -eq 0 ]]; then
+      cd
+    else
+      __zoxide_z "$@"
+    fi
+  }
+
+  unset cd
+  alias cd=z_br
+else
+  alias ...="cd ../.."
+  alias ....="cd ../../.."
+  alias .....="cd ../../../.."
 fi
 
 # Make apps installed via Winget on windows more easily accessible

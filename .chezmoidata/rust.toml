@@ -11,6 +11,7 @@ install = [
   "fd-find",        # a fast alternative to find
   "fnm",            # a node version manager
   "just",           # a command runner (like make)
+  "lacy",           # a magical cd alternative (fuzzy finds paths)
   "macchina",       # system information fetcher (like neofetch)
   "ripgrep",        # recursively search dirs and subdirs with regex
   "silicon",        # take screenshots of code

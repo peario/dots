@@ -2,6 +2,21 @@
 
 @setup {
   ZPLUGINS=$ZINIT[PLUGINS_DIR]
+  function _zunit_assert_not_executable(){
+    local pathname=$1 filepath
+
+    # If filepath is relative, prepend the test directory
+    if [[ "${pathname:0:1}" != "/" ]]; then
+      filepath="$testdir/${pathname}"
+    else
+      filepath="$pathname"
+    fi
+
+    [[ ! -x "$filepath" ]] && return 0
+
+    echo "'$pathname' is executable but should not be"
+    exit 1
+  }
   function _zunit_assert_not_exists(){
     local file_path=$1
     if [[ "${file_path:0:1}" != "/" ]]; then # relative path - prepend the test directory
@@ -9,6 +24,26 @@
     fi
     [[ ! -e "$file_path" ]] && return 0
     exit "found '${file_path}'"
+  }
+  # Loads $1 once so it is already cloned, then cds so that $OLDPWD is a known
+  # directory of our own making, reported in $oldpwd_away. Deliberately not
+  # returning it via $(...): that forks a subshell, which would discard the cd.
+  function _oldpwd_fixture() {
+    local id="$1"
+    typeset -g oldpwd_away="$zi_test_dir/away-${id//\//-}"
+    zinit as"null" id-as"$id" for zdharma-continuum/null || true
+    command mkdir -p "$oldpwd_away"
+    builtin cd -q "$oldpwd_away"
+    builtin cd -q "$zi_test_dir"
+  }
+
+  # $1 - the $PWD to expect; $2 - where `cd -' must land, which also proves
+  # $OLDPWD. `equals' is arithmetic in zunit, so paths need `same_as'.
+  function _assert_dirs_restored() {
+    assert "$PWD" same_as "$1"
+    assert "$OLDPWD" same_as "$2"
+    builtin cd - >/dev/null 2>&1 || true
+    assert "$PWD" same_as "$2"
   }
 }
 
@@ -58,8 +93,246 @@
   assert "$ZPLUGINS/test---ignored_completions/_valid" is_file
   assert "$ZPLUGINS/test---ignored_completions/__init__.py" is_file
   assert "$ZINIT[COMPLETIONS_DIR]/_valid" is_file
-  COMPS=( "$ZINIT[COMPLETIONS_DIR]"/_* )
-  assert __init__.py is_not_value_in $COMPS
+  # Basenames, and `not_in' for a flat array: `is_not_value_in' builds a hash,
+  # so it dies on an odd element count and never matches a bare name anyway.
+  local -a comps=( "$ZINIT[COMPLETIONS_DIR]"/_*(N:t) )
+  assert __init__.py not_in $comps
+}
+@test 'ziextract error on missing file' {
+  run ziextract /tmp/zi-nonexistent-file.zip
+  assert $state equals 1
+  assert $output contains 'ERROR'
+  assert $output contains "doesn't exist"
+}
+@test 'ziextract plain single file (not an archive)' {
+  # A bare gh-r-style release binary: no "unrecognized archive" error,
+  # the file is kept as-is and marked executable.
+  local workdir=$(mktemp -d)
+  printf '#!/bin/sh\necho jq\n' > "$workdir/jq-macos-arm64"
+  _zi_extract_plain() { cd "$workdir" && ziextract jq-macos-arm64 }
+  run _zi_extract_plain
+  assert $state equals 0
+  assert $output does_not_contain "didn't recognize archive type"
+  assert $output contains 'not an archive'
+  assert "$workdir/jq-macos-arm64" is_executable
+  rm -rf "$workdir"
+}
+@test 'gh-r appimage: bpick + mv on non-archive asset' {
+  # Real-world recipe for the ziextract non-archive fallback: the AppImage is not
+  # an archive, must be kept, marked executable, and renamed by the mv ice.
+  run zinit as"program" from"gh-r" bpick"*AppImage" mv"gh* -> ghostty" id-as"test/ghostty" for pkgforge-dev/ghostty-appimage
+  assert $state equals 0
+  assert $output does_not_contain 'ERROR'
+  assert $output does_not_contain "didn't recognize archive type"
+  assert "$ZPLUGINS/test---ghostty/ghostty" is_file
+  assert "$ZPLUGINS/test---ghostty/ghostty" is_executable
+  local -a leftovers=( "$ZPLUGINS"/test---ghostty/*.appimage(N) )
+  assert $#leftovers equals 0
+}
+@test 'ziextract still errors on unrecognized explicit type' {
+  local workdir=$(mktemp -d)
+  printf 'plain text\n' > "$workdir/somefile"
+  _zi_extract_bogus() { cd "$workdir" && ziextract somefile bogus-type }
+  run _zi_extract_bogus
+  assert $output contains "didn't recognize archive type"
+  rm -rf "$workdir"
+}
+@test 'ziextract plain (no flattening)' {
+  # extract'' → ziextract with no flags: directory structure is preserved
+  local workdir=$(mktemp -d)
+  mkdir "$workdir/subdir"
+  printf 'hello\n' > "$workdir/subdir/file1.txt"
+  ( cd "$workdir" && zip -qr test.zip subdir/ )
+  ( cd "$workdir" && ziextract test.zip )
+  assert "$workdir/subdir/file1.txt" is_file
+  assert "$workdir/file1.txt" not_exists
+  rm -rf "$workdir"
+}
+@test 'ziextract --move (flatten one level)' {
+  # extract'!' → ziextract --move: outer/file.txt → file.txt at root
+  local workdir=$(mktemp -d)
+  mkdir "$workdir/outer"
+  printf 'hello\n' > "$workdir/outer/file1.txt"
+  printf 'world\n' > "$workdir/outer/file2.txt"
+  ( cd "$workdir" && zip -qr test.zip outer/ )
+  ( cd "$workdir" && ziextract test.zip --move )
+  assert "$workdir/file1.txt" is_file
+  assert "$workdir/file2.txt" is_file
+  assert "$workdir/outer" not_exists
+  rm -rf "$workdir"
+}
+@test 'ziextract --move2 (flatten two levels)' {
+  # extract'!!' → ziextract --move --move2: outer/inner/file.txt → file.txt at root
+  local workdir=$(mktemp -d)
+  mkdir -p "$workdir/outer/inner"
+  printf 'hello\n' > "$workdir/outer/inner/file1.txt"
+  ( cd "$workdir" && zip -qr test.zip outer/ )
+  ( cd "$workdir" && ziextract test.zip --move --move2 )
+  assert "$workdir/file1.txt" is_file
+  assert "$workdir/outer" not_exists
+  rm -rf "$workdir"
+}
+@test 'ziextract deletes archive by default' {
+  local workdir=$(mktemp -d)
+  ( cd "$workdir" && printf 'hello\n' > file1.txt && zip -q test.zip file1.txt && rm file1.txt )
+  ( cd "$workdir" && ziextract test.zip )
+  assert "$workdir/file1.txt" is_file
+  assert "$workdir/test.zip" not_exists
+  rm -rf "$workdir"
+}
+@test 'ziextract --norm keeps archive after extraction' {
+  # extract'-' → ziextract --norm: archive is preserved after extraction
+  local workdir=$(mktemp -d)
+  ( cd "$workdir" && printf 'hello\n' > file1.txt && zip -q test.zip file1.txt && rm file1.txt )
+  ( cd "$workdir" && ziextract test.zip --norm )
+  assert "$workdir/file1.txt" is_file
+  assert "$workdir/test.zip" is_file
+  rm -rf "$workdir"
+}
+@test 'ziextract-permissions' {
+  # Build a zip with known permissions, call ziextract directly, and verify
+  # that only files with +x in the archive come out executable.
+  local srcdir workdir
+  srcdir=$(mktemp -d)
+  workdir=$(mktemp -d)
+
+  # run_me.sh: +x in archive, has shebang  → must be executable
+  printf '#!/bin/sh\necho run\n' > "$srcdir/run_me.sh"
+  chmod +x "$srcdir/run_me.sh"
+
+  # also_run.py: no +x in archive, has shebang  → must NOT be executable (shebang alone is not enough)
+  printf '#!/usr/bin/env python3\nprint("hi")\n' > "$srcdir/also_run.py"
+
+  # library.py: no +x, no shebang  → must NOT be executable
+  printf 'def foo(): pass\n' > "$srcdir/library.py"
+
+  # pre_marked.sh: +x in archive, no shebang  → must be executable (archive bit)
+  printf 'echo pre\n' > "$srcdir/pre_marked.sh"
+  chmod +x "$srcdir/pre_marked.sh"
+
+  # Build zip preserving permissions, then extract via ziextract
+  ( cd "$srcdir" && zip -q "$workdir/test.zip" run_me.sh also_run.py library.py pre_marked.sh )
+  (( ${+functions[ziextract]} )) || builtin source "${ZINIT[BIN_DIR]}/zinit-install.zsh"
+  ( builtin cd "$workdir" && ziextract test.zip )
+
+  assert "$workdir/run_me.sh"     is_executable
+  assert "$workdir/pre_marked.sh" is_executable
+  assert "$workdir/also_run.py"   not_executable
+  assert "$workdir/library.py"    not_executable
+
+  rm -rf "$srcdir" "$workdir"
+}
+
+# $OLDPWD regression coverage. See the block comment on .zinit-restore-dir in
+# zinit.zsh: zinit cds into the plugin directory to run atinit/atload/multisrc,
+# and the cd back used to restore $PWD but leave $OLDPWD -- and zsh's internal
+# `cd -' target -- pointing at the plugin directory.
+
+@test 'atload does not leak $OLDPWD' {
+  _oldpwd_fixture test/oldpwd-atload
+
+  zinit as"null" id-as"test/oldpwd-atload" atload"true" for zdharma-continuum/null || true
+
+  _assert_dirs_restored "$zi_test_dir" "$oldpwd_away"
+}
+
+@test 'atinit does not leak $OLDPWD' {
+  _oldpwd_fixture test/oldpwd-atinit
+
+  zinit as"null" id-as"test/oldpwd-atinit" atinit"true" for zdharma-continuum/null || true
+
+  _assert_dirs_restored "$zi_test_dir" "$oldpwd_away"
+}
+
+@test 'multisrc does not leak $OLDPWD' {
+  _oldpwd_fixture test/oldpwd-multisrc
+  # multisrc evaluates its value with the plugin directory as cwd, so give it
+  # a real file to find there.
+  builtin print -r -- 'true' >! "$ZPLUGINS/test---oldpwd-multisrc/extra.zsh"
+
+  zinit as"null" id-as"test/oldpwd-multisrc" multisrc"extra.zsh" for zdharma-continuum/null || true
+
+  _assert_dirs_restored "$zi_test_dir" "$oldpwd_away"
+}
+
+@test 'nocd ice leaves $OLDPWD untouched' {
+  # nocd suppresses the cd into the plugin directory, so the restore must not
+  # run either. It used to run unconditionally, and its no-op cd back to $PWD
+  # still set OLDPWD=$PWD -- turning the user's `cd -' into a dead no-op.
+  _oldpwd_fixture test/oldpwd-nocd
+
+  zinit as"null" id-as"test/oldpwd-nocd" atload"true" nocd for zdharma-continuum/null || true
+
+  _assert_dirs_restored "$zi_test_dir" "$oldpwd_away"
+}
+
+@test 'nocd ice still restores a cwd the ice body moved' {
+  # nocd only suppresses zinit's own cd into the plugin directory. An ice body
+  # that cds on its own must still be undone, or the ice strands the user's
+  # shell wherever the plugin decided to go.
+  _oldpwd_fixture test/oldpwd-nocd-moved
+  local elsewhere="$zi_test_dir/elsewhere-nocd"
+  command mkdir -p "$elsewhere"
+
+  zinit as"null" id-as"test/oldpwd-nocd-moved" nocd \
+    atload"builtin cd -q $elsewhere" for zdharma-continuum/null || true
+
+  _assert_dirs_restored "$zi_test_dir" "$oldpwd_away"
+}
+
+@test 'atload survives a since-deleted $OLDPWD' {
+  # Restoring by bouncing through the original $OLDPWD must not blow up when
+  # that directory is gone: no error on stderr, and no leak of the plugin dir.
+  local home="$zi_test_dir" stale="$zi_test_dir/stale-oldpwd"
+  zinit as"null" id-as"test/oldpwd-stale" for zdharma-continuum/null || true
+  command mkdir -p "$stale"
+  builtin cd -q "$stale"
+  builtin cd -q "$home"
+  command rmdir "$stale"
+
+  local errfile="$zi_test_dir/oldpwd-stale.err"
+  zinit as"null" id-as"test/oldpwd-stale" atload"true" for zdharma-continuum/null \
+    2>"$errfile" || true
+
+  assert "$(<$errfile)" does_not_contain "no such file or directory"
+  # $OLDPWD cannot be honoured, so `cd -' must degrade to a harmless no-op
+  # rather than navigating into the plugin directory.
+  _assert_dirs_restored "$home" "$home"
+}
+
+@test 'atload leaves a usable $OLDPWD when it started unset' {
+  local home="$zi_test_dir"
+  zinit as"null" id-as"test/oldpwd-unset" for zdharma-continuum/null || true
+  builtin cd -q "$home"
+  unset OLDPWD
+
+  zinit as"null" id-as"test/oldpwd-unset" atload"true" for zdharma-continuum/null || true
+
+  # A fresh zsh sets OLDPWD to PWD, which makes `cd -' a no-op. Match that.
+  _assert_dirs_restored "$home" "$home"
+}
+
+@test 'configure hook restores the current directory' {
+  # ∞zinit-configure-base-hook cds into the plugin directory inside a plain
+  # { } block -- not a subshell -- and every return path used to leave the
+  # shell parked there. A directory that already has a Makefile takes the
+  # earliest of those return paths.
+  (( ${+functions[∞zinit-configure-base-hook]} )) || \
+    builtin source "${ZINIT[BIN_DIR]}/zinit-install.zsh"
+
+  local home="$zi_test_dir" away="$zi_test_dir/away-configure"
+  local dir="$zi_test_dir/configure-plugin"
+  command mkdir -p "$away" "$dir"
+  builtin print -r -- 'all:' >! "$dir/Makefile"
+  builtin cd -q "$away"
+  builtin cd -q "$home"
+
+  # zsh's dynamic scoping makes this ICE visible to the hook we call, without
+  # disturbing the global one.
+  local -A ICE=( configure '' )
+  ∞zinit-configure-base-hook snippet '' '' "$dir" '' '' '' || true
+
+  _assert_dirs_restored "$home" "$away"
 }
 
 # vim:ft=zsh:sw=2:sts=2:et:foldmarker=\ {,}:foldmethod=marker

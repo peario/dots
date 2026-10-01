@@ -1,12 +1,12 @@
 -- Profiler - MUST BE AT THE TOP
 local uv = vim.uv or vim.loop
 ---@type { label: string, elapse: number, block: number }[]
-local marks = { }
+local marks = {}
 local T_start = uv.hrtime()
 
 local function mark(label, t0)
-  local block = (uv.hrtime() - t0) / 1e6        -- timing: current "do ... end"-block
-  local elapse = (uv.hrtime() - T_start) / 1e6  -- timing: start -> now
+  local block = (uv.hrtime() - t0) / 1e6 -- timing: current "do ... end"-block
+  local elapse = (uv.hrtime() - T_start) / 1e6 -- timing: start -> now
   marks[#marks + 1] = { label = label, block = block, elapse = elapse }
 end
 
@@ -30,10 +30,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
       o_block = trim(string.format("%4.3f ms", m.block))
       o_label = trim(string.format("%s", m.label))
 
-      out[#out+1] = string.format("| %-13s | %-13s | %-28s |", o_elapse, o_block, o_label)
+      out[#out + 1] = string.format("| %-13s | %-13s | %-28s |", o_elapse, o_block, o_label)
     end
 
-    local t_block = 0 ---@type float
+    local t_block = 0.0
     for _, m in ipairs(marks) do
       t_block = t_block + m.block
     end
@@ -123,13 +123,30 @@ end
 do
   local t0 = uv.hrtime()
 
+  -- Add support for the LazyFile event
+  local Event = require("lazy.core.handler.event")
+
+  local lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
+
+  Event.mappings.LazyFile = { id = "LazyFile", event = lazy_file_events }
+  Event.mappings["User LazyFile"] = Event.mappings.LazyFile
+
+  -- require("pear.plugin").lazy_file()
+
+  mark("7. Setup LazyFile event", t0)
+end
+
+do
+  local t0 = uv.hrtime()
+
   require("lazy").setup({
     defaults = { lazy = true },
     spec = {
       { import = "pear.plugins" },
+      { import = "pear.plugins.lang" },
     },
     -- git = { url_format = "git@github.com:%s.git" },
-    install = { colorscheme = { "catppuccin" } },
+    install = { colorscheme = { "catppuccin", "tokyonight" } },
     diff = { cmd = "terminal_git" },
     checker = { enabled = true },
     change_detection = {
@@ -174,5 +191,5 @@ do
     },
   })
 
-  mark("7. Require/setup Lazy.nvim", t0)
+  mark("8. Require/setup Lazy.nvim", t0)
 end

@@ -36,7 +36,7 @@ autocmd("TextYankPost", {
   group = augroup("yank_highlight"),
   pattern = "*",
   callback = function()
-    (vim.hl or vim.highlight).on_yank({ timeout = 170 })
+    (vim.hl or vim.highlight).hl_op({ timeout = 170 })
   end,
 })
 
@@ -128,8 +128,8 @@ autocmd("FileType", {
 -- Add filetypes for use in the autocmd for adding keybinds to tv.nvim
 vim.filetype.add({
   pattern = {
-    ["term://.*television.*"] = "television",
-    ["term://.*%.cargo/bin/tv.*"] = "television",
+    ["term://.*television.*"] = "tv",
+    ["term://.*%.cargo/bin/tv.*"] = "tv",
   },
 })
 
@@ -137,11 +137,9 @@ autocmd("TermOpen", {
   desc = "Configure tv.nvim keybinds.",
   group = augroup("tv_terminal"),
   callback = function(event)
-    local buf_name = vim.fn.bufname(event.buf)
-    if string.match(buf_name, "television") or string.match(buf_name, "%.cargo/bin/tv") then
-      vim.keymap.set("t", "<esc>", "<C-c>", { buffer = event.buf, silent = true })
-
-      vim.bo[event.buf].filetype = "television"
+    local buf = event.buf
+    if vim.bo[buf].filetype == "tv" then
+      vim.keymap.set("t", "<esc>", "<C-c>", { buffer = buf, silent = true })
     end
   end,
 })
@@ -150,7 +148,7 @@ autocmd("FileType", {
   desc = "Make it easier to close man-files when opened inline.",
   group = augroup("man_unlisted"),
   pattern = "man",
-  callback = function()
+  callback = function(event)
     vim.bo[event.buf].buflisted = false
   end,
 })
@@ -171,7 +169,6 @@ autocmd("FileType", {
   pattern = {
     "json",
     "json5",
-    -- "jsonc",
   },
   callback = function()
     vim.opt_local.conceallevel = 0
@@ -315,81 +312,61 @@ autocmd({ "WinLeave" }, {
 })
 
 -- Source: https://www.reddit.com/r/neovim/comments/1mtktii/can_i_do_this_with_blinkts_ls_lsp/
-autocmd("LspAttach", {
-  desc = "Modifications of hover and LSP features.",
-  pattern = "*",
-  callback = function(event)
-    local buf = event.buf
-
-    --- @param mode string|string[]
-    --- @param lhs string
-    --- @param rhs string|function
-    --- @param opts vim.keymap.set.Opts?
-    local function map(mode, lhs, rhs, opts)
-      opts = opts or {}
-      opts.silent = opts.silent ~= true
-      opts.norempa = opts.noremap ~= true
-
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-
-    -- stylua: ignore start
-    map("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "Hover" })
-    map("n", "gK", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, { desc = "LSP Signature help" })
-    map("i", "<C-k>", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, { desc = "LSP Signature help" })
-
-    -- TODO: Change fzf to tv.
-    -- if vim.fn.exists(":Tv") then
-    --   map("n", "gd", "<cmd>Tv <cr>", { desc = "Goto definition" })
-    --   map("n", "gr", "<cmd>Tv <cr>", { desc = "References" })
-    --   map("n", "gI", "<cmd>Tv <cr>", { desc = "Goto implementation" })
-    --   map("n", "gy", "<cmd>Tv <cr>", { desc = "Goto t[y]pe definition" })
-    -- else
-    if vim.fn.exists(":FzfLua") then
-      map("n", "gd", "<cmd>FzfLua lua_definitions jump1=true ignore_current_line=true<cr>", { desc = "Goto definition" })
-      map("n", "gr", "<cmd>FzfLua lua_references jump1=true ignore_current_line=true<cr>", { desc = "References" })
-      map("n", "gI", "<cmd>FzfLua lua_implementations jump1=true ignore_current_line=true<cr>", { desc = "Goto implementation" })
-      map("n", "gy", "<cmd>FzfLua lua_typedefs jump1=true ignore_current_line=true<cr>", { desc = "Goto t[y]pe definition" })
-    else
-      map("n", "gd", vim.lsp.buf.definition, { desc = "Goto definition" })
-      map("n", "gr", vim.lsp.buf.references, { desc = "References" })
-      map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto implementation" })
-      map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto t[y]pe definition" })
-    end
-
-    map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto declaration" })
-    map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
-    map({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run codelens" })
-    map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & display codelens" })
-    map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-    map("n", "<leader>cd", vim.lsp.buf.open_float, { desc = "Show diagnostics" })
-
-    -- Formatting
-    local has_conform, conform = pcall(require, "conform")
-    if has_conform then
-      -- Format buffer
-      map("n", "", function()
-        conform.format({
-          lsp_fallback = true,
-          async = true,
-          timeout_ms = 1000,
-        })
-      end, { desc = "Format buffer (conform)" })
-
-      -- Format range
-      map("v", "<leader>cf", function()
-        conform.format({
-          lsp_fallback = true,
-          async = true,
-          timeout_ms = 1000,
-        })
-      end, { desc = "Format range (conform)" })
-    else
-      map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format buffer" })
-    end
-    -- stylua: ignore end
-  end,
-})
+-- autocmd("LspAttach", {
+--   desc = "Modifications of hover and LSP features.",
+--   pattern = "*",
+--   callback = function()
+--     -- local buf = event.buf
+--
+--     --- @param mode string|string[]
+--     --- @param lhs string
+--     --- @param rhs string|function
+--     --- @param opts vim.keymap.set.Opts?
+--     local function map(mode, lhs, rhs, opts)
+--       mode = type(mode) == "table" and mode or { mode }
+--       opts = opts or {}
+--       opts.silent = opts.silent ~= true
+--       opts.noremap = opts.noremap ~= true
+--
+--       if type(rhs) == "nil" then
+--         vim.notify(
+--           ('Keymap: { %s }: "%s", "%s"'):format(table.concat(mode, ","), lhs, rhs),
+--           vim.log.levels.ERROR,
+--           { title = "Lsp Keymaps" }
+--         )
+--         return
+--       end
+--
+--       vim.keymap.set(mode, lhs, rhs, opts)
+--     end
+--
+--     -- stylua: ignore start
+--     -- Formatting
+--     local has_conform, conform = pcall(require, "conform")
+--     if has_conform then
+--       -- Format buffer
+--       map("n", "<leader>cf", function()
+--         conform.format({
+--           lsp_fallback = true,
+--           async = true,
+--           timeout_ms = 1000,
+--         })
+--       end, { desc = "Format buffer (conform)" })
+--
+--       -- Format range
+--       map("v", "<leader>cf", function()
+--         conform.format({
+--           lsp_fallback = true,
+--           async = true,
+--           timeout_ms = 1000,
+--         })
+--       end, { desc = "Format range (conform)" })
+--     else
+--       map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format buffer" })
+--     end
+--     -- stylua: ignore end
+--   end,
+-- })
 
 local pumheight_group = augroup("pumheight_cmdline")
 autocmd("CmdlineEnter", {
@@ -407,6 +384,6 @@ autocmd("CmdlineLeave", {
   pattern = [[/\\?]],
   callback = function()
     -- Reset option to default value
-    vim.opt.pumheight:remove()
+    vim.opt.pumheight = 0
   end,
 })

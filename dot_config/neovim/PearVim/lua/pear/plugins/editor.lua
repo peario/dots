@@ -31,7 +31,8 @@ return {
             group = "buffer",
             expand = function()
               return require("which-key.extras").expand.buf()
-            end, icon = { icon = " ", color = "green" }
+            end,
+            icon = { icon = " ", color = "green" },
           },
           {
             "<leader>w",
@@ -39,21 +40,38 @@ return {
             proxy = "<c-w>",
             expand = function()
               return require("which-key.extras").expand.win()
-            end, icon = { icon = " ", color = "cyan" }
+            end,
+            icon = { icon = " ", color = "cyan" },
           },
           -- better descriptions
           { "gx", desc = "Open with system app", icon = { icon = " ", color = "blue" } },
+          -- navigation with tv.nvim
+          { "<leader><leader>", desc = "Browser files", icon = { icon = " " } },
+          { "<leader>/", desc = "Grep", icon = { icon = " " } },
+          -- Lazy.nvim
+          { "<leader>l", desc = "Lazy", icon = { icon = "󰒲 ", color = "purple" } },
+          { "<leader>ll", "<cmd>Lazy home<cr>", desc = "Home", icon = { icon = " ", color = "blue" } },
+          { "<leader>ls", "<cmd>Lazy sync<cr>", desc = "Sync", icon = { icon = " ", color = "green" } },
+          { "<leader>lL", "<cmd>Lazy log<cr>", desc = "Log", icon = { icon = " ", color = "azure" } },
+          { "<leader>lp", "<cmd>Lazy profile<cr>", desc = "Profile", icon = { icon = " ", color = "orange" } },
+          { "<leader>ld", "<cmd>Lazy debug<cr>", desc = "Debug", icon = { icon = " ", color = "red" } },
         },
       },
     },
     keys = {
-      { "<leader>?", function()
-        require("which-key").show({ global = false })
-      end, desc = "Buffer Keymaps (which-key)" },
       {
-        "<C-w><space>", function()
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Keymaps (which-key)",
+      },
+      {
+        "<C-w><space>",
+        function()
           require("which-key").show({ keys = "<c-w>", loop = true })
-        end, desc = "Window Hydra Mode (which-key)",
+        end,
+        desc = "Window Hydra Mode (which-key)",
       },
     },
     config = function(_, opts)
@@ -66,66 +84,76 @@ return {
   {
     "alexpasmantier/tv.nvim",
     event = "VeryLazy",
+    keys = {
+      {
+        "<leader><leader>",
+        function()
+          require("tv").tv_channel("files")
+        end,
+        desc = "Browse files",
+      },
+      {
+        "<leader>/",
+        function()
+          require("tv").tv_channel("text")
+        end,
+        desc = "Grep",
+      },
+    },
     opts = function()
       local h = require("tv").handlers
 
       -- default args for `files` and `text`:
-      -- args = { "--no-remote", "--no-status-bar", "--preview-size", "70", "--layout", "portrait" }
+      -- args = { "--no-remote", "--no-status-bar", "--preview-size", "70" }
 
       local preview_size = 70
-      local tv_args = { "--no-remote", "--no-status-bar", "--preview-size", preview_size, "--layout", "landscape" }
+      -- WARN: DO NOT SET "--layout" as `tv_args` because it fucks with "files", "text", among other features of the plugin.
+      local tv_args = { "--no-remote", "--no-status-bar", "--preview-size", preview_size }
 
       return {
-         -- per-channel configurations
+        -- per-channel configurations
         channels = {
           -- `files`: fuzzy find files in your project
           files = {
-            keybinding = '<space><space>', -- Launch the files channel
             args = tv_args,
+            -- keybinding = "<leader><leader>", -- Launch the files channel
             -- what happens when you press a key
             handlers = {
-              ['<CR>'] = h.open_as_files,         -- default: open selected files
-              ['<C-q>'] = h.send_to_quickfix,     -- send to quickfix list
-              ['<C-s>'] = h.open_in_split,       -- open in horizontal split
-              ['<C-v>'] = h.open_in_vsplit,      -- open in vertical split
-              ['<C-y>'] = h.copy_to_clipboard,   -- copy paths to clipboard
+              ["<CR>"] = h.open_as_files, -- default: open selected files
+              ["<C-q>"] = h.send_to_quickfix, -- send to quickfix list
+              ["<C-s>"] = h.open_in_split, -- open in horizontal split
+              ["<C-v>"] = h.open_in_vsplit, -- open in vertical split
+              ["<C-y>"] = h.copy_to_clipboard, -- copy paths to clipboard
             },
           },
           -- `text`: ripgrep search through file contents
           text = {
-            keybinding = '<leader>/',
             args = tv_args,
+            -- keybinding = "<leader>/",
             handlers = {
-              ['<CR>'] = h.open_at_line,         -- Jump to line:col in file
-              ['<C-q>'] = h.send_to_quickfix,    -- Send matches to quickfix
-              ['<C-s>'] = h.open_in_split,       -- Open in horizontal split
-              ['<C-v>'] = h.open_in_vsplit,      -- Open in vertical split
-              ['<C-y>'] = h.copy_to_clipboard,   -- Copy matches to clipboard
-            },
-          },
-          -- `env`: search environment variables
-          env = {
-            keybinding = "<leader>E",
-            args = tv_args,
-            handlers = {
-              ["<CR>"] = h.insert_at_cursor, -- Insert at cursor position
-              ["<C-l>"] = h.insert_on_new_line, -- Insert on new line
-              ["<C-y>"] = h.copy_to_clipboard,
+              ["<CR>"] = h.open_at_line, -- Jump to line:col in file
+              ["<C-q>"] = h.send_to_quickfix, -- Send matches to quickfix
+              ["<C-s>"] = h.open_in_split, -- Open in horizontal split
+              ["<C-v>"] = h.open_in_vsplit, -- Open in vertical split
+              ["<C-y>"] = h.copy_to_clipboard, -- Copy matches to clipboard
             },
           },
         },
+        global_keybindings = { channels = nil },
+        quickfix = { auto_open = true },
       }
     end,
     config = function(_, opts)
       require("tv").setup(opts)
+      vim.keymap.del("n", "<leader>tv", { force = true })
     end,
   },
 
   -- Gitsigns
   {
     "lewis6991/gitsigns.nvim",
-    event = "VeryLazy", -- TODO: Implement "LazyFile" and replace current event
-     opts = {
+    event = "LazyFile",
+    opts = {
       signs = {
         add = { text = "▎" },
         change = { text = "▎" },
@@ -179,7 +207,6 @@ return {
       end,
     },
   },
-
 
   -- better diagnostics list and others
   {
@@ -235,7 +262,7 @@ return {
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
-    event = "VeryLazy", -- TODO: Switch to "LazyFile" once implemented
+    event = "LazyFile",
     opts = {},
     -- stylua: ignore
     keys = {
