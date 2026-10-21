@@ -1,10 +1,47 @@
-require "nvchad.autocmds"
+-- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/autocmds.lua:
+-- require "nvchad.autocmds"
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("peario." .. name, { clear = true })
 end
 
 local autocmd = vim.api.nvim_create_autocmd
+local create_cmd = vim.api.nvim_create_user_command
+
+-- User command to install everything in "ensure_installed" of treesitter opts.
+create_cmd("TSInstallAll", function()
+  local spec = require("lazy.core.config").plugins["nvim-treesitter"]
+  local opts = type(spec.opts) == "table" and spec.opts or {}
+  require("nvim-treesitter").install(opts.ensure_installed)
+end, {})
+
+-- This is from NvChad's autocmds.
+--
+-- User event that loads after UIEnter + only if file buf is there
+autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
+  callback = function(args)
+    local file = vim.api.nvim_buf_get_name(args.buf)
+    local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+
+    if not vim.g.ui_entered and args.event == "UIEnter" then
+      vim.g.ui_entered = true
+    end
+
+    if file ~= "" and buftype ~= "nofile" and vim.g.ui_entered then
+      vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
+      vim.api.nvim_del_augroup_by_name "NvFilePost"
+
+      vim.schedule(function()
+        vim.api.nvim_exec_autocmds("FileType", {})
+
+        if vim.g.editorconfig then
+          require("editorconfig").config(args.buf)
+        end
+      end)
+    end
+  end,
+})
 
 -- Numbertoggle autocmds taken from:
 --  https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/lua/rockyz/autocmds.lua
@@ -50,7 +87,6 @@ autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
-  pattern = "*",
   callback = function()
     if vim.o.buftype ~= "nofile" then
       vim.cmd("checktime")
@@ -62,7 +98,11 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
-    (vim.hl or vim.highlight).on_yank()
+    if vim.fn.has("nvim-0.13") == 1 then
+      vim.hl.hl_op()
+    else
+      (vim.hl or vim.highlight).on_yank()
+    end
   end
 })
 
@@ -167,5 +207,13 @@ autocmd("BufWritePre", {
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+-- make sure treesitter is running for all filetypes.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    pcall(vim.treesitter.start)
   end,
 })

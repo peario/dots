@@ -12,21 +12,21 @@ vim.g.loaded_ruby_provider = 0
 -- Let Python be enabled for snippets
 vim.g.loaded_python3_provider = 0
 
--- Load lazy.nvim
+-- Load lazy.nvim via `lua/configs/lazy.lua`
 require("configs.lazy").load({
-  -- profiling = {
-  --   loader = false,
-  --   require = false,
-  -- }
-  })
+  profiling = {
+    loader = false,
+    require = false,
+  }
+})
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-require "options"
-require "autocmds"
+require("options")
+require("autocmds")
 
 vim.schedule(function()
-  require "mappings"
+  require("mappings")
 end)
